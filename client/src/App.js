@@ -1,11 +1,14 @@
-import logo from './logo.svg';
+
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Landing from "./components/Landing/landing.jsx"
+import Navbar from './components/NavBar/Navbar';
+
 
 function App() {
   return (
     <div className="App">
+      <Navbar/>
       <Routes>
         <Route path='/' element={<Landing/>}/>
         <Route path='/clubs' element={<div><h1>Clubs</h1></div>}/>
