@@ -1,0 +1,51 @@
+.contenedor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.contenedorFormulario {
+  width: 500px;
+  border: solid black;
+  border-radius: 5px;
+  flex-direction: column;
+  padding: 10px;
+  height: auto;
+  margin-top: 40px;
+  background: rgba(0, 128, 0, 0.581);
+  justify-content: flex-end;
+}
+
+.tittle {
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 50px;
+}
+
+.group {
+  display: flex;
+  margin-bottom: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.subtittle {
+  font-family: 'Roboto', sans-serif;
+  text-align: right;
+  width: 95px;
+}
+
+.input {
+  width: 240px;
+  height: 30px;
+  border-radius: 5px;
+  margin-left: 25px;
+  box-sizing: border-box;
+}
+
+.textarea {
+  width: 240px;
+  height: 80px;
+  border-radius: 5px;
+  margin-left: 25px;
+  box-sizing: border-box;
+}
