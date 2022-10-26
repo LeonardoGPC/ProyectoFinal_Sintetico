@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
         const fields =  await getFields();
         res.json(fields)
     } catch (error) {
-        res.status(404).send(error)
+        res.status(404).send({error: error.message})
     }
 })
 module.exports = router;

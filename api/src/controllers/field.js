@@ -4,8 +4,8 @@ const { Field } = require('../db');
 
 async function getFields(){
     let fields = await Field.findAll();
-
-    return fields;
+    if(fields.length) return fields
+    else throw new Error('No existen datos en la db') 
 }
 
 module.exports = {

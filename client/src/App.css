@@ -1,5 +1,15 @@
+*{
+  margin: 0;
+}
+
+*::selection{
+  background-color: #7BC242;
+  color: #F4F1F2;
+}
+
 .App {
   text-align: center;
+  margin: 0;
 }
 
 .App-logo {
