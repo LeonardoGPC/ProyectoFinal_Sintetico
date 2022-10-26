@@ -1,37 +1,41 @@
 .contenedor {
-  display: flex;
-  justify-content: center;
   align-items: center;
+  background-image: url('https://i.pinimg.com/736x/c6/44/56/c6445689bf4b96d321691cbe90448e80.jpg');
+  display: flex;
   height: 100vh;
+  justify-content: center;
 }
 .contenedorFormulario {
-  width: 500px;
-  border: solid black;
+  background-color: rgba(0, 128, 0, 0.57);
   border-radius: 5px;
+  border: solid yellow;
+  box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(190, 190, 190),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+  display: flex;
   flex-direction: column;
-  padding: 10px;
-  height: auto;
   margin-top: 40px;
-  background: rgba(0, 128, 0, 0.581);
-  justify-content: flex-end;
+  padding: 10px;
+  width: 855px;
 }
 
 .tittle {
   font-family: 'Roboto', sans-serif;
   margin-bottom: 50px;
+  color: azure;
 }
 
 .group {
   display: flex;
   margin-bottom: 20px;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
 }
 
 .subtittle {
   font-family: 'Roboto', sans-serif;
   text-align: right;
   width: 95px;
+  color: azure;
 }
 
 .input {
@@ -40,6 +44,7 @@
   border-radius: 5px;
   margin-left: 25px;
   box-sizing: border-box;
+  background-color: rgba(250, 235, 215, 0.708);
 }
 
 .textarea {
@@ -48,4 +53,38 @@
   border-radius: 5px;
   margin-left: 25px;
   box-sizing: border-box;
+  background-color: rgba(250, 235, 215, 0.708);
+}
+
+.buttonCrear {
+  background-color: rgba(250, 235, 215, 0.708);
+  border-radius: 5px;
+  color: black;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  height: 35px;
+  margin-top: 60px;
+  width: 190px;
+}
+.itemsServicios {
+  text-align: left;
+  margin-left: 25px;
+}
+.sections {
+  display: flex;
+}
+.right {
+  padding: 40px 32px 0;
+}
+.image {
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  .sections {
+    flex-direction: column;
+  }
+  .contenedor {
+    height: auto;
+  }
 }
