@@ -1,11 +1,12 @@
 import React from "react";
-import Header from "./Header/header";
+import Navbar from '../NavBar/Navbar';
+import Info from './Info/info';
 
 export default function Landing() {
-
     return(
         <div>
-            <Header/>
+            <Navbar/>
+            <Info/>
         </div>
     )
 }
