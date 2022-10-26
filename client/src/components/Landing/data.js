@@ -25,5 +25,4 @@ const velez = new Fields(10,"Velez", "https://i.pinimg.com/236x/11/05/fd/1105fdf
 
 const teams = [river, boca, independiente, huracan, sanLorenzo, instituto, talleres, belgrano, lanus, velez]
 
-
 export default teams
