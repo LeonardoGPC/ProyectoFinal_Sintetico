@@ -1,6 +1,7 @@
 
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
+import Landing from './components/Landing/landing';
 import Navbar from './components/NavBar/Navbar';
 
 function App() {
@@ -8,7 +9,7 @@ function App() {
     <div className="App">
       <Navbar/>
       <Routes>
-        <Route path='/' element={<div><h1>Landing</h1></div>}/>
+        <Route path='/' element={<Landing/>}/>
         <Route path='/clubs' element={<div><h1>Clubs</h1></div>}/>
         <Route path='/login' element={<div><h1>Login</h1></div>}/>
         <Route path='/sintetico' element={<div><h1>Home</h1></div>}/>
