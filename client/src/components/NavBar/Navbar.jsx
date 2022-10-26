@@ -7,7 +7,7 @@ export default function Navbar() {
   return (
     <div className={style.container}>
       <nav className={style.nav}>
-        <Link to="/sintetico">
+        <Link to="/">
           <div className={style.containerLogo}>
             <img className={style.logo} src={syntheticLogo} alt="logo" />
           </div>
