@@ -1,8 +1,9 @@
 
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import Landing from './components/Landing/landing';
+import Landing from "./components/Landing/landing.jsx"
 import Navbar from './components/NavBar/Navbar';
+
 
 function App() {
   return (
