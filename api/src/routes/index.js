@@ -1,5 +1,5 @@
 const { Router } = require('express');
-
+const fields = require('./fields')
 
 const router = Router();
 
