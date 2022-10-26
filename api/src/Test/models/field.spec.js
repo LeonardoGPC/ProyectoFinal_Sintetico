@@ -1,4 +1,4 @@
-const { Field, conn } = require('../../src/db.js');
+const { Field, conn } = require('../../db.js');
 const { expect } = require('chai');
 
 const field1 = {
@@ -10,6 +10,7 @@ const field1 = {
 };
 
 const field2 = {
+    id: 1,
     name: "cancha 2",
     image: "img",
     state: "PENDINGG",
@@ -31,16 +32,16 @@ describe('Field model', () => {
             }catch(error){
               errorMessage = error.errors[0].message;
             }
-            expect(errorMessage).to.be.equals("type.name cannot be null");
+            expect(errorMessage).to.be.equals("Field.id cannot be null");
         });
         it("should throw an error if state is invalid", async ()=>{
             var errorMessage = "";
             try{
               await Field.create(field2)
             }catch(error){
-              errorMessage = error.errors[0].message;
+              errorMessage = error.name;
             }
-            expect(errorMessage).to.be.equals("field.name cannot be null");
+            expect(errorMessage).to.be.equals("SequelizeDatabaseError");
         })
 
       });
