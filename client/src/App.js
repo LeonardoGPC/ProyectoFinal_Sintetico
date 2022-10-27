@@ -9,6 +9,7 @@ import Detail from './components/Detail/detail';
 function App() {
   return (
     <div className="App">
+      <Navbar/>
       <div className='App_bg'>
       <Routes>
         <Route path='/' element={<Landing/>}/>
