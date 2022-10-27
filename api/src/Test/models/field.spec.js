@@ -16,6 +16,8 @@ const field2 = {
     state: "PENDINGG",
     price: 1000,
     address: "calle 14 #205",
+    openHour: 1,
+    closeHour: 12
 };
 describe('Field model', () => {
     before(() => conn.authenticate()
