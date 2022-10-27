@@ -10,7 +10,7 @@
 
 .bgfilter{
     background: rgb(0,0,0);
-    background: linear-gradient(180deg, rgba(0,0,0,0.8995973389355743) 0%, rgba(0,0,0,0.30015756302521013) 50%, rgba(0,0,0,0.896796218487395) 100%);
+    background: linear-gradient(180deg, rgba(0,0,0,0.8995973389355743) 0%, rgba(0,0,0,0.30015756302521013) 50%, #1C1C1C 98%);
 }
 
 
