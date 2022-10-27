@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const router = Router();
-const { getFields, createField, deleteField, getFieldById, } = require('../controllers/fieldController')
+const { getFields, createField, deleteField, getFieldById, editField } = require('../controllers/fieldController')
 
 router.get('/', async (req, res) => {
     try {
