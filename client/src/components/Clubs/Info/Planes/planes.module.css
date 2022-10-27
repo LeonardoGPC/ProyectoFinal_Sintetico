@@ -1,0 +1,72 @@
+.main{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+.select{
+    font-size: 60px;
+}
+
+.planes{
+    display: flex;
+    margin: 50px 0 300px;
+    padding: 0 200px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.card{
+    background-color: #242529;
+    width: 300px;
+    height: max-content;
+    margin: 30px 80px;
+    border-radius: 20px;
+}
+
+
+.img{
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 20px 20px 0 0;
+}
+
+.title{
+    font-size: 26px;
+    margin-top: 10px;
+}
+
+.percent{
+    font-size: 20px;
+    color: #98F576;
+    margin: 5px 0;
+}
+
+.price{
+    font-size: 20px;
+    font-weight: 200;
+    margin: 5px 0;
+}
+
+.div_prg{
+    margin: 20px 0;
+}
+
+.paragraph{
+    font-size: 14px;
+    margin: 10px;
+}
+
+.btn_div{
+    margin: 50px 0 20px;
+}
+
+.button{
+    color: black;
+    padding: 8px 15px;
+    background-color: #98F576;
+    text-decoration: none;
+    border-radius: 5px;
+}

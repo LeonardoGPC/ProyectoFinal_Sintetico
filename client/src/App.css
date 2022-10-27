@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;800&display=swap');
 
 *{
   font-family: 'Merriweather Sans', sans-serif;
   margin: 0;
+  scroll-behavior: smooth;
 }
 
 *::selection{
