@@ -1,0 +1,124 @@
+.main{
+    display: flex;
+
+    color: white;
+
+    padding:40px;
+}
+
+.main::before{
+    content: '';
+    width: 5px;
+    height: 600px;
+    background-color: white;
+    position: absolute;
+    opacity: 1;
+    top: 50%;
+    left: 50%;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0 50%);
+    transform: translate(-50%, -50%) rotate(45deg);
+
+    animation: line 1.5s ease-out;
+}
+
+@keyframes line{
+    from{height: 0px; transform: translate(-50%, -50%) rotate(20deg);}
+    to{height: 600px; transform: translate(-50%, -50%) rotate(45deg);}
+}
+
+.client{
+    text-align: left;
+}
+
+.container{
+    position: relative;
+}
+
+.title{
+    font-size: 100px;
+
+    animation: intro 1s ease;
+}
+
+.paragraph{
+    font-size: 26px;
+    margin: 20px 0 60px;
+
+    animation: intro2 1s ease;
+}
+
+.cta{
+    font-size: 36px;
+    background-color: #105b1091;
+    color: #98F576;
+    text-decoration: none;
+    position: relative;
+    padding: 10px 17px;
+    border-radius: 20px;
+    cursor: pointer;
+
+    transition: all 300ms ease;
+    animation: intro3 1s ease;
+}
+
+.cta:hover{
+    color: #ffffff;
+    background-color: #072c07ce;
+}
+
+.club{
+    text-align: right;
+}
+
+.club_container{
+    position: relative;
+    margin-top: 40%;
+}
+
+.club_title{
+    font-size: 100px;
+
+    animation: intro 1s ease;
+}
+
+.club_paragraph{
+    font-size: 26px;
+    margin: 20px 0 60px;
+
+    animation: intro2 1s ease;
+}
+
+.club_cta{
+    font-size: 36px;
+    background-color: #105b1091;
+    color: #98F576;
+    text-decoration: none;
+    padding: 10px 17px;
+    border-radius: 20px;
+    cursor: pointer;
+
+    transition: all 300ms ease;
+    animation: intro3 1s ease;
+}
+
+.club_cta:hover{
+    color: #ffffff;
+    background-color: #072c07ce;
+}
+
+@keyframes intro{
+    from{transform: translateY(100px);}
+    to{transform: translateY(0);}
+}
+
+@keyframes intro2{
+    0%{transform: translateY(100px);}
+    20%{transform: translateY(100px);}
+    100%{transform: translateY(0);}
+}
+
+@keyframes intro3{
+    0%{opacity: 0;}
+    50%{opacity: 0;}
+    100%{opacity: 1;}
+}

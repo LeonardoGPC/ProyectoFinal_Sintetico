@@ -1,0 +1,16 @@
+.bgimg{
+    background-image: url('../../../img/bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: auto;
+    /* position: absolute; */
+}
+
+.bgfilter{
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,0.8995973389355743) 0%, rgba(0,0,0,0.30015756302521013) 50%, rgba(0,0,0,0.896796218487395) 100%);
+}
+
+

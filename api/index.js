@@ -20,8 +20,8 @@
 // `888888888888P'                     ""YP"                    888888
 //  I88888888888                          8                     88888I
 //  `Y8888888888                          8                     88888'
-//   `Y888888888        Normand           8                     8888I
-//    `Y88888888        Veilleux          8                     8P"8'
+//   `Y888888888        Sintético         8                     8888I
+//    `Y88888888                          8                     8P"8'
 //     `Y8888888,                         8                   ,d',d'
 //      `b""""Y8b                         8                 ,d" ,d'
 //        "b,   "Y,                       8               ,P" ,d"
@@ -34,7 +34,14 @@
 
 // ------------------------------------------------
 const server = require('./src/app.js');
+const { conn } = require('./src/db.js');
+const {chargeDb} = require('./src/controllers/initDbController')
 
-server.listen(3001, () => {
+// Syncing all the models at once.
+conn.sync({ force: true }).then(() => {
+  //charge()
+  server.listen(3001, () => {
     console.log('listening at 3001'); // eslint-disable-line no-console
+    chargeDb();
   });
+});

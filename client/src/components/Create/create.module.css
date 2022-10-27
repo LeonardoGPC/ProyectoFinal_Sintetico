@@ -1,0 +1,106 @@
+.contenedor {
+  align-items: center;
+  background-image: url('https://i.pinimg.com/736x/c6/44/56/c6445689bf4b96d321691cbe90448e80.jpg');
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+}
+.contenedorFormulario {
+  border-radius: 5px;
+  background-color: #242529b3;
+  border: solid yellow;
+  box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(190, 190, 190),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  padding: 10px;
+  width: 855px;
+}
+
+.tittle {
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 50px;
+  color: #98f576;
+}
+
+.group {
+  display: flex;
+  margin-bottom: 20px;
+  align-items: center;
+  justify-content: left;
+}
+
+.subtittle {
+  font-family: 'Roboto', sans-serif;
+  text-align: right;
+  width: 95px;
+  color: #98f576;
+}
+
+.input {
+  width: 240px;
+  height: 30px;
+  border-radius: 5px;
+  margin-left: 25px;
+  box-sizing: border-box;
+  background-color: rgba(250, 235, 215, 0.708);
+}
+
+.textarea {
+  width: 240px;
+  height: 80px;
+  border-radius: 5px;
+  margin-left: 25px;
+  box-sizing: border-box;
+  background-color: rgba(250, 235, 215, 0.708);
+}
+
+.buttonCrear {
+  background-color: #98f576;
+  border-radius: 5px;
+  color: black;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  height: 35px;
+  margin-top: 60px;
+  width: 190px;
+  background-color: #98f576;
+  border: none;
+  padding: 1rem;
+  font-size: 1rem;
+  width: 10em;
+  margin-left: 130px;
+  border-radius: 1rem;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  box-shadow: 0 0.4rem #98f576d9;
+  cursor: pointer;
+}
+.itemsServicios {
+  text-align: left;
+  margin-left: 25px;
+  color: #98f576;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  padding-bottom: 5px;
+}
+.sections {
+  display: flex;
+}
+.right {
+  padding: 40px 32px 0;
+}
+.image {
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  .sections {
+    flex-direction: column;
+  }
+  .contenedor {
+    height: auto;
+  }
+}

@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import style from "./ContactForm.module.css";
-import { FiInstagram, FiFacebook, FiMail } from 'react-icons/fi'
-import { AiOutlineWhatsApp } from 'react-icons/ai'
+import { FiInstagram, FiFacebook, FiMail } from 'react-icons/fi';
+import { AiOutlineWhatsApp } from 'react-icons/ai';
 
 
 const ContactForm = () => {
