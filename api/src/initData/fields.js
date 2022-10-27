@@ -1,6 +1,6 @@
 module.exports = {
     FIELDS : [
-    { id: 0, 
+    { id: 1, 
     name: "River",
     image:"https://i.pinimg.com/originals/1f/54/50/1f5450f4346e2e58eff217eecbfd73f1.png",
     state: "APPROVED",
@@ -9,7 +9,7 @@ module.exports = {
     openHour: 9,
     closeHour: 23    
     },
-    { id: 1, 
+    { id: 2, 
     name: "Boca",
     image:"https://i.pinimg.com/550x/c9/10/51/c91051177eb678932c82bf31ed6bbcdd.jpg",
     state: "APPROVED",
@@ -18,7 +18,7 @@ module.exports = {
     openHour: 9,
     closeHour: 22    
     },
-    { id: 2, 
+    { id: 3, 
     name: "San Lorenzo",
     image:"https://i.pinimg.com/originals/2b/dd/d5/2bddd5f0ffb5cfae0d7191dc1a9b30a7.jpg",
     state: "APPROVED",
