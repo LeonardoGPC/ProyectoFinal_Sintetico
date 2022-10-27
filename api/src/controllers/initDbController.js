@@ -19,6 +19,12 @@ async function chargeDb(){
     const fields = await Field.findAll()
     if(!fields.length) await Field.bulkCreate(FIELDS)
     
+    const cancha1 = await Field.findByPk(1)
+    await cancha1.addFacilities([1,2])
+    const cancha2 = await Field.findByPk(2)
+    await cancha2.addFacilities([2]) 
+    const cancha3 = await Field.findByPk(3)
+    await cancha3.addFacilities([1,2, 3]) 
 }
 
 

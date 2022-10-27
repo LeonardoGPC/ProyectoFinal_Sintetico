@@ -1,8 +1,8 @@
 module.exports =  {
     FACILITIES : [
-        { id: 0, name: "Duchas" },
-        { id: 1, name: "Estacionamiento" },
-        { id: 2, name: "Buffet" },
-        { id: 3, name: "Quincho" }
+        { id: 1, name: "Duchas" },
+        { id: 2, name: "Estacionamiento" },
+        { id: 3, name: "Buffet" },
+        { id: 4, name: "Quincho" }
     ]
 }

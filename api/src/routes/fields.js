@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const router = Router();
-const { getFields, createField, deleteField, editField } = require('../controllers/fieldController')
+const { getFields, createField, deleteField, getFieldById, } = require('../controllers/fieldController')
 
 router.get('/', async (req, res) => {
     try {
@@ -12,8 +12,9 @@ router.get('/', async (req, res) => {
 })
 
 router.get('/:id', async(req, res)=>{
+    const {id} = req.params;
     try{
-        const field = await getFieldById();
+        const field = await getFieldById(id);
         res.json(field)
     } catch (error) {
         res.status(404).send({error: error.message})
@@ -24,8 +25,8 @@ router.get('/:id', async(req, res)=>{
 router.post('/', async (req, res)=>{
     var field = req.body;
     try{
-        var newField = await createField(field);
-        res.send(newField);
+        var successMessage = await createField(field);
+        res.send(successMessage);
     }catch(error){
         res.status(404).send(error.message);
     }
@@ -34,8 +35,8 @@ router.post('/', async (req, res)=>{
 
 router.delete('/:id', async ({params:{id}}, res)=>{
     try{
-        await deleteField(id);
-        res.send("Elemento borrado");
+        deleteField(id);
+        res.send("Element was deleted");
     }catch(error){
         res.status(404).send(error.message);
     }
