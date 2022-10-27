@@ -134,7 +134,7 @@ const ContactForm = () => {
                       )}
                     />
                   </div>
-                  <button type="submit">Enviar</button>
+                  <button type="submit" className={style.btn} >Enviar</button>
 
                   {formularioEnviado && (
                     <p className={style.exito}>Correo enviado con éxito!</p>

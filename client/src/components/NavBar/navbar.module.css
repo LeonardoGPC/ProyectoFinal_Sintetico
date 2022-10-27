@@ -7,8 +7,9 @@
 .nav {
   display: flex;
   justify-content: space-between;
-  background-color: rgb(23, 110, 23);
+  background-color: #1C1C1C;
   height: 84px;
+  align-items: center;
 }
 
 .containerLogo {
@@ -17,20 +18,35 @@
 }
 
 .logo {
-  width: 100px;
-  margin-left: 32px;
-  margin-top: -6px;
-  height: 100px;
+  max-width: 400px;
 }
 
 .containerLink {
   display: flex;
-  width: 100px;
+  /* width: 100px;
   width: 600px;
-  padding-right: 20px 20px 20px 20px;
-  justify-content: center;
+  padding-right: 20px 20px 20px 20px; */
+  justify-content: space-between;
   text-align: center;
+  width: 20%;
 }
+
+.containerLink a{
+  text-decoration: none;
+  transition: all 300ms ease;
+}
+
+.containerLink a:hover p{
+  color: white;
+}
+
+.containerLink p{
+  color: rgb(145, 145, 145);
+  font-size: 20px;
+  margin: 0;
+  transition: all 300ms ease;
+}
+
 .linkUs {
   color: azure;
   width: 85px;
@@ -73,4 +89,16 @@
 
 .linkLogin:hover {
   background: gray;
+}
+
+.inse{
+  width: 400px;
+}
+
+.inse a{
+  color: black;
+  padding: 8px 15px;
+  background-color: #98F576;
+  text-decoration: none;
+  border-radius: 5px;
 }
