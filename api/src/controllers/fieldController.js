@@ -56,6 +56,7 @@ async function deleteField(fieldId){
     try{
         var fieldFromDb = await Field.findByPk(fieldId);
         fieldFromDb.isDeleted = true;
+        fieldFromDb.isNewRecord = false;
         await fieldFromDb.save();
     }catch(error){
         throw new Error("El elemento a borrar no existe");
