@@ -34,15 +34,16 @@ async function getFieldById(id){
 }
 
 async function createField(field){
-    var { id, name, image, state, price, address, openHour, closeHour, facilities, size, surface } = field;
+    var { id, name, image, state, price, address, openHour, closeHour, facilities, size, surface, city } = field;
     var field = { id, name, image, state, price, address, openHour, closeHour };
     try{
         var newField = await Field.create(field);
         if (facilities){
-            newField = await Field.addFacilitys(facilities);
+            newField = await newField.addFacilitys(facilities);
         }
-        newField = await Field.setSize(size);
-        newField = await Field.setSurface(surface);
+        newField = await newField.setSize(size);
+        newField = await newField.setSurface(surface);
+        newFIeld = await newField.setCity(city)
         return newField;
     }catch(error){
         var {errors: [{message: errorMessage}]} = error;
