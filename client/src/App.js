@@ -2,7 +2,7 @@
 import './App.css';
 import ContactForm from './components/Home/ContactForm/ContactForm';
 import { Routes, Route } from 'react-router-dom';
-import Create from './components/Create/Create.jsx'
+import Create from './components/Create/create.jsx'
 import Landing from "./components/Landing/landing.jsx"
 import Detail from './components/Detail/detail';
 

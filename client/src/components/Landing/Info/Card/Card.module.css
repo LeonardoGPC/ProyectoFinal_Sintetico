@@ -5,9 +5,7 @@
 
 .container{
     width: 80%;
-    margin: 0px auto;
-    margin-top: 50px ;
-    
+    margin: 50px auto;
 }
 
 .img{
@@ -19,8 +17,9 @@
 .body{
     padding: 170px;
     clip-path: polygon(0 0, 100% 25%, 100% 100%, 0 79%);
-    background: rgba(0,0,0,0.5);
-    backdrop-filter: blur(9px); 
+    display: flex;
+    background: rgba(20, 20, 20, 0.5);
+    backdrop-filter: blur(10px);
 }
 .card{
     border: none;
