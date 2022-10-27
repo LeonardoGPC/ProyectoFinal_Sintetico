@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { Field, Facility, Surface, Size } = require('../db');
+const { Field, Facility, Surface, Size, City } = require('../db');
 const { Op } = require("sequelize");
 
 const queryParams = {
@@ -7,6 +7,10 @@ const queryParams = {
     through: {
         attributes: [],
     },
+};
+
+const queryParams2 = {
+    attributes: ['name'],
 };
 
 
@@ -18,16 +22,23 @@ async function getFields(){
                 [Op.eq]: false
             }
         },
-        include:{
-            model: Size,
-            ...queryParams,
-            model: Surface,
-            ...queryParams,
-            model: Facility,
-            ...queryParams
-        },
-        order: [
-            ['id', 'ASC']
+        include:[
+            {
+                model: Size,
+                ...queryParams2,
+            },
+            {
+                model: Surface,
+                ...queryParams2
+            },
+            {
+                model: City,
+                ...queryParams2
+            },
+            {
+                model: Facility,
+                ...queryParams
+            }
         ],
     });
     if(fields.length) return fields
@@ -41,14 +52,24 @@ async function getFieldById(id){
                 [Op.eq]: false
             }
         },
-        include:{
-            model: Size,
-            ...queryParams,
-            model: Surface,
-            ...queryParams,
-            model: Facility,
-            ...queryParams
-        }
+        include:[
+            {
+                model: Size,
+                ...queryParams2,
+            },
+            {
+                model: Surface,
+                ...queryParams2
+            },
+            {
+                model: City,
+                ...queryParams2
+            },
+            {
+                model: Facility,
+                ...queryParams
+            }
+        ]
     })
     if(field) return field
     else throw new Error('Field does not exist in db') 
