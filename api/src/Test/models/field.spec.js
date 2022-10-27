@@ -10,12 +10,14 @@ const field1 = {
 };
 
 const field2 = {
-    id: 1,
-    name: "cancha 2",
-    image: "img",
-    state: "PENDINGG",
-    price: 1000,
-    address: "calle 14 #205",
+  id: 1,
+  name: "cancha 2",
+  image: "img",
+  state: "PENDINGG",
+  price: 1000,
+  address: "calle 14 #205",
+  openHour: 1,
+  closeHour: 12
 };
 describe('Field model', () => {
     before(() => conn.authenticate()
