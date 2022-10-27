@@ -1,11 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
 import ContactForm from './components/Home/ContactForm/ContactForm';
+import Faq from './components/Home/FAQ/Faq';
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
+
       <Routes>
         <Route path='/' element={<div><h1>Landing</h1></div>}/>
         <Route path='/clubs' element={<div><h1>Clubs</h1></div>}/>
@@ -16,6 +18,7 @@ function App() {
         <Route path='/create' element={<div><h1>Create</h1></div>}/>
         <Route path='*' element={<div><h1>Error 404</h1></div>}/>
         <Route path='/contact' element={<ContactForm />}/>
+        <Route path='/faq' element={<Faq/>} />
       </Routes>
     </div>
   );
