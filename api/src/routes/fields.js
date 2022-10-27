@@ -41,9 +41,9 @@ router.delete('/:id', async ({params:{id}}, res)=>{
     }
 });
 
-router.put('/:id', async ({params: {id}, body}, res)=>{
+router.put('/:id', async ({params: {id: idField}, body: fieldParams}, res)=>{
     try{
-        var editedField = await editField(id, body);
+        var editedField = await editField(idField, fieldParams);
         res.send(editedField);
     }catch(error){
         res.status(404).send(error.message)
