@@ -37,6 +37,7 @@ const toggle = (i) => {
   return (
     <div className={style.wrapper}>
         <h1>Preguntas Frequentes</h1>
+        <div className={style.div}>
         <div className={style.accordion}>{data.map((item, i) =>(
             <div className={style.item}>
                 <div className={style.title} onClick={() => toggle(i)}>
@@ -46,6 +47,7 @@ const toggle = (i) => {
                 <div className={selected === i ? style.show  : style.content}>{item.answer}</div>
             </div>
         ))}
+        </div>
         </div>
     </div>
   )
