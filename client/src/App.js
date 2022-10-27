@@ -1,5 +1,6 @@
 
 import './App.css';
+import ContactForm from './components/Home/ContactForm/ContactForm';
 import { Routes, Route } from 'react-router-dom';
 import Landing from "./components/Landing/landing.jsx"
 import Navbar from './components/NavBar/Navbar';
@@ -18,6 +19,7 @@ function App() {
         <Route path='/sintetico/detail/:id' element={<div><h1>Detail</h1></div>}/>
         <Route path='/create' element={<div><h1>Create</h1></div>}/>
         <Route path='*' element={<div><h1>Error 404</h1></div>}/>
+        <Route path='/contact' element={<ContactForm />}/>
       </Routes>
       </div>
     </div>
