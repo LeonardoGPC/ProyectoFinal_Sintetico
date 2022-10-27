@@ -1,7 +1,7 @@
 
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import Create from './components/Create/create.jsx'
+import Create from './components/Create/Create.jsx'
 import Landing from "./components/Landing/landing.jsx"
 
 function App() {
