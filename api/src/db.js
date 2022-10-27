@@ -41,6 +41,8 @@ Field.belongsTo(City);
 Size.hasMany(Field);
 Field.belongsTo(Size);
 
+Surface.hasMany(Field);
+Field.belongsTo(Surface);
 
 
 // Aca vendrian las relaciones
