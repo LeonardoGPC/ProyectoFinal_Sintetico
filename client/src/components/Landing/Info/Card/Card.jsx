@@ -45,7 +45,7 @@ export default function Card ({teams}) {
       };
       
     return (
-        <div className={s.body}>
+        <div className={s.body} id='2'>
           <div className={s.container} > 
             <Slider {...settings}>
             {teams.map(t => (
