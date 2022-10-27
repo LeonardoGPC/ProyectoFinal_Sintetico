@@ -59,7 +59,11 @@ module.exports = (sequelize) => {
     isDeleted: {
       type:DataTypes.BOOLEAN,
       defaultValue: false
-    }
+    },
+    score:{
+      type: DataTypes.INTEGER,
+      allowNull:true,
+    },
   },{
     timestamps: false,
   }
