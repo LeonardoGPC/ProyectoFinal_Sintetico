@@ -7,7 +7,10 @@ module.exports = {
     price:10,
     address: "3571 Gore Street",
     openHour: 9,
-    closeHour: 23    
+    closeHour: 23,
+    CityId: 1,
+    SizeId: 2,
+    SurfaceId: 2,    
     },
     { id: 2, 
     name: "Boca",
@@ -16,7 +19,10 @@ module.exports = {
     price:13,
     address: "726 Parkview Drive",
     openHour: 9,
-    closeHour: 22    
+    closeHour: 22,
+    CityId: 3,
+    SizeId: 1,
+    SurfaceId: 1,       
     },
     { id: 3, 
     name: "San Lorenzo",
@@ -25,7 +31,10 @@ module.exports = {
     price:11,
     address: "3585 Mount Tabor",
     openHour: 9,
-    closeHour: 22    
+    closeHour: 22,
+    CityId: 2,
+    SizeId: 3,
+    SurfaceId: 4,      
     },
    
 ]} 
