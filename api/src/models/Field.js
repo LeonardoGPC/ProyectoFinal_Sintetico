@@ -1,11 +1,6 @@
 const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
   sequelize.define('Field', {
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey:true,
-      allowNull:false
-    },
     name: {
       type: DataTypes.STRING,
       allowNull: false
@@ -64,6 +59,14 @@ module.exports = (sequelize) => {
       type: DataTypes.FLOAT,
       allowNull:true,
     },
+    /* email: {
+      type: DataTypes.STRING,
+      allowNull: false 
+    },
+    phone: {
+        type: DataTypes.STRING,
+        allowNull: false 
+    }, */
   },{
     timestamps: false,
   }
