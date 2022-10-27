@@ -7,6 +7,7 @@ import Create from './components/Create/create.jsx'
 import Landing from "./components/Landing/landing.jsx"
 import Home from './components/Home/Home.jsx'
 import Detail from './components/Detail/detail';
+import Clubs from './components/Clubs/clubs';
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
       <div className='App_bg'>
       <Routes>
         <Route path='/' element={<Landing/>}/>
-        <Route path='/clubs' element={<div><h1>Clubs</h1></div>}/>
+        <Route path='/clubs' element={<Clubs/>}/>
         <Route path='/login' element={<div><h1>Login</h1></div>}/>
         <Route path='/sintetico' element={<Home/>}/>
         <Route path='/profile' element={<div><h1>Profile</h1></div>}/>
