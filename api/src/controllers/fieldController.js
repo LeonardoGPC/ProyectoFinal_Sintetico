@@ -62,10 +62,22 @@ async function deleteField(fieldId){
         throw new Error("El elemento a borrar no existe");
     }
 }
+
+async function editField(fieldId, data){
+    try{
+        var fieldFromDb = await Field.findByPk(fieldId);
+        await fieldFromDb.update(data);
+        fieldFromDb.isNewRecord = false;
+        await fieldFromDb.save();
+    }catch(error){
+        throw new Error("El elemento a editar no existe o los parámetros no son válidos");
+    }
+}
 module.exports = {
     getFields,
     getFieldById,
     createField,
-    deleteField
+    deleteField,
+    editField
 }
 
