@@ -4,7 +4,7 @@
   "description": "Backend for Sintetico app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha -w ./src/Test/**/*.spec.js",
     "start": "nodemon -L"
   },
   "author": "",
@@ -22,6 +22,10 @@
     "sequelize": "^6.25.3"
   },
   "devDependencies": {
-    "nodemon": "^2.0.6"
+    "chai": "^4.3.6",
+    "mocha": "^10.1.0",
+    "nodemon": "^2.0.6",
+    "supertest": "^6.3.1",
+    "supertest-session": "^4.1.0"
   }
 }

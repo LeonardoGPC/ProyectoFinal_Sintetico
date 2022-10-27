@@ -35,6 +35,35 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: true
     },
+    openHour:{
+      type: DataTypes.INTEGER,
+      allowNull:false,
+      validate: {
+        min:0,
+        max: 23
+      }
+    },
+    closeHour:{
+      type: DataTypes.INTEGER,
+      allowNull:false,
+      validate: {
+        min:0,
+        max: 23,
+        customValidator(value) {
+          if (value <= this.openHour) {
+            throw new Error("Close hour should be bigger than open hour");
+          }
+        }
+      }
+    },
+    isDeleted: {
+      type:DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    score:{
+      type: DataTypes.FLOAT,
+      allowNull:true,
+    },
   },{
     timestamps: false,
   }
