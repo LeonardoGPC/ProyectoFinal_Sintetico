@@ -1,12 +1,12 @@
-const { Facility } = require('../db');
+const { City } = require('../db');
 
 
-async function getFacilities(){
-    const facilities = await Facility.findAll()
-    if(facilities.length) return facilities;
+async function getCities(){
+    const cities = await City.findAll()
+    if(cities.length) return cities;
     else throw new Error('No existen datos en la bd')
 }
 
 module.exports = {
-    getFacilities,
+    getCities,
 }

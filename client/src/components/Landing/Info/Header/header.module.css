@@ -1,13 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@1,700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@1,700&display=swap');
 
 .main{
     position: relative;
 }
 
 .bg1{
-    /* object-fit: cover; */
     width: 99.1vw;
-    height: 100vh;
+    height: calc(100vh - 84px);
 }
 
 .div_text{
@@ -200,4 +199,4 @@
     position: absolute;
     width: 50px;
     left: 60%;
- }
+ } */

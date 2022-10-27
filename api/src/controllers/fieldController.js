@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { Field, Facility, Surface, Size} = require('../db');
+const { Field, Facility, Surface, Size } = require('../db');
 
 
 
@@ -34,31 +34,38 @@ async function getFieldById(id){
 }
 
 async function createField(field){
-    var { id, name, image, state, price, address, openHour, closeHour, facilities, size, surface } = field;
+    var { id, name, image, state, price, address, openHour, closeHour, facilities, size, surface, city } = field;
     var field = { id, name, image, state, price, address, openHour, closeHour };
     try{
         var newField = await Field.create(field);
+        newField = await newField.setSize(size);
+        newField = await newField.setSurface(surface);
+        newField = await newField.setCity(city)
         if (facilities){
-            newField = await Field.addFacilitys(facilities);
+            await newField.addFacilities(facilities);
         }
-        newField = await Field.setSize(size);
-        newField = await Field.setSurface(surface);
         return newField;
     }catch(error){
-        var {errors: [{message: errorMessage}]} = error;
-        throw new Error(errorMessage);
+        console.log(error);
+       throw new Error("Campos inválidos");
     }
+    
 }
 
 async function deleteField(fieldId){
-    var query = {where: {id: fieldId}};
-    var fieldFromDb = await Field.findByPk(fieldId);
-    
-    return fieldFromDb;
+    try{
+        var fieldFromDb = await Field.findByPk(fieldId);
+        fieldFromDb.isDeleted = true;
+        fieldFromDb.isNewRecord = false;
+        await fieldFromDb.save();
+    }catch(error){
+        throw new Error("El elemento a borrar no existe");
+    }
 }
 module.exports = {
     getFields,
     getFieldById,
-    createField
+    createField,
+    deleteField
 }
 

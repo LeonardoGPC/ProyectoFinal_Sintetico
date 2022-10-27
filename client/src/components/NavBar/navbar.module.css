@@ -1,8 +1,8 @@
-.container {
-  height: 450px;
-  /* margin-left: auto;
-    margin-right: 0; */
-}
+/* .container {
+  height: 450px; 
+  margin-left: auto;
+  margin-right: 0; 
+} */
 
 .nav {
   display: flex;
@@ -46,6 +46,8 @@
   align-items: center;
   justify-content: center;
   font-family: 'Roboto', sans-serif;
+
+  transition: all 300ms ease;
 }
 
 .linkLogin {
@@ -61,6 +63,8 @@
   justify-content: center;
   font-family: 'Roboto', sans-serif;
   list-style: none;
+  
+  transition: all 300ms ease;
 }
 
 .linkUs:hover {
