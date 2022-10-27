@@ -22,20 +22,22 @@ router.get('/:id', async(req, res)=>{
 
 
 router.post('/', async (req, res)=>{
-    var field = res.body;
+    var field = req.body;
     try{
-        var newField = createField(field);
+        var newField = await createField(field);
+        res.send(newField);
     }catch(error){
-        res.status(404).send({errorMessage: error.message})
+        res.status(404).send(error.message);
     }
-    res.send(newField);
+    
 });
 
 router.delete('/:id', ({params:{id}}, res)=>{
     try{
         deleteField(id);
+        res.send("Elemento borrado");
     }catch(error){
-        res.send(error.message);
+        res.status(404).send(error.message);
     }
 });
 module.exports = router;

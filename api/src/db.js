@@ -40,6 +40,8 @@ Field.belongsTo(Size);
 Surface.hasMany(Field);
 Field.belongsTo(Surface);
 
+City.hasMany(Field);
+Field.belongsTo(City);
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
 
