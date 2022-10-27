@@ -1,6 +1,7 @@
 
 import './App.css';
 import ContactForm from './components/Home/ContactForm/ContactForm';
+import Faq from './components/Home/FAQ/Faq';
 import { Routes, Route } from 'react-router-dom';
 import Create from './components/Create/create.jsx'
 import Landing from "./components/Landing/landing.jsx"
@@ -11,7 +12,6 @@ function App() {
   return (
     <div className="App">
       <div className='App_bg'>
-        
       <Routes>
         <Route path='/' element={<Landing/>}/>
         <Route path='/clubs' element={<div><h1>Clubs</h1></div>}/>
@@ -22,6 +22,7 @@ function App() {
         <Route path='/create' element={<Create/>}/>
         <Route path='*' element={<div><h1>Error 404</h1></div>}/>
         <Route path='/contact' element={<ContactForm />}/>
+        <Route path='/faq' element={<Faq/>} />
       </Routes>
       </div>
     </div>
