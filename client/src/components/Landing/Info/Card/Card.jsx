@@ -1,26 +1,27 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import s from "./Card.module.css"
+
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css"
+import "slick-carousel/slick/slick-theme.css";
 
 
 
 export default function Card ({teams}) {
     const settings = {
         dots: true,
-        infinite: false,
-        speed: 500,
+        infinite: true,
+        speed: 600,
         slidesToShow: 3,
-        slidesToScroll: 3,
+        slidesToScroll: 2,
         initialSlide: 0,
         responsive: [
           {
             breakpoint: 1024,
             settings: {
-              slidesToShow: 2,
-              slidesToScroll: 2,
+              slidesToShow: 3,
+              slidesToScroll: 3,
               infinite: true,
               dots: true
             }
@@ -42,24 +43,30 @@ export default function Card ({teams}) {
           }
         ]
       };
+      
     return (
-        
-        <div  className={s.container}> 
+        <div className={s.body}>
+          <div className={s.container} > 
             <Slider {...settings}>
             {teams.map(t => (
+              
             <div className={s.card} key={t.id}>
-                <div className={s.cardTop}>
+                <div className={s.cardTop} >
                     <img src={t.image} alt={t.name} className={s.img}/>
+                    <div className={s.h1}>
+                    <h1>{t.name}</h1>
+                    <div className={s.stars}>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    </div>
+                    </div>
                 </div>
                 <div className={s.cardBottom}>
                   <div className={s.izquierda}>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <h1>{t.name}</h1>
-                    <p>{t.address}</p>
+                    <span className={s.address}>{t.address}</span>
                   </div>
                   <div className={s.derecha}>
                     <i class="fa-solid fa-ruler">{t.surfaces}</i>
@@ -74,6 +81,7 @@ export default function Card ({teams}) {
             ))}
             </Slider>
         </div>
+      </div>
     )
 }
 

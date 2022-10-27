@@ -1,0 +1,179 @@
+.detail {
+  /* background-color: #242529; */
+  background-image: url(https://images.unsplash.com/photo-1473075109809-7a17d327bdf6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);
+  background-repeat: none;
+  object-fit: cover;
+  color: white;
+  text-align: left;
+  font-size: 16px;
+  display: grid;
+  justify-items: center;
+  justify-content: end;
+}
+
+.detail p {
+  font-size: 16px;
+  margin: 0;
+}
+
+.detail h3 {
+  font-size: 25px;
+  margin: 0;
+}
+
+.detail button {
+  font-size: 16px;
+}
+
+.card {
+  background-color: rgba(0, 0, 0, 0.404);
+  width: 100%;
+  margin-top: 30px;
+  display: inline-grid;
+  justify-items: center;
+}
+
+.cardContainer{
+  width: 90%;
+  display: flex;
+  margin-top: 10px;
+}
+
+.image {
+  display: flex;
+}
+
+.image img {
+  height: 350px;
+  width: auto;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.info {
+  height: 350px;
+  margin-left: 20px;
+  margin-top: 10px;
+  /* overflow: scroll; */
+  overflow: visible;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button {
+  width: 25px;
+  height: 25px;
+}
+
+.content {
+  display: grid;
+}
+
+.content ul {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.content li {
+  margin: 7px;
+}
+
+.description {
+  text-align: start;
+  display: flex;
+  align-items: center;
+}
+
+.price {
+  display: grid;
+  justify-items: center;
+}
+
+.price button {
+  /* padding: 1.3em 3em; */
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.price button:hover {
+  /* background-color: #23c483; */
+  background-color: #98f576;
+  box-shadow: 0px 15px 20px #105b10;
+  /* color: #fff; */
+  color: black;
+  transform: translateY(-7px);
+}
+
+.price button:active {
+  transform: translateY(-1px);
+}
+
+/* -------------------------------------------------------------------- */
+.review {
+  width: 80%;
+  margin-top: 80px;
+  /* background-color: hotpink; */
+}
+
+.container {
+  max-height: 450px;
+  /* overflow: scroll; */
+  margin-bottom: 30px;
+  border-radius: 30px;
+  background-color: rgba(0, 0, 0, 0.575);
+}
+
+.comment {
+  border-radius: 30px;
+  border: 3px solid #404040;
+  /* margin: 20px; */
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.commentData {
+  padding: 20px;
+}
+
+.userData {
+  border-radius: 25px 25px 0 0;
+  background-color: #404040;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.userData p {
+  margin: 0 15px;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+}
+
+.profile {
+  width: 50px;
+  height: 50px;
+  margin-left: 15px;
+  margin-bottom: 3px;
+  border-radius: 50%;
+  object-fit: cover;
+}
