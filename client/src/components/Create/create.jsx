@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import Navbar from '../NavBar/Navbar';
+import { getCities } from '../../redux/actions';
 import style from './create.module.css';
 
 export default function Create() {
+  const dispatch = useDispatch();
+  const cities = useSelector((s) => s.cities);
+
+  useEffect(() => {
+    dispatch(getCities());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div>
       <Navbar />
@@ -30,12 +40,11 @@ export default function Create() {
               <div className={style.group}>
                 <label className={style.subtittle}>Localidad:</label>
                 <select className={style.input}>
-                  <option value="Buenos Aires">Buenos Aires</option>
-                  <option value="Cordoba">Cordoba</option>
-                  <option value="Rosario">Rosario</option>
-                  <option value="Mar de Plata">Mar de Plata</option>
-                  <option value="Salta">Salta</option>
-                  <option value="Santa Fe">Santa Fe</option>
+                  {cities.map((city) => (
+                    <option key={city.id} value={city.id}>
+                      {city.name}
+                    </option>
+                  ))}
                 </select>
               </div>
               <div className={style.group}>
@@ -61,6 +70,14 @@ export default function Create() {
                 </select>
               </div>
               <div className={style.group}>
+                <label className={style.subtittle}>Apertura:</label>
+                <input className={style.input} type="time" />
+              </div>
+              <div className={style.group}>
+                <label className={style.subtittle}>Cierre:</label>
+                <input className={style.input} type="time" />
+              </div>
+              <div className={style.group}>
                 <label className={style.subtittle}>Descripción: </label>
                 <textarea className={style.textarea} />
               </div>
@@ -71,7 +88,11 @@ export default function Create() {
                   <input type="checkbox" name="ducha" value="ducha" />
                   <br />
                   Parqueadero:
-                  <input type="checkbox" name="parqueadero" value="parqueadero" />
+                  <input
+                    type="checkbox"
+                    name="parqueadero"
+                    value="parqueadero"
+                  />
                   <br />
                   Elementos de aseo:
                   <input
@@ -91,7 +112,9 @@ export default function Create() {
                 src="https://www.espaciosdeportivos.com.gt/wp-content/uploads/2020/08/canchas-futbol-5.jpg"
                 alt="cancha"
               />
-              <button type="submit" className={style.buttonCrear}>Crear</button>
+              <button type="submit" className={style.buttonCrear}>
+                Crear
+              </button>
             </div>
           </div>
         </form>
