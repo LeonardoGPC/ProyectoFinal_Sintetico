@@ -23,8 +23,6 @@ const belgrano = new Fields(8,"Belgrano", "https://w0.peakpx.com/wallpaper/190/7
 const lanus = new Fields(9,"Lanus", "https://i.pinimg.com/originals/af/61/4c/af614cf1d3f9ce6f9541dd15de66014a.png", "APROVED", 90, "2684 Marshville Road", 90, 90, "5", "sintetico")
 const velez = new Fields(10,"Velez", "https://i.pinimg.com/236x/11/05/fd/1105fdfd8b54460a9fb8b0aae9eec0f8.jpg", "APROVED", 100, "1707 Worley Avenue", 100, 100, "7", "cesped")
 
-
 const teams = [river, boca, independiente, huracan, sanLorenzo, instituto, talleres, belgrano, lanus, velez]
-
 
 export default teams
