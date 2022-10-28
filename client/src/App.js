@@ -8,6 +8,7 @@ import Landing from "./components/Landing/landing.jsx"
 import Home from './components/Home/home.jsx'
 import Detail from './components/Detail/detail';
 import Clubs from './components/Clubs/clubs';
+import MiniFooter from './components/MiniFooter/MiniFooter';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path='/about' element={<div><h1>Hola, somos nosotros xd</h1></div>}/>
         <Route path='/contact' element={<ContactForm />}/>
         <Route path='/faq' element={<Faq/>} />
+        <Route path= '/minifooter' element={<MiniFooter/>} />
       </Routes>
       </div>
     </div>
