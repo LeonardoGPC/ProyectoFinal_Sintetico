@@ -5,7 +5,7 @@ import Faq from './components/Home/FAQ/Faq';
 import { Routes, Route } from 'react-router-dom';
 import Create from './components/Create/create.jsx'
 import Landing from "./components/Landing/landing.jsx"
-import Home from './components/Home/Home.jsx'
+import Home from './components/Home/home.jsx'
 import Detail from './components/Detail/detail';
 import Clubs from './components/Clubs/clubs';
 
