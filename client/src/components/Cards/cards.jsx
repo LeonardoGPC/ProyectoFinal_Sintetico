@@ -8,9 +8,7 @@ export default function Cards() {
   const dispatch = useDispatch();
   const fields = useSelector((state) => state.fields);
 
-  // useEffect(() =>{
-  //   dispatch(getField(props.match.params.id));
-  // },[dispatch, props.match.params.id]);
+
 
   useEffect(() => {
     dispatch(getFields());
