@@ -17,6 +17,11 @@ const queryParams2 = {
  
 async function getFields(){
     let fields = await Field.findAll({
+        where: {
+            state: {
+                [Op.eq]: "APPROVED"
+            }
+        },
         include:[
             {
                 model: Size,
@@ -42,6 +47,11 @@ async function getFields(){
 
 async function getFieldById(id){
     const field = await Field.findByPk(id, {
+        where: {
+            state: {
+                [Op.eq]: "APPROVED"
+            }
+        },
         include:[
             {
                 model: Size,
@@ -67,7 +77,7 @@ async function getFieldById(id){
 
 async function createField(fieldData){
     const { id, name, image, state, price, address, openHour, closeHour, facilities, size, surface, city, description } = fieldData;
-    const field = { id, name, image, state, price, address, openHour, closeHour, description };
+    const field = { id, name, image, state, price, address, openHour, closeHour, descripti };
     try{
         const newField = await Field.create(field);
         await newField.setSize(size);
