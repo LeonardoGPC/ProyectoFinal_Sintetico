@@ -13,7 +13,7 @@ module.exports = {
       SizeId: 2,
       SurfaceId: 2,
       score: 4,
-      description: "aqui va la decription",
+      description: "Disfruta de una hora de juego en nuestras canchas de fútbol 7, reúne a otros 6 amigos y pon en prácticas todas tus habilidades en este deporte. También podrás comprar el alquiler de balón para tu práctica.",
     },
     {
       name: "Boca",
@@ -28,7 +28,8 @@ module.exports = {
       SizeId: 1,
       SurfaceId: 4,
       score: 5,
-      description: "aqui va la decription",
+      description:
+        "Ven y disfruta un divertido partido de fútbol 5 con tus amigos. Arma tu grupo de 10 amigos, alquila la cancha en la sede de tu preferencia y demuestra el campeón que llevas dentro. Ejercítate, pon a prueba tu resistencia física y hazle un golazo a la diversión. También podrás comprar el alquiler de balón para tu práctica.",
     },
     {
       name: "San Lorenzo",
@@ -43,7 +44,7 @@ module.exports = {
       SizeId: 3,
       SurfaceId: 3,
       score: 4.5,
-      description: "aqui va la decription",
+      description: "Adquiriendo este servicio podrás disfrutar con 9 de tus mejores amigos o familiares de un muy buen partido de fútbol. Muestra todas tus habilidades en este deporte y siéntete como todo un jugador profesional en las canchas de San Lorenzo.",
     },
     {
       name: "La hinchada FC",
@@ -55,10 +56,10 @@ module.exports = {
       openHour: 8,
       closeHour: 21,
       CityId: 1,
-      SizeId: 3,
+      SizeId: 2,
       SurfaceId: 1,
       score: 4.5,
-      description: "aqui va la decription",
+      description: "Disfruta de una hora de juego en nuestras canchas de fútbol 7, reúne a otros 6 amigos y pon en prácticas todas tus habilidades en este deporte. También podrás comprar el alquiler de balón para tu práctica.",
     },
     {
       name: "El predio (caballito)",
@@ -70,10 +71,10 @@ module.exports = {
       openHour: 9,
       closeHour: 23,
       CityId: 2,
-      SizeId: 3,
+      SizeId: 2,
       SurfaceId: 2,
       score: 4,
-      description: "aqui va la decription",
+      description: "Disfruta de una hora de juego en nuestras canchas de fútbol 7, reúne a otros 6 amigos y pon en prácticas todas tus habilidades en este deporte. También podrás comprar el alquiler de balón para tu práctica.",
     },
     {
       name: "Asturiano Fútbol Club",
@@ -88,7 +89,7 @@ module.exports = {
       SizeId: 3,
       SurfaceId: 3,
       score: 3,
-      description: "aqui va la decription",
+      description: "Adquiriendo este servicio podrás disfrutar con 9 de tus mejores amigos o familiares de un muy buen partido de fútbol. Muestra todas tus habilidades en este deporte y siéntete como todo un jugador profesional en las canchas de Asturiano Fútbol Club.",
     },
     {
       name: "Federal 5",
@@ -103,7 +104,7 @@ module.exports = {
       SizeId: 4,
       SurfaceId: 4,
       score: 5,
-      description: "aqui va la decription",
+      description: "Disfruta de un muy buen partido de fútbol 11 con tus mejores amigos o familiares, muestra todas tus habilidades en este deporte y siéntete como todo un jugador prefesional en las canchas que Federal 5 tiene para ti.",
     },
     {
       name: "Punto Gol",
@@ -118,7 +119,7 @@ module.exports = {
       SizeId: 4,
       SurfaceId: 3,
       score: 4,
-      description: "aqui va la decription",
+      description: "Disfruta de un muy buen partido de fútbol 11 con tus mejores amigos o familiares, muestra todas tus habilidades en este deporte y siéntete como todo un jugador prefesional en las canchas que Punto Gol tiene para ti.",
     },
     {
       name: "Solis Cano II",
@@ -133,7 +134,7 @@ module.exports = {
       SizeId: 4,
       SurfaceId: 2,
       score: 3,
-      description: "aqui va la decription",
+      description: "Disfruta de un muy buen partido de fútbol 11 con tus mejores amigos o familiares, muestra todas tus habilidades en este deporte y siéntete como todo un jugador prefesional en las canchas que Solis Cano II tiene para ti.",
     },
     {
       name: "Ciudad (Ex-Muni)",
@@ -145,10 +146,10 @@ module.exports = {
       openHour: 9,
       closeHour: 23,
       CityId: 3,
-      SizeId: 3,
+      SizeId: 1,
       SurfaceId: 1,
       score: 4.5,
-      description: "aqui va la decription",
+      description: "Ven y disfruta un divertido partido de fútbol 5 con tus amigos. Arma tu grupo de 10 amigos, alquila la cancha en la sede de tu preferencia y demuestra el campeón que llevas dentro. Ejercítate, pon a prueba tu resistencia física y hazle un golazo a la diversión. También podrás comprar el alquiler de balón para tu práctica.",
     },
   ],
 };
