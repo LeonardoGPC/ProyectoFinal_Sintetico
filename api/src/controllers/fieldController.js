@@ -77,7 +77,7 @@ async function getFieldById(id){
 
 async function createField(fieldData){
     const { id, name, image, state, price, address, openHour, closeHour, facilities, size, surface, city, description } = fieldData;
-    const field = { id, name, image, state, price, address, openHour, closeHour, descripti };
+    const field = { id, name, image, state, price, address, openHour, closeHour, description, state: "APPROVED"};
     try{
         const newField = await Field.create(field);
         await newField.setSize(size);
