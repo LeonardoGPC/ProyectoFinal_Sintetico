@@ -1,87 +1,58 @@
-import React from "react"
-import { Link } from "react-router-dom"
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react"
+import { FreeMode, Autoplay } from "swiper"
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/autoplay";
 import s from "./Card.module.css"
+import { Link } from "react-router-dom"
 
-import Slider from "react-slick"
-import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css";
-
-
-
-export default function Card ({teams}) {
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 600,
-        slidesToShow: 3,
-        slidesToScroll: 2,
-        initialSlide: 0,
-        responsive: [
-          {
-            breakpoint: 1024,
-            settings: {
-              slidesToShow: 3,
-              slidesToScroll: 3,
-              infinite: true,
-              dots: true
-            }
-          },
-          {
-            breakpoint: 600,
-            settings: {
-              slidesToShow: 2,
-              slidesToScroll: 2,
-              initialSlide: 2
-            }
-          },
-          {
-            breakpoint: 480,
-            settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1
-            }
-          }
-        ]
-      };
-      
+export default function Carousel ({teams}) {
     return (
-        <div className={s.body} id='2'>
-          <div className={s.container} > 
-            <Slider {...settings}>
-            {teams.map(t => (
-              
-            <div className={s.card} key={t.id}>
-                <div className={s.cardTop} >
-                    <img src={t.image} alt={t.name} className={s.img}/>
-                    <div className={s.h1}>
-                    <h1>{t.name}</h1>
-                    <div className={s.stars}>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
-                    </div>
-                    </div>
-                </div>
-                <div className={s.cardBottom}>
-                  <div className={s.izquierda}>
-                    <span className={s.address}>{t.address}</span>
-                  </div>
-                  <div className={s.derecha}>
-                    <i class="fa-solid fa-ruler">{t.surfaces}</i>
-                    <i class="fa-solid fa-dollar-sign">{t.price}</i>
-                    <i class="fa-solid fa-person">{t.sizes}</i> 
-                  </div>
-                </div>
-                <Link to={`/sintetico/detail/${t.id}`}>
-                <button className={s.button}>Alquilar</button>
-                </Link>
+        <div className={s.body}>
+            <div className={s.container}>
+                <Swiper freeMode={true} grabCursor={true} autoplay={{delay: 3000}} modules={[FreeMode, Autoplay]} className={s.mySwiper} slidesPerView={3} spaceBetween={60}> 
+                    {teams.map(t => (
+                        <SwiperSlide>
+                            <div className={s.card} key={t.id}>
+                                <div>
+                                    <img src={t.image} alt={t.name} className={s.img}/>
+                                </div>
+                                <div className={s.infoContainer}>
+                                    <div className={s.izquierda}>
+                                        <h1>{t.name}</h1>
+                                        <div className={s.stars}>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                        </div>
+                                        <h4 className={s.address} >{t.address}</h4>
+                                    </div>
+                                    <div className={s.derecha}>
+                                        <span className={s.iconsData}>
+                                            <i class="fa-solid fa-person"></i>
+                                            <span>{t.sizes}</span>
+                                        </span>
+                                        <span className={s.iconsData}>
+                                            <i class="fa-solid fa-dollar-sign"></i>
+                                            <span>{t.price}</span>
+                                        </span>
+                                        <span className={s.iconsData}>
+                                            <i class="fa-solid fa-ruler"></i>
+                                            <span>{t.surfaces}</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <Link to={`/sintetico/detail/${t.id}`}>
+                                    <button className={s.button}>Rentar</button>
+                                </Link> 
+                            </div>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
             </div>
-            ))}
-            </Slider>
         </div>
-      </div>
     )
 }
-
