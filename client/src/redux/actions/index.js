@@ -5,7 +5,8 @@ import {
   GET_SIZES,
   GET_SURFACES,
   GET_FACILITIES,
-  GET_FIELDS
+  GET_FIELDS,
+  ID_FIELD
 } from './actionsTypes';
 
 export const prueba = () => {
@@ -74,6 +75,16 @@ export const getFields = () =>{
     dispatch({
       type: GET_FIELDS,
       payload: response.data,
+    })
+  }
+}
+
+export const getFieldDetail = (id) => {
+  return async(dispatch) => {
+    const idField = await axios.get("http://localhost:3001/fields/" + id)
+    dispatch({
+      type: ID_FIELD,
+      payload: idField.data,
     })
   }
 }
