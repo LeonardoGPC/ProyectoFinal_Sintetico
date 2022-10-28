@@ -1,0 +1,178 @@
+.main{
+    background-color: #1C1C1C;
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    width: 70%;
+    height: 70%;
+    background-color: #242529;
+    padding: 15px;
+    border-radius: 15px;
+
+    display: flex;
+}
+
+.login{
+    width: 100%;
+    color: white;
+}
+
+.logo{
+    width: 100px;
+    margin-top: 20px;
+}
+
+.login h4{
+    padding: 10px 15px;
+    background: whitesmoke;
+    width: max-content;
+    color: black;
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.division{
+    margin: 30px auto;
+}
+
+.login form{
+    display: grid;
+    gap: 50px;
+}
+
+.user p{
+    font-size: 20px;
+}
+
+.user input{
+    background: none;
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none;
+    color: white;
+    font-size: 20px;
+}
+
+.pass p{
+    font-size: 20px;
+}
+
+.pass input{
+    background: none;
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none;
+    color: white;
+    font-size: 20px;
+}
+
+.button input{
+    color: black;
+    padding: 8px 30px;
+    background-color: #98F576;
+    text-decoration: none;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.switch{
+    margin-top: 50px;
+    font-size: 18px;
+}
+
+.switch span{
+    font-size: 18px;
+    color: rgb(131, 131, 131);
+    cursor: pointer;
+    transition: all 300ms;
+}
+
+.switch span:hover{
+    color: white;
+}
+
+.register{
+    width: 100%;
+    color: white;
+}
+
+.register h2{
+    margin: 20px 0 40px;
+}
+
+.register form{
+    display: grid;
+    gap: 50px;
+}
+
+.register form p{
+    font-size: 20px;
+}
+
+.inp{
+    background: none;
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none;
+    color: white;
+    font-size: 20px;
+}
+
+.btn{
+    color: black;
+    padding: 8px 30px;
+    background-color: #98F576;
+    text-decoration: none;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.dinamic{
+    position: absolute;
+    width: 35%;
+    height: calc(70% - 30px);
+    background-color: #404040;
+    transition: all 1s ease-in-out;
+    border-radius: 15px;
+
+    animation: in 2s ease;
+    animation-delay: 1s;
+}
+
+.back{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+  
+    border: none;
+    background-color: #98f576;
+    cursor: pointer;
+}
+
+@keyframes in{
+    0%{width: 70%; background-color: #4040407a; backdrop-filter: blur(20px)}
+    20%{width: 70%; background-color: #4040407a; backdrop-filter: blur(20px)}
+    90%{width: 35%; background-color: #404040; backdrop-filter: blur(0px)}
+}
