@@ -4,6 +4,8 @@
     color: white;
 
     padding:40px;
+
+    margin-bottom: 100px;
 }
 
 .main::before{
@@ -129,3 +131,9 @@
     50%{opacity: 0;}
     100%{opacity: 1;}
 }
+
+/* @media screen and (max-width: 1600px) {
+        .main{
+            color: red;
+        }
+} */
