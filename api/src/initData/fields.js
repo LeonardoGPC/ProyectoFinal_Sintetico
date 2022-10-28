@@ -11,7 +11,8 @@ module.exports = {
     CityId: 1,
     SizeId: 2,
     SurfaceId: 2, 
-    score: 4,   
+    score: 4,
+    description: 'aqui va la decription'   
     },
     {
     name: "Boca",
@@ -24,7 +25,8 @@ module.exports = {
     CityId: 3,
     SizeId: 1,
     SurfaceId: 1,  
-    score: 5,       
+    score: 5,   
+    description: 'aqui va la decription'       
     },
     {
     name: "San Lorenzo",
@@ -37,7 +39,8 @@ module.exports = {
     CityId: 2,
     SizeId: 3,
     SurfaceId: 4,
-    score: 4.5,        
+    score: 4.5,  
+    description: 'aqui va la decription'         
     },
    
 ]} 
