@@ -51,14 +51,14 @@ module.exports = (sequelize) => {
         }
       }
     },
-    isDeleted: {
-      type:DataTypes.BOOLEAN,
-      defaultValue: false
-    },
     score:{
       type: DataTypes.FLOAT,
       allowNull:true,
     },
+    description: {
+      type: DataTypes.TEXT,
+      allowNull: false
+    }
     /* email: {
       type: DataTypes.STRING,
       allowNull: false 
@@ -69,6 +69,7 @@ module.exports = (sequelize) => {
     }, */
   },{
     timestamps: false,
+    paranoid: true,
   }
 )}
 
