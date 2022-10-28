@@ -11,6 +11,7 @@ import Load from './components/Load/load';
 import { useEffect, useState } from 'react';
 import About from './components/About/about';
 import Login from './components/Login/login';
+import MiniFooter from './components/MiniFooter/MiniFooter';
 
 function App() {
 
@@ -42,6 +43,7 @@ function App() {
         <Route path='/about' element={<About/>}/>
         <Route path='/contact' element={<ContactForm />}/>
         <Route path='/faq' element={<Faq/>} />
+        <Route path= '/minifooter' element={<MiniFooter/>} />
       </Routes>
       {load && <Load/>}
       </div>
