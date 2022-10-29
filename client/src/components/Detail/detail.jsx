@@ -11,6 +11,7 @@ import duchas from "../../img/icons/duchas.png";
 import estacionamiento from "../../img/icons/estacionamiento.png";
 import quincho from "../../img/icons/quincho.png";
 import { Rate } from "antd";
+import ReactStars from "react-stars";
 import { FaStar } from "react-icons/fa";
 
 const colors = {
@@ -30,7 +31,7 @@ function Detail() {
 
   const handleClick = (value) => {
     setCurrentValue(value);
-    alert(`Hiciste una puntuación de ${value} estrellas`)
+    alert(`Hiciste una puntuación de ${value} estrellas`);
   };
 
   const handleMouseOver = (newHoverValue) => {
@@ -65,6 +66,15 @@ function Detail() {
                   <ul>
                     <li>Rating: {detailField.score}</li>
                     {/* <li><Rate disabled allowHalf value={detailField.score} character="★" style={{ fontSize: 30}}/></li> */}
+                    <li>
+                      <ReactStars
+                        count={5}
+                        value={detailField.score}
+                        size={24}
+                        edit={false}
+                        color2={"#ffd700"}
+                      />
+                    </li>
                     <li className={styles.facilities}>
                       {detailField.Facilities?.map((el) => {
                         return (
@@ -137,39 +147,38 @@ function Detail() {
                   aliquid, eveniet illo totam aliquam ab est rerum
                   necessitatibus voluptas accusamus deserunt architecto.
                 </p>
-
               </div>
             </div>
             <div className={styles.yourComment}>
-                  <h3> Deja tu comentario </h3>
-                  <div>
-                    {stars.map((_, index) => {
-                      return (
-                        <FaStar
-                          key={index}
-                          size={24}
-                          onClick={() => handleClick(index + 1)}
-                          onMouseOver={() => handleMouseOver(index + 1)}
-                          onMouseLeave={handleMouseLeave}
-                          color={
-                            (hoverValue || currentValue) > index
-                              ? colors.orange
-                              : colors.grey
-                          }
-                          style={{
-                            marginRight: 10,
-                            cursor: "pointer",
-                          }}
-                        />
-                      );
-                    })}
-                  </div>
-                  <textarea
-                    placeholder="Deja tu comentario..."
-                    className={styles.textarea}
-                  />
-                  <button>Submit</button>
-                </div>
+              <h3> Deja tu comentario </h3>
+              <div>
+                {stars.map((_, index) => {
+                  return (
+                    <FaStar
+                      key={index}
+                      size={24}
+                      onClick={() => handleClick(index + 1)}
+                      onMouseOver={() => handleMouseOver(index + 1)}
+                      onMouseLeave={handleMouseLeave}
+                      color={
+                        (hoverValue || currentValue) > index
+                          ? colors.orange
+                          : colors.grey
+                      }
+                      style={{
+                        marginRight: 10,
+                        cursor: "pointer",
+                      }}
+                    />
+                  );
+                })}
+              </div>
+              <textarea
+                placeholder="Deja tu comentario..."
+                className={styles.textarea}
+              />
+              <button>Submit</button>
+            </div>
           </div>
         </div>
       ) : (
