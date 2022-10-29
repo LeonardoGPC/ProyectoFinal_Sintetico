@@ -39,6 +39,7 @@ export default function Create() {
     CityId: '',
     SizeId: '',
     SurfaceId: '',
+    description: '',
     Facilities: [],
   });
 
@@ -55,6 +56,7 @@ export default function Create() {
       'CityId',
       'SizeId',
       'SurfaceId',
+      'description'
     ];
 
     let canSubmit = true;
@@ -141,6 +143,11 @@ export default function Create() {
                       />
                     </label>
                   ))}
+                  <div className={style.contenedorButton}>
+                    <button type="submit" className={style.buttonCrear}>
+                      Crear
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -209,7 +216,6 @@ export default function Create() {
                 <select
                   className={style.input}
                   name="CityId"
-                
                   onChange={handleInputChange}
                   onBlur={(e) => validate(e.target, dispatchError)}
                 >
@@ -217,7 +223,7 @@ export default function Create() {
 
                   {cities.map((city) => (
                     <option key={city.id} value={city.id}>
-                      {city.name} 
+                      {city.name}
                     </option>
                   ))}
                 </select>
@@ -251,7 +257,6 @@ export default function Create() {
                   onChange={handleInputChange}
                   name="SizeId"
                   className={style.input}
-                  
                   onBlur={(e) => validate(e.target, dispatchError)}
                 >
                   <option value="">Seleccione un tamaño</option>
@@ -326,15 +331,23 @@ export default function Create() {
                 />
                 {errorState.closeHour && <p>{errorState.closeHour}</p>}
               </div>
-              {/* <div className={style.group}>
+              <div 
+               className={classNames(
+                style.group,
+                errorState.description && style.error,
+                
+              )}
+              >
                 <label className={style.subtittle}>Descripción: </label>
-                <textarea className={style.textarea} onChange={handleInputChange}
-                  onBlur={(e) => validate(e.target, dispatchError)}/>
-                  {errorState.address && <p>{errorState.address}</p>}
-              </div> */}
-              <button type="submit" className={style.buttonCrear}>
-                Crear
-              </button>
+                <textarea
+                name='description'
+                  className={style.textarea}
+                  onChange={handleInputChange}
+                  onBlur={(e) => validate(e.target, dispatchError)}
+                />
+                {errorState.description && <p>{errorState.description}</p>}
+              </div>
+              
             </div>
           </div>
         </form>

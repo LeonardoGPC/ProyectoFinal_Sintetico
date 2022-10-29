@@ -37,7 +37,7 @@
   margin-bottom: 20px;
   flex-wrap: wrap;
   justify-content: left;
-  width: 400px;
+  width: 402px;
 }
 
 .subtittle {
@@ -58,8 +58,8 @@
 }
 
 .textarea {
-  width: 240px;
-  height: 80px;
+  width: 230px;
+  height: 59px;
   border-radius: 5px;
   margin-left: 25px;
   box-sizing: border-box;
@@ -72,7 +72,6 @@
   background-color: #98f576;
   border-radius: 5px;
   color: black;
-  font-family: 'Roboto', sans-serif;
   font-size: 16px;
   height: 35px;
   margin-top: 60px;
@@ -87,8 +86,12 @@
   justify-content: center;
   align-items: center;
   display: flex;
-  box-shadow: 0 0.4rem #98f576d9;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   cursor: pointer;
+}
+.contenedorButton{
+  display: flex;
+  flex-direction: left;
 }
 .itemsServicios {
   
@@ -129,15 +132,18 @@
   margin-bottom: 50px;
 }
 .error input,
-.error select {
+.error select,
+.error textarea {
   border: 1px red solid;
 }
 
 .error p {
   color: red;
-  margin-left: 353px;
+  margin-left: 354px;
   font-size: 10px;
-  margin-top: -30px;
+  margin-top: -50px;
+  text-align:justify;
+  width: 300px;
 }
 
 @media (max-width: 767px) {
