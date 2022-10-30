@@ -23,16 +23,18 @@ function Detail() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const detailField = useSelector((state) => state.detail);
-  console.log(detailField);
+  // console.log(detailField);
 
+  // ---------------------------------
   const [currentValue, setCurrentValue] = useState(0);
   const [hoverValue, setHoverValue] = useState(undefined);
   const stars = Array(5).fill(0);
-
+  
   const handleClick = (value) => {
     setCurrentValue(value);
-    alert(`Hiciste una puntuación de ${value} estrellas`);
+    // alert(`Hiciste una puntuación de ${value} estrellas`);
   };
+  // console.log("currentValue", currentValue);
 
   const handleMouseOver = (newHoverValue) => {
     setHoverValue(newHoverValue);
@@ -41,6 +43,19 @@ function Detail() {
   const handleMouseLeave = () => {
     setHoverValue(undefined);
   };
+  // ---------------------------------
+  const [comment, setComment] = useState("");
+  const [comments, setComments] = useState([]);
+
+  const onClickHandler = () => {
+    setComments((comments) => [...comments, comment]);
+    setComment("")
+  };
+
+  const onChangeHandler = (e) => {
+    setComment(e.target.value);
+  };
+
   useEffect(() => {
     dispatch(getFieldDetail(id));
   }, [dispatch]);
@@ -148,7 +163,36 @@ function Detail() {
                   necessitatibus voluptas accusamus deserunt architecto.
                 </p>
               </div>
+              {/* ------------------ */}
+              {comments.map((text) => (
+                <div className={styles.comment}>
+                  <div className={styles.userData}>
+                    <figure className={styles.user}>
+                      <img
+                        src="https://images.pexels.com/photos/7562313/pexels-photo-7562313.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                        alt="foto de perfil"
+                        className={styles.profile}
+                      />
+                      <p>Nombre</p>
+                    </figure>
+                    <p>
+                    <ReactStars
+                        count={5}
+                        value={currentValue}
+                        size={24}
+                        edit={false}
+                        color2={"#ffd700"}
+                      />
+                    </p>
+                  </div>
+
+                  <p className={styles.commentData}>{text}</p>
+                </div>
+              ))}
+
+              {/* ------------------ */}
             </div>
+
             <div className={styles.yourComment}>
               <h3> Deja tu comentario </h3>
               <div>
@@ -174,10 +218,12 @@ function Detail() {
                 })}
               </div>
               <textarea
+                value={comment}
+                onChange={onChangeHandler}
                 placeholder="Deja tu comentario..."
                 className={styles.textarea}
               />
-              <button>Submit</button>
+              <button onClick={onClickHandler}>Submit</button>
             </div>
           </div>
         </div>
