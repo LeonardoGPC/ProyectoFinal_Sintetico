@@ -108,10 +108,12 @@ export default function Filters(){
                 </select>
                 <div className={s.checkbox}>
                 {surfaces.map((s) => (
-                    <div>
+                    <div key= {s.id}>
+
                         <label id={`${s.name}`}>
                         {s.name}
                         <input
+
                             type="checkbox"
                             id={`${s.id}`}
                             value={s.id}
