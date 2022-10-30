@@ -112,6 +112,8 @@ export function filterFieldBySurface(payload){
   return{
     type: FILTER_BY_SURFACE,
     payload: payload
+  }
+}
     
 export const getFieldDetail = (id) => {
   return async(dispatch) => {
