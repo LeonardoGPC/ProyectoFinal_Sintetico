@@ -9,6 +9,7 @@ import {
   FILTER_BY_SIZE,
   FILTER_BY_TIME,
   FILTER_BY_SURFACE,
+  ID_FIELD,
 } from '../actions/actionsTypes';
 
 const initialState = {
