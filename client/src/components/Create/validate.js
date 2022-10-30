@@ -13,7 +13,7 @@ export const validate = (target, dispatchError) => {
         success = false;
         dispatchError({
           type: formName,
-          value: 'Nombre invalido - *Solo letras (A-Z)*',
+          value: '*Solo letras (A-Z)*',
         });
       }
     }
@@ -75,6 +75,12 @@ export const validate = (target, dispatchError) => {
     
   
     if (formName === 'SurfaceId') {
+      if (formValue.length === 0) {
+        success = false;
+        dispatchError({ type: formName, value: 'El valor es requerido' });
+      }
+    }
+    if (formName === 'description') {
       if (formValue.length === 0) {
         success = false;
         dispatchError({ type: formName, value: 'El valor es requerido' });
