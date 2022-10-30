@@ -7,7 +7,11 @@ import {
   GET_FACILITIES,
   GET_FIELDS,
   ID_FIELD,
-  USER
+  USER,
+  FILTER_BY_CITY,
+  FILTER_BY_SIZE,
+  FILTER_BY_TIME,
+  FILTER_BY_SURFACE,
 } from './actionsTypes';
 
 export const prueba = () => {
@@ -80,6 +84,38 @@ export const getFields = () =>{
   }
 }
 
+export function filterFieldByCity (payload) {
+  Number(payload)
+  return{
+    type: FILTER_BY_CITY,
+    payload: payload
+  }
+}
+
+export function filterFieldBySize(payload){ 
+  Number(payload)
+  return {
+    type: FILTER_BY_SIZE,
+    payload: payload
+  }
+}
+
+export function filterFieldByTime(payload){
+  Number(payload)
+  return {
+    type: FILTER_BY_TIME,
+    payload: payload
+  }
+}
+
+export function filterFieldBySurface(payload){
+  Number(payload)
+  return{
+    type: FILTER_BY_SURFACE,
+    payload: payload
+  }
+}
+    
 export const getFieldDetail = (id) => {
   return async(dispatch) => {
     const idField = await axios.get("http://localhost:3001/fields/" + id)
@@ -87,6 +123,7 @@ export const getFieldDetail = (id) => {
       type: ID_FIELD,
       payload: idField.data,
     })
+    
   }
 }
 

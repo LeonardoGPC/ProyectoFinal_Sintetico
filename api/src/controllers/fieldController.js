@@ -18,8 +18,8 @@ const queryParams2 = {
 async function getFields(){
     let fields = await Field.findAll({
         where: {
-            isDeleted: {
-                [Op.eq]: false
+            state: {
+                [Op.eq]: "APPROVED"
             }
         },
         include:[
@@ -48,8 +48,8 @@ async function getFields(){
 async function getFieldById(id){
     const field = await Field.findByPk(id, {
         where: {
-            isDeleted: {
-                [Op.eq]: false
+            state: {
+                [Op.eq]: "APPROVED"
             }
         },
         include:[
@@ -76,8 +76,8 @@ async function getFieldById(id){
 }
 
 async function createField(fieldData){
-    const { id, name, image, state, price, address, openHour, closeHour, facilities, size, surface, city } = fieldData;
-    const field = { id, name, image, state, price, address, openHour, closeHour };
+    const { id, name, image, state, price, address, openHour, closeHour, facilities, size, surface, city, description } = fieldData;
+    const field = { id, name, image, state, price, address, openHour, closeHour, description, state: "APPROVED"};
     try{
         const newField = await Field.create(field);
         await newField.setSize(size);
@@ -97,9 +97,7 @@ async function createField(fieldData){
 async function deleteField(fieldId){
     try{
         var fieldFromDb = await Field.findByPk(fieldId);
-        fieldFromDb.isDeleted = true;
-        fieldFromDb.isNewRecord = false;
-        await fieldFromDb.save();
+        await fieldFromDb.destroy();
     }catch(error){
         throw new Error("El elemento a borrar no existe");
     }

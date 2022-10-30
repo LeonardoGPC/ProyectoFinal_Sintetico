@@ -1,5 +1,5 @@
 import React from "react";
-import Cards from "../Cards/cards.jsx";
+/* import Cards from "../Cards/cards.jsx"; */
 import Navbar from '../NavBar/Navbar.jsx';
 import Filters from "./Filters/filters.jsx";
 import home from "./home.module.css";
@@ -16,7 +16,7 @@ export default function Home(){
             <Navbar/>
             <div className={home.div}>
                 <Filters/>
-                <Cards/>
+                {/* <Cards/> */}
             </div>
         </div>
     )
