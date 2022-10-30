@@ -6,11 +6,12 @@ import {
   GET_SURFACES,
   GET_FACILITIES,
   GET_FIELDS,
+  ID_FIELD,
+  USER,
   FILTER_BY_CITY,
   FILTER_BY_SIZE,
   FILTER_BY_TIME,
   FILTER_BY_SURFACE,
-  ID_FIELD
 } from './actionsTypes';
 
 export const prueba = () => {
@@ -123,5 +124,12 @@ export const getFieldDetail = (id) => {
       payload: idField.data,
     })
     
+  }
+}
+
+export const userLogin = (user) => {
+  return {
+    type: USER,
+    payload: user
   }
 }

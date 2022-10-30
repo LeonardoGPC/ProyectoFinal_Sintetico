@@ -84,6 +84,7 @@
     border: none;
     font-size: 18px;
     cursor: pointer;
+    margin: 0 15px;
 }
 
 .switch{

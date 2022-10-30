@@ -10,6 +10,7 @@ import {
   FILTER_BY_TIME,
   FILTER_BY_SURFACE,
   ID_FIELD,
+  USER
 } from '../actions/actionsTypes';
 
 const initialState = {
@@ -23,6 +24,7 @@ const initialState = {
   fieldsFilterByCity:[],
   fieldsFilterByCityAndSize: [],
   detail: [],
+  user: ''
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -99,6 +101,9 @@ const rootReducer = (state = initialState, action) => {
     }
     case ID_FIELD:{
       return {...state, detail: action.payload}
+    }
+    case USER:{
+      return {...state, user: action.payload}
     }
     default:
       return { ...state };

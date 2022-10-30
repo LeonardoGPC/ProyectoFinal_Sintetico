@@ -9,7 +9,7 @@ import { Link } from "react-router-dom"
 
 export default function Carousel ({teams}) {
     return (
-        <div className={s.body}>
+        <div className={s.body} id='2'>
             <div className={s.container}>
                 <Swiper freeMode={true} grabCursor={true} autoplay={{delay: 3000}} modules={[FreeMode, Autoplay]} className={s.mySwiper} slidesPerView={3} spaceBetween={60}> 
                     {teams.map(t => (
