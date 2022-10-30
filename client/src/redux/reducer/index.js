@@ -1,4 +1,4 @@
-import { PRUEBA, GET_CITIES, GET_SIZES, GET_SURFACES, GET_FACILITIES, GET_FIELDS, ID_FIELD } from '../actions/actionsTypes';
+import { PRUEBA, GET_CITIES, GET_SIZES, GET_SURFACES, GET_FACILITIES, GET_FIELDS, ID_FIELD, USER } from '../actions/actionsTypes';
 
 const initialState = {
   prueba: '',
@@ -8,6 +8,7 @@ const initialState = {
   facilities: [],
   fields:[],
   detail: [],
+  user: ''
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -36,6 +37,9 @@ const rootReducer = (state = initialState, action) => {
     }
     case ID_FIELD:{
       return {...state, detail: action.payload}
+    }
+    case USER:{
+      return {...state, user: action.payload}
     }
 
     default:

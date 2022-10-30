@@ -6,3 +6,4 @@ export const GET_FACILITIES = 'GET_FACILITIES';
 export const POST_CANCHA = 'POST_CANCHA';
 export const GET_FIELDS = 'GET_FIELDS';
 export const ID_FIELD = 'ID_FIELD';
+export const USER = 'USER'

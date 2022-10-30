@@ -23,6 +23,11 @@
     animation-delay: 1s;
 }
 
+.button:hover{
+    color: #ffffff;
+    background-color: #072c07ce;
+}
+
 .title{
     font-size: 50px;
     margin-bottom: 50px;

@@ -6,7 +6,8 @@ import {
   GET_SURFACES,
   GET_FACILITIES,
   GET_FIELDS,
-  ID_FIELD
+  ID_FIELD,
+  USER
 } from './actionsTypes';
 
 export const prueba = () => {
@@ -86,5 +87,12 @@ export const getFieldDetail = (id) => {
       type: ID_FIELD,
       payload: idField.data,
     })
+  }
+}
+
+export const userLogin = (user) => {
+  return {
+    type: USER,
+    payload: user
   }
 }
