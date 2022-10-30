@@ -18,11 +18,22 @@
     font-weight: 800;
 
     transition: all 300ms ease;
+
+    animation: in 1s ease;
+    animation-delay: 1s;
+}
+
+.button:hover{
+    color: #ffffff;
+    background-color: #072c07ce;
 }
 
 .title{
     font-size: 50px;
     margin-bottom: 50px;
+
+    animation: in 1s ease;
+    animation-delay: 1.2s;
 }
 
 .cards{
@@ -34,6 +45,9 @@
     margin: 30px 250px 150px;
     padding: 50px;
     border-radius: 30px;
+
+    animation: in 1s ease;
+    animation-delay: 1.4s;
 }
 
 .card{
@@ -66,4 +80,9 @@
     margin: 10px 0 0;
     font-size: 18px;
     font-weight: 300;
+}
+
+@keyframes in{
+    from{transform: translateY(100px); opacity: 0;}
+    to{transform: translateY(0); opacity: 1;}
 }

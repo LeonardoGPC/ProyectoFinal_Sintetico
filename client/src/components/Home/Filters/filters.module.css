@@ -1,0 +1,27 @@
+
+.container {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+
+.filtros{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 80vh;
+    background: #242529;
+    margin-top: 50px;
+    border-radius: 60px;
+    padding: 0 30px;
+}
+
+.h1{
+    color: white;
+}
+
+.checkbox{
+    color: white;
+}
+

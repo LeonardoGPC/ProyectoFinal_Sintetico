@@ -1,138 +1,222 @@
+/* @import '~antd/dist/antd.css'; */
+
 .detail {
-    margin: 0;
-    padding-top: 10px;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: black; /* momentaneo */
-  }
-  
-  .card {
-    /* background-color: rgb(23, 110, 23); */
-    margin: 15px;
-    padding: 5px;
-    border-radius: 3px;
-    display: flex;
-    align-items: center;
-    background-color: rgba(240, 234, 234, 0.42);
-  }
-  
-  .image {
-    margin: 3px;
-  }
-  
-  .image img {
-    border-radius: 15px;
-  }
-  
-  .detailInfo {
-    /* background-color: aliceblue; */
-    height: 300px;
-    margin-right: 15px;
-    display: grid;
-    align-content: stretch;
-    align-items: start;
-    justify-items: start;
-  }
-  
-  .name {
-    font-size: 30px;
-  }
-  
-  .info {
-    margin: 5px;
-    display: flex;
-    flex-direction: column;
-    /* align-items: flex-start; */
-  }
-  
-  .info ul {
-    list-style: none;
-    display: grid;
-    justify-items: start;
-    justify-content: start;
-    margin-bottom: 15px;
-    padding: 0;
-  }
-  
-  .info li {
-    margin: 5px;
-  }
-  
-  .info span {
-    display: flex;
-  }
-  
-  .description {
-    text-align: justify;
-    margin-right: 15px;
-  }
-  
-  .price {
-    display: grid;
-    align-content: center;
-    justify-content: center;
-    width: auto;
-    height: 40px;
-    padding-left: 3px;
-    padding-right: 3px;
-    background-color: hotpink;
-    /* padding: 10px; */
-    border-radius: 5px;
-  }
-  
-  .review {
-    margin: 25px;
-    border-radius: 3px;
-    background-color: rgb(23, 110, 23);
-    display: grid;
-    justify-items: start;
-  }
-  
-  .review h4 {
-    color: aliceblue;
-    font-size: 22px;
-    margin-left: 10px;
-  }
-  
-  .comment {
-    margin: 10px;
-    padding: 10px;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    background-color: aliceblue;
-  }
-  
-  .userData {
-    display: flex;
-  }
-  
-  .userReview {
-    margin-right: 20px;
-    /* border: 1px solid black; */
-    display: grid;
-  }
-  
-  .userList {
-    list-style: none;
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    padding: 0;
-    margin: 5px 10px;
-    font-weight: bold;
-  }
-  
-  .userReview p {
-    font-weight: lighter;
-    font-size: 18px;
-    text-align: justify;
-    margin: 0 10px;
-  }
-  
-  .profile {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 50%;
-  }
-  
+  /* background-color: #242529; */
+  background-image: url(https://images.unsplash.com/photo-1473075109809-7a17d327bdf6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);
+  background-repeat: none;
+  object-fit: cover;
+  color: white;
+  text-align: left;
+  font-size: 16px;
+  display: grid;
+  justify-items: center;
+  justify-content: end;
+}
+
+.detail p {
+  font-size: 16px;
+  margin: 0;
+}
+
+.detail h3 {
+  font-size: 25px;
+  margin: 0;
+}
+
+.detail button {
+  font-size: 16px;
+}
+
+.card {
+  background-color: rgba(0, 0, 0, 0.404);
+  /* background-color: rgba(0, 0, 0, 0.575); */
+  width: 100%;
+  margin-top: 30px;
+  display: inline-grid;
+  justify-items: center;
+}
+
+.cardContainer {
+  width: 90%;
+  display: flex;
+  margin-top: 10px;
+}
+
+.image {
+  display: flex;
+}
+
+.image img {
+  height: 350px;
+  width: auto;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.info {
+  height: 350px;
+  margin-left: 20px;
+  margin-top: 10px;
+  /* overflow: scroll; */
+  overflow: visible;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button {
+  width: 25px;
+  height: 25px;
+}
+
+.content {
+  display: grid;
+}
+
+.content ul {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+  font-style: italic;
+}
+
+.content li {
+  margin: 7px;
+}
+
+.facilities {
+  display: flex;
+}
+
+.facilitieIcon {
+  background-color: rgb(212, 212, 212);
+  border-radius: 50%;
+  padding: 4px;
+  display: grid;
+}
+
+.description {
+  margin-top: 18px;
+  text-align: start;
+  display: flex;
+  align-items: center;
+}
+
+.description p {
+  font-size: 18px;
+  /* overflow: scroll; */
+}
+
+.price {
+  display: grid;
+  justify-items: center;
+  margin-bottom: 3px;
+}
+
+.price p {
+  margin-bottom: 7px;
+  font-size: 18px;
+  font-style: italic;
+}
+
+.price button {
+  padding: 1.3em 3em;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.price button:hover {
+  /* background-color: #23c483; */
+  background-color: #98f576;
+  box-shadow: 0px 15px 20px #105b10;
+  /* color: #fff; */
+  color: black;
+  transform: translateY(-7px);
+}
+
+.price button:active {
+  transform: translateY(-1px);
+}
+
+/* -------------------------------------------------------------------- */
+.review {
+  width: 80%;
+  margin-top: 80px;
+  /* background-color: hotpink; */
+}
+
+.container {
+  max-height: 450px;
+  /* overflow: scroll; */
+  margin-bottom: 30px;
+  border-radius: 30px;
+  background-color: rgba(0, 0, 0, 0.575);
+}
+
+.comment {
+  border-radius: 30px;
+  border: 3px solid #404040;
+  /* margin: 20px; */
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.commentData {
+  padding: 20px;
+}
+
+.userData {
+  border-radius: 25px 25px 0 0;
+  background-color: #404040;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.userData p {
+  margin: 0 15px;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+}
+
+.profile {
+  width: 50px;
+  height: 50px;
+  margin-left: 15px;
+  margin-bottom: 3px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* -------------------------------------------------------------------- */
+.yourComment {
+  display: grid;
+  justify-items: start;
+  background-color: rgba(0, 0, 0, 0.404);
+  border-radius: 30px;
+  padding: 15px;
+}
+
+.textarea {
+  background-color: rgba(0, 0, 0, 0.575);
+  color: white;
+  border-color: rgba(255, 255, 255, 0.753);
+}

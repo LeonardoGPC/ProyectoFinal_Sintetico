@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "react-icons": "^4.6.0"
+    "react-icons": "^4.6.0",
+    "react-stars": "^2.2.5"
   }
 }
