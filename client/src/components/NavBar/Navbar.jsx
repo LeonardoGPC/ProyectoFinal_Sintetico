@@ -21,6 +21,9 @@ export default function Navbar() {
           <img className={style.logo} src={syntheticLogo} alt="logo" />
         </Link>
         <div className={style.containerLink}>
+          <Link to="/">
+            <p>Inicio</p>
+          </Link>
           <Link to="/about">
             <p>Nosotros</p>
           </Link>
