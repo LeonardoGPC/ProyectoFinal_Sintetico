@@ -5,7 +5,11 @@ import {
   GET_SIZES,
   GET_SURFACES,
   GET_FACILITIES,
-  GET_FIELDS
+  GET_FIELDS,
+  FILTER_BY_CITY,
+  FILTER_BY_SIZE,
+  FILTER_BY_TIME,
+  FILTER_BY_SURFACE,
 } from './actionsTypes';
 
 export const prueba = () => {
@@ -75,5 +79,37 @@ export const getFields = () =>{
       type: GET_FIELDS,
       payload: response.data,
     })
+  }
+}
+
+export function filterFieldByCity (payload) {
+  Number(payload)
+  return{
+    type: FILTER_BY_CITY,
+    payload: payload
+  }
+}
+
+export function filterFieldBySize(payload){ 
+  Number(payload)
+  return {
+    type: FILTER_BY_SIZE,
+    payload: payload
+  }
+}
+
+export function filterFieldByTime(payload){
+  Number(payload)
+  return {
+    type: FILTER_BY_TIME,
+    payload: payload
+  }
+}
+
+export function filterFieldBySurface(payload){
+  Number(payload)
+  return{
+    type: FILTER_BY_SURFACE,
+    payload: payload
   }
 }
