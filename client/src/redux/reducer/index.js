@@ -21,6 +21,7 @@ const initialState = {
   allFields:[],
   fieldsFilterByCity:[],
   fieldsFilterByCityAndSize: [],
+  detail: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -92,6 +93,12 @@ const rootReducer = (state = initialState, action) => {
       return {...state, facilities: action.payload}
     }
     
+    case GET_FIELDS:{
+      return {...state, fields: action.payload}
+    }
+    case ID_FIELD:{
+      return {...state, detail: action.payload}
+    }
     default:
       return { ...state };
   }

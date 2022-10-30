@@ -1,3 +1,5 @@
+/* @import '~antd/dist/antd.css'; */
+
 .detail {
   /* background-color: #242529; */
   background-image: url(https://images.unsplash.com/photo-1473075109809-7a17d327bdf6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);
@@ -27,13 +29,14 @@
 
 .card {
   background-color: rgba(0, 0, 0, 0.404);
+  /* background-color: rgba(0, 0, 0, 0.575); */
   width: 100%;
   margin-top: 30px;
   display: inline-grid;
   justify-items: center;
 }
 
-.cardContainer{
+.cardContainer {
   width: 90%;
   display: flex;
   margin-top: 10px;
@@ -77,21 +80,46 @@
   list-style: none;
   padding-left: 0;
   margin-left: 0;
+  font-style: italic;
 }
 
 .content li {
   margin: 7px;
 }
 
+.facilities {
+  display: flex;
+}
+
+.facilitieIcon {
+  background-color: rgb(212, 212, 212);
+  border-radius: 50%;
+  padding: 4px;
+  display: grid;
+}
+
 .description {
+  margin-top: 18px;
   text-align: start;
   display: flex;
   align-items: center;
 }
 
+.description p {
+  font-size: 18px;
+  /* overflow: scroll; */
+}
+
 .price {
   display: grid;
   justify-items: center;
+  margin-bottom: 3px;
+}
+
+.price p {
+  margin-bottom: 7px;
+  font-size: 18px;
+  font-style: italic;
 }
 
 .price button {
@@ -176,4 +204,19 @@
   margin-bottom: 3px;
   border-radius: 50%;
   object-fit: cover;
+}
+
+/* -------------------------------------------------------------------- */
+.yourComment {
+  display: grid;
+  justify-items: start;
+  background-color: rgba(0, 0, 0, 0.404);
+  border-radius: 30px;
+  padding: 15px;
+}
+
+.textarea {
+  background-color: rgba(0, 0, 0, 0.575);
+  color: white;
+  border-color: rgba(255, 255, 255, 0.753);
 }
