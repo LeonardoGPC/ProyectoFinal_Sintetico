@@ -29,7 +29,7 @@ function Detail() {
   const [currentValue, setCurrentValue] = useState(0);
   const [hoverValue, setHoverValue] = useState(undefined);
   const stars = Array(5).fill(0);
-  
+
   const handleClick = (value) => {
     setCurrentValue(value);
     // alert(`Hiciste una puntuación de ${value} estrellas`);
@@ -49,7 +49,7 @@ function Detail() {
 
   const onClickHandler = () => {
     setComments((comments) => [...comments, comment]);
-    setComment("")
+    setComment("");
   };
 
   const onChangeHandler = (e) => {
@@ -164,7 +164,7 @@ function Detail() {
                 </p>
               </div>
               {/* ------------------ */}
-              {comments.map((text) => (
+              {comments.map((text, i) => (
                 <div className={styles.comment}>
                   <div className={styles.userData}>
                     <figure className={styles.user}>
@@ -176,17 +176,34 @@ function Detail() {
                       <p>Nombre</p>
                     </figure>
                     <p>
-                    <ReactStars
+                      <ReactStars
                         count={5}
                         value={currentValue}
                         size={24}
                         edit={false}
                         color2={"#ffd700"}
                       />
+                      {/* {stars.map((_, index) => {
+                        return (
+                          <FaStar
+                            key={index}
+                            size={24}
+                            color={
+                              (currentValue) > index
+                                ? colors.orange
+                                : colors.grey
+                            }
+                            style={{
+                              marginRight: 10,
+                              cursor: "pointer",
+                            }}
+                          />
+                        );
+                      })} */}
                     </p>
                   </div>
 
-                  <p className={styles.commentData}>{text}</p>
+                  <p className={styles.commentData}>Comment{i} {text}</p>
                 </div>
               ))}
 
@@ -223,7 +240,7 @@ function Detail() {
                 placeholder="Deja tu comentario..."
                 className={styles.textarea}
               />
-              <button onClick={onClickHandler}>Submit</button>
+              <button onClick={onClickHandler} disabled={!comment}>Submit</button>
             </div>
           </div>
         </div>
