@@ -47,7 +47,7 @@
 }
 
 .card{
-    background: linear-gradient(180deg, rgba(19, 19, 19, 1) 0%, rgba(36,37,41,1) 48%, rgba(19, 19, 19, 1) 100%);
+    background: #1C1C1C;
     border-radius:15px 15px 15px 15px ;
     overflow: hidden;
     height: 100%;
@@ -113,6 +113,7 @@
     flex-direction: column;
     align-items: flex-end;
     padding-top: 4px;
+    justify-content: space-between;
 }
 
 
@@ -146,4 +147,7 @@
     border-radius: 5px;
     cursor: pointer;
     font-weight: 600;
+    border: none;
+    width: max-content;
+    margin: 20px auto 0;
 }
