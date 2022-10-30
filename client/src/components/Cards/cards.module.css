@@ -57,10 +57,10 @@ body {
   color: grey;
 }
 
-label:hover {
+.label:hover {
   color: #98f576;
 }
-label:hover ~ label {
+.label:hover ~ label {
   color: #98f576;
 }
 
