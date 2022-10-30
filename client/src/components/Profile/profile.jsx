@@ -8,7 +8,6 @@ import prof from './profile.module.css'
 function Profile() {
 
     let user = useSelector((state) => state.user)
-    let dispatch = useDispatch()
 
     if(user.length === 0){
         window.location.replace("http://localhost:3000/login");
@@ -17,7 +16,7 @@ function Profile() {
         <div className={prof.main}>
             <Navbar/>
             <div className={prof.div}>
-                { user.auth === 'user' ? 
+                { user === 'user' ? 
                 <div className={prof.menu}>
                     <ul>
                         <li className={prof.profile}>
@@ -27,9 +26,9 @@ function Profile() {
                         <li className={prof.li}>Reservas</li>
                         <li className={prof.li}>Configuración</li>
                     </ul>
-                    <p className={prof.li}>Cerrar Sesión</p>
+                    <p className={prof.li} onClick={() => window.location.replace("http://localhost:3000/")}>Cerrar Sesión</p>
                 </div>
-                 : user.auth === 'club' ? 
+                 : user === 'club' ? 
                  <div className={prof.menu}>
                     <ul>
                         <li className={prof.profile}>
@@ -42,7 +41,7 @@ function Profile() {
                         <li className={prof.li}>Reservas</li>
                         <li className={prof.li}>Configuración</li>
                     </ul>
-                    <p className={prof.li}>Cerrar Sesión</p>
+                    <p className={prof.li} onClick={() => window.location.replace("http://localhost:3000/")}>Cerrar Sesión</p>
                 </div>
                 : 
                 <div className={prof.menu}>

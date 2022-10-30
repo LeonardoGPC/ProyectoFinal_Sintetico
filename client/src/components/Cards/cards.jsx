@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { getFields } from '../../redux/actions';
 import style from './cards.module.css';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import { Link } from 'react-router-dom';
 
 export default function Cards() {
   const dispatch = useDispatch();
@@ -31,7 +32,8 @@ export default function Cards() {
       <div className={style.container}>
         {fieldsByPage.map((field) => {
           return (
-            <div key={field.id} className={style.group}>
+            <div>
+            <Link key={field.id} className={style.group} to={`/sintetico/detail/${field.id}`}>
               <div className={style.secondContainer}>
                 <img
                   className={style.image}
@@ -61,6 +63,7 @@ export default function Cards() {
                 <p className={style.localidad}>Localidad: {field.City.name}</p>
                 <p className={style.tamaño}>Tamaño: futbol {field.Size.name}</p>
               </div>
+            </Link>
             </div>
           );
         })}

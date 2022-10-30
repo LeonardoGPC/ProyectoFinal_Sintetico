@@ -45,8 +45,8 @@ export default function Carousel ({teams}) {
                                         </span>
                                     </div>
                                 </div>
-                                <Link to={`/sintetico/detail/${t.id}`}>
-                                    <button className={s.button}>Rentar</button>
+                                <Link to={`/sintetico/detail/${t.id}`} className={s.button}> Rentar
+                                    {/* <button className={s.button}>Rentar</button> */}
                                 </Link> 
                             </div>
                         </SwiperSlide>

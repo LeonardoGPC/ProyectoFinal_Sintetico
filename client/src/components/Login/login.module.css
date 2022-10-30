@@ -140,6 +140,14 @@
     border: none;
     font-size: 18px;
     cursor: pointer;
+    width: max-content;
+}
+
+.session{
+    display: flex;
+    gap: 40px;
+    flex-direction: column;
+    align-items: center;
 }
 
 .dinamic{

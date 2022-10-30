@@ -18,6 +18,7 @@ body {
   justify-content: center;
   margin-bottom: 30px;
   border-radius: 10px;
+  text-decoration: none;
 }
 .secondContainer {
   width: 900px;

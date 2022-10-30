@@ -13,7 +13,7 @@ import {
 import s from "./filters.module.css";
 import Flatpickr from 'react-flatpickr'
 import "flatpickr/dist/themes/material_green.css"
-import Fields from "../../Cards/cards.jsx"
+// import Fields from "../../Cards/cards.jsx"
 
 
 
@@ -158,9 +158,9 @@ export default function Filters(){
                         resetear filtros
                     </button>
             </div>
-            <div className={s.fields}>
+            {/* <div className={s.fields}>
                 <Fields/>
-            </div>
+            </div> */}
             
         </div>
         
