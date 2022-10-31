@@ -58,7 +58,7 @@ export default function Cards() {
                 <p className={style.precio}>Precio: ${field.price}</p>
                 <p className={style.localidad}>Localidad: {field.City.name}</p>
                 <p className={style.tamaño}>Tamaño: futbol {field.Size.name}</p>
-                <p className={style.superficie}>superficie: {field.Surface.name}</p>
+                <p className={style.superficie}>Superficie: {field.Surface.name}</p>
               </div>
             </Link>
             </div>
