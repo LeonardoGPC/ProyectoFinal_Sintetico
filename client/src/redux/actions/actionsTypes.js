@@ -11,3 +11,4 @@ export const FILTER_BY_SIZE = "FILTER_BY_SIZE"
 export const FILTER_BY_TIME = "FILTER_BY_TIME"
 export const FILTER_BY_SURFACE = "FILTER_BY_SURFACE"
 export const ID_FIELD = 'ID_FIELD';
+export const CLEAN_ERRORS = "CLEAN_ERRORS"
