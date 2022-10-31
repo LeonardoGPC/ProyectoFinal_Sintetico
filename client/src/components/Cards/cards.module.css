@@ -15,6 +15,7 @@ body {
 
 .group {
   display: flex;
+  
   justify-content: center;
   margin-bottom: 30px;
   border-radius: 10px;
@@ -30,6 +31,7 @@ body {
   border-left: 5px;
   border-bottom-left-radius: 20px;
   border-top-left-radius: 20px;
+
 }
 .containerDescription {
   width: 600px;
@@ -106,6 +108,13 @@ input[type='radio'] {
 .tamaño {
   font-size: 14px;
   margin-left: 35px;
+}
+.superficie{
+  margin-top: 16px;
+  font-size: 14px;
+  margin-bottom: 15px;
+  margin-left: 35px;
+
 }
 
 .scroll::-webkit-scrollbar {

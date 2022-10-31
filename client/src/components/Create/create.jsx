@@ -36,11 +36,11 @@ export default function Create() {
     address: '',
     openHour: '',
     closeHour: '',
-    CityId: '',
-    SizeId: '',
-    SurfaceId: '',
+    city: '',
+    size: '',
+    surface: '',
     description: '',
-    Facilities: [],
+    facilities: [],
   });
 
   const handleFormSubmit = (e) => {
@@ -53,9 +53,9 @@ export default function Create() {
       'address',
       'openHour',
       'closeHour',
-      'CityId',
-      'SizeId',
-      'SurfaceId',
+      'city',
+      'size',
+      'surface',
       'description'
     ];
 
@@ -94,17 +94,17 @@ export default function Create() {
   };
 
   const handlecheck = (e) => {
-    const Facilities = [...input.Facilities];
+    const facilities = [...input.facilities];
 
     if (e.target.checked) {
-      Facilities.push(e.target.value);
+      facilities.push(e.target.value);
     } else {
-      Facilities.splice(Facilities.indexOf(e.target.value), 1);
+      facilities.splice(facilities.indexOf(e.target.value), 1);
     }
 
     setInput({
       ...input,
-      Facilities,
+      facilities,
     });
   };
 
@@ -209,13 +209,13 @@ export default function Create() {
               <div
                 className={classNames(
                   style.group,
-                  errorState.CityId && style.error,
+                  errorState.city && style.error,
                 )}
               >
                 <label className={style.subtittle}>Localidad:</label>
                 <select
                   className={style.input}
-                  name="CityId"
+                  name="city"
                   onChange={handleInputChange}
                   onBlur={(e) => validate(e.target, dispatchError)}
                 >
@@ -227,7 +227,7 @@ export default function Create() {
                     </option>
                   ))}
                 </select>
-                {errorState.CityId && <p>{errorState.CityId}</p>}
+                {errorState.city && <p>{errorState.city}</p>}
               </div>
               <div
                 className={classNames(
@@ -249,13 +249,13 @@ export default function Create() {
               <div
                 className={classNames(
                   style.group,
-                  errorState.SizeId && style.error,
+                  errorState.size && style.error,
                 )}
               >
                 <label className={style.subtittle}>Tamaño:</label>
                 <select
                   onChange={handleInputChange}
-                  name="SizeId"
+                  name="size"
                   className={style.input}
                   onBlur={(e) => validate(e.target, dispatchError)}
                 >
@@ -271,18 +271,18 @@ export default function Create() {
                     </option>
                   ))}
                 </select>
-                {errorState.SizeId && <p>{errorState.SizeId}</p>}
+                {errorState.size && <p>{errorState.size}</p>}
               </div>
               <div
                 className={classNames(
                   style.group,
-                  errorState.SurfaceId && style.error,
+                  errorState.surface && style.error,
                 )}
               >
                 <label className={style.subtittle}>Superficie:</label>
                 <select
                   className={style.input}
-                  name="SurfaceId"
+                  name="surface"
                   onChange={handleInputChange}
                   onBlur={(e) => validate(e.target, dispatchError)}
                 >
@@ -297,7 +297,7 @@ export default function Create() {
                     </option>
                   ))}
                 </select>
-                {errorState.SurfaceId && <p>{errorState.SurfaceId}</p>}
+                {errorState.surface && <p>{errorState.surface}</p>}
               </div>
               <div
                 className={classNames(
