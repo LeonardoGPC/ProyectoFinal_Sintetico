@@ -130,4 +130,5 @@
 .button:hover{
   padding: 8px 30px;
   border-radius: 30px;
+  cursor: pointer;
 }
