@@ -1,12 +1,15 @@
 import React from "react"
 import s from "./benefits.module.css"
+import reloj from '../../../../img/icons/reloj.png'
+import escudo from '../../../../img/icons/escudo.png'
+import facil from '../../../../img/icons/facil.png'
 
 
 export default function Benefits () {
     return (
         <div className={s.container}>
             <div className={s.columnas}>
-                    <div className={s.img}></div>
+            <img className={s.img} src={reloj}/>
                     <div className={s.beneficios}>
                             <h1 className={s.title}>
                                 Ahorra tiempo
@@ -18,7 +21,7 @@ export default function Benefits () {
                     </div>
             </div>
             <div className={s.columnas}>
-                    <div className={s.img}></div>
+            <img className={s.img} src={escudo}/>
                     <div className={s.beneficios}>
                             <h1 className={s.title}>
                                 Calidad garantizada 
@@ -30,7 +33,7 @@ export default function Benefits () {
                     </div>
             </div>
             <div className={s.columnas}>
-                    <div className={s.img}></div>
+            <img className={s.img} src={facil}/>
                     <div className={s.beneficios}>
                             <h1 className={s.title}>
                                 Facil de usar

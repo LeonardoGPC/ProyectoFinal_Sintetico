@@ -1,9 +1,8 @@
 import React from 'react'
-import { useEffect } from 'react'
-import { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import Navbar from '../NavBar/Navbar'
 import prof from './profile.module.css'
+import foto from '../../img/foto_perfil.jpg'
 
 function Profile() {
 
@@ -20,7 +19,7 @@ function Profile() {
                 <div className={prof.menu}>
                     <ul>
                         <li className={prof.profile}>
-                            <div className={prof.img}></div>
+                            <img className={prof.img} src={foto}/>
                             <h2 className={prof.name}>Leonardo Peña</h2>
                         </li>
                         <li className={prof.li}>Reservas</li>
@@ -32,7 +31,7 @@ function Profile() {
                  <div className={prof.menu}>
                     <ul>
                         <li className={prof.profile}>
-                            <div className={prof.img}></div>
+                            <img className={prof.img} src={foto}/>
                             <h2 className={prof.name}>Leonardo Peña</h2>
                         </li>
                         <li className={prof.li}>Hacer Publicación</li>
@@ -47,7 +46,7 @@ function Profile() {
                 <div className={prof.menu}>
                     <ul>
                         <li className={prof.profile}>
-                            <div className={prof.img}></div>
+                            <img className={prof.img} src={foto}/>
                             <h2 className={prof.name}>Leonardo Peña</h2>
                         </li>
                         <li className={prof.li}>Gestionar Publicaciones</li>

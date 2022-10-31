@@ -18,7 +18,6 @@
 
 .img {
     align-self: center;
-    background: greenyellow;
     width: 100px;
     height: 100px;
 }
@@ -36,7 +35,7 @@
 
 .p{
 
-    text-align:center;
+    text-align:justify;
     font-size: 25px;
     color: rgba(255, 255, 255, 1);
     font-family: 'Merriweather Sans', sans-serif;

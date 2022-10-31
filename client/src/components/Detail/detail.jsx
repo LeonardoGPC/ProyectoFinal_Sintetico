@@ -136,7 +136,7 @@ function Detail() {
                   <div className={styles.description}>
                     <span className={styles.price}>
                       <p>${detailField.price}</p>
-                      <button>Reservar</button>
+                      <Link to='/login'>Reservar</Link>
                     </span>
                   </div>
                 </div>
