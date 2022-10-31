@@ -152,5 +152,5 @@ module.exports = {
         description: "Ven y disfruta un divertido partido de fútbol 5 con tus amigos. Arma tu grupo de 10 amigos, alquila la cancha en la sede de tu preferencia y demuestra el campeón que llevas dentro. Ejercítate, pon a prueba tu resistencia física y hazle un golazo a la diversión. También podrás comprar el alquiler de balón para tu práctica.",
       },
     ],
-  };
 
+  };

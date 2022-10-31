@@ -12,6 +12,7 @@ import {
   FILTER_BY_SIZE,
   FILTER_BY_TIME,
   FILTER_BY_SURFACE,
+  CLEAN_ERRORS,
 } from './actionsTypes';
 
 export const prueba = () => {
@@ -131,5 +132,12 @@ export const userLogin = (user) => {
   return {
     type: USER,
     payload: user
+  }
+}
+
+export function cleanErrors() {
+  return {
+    type: CLEAN_ERRORS,
+    payload: null
   }
 }

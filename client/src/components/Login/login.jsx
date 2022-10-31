@@ -72,9 +72,9 @@ function Login() {
                 </div>            
             </form>
             <p className={log.switch}>¿Aún no tienes cuenta? <span onClick={() => setDinamic('calc(100% - 30px)')}>Registrate</span></p>
-            </div> : <div>
+            </div> : <div className={log.session}>
             <h2>Sesión iniciada correctamente</h2>
-            <Link to='/' className={log.btn}>Regresar al inicio</Link>    
+            <Link to='/' className={log.btn2}>Regresar al inicio</Link>    
             </div>}
         </div>
         <div className={log.dinamic} style={{transform: `translateX(${dinamic})`}}></div>

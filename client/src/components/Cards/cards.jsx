@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { getFields } from '../../redux/actions';
 import style from './cards.module.css';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import { Link } from 'react-router-dom';
 
 export default function Cards() {
   const dispatch = useDispatch();
@@ -31,7 +32,8 @@ export default function Cards() {
       <div className={style.container}>
         {fieldsByPage.map((field) => {
           return (
-            <div key={field.id} className={style.group}>
+            <div key={field.id}>
+            <Link  className={style.group} to={`/sintetico/detail/${field.id}`}>
               <div className={style.secondContainer}>
                 <img
                   className={style.image}
@@ -48,11 +50,7 @@ export default function Cards() {
                     color2={'#98f576'}
                   />
                   <p className={style.description}>
-                    Disfruta de un muy buen partido de fútbol 6 con tus mejores
-                    amigos o familiares, muestra todas tus habilidades en este
-                    deporte y siéntete como todo un jugador prefesional en las
-                    canchas que Bombonera tiene para ti. También podrás comprar
-                    el servicio de alquiler de balón para tu práctica.
+                    {field.description}
                   </p>
                 </div>
               </div>
@@ -60,7 +58,9 @@ export default function Cards() {
                 <p className={style.precio}>Precio: ${field.price}</p>
                 <p className={style.localidad}>Localidad: {field.City.name}</p>
                 <p className={style.tamaño}>Tamaño: futbol {field.Size.name}</p>
+                <p className={style.superficie}>superficie: {field.Surface.name}</p>
               </div>
+            </Link>
             </div>
           );
         })}

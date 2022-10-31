@@ -16,7 +16,7 @@ export default function Header() {
             <div className={land.club}>
                 <div className={land.club_container}>
                     <h1 className={land.club_title}>¿Quieres publicar<br/>una cancha?</h1>
-                    <p className={land.club_paragraph}>¿Eres dueño de alguna chancha o club? ¡Has encontrado<br/>el mejor lugar para promocionarlo!</p>
+                    <p className={land.club_paragraph}>¿Eres dueño de alguna chancha o club?<br/>¡Has encontrado el mejor lugar para promocionarlo!</p>
                     <Link className={land.club_cta} to='/clubs'>Publica ahora</Link>
                 </div>
             </div>

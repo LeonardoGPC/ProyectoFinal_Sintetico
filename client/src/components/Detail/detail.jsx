@@ -13,6 +13,7 @@ import quincho from "../../img/icons/quincho.png";
 import { Rate } from "antd";
 import ReactStars from "react-stars";
 import { FaStar } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const colors = {
   orange: "#FFBA5A",
@@ -75,11 +76,11 @@ function Detail() {
               <div className={styles.info}>
                 <div className={styles.title}>
                   <h3 className={styles.name}>{detailField.name}</h3>
-                  <button className={styles.button}>X</button>
+                  <Link to='/sintetico' className={styles.button}>X</Link>
                 </div>
                 <div className={styles.content}>
                   <ul>
-                    <li>Rating: {detailField.score}</li>
+                    {/* <li>Rating: {detailField.score}</li> */}
                     {/* <li><Rate disabled allowHalf value={detailField.score} character="★" style={{ fontSize: 30}}/></li> */}
                     <li>
                       <ReactStars
@@ -128,12 +129,14 @@ function Detail() {
                       {detailField.address},{" "}
                       {detailField.City ? detailField.City.name : ""}
                     </li>
+                    <li>
+                      <p>{detailField.description}</p>
+                    </li>
                   </ul>
                   <div className={styles.description}>
-                    <p>{detailField.description}</p>
                     <span className={styles.price}>
                       <p>${detailField.price}</p>
-                      <button>Reservar</button>
+                      <Link to='/login'>Reservar</Link>
                     </span>
                   </div>
                 </div>
@@ -223,7 +226,7 @@ function Detail() {
                 placeholder="Deja tu comentario..."
                 className={styles.textarea}
               />
-              <button onClick={onClickHandler}>Submit</button>
+              <button onClick={onClickHandler} disabled={!comment}>Submit</button>
             </div>
           </div>
         </div>

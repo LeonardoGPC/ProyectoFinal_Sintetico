@@ -140,6 +140,41 @@
     border: none;
     font-size: 18px;
     cursor: pointer;
+    text-align: center;
+    width: 120px;
+    transition: all 300ms ease;
+}
+
+.btn:hover{
+    width: 150px;
+    border-radius: 20px;
+}
+
+.btn2{
+    color: black;
+    padding: 8px 30px;
+    background-color: #98F576;
+    text-decoration: none;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    text-align: center;
+    width: 210px;
+    transition: all 300ms ease;
+}
+
+.btn2:hover{
+    width: 250px;
+    border-radius: 20px;
+}
+
+.session{
+    display: flex;
+    gap: 40px;
+    flex-direction: column;
+    align-items: center;
 }
 
 .dinamic{
@@ -170,6 +205,11 @@
     border: none;
     background-color: #98f576;
     cursor: pointer;
+    transition: all 300ms ease;
+}
+
+.back:hover{
+    transform: rotate(180deg);
 }
 
 @keyframes in{

@@ -1,15 +1,19 @@
 .wrapper {
     display: flex;
-    height: 25vh;
+    height: 50px;
     width: 100%;
     background-color: #242529;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
-.top img {
-    width: 100px;
-    margin: 1rem;
+.top{
+    width: 70px;
+    margin: 0.5rem;
+    position: absolute;
+    bottom: 0;
+    left: 200px;
 }
 
 .socialGroup{
@@ -20,12 +24,12 @@
     gap: 40px;
     justify-content: center;
     cursor: pointer;
-    margin: 25rem;
-    margin-left: 25rem;
+    margin: 0 25rem;
 }
 
 .socialIcon{
-    margin: 3rem;
+    margin: 0 3rem;
+    width: 25px;
 }
 
 .icon{
@@ -35,6 +39,8 @@
 .derechos{
     margin: 0rem;
     padding: 0.7rem;
+    position: absolute;
+    right: 200px;
 }
 
 .derechos p{

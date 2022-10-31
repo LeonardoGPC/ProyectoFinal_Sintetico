@@ -1,14 +1,12 @@
 import React from 'react'
-import { useEffect } from 'react'
-import { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import Navbar from '../NavBar/Navbar'
 import prof from './profile.module.css'
+import foto from '../../img/foto_perfil.jpg'
 
 function Profile() {
 
     let user = useSelector((state) => state.user)
-    let dispatch = useDispatch()
 
     if(user.length === 0){
         window.location.replace("http://localhost:3000/login");
@@ -17,23 +15,23 @@ function Profile() {
         <div className={prof.main}>
             <Navbar/>
             <div className={prof.div}>
-                { user.auth === 'user' ? 
+                { user === 'user' ? 
                 <div className={prof.menu}>
                     <ul>
                         <li className={prof.profile}>
-                            <div className={prof.img}></div>
+                            <img className={prof.img} src={foto}/>
                             <h2 className={prof.name}>Leonardo Peña</h2>
                         </li>
                         <li className={prof.li}>Reservas</li>
                         <li className={prof.li}>Configuración</li>
                     </ul>
-                    <p className={prof.li}>Cerrar Sesión</p>
+                    <p className={prof.li} onClick={() => window.location.replace("http://localhost:3000/")}>Cerrar Sesión</p>
                 </div>
-                 : user.auth === 'club' ? 
+                 : user === 'club' ? 
                  <div className={prof.menu}>
                     <ul>
                         <li className={prof.profile}>
-                            <div className={prof.img}></div>
+                            <img className={prof.img} src={foto}/>
                             <h2 className={prof.name}>Leonardo Peña</h2>
                         </li>
                         <li className={prof.li}>Hacer Publicación</li>
@@ -42,13 +40,13 @@ function Profile() {
                         <li className={prof.li}>Reservas</li>
                         <li className={prof.li}>Configuración</li>
                     </ul>
-                    <p className={prof.li}>Cerrar Sesión</p>
+                    <p className={prof.li} onClick={() => window.location.replace("http://localhost:3000/")}>Cerrar Sesión</p>
                 </div>
                 : 
                 <div className={prof.menu}>
                     <ul>
                         <li className={prof.profile}>
-                            <div className={prof.img}></div>
+                            <img className={prof.img} src={foto}/>
                             <h2 className={prof.name}>Leonardo Peña</h2>
                         </li>
                         <li className={prof.li}>Gestionar Publicaciones</li>
