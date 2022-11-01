@@ -53,14 +53,14 @@ export const validate = (target, dispatchError) => {
       }
     }
   
-    if (formName === 'CityId') {
+    if (formName === 'city') {
       if (formValue.length === 0) {
         success = false;
         dispatchError({ type: formName, value: 'El valor es requerido' });
       }
     }
   
-    if (formName === 'SizeId') {
+    if (formName === 'size') {
       if (formValue.length === 0) {
         success = false;
         dispatchError({ type: formName, value: 'El valor es requerido' });
@@ -74,7 +74,7 @@ export const validate = (target, dispatchError) => {
     }
     
   
-    if (formName === 'SurfaceId') {
+    if (formName === 'surface') {
       if (formValue.length === 0) {
         success = false;
         dispatchError({ type: formName, value: 'El valor es requerido' });
