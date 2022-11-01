@@ -34,8 +34,6 @@ const { Field, Facility, Size, Surface, City, Comment } = sequelize.models;
 
 Field.belongsToMany(Facility, {through: 'fieldFacility'});
 Facility.belongsToMany(Field, {through: 'fieldFacility'});
-// Field.belongsTo(Comment, {through: 'commentsFiel'});
-// Comment.belongsTo(Field, {through: 'commentsFiel'});
 
 City.hasMany(Field);
 Field.belongsTo(City);
@@ -47,7 +45,7 @@ Surface.hasMany(Field);
 Field.belongsTo(Surface);
 
 Comment.hasMany(Field); 
-Field.belongsToMany(Comment)
+Field.belongsTo(Comment);
 
 
 // Aca vendrian las relaciones

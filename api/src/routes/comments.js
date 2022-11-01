@@ -14,13 +14,11 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
   try {
-    // const { id, score, comment } = req.body;
-    // const createComment = await Comments.create({ id, score, comment });
-    // res.json(createComment)
-    const createComment = await Comment.create(req.body);
+    const { id, score, comment } = req.body;
+    const createComment = await Comment.create({ id, score, comment });
     res.json(createComment)
-    newVideogame.addGenre(genres);
-    res.status(200).send(newVideogame);
+    // const createComment = await Comment.create(req.body);
+    // res.json(createComment)
   } catch (error) {
     res.status(404).send({ error: error.message });
   }
