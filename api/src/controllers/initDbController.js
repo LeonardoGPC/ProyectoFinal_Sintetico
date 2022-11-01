@@ -1,9 +1,10 @@
-const { Surface, Size, Facility, City, Field } = require('../db')
+const { Surface, Size, Facility, City, Field, Comment } = require('../db')
 const { SURFACES } = require('../initData/surfaces')
 const { SIZES } = require('../initData/sizes')
 const { FACILITIES } = require('../initData/facilities')
 const { CITIES } = require('../initData/cities')
 const { FIELDS } = require('../initData/fields')
+const { COMMENTS } = require('../initData/comments')
 
 
 
@@ -18,6 +19,8 @@ async function chargeDb(){
     if(!city.length) await City.bulkCreate(CITIES)
     const fields = await Field.findAll()
     if(!fields.length) await Field.bulkCreate(FIELDS)
+    const comments = await Comment.findAll()
+    if(!comments.length) await Comment.bulkCreate(COMMENTS)
     
     const cancha1 = await Field.findByPk(1)
     await cancha1.addFacilities([1,2])

@@ -4,6 +4,7 @@ const facilities = require('./facilities')
 const sizes = require('./sizes')
 const surfaces = require('./surfaces')
 const cities = require('./cities')
+const comments = require('./comments')
 
 const router = Router();
 
@@ -12,5 +13,6 @@ router.use('/sizes', sizes)
 router.use('/facilities', facilities)
 router.use('/surfaces', surfaces)
 router.use('/cities', cities)
+router.use('/comments', comments)
 
 module.exports = router;
