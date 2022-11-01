@@ -52,7 +52,12 @@ async function getFieldById(id){
                 [Op.eq]: "APPROVED"
             }
         },
+        attributes: [Sequelize.fn('AVG', Sequelize.col('Comment.score')), 'rating'],
         include:[
+            {
+                model: Comment,
+                attributes: []
+            },
             {
                 model: Size,
                 ...queryParams2,
