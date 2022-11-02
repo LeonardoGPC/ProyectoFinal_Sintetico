@@ -9,13 +9,24 @@ module.exports = (sequelize) => {
         primaryKey:true,
         allowNull:false
       },
-    score: {
-      type: DataTypes.STRING,
-    //   allowNull: false,
-    },
     comment: {
-      type: DataTypes.STRING,
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+    score: {
+      type: DataTypes.FLOAT,
       allowNull: false,
     },
-  });
-};
+    date: {
+      type: DataTypes.DATE, //VER
+      allowNull: false,
+    },
+    hour: {
+      type: DataTypes.TIME, //VER
+      allowNull: false,
+    }
+    
+  },{
+    timestamps: false,
+  }
+)};
