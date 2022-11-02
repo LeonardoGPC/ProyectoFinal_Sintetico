@@ -79,7 +79,7 @@ function Login() {
         </div>
         <div className={log.dinamic} style={{transform: `translateX(${dinamic})`}}></div>
       </div>
-      <Link to='/' className={log.back}>X</Link>
+      <div className={log.back} onClick={() => window.history.back()}>X</div>
     </div>
   )
 }

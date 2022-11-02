@@ -47,7 +47,7 @@ Surface.hasMany(Field);
 Field.belongsTo(Surface);
 
 Comment.hasMany(Field); 
-Field.belongsToMany(Comment)
+// Field.belongsToMany(Comment)
 
 
 // Aca vendrian las relaciones
