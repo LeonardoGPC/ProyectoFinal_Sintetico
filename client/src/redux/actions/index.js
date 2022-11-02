@@ -6,11 +6,13 @@ import {
   GET_SURFACES,
   GET_FACILITIES,
   GET_FIELDS,
+  ID_FIELD,
+  USER,
   FILTER_BY_CITY,
   FILTER_BY_SIZE,
   FILTER_BY_TIME,
   FILTER_BY_SURFACE,
-  ID_FIELD
+  CLEAN_ERRORS,
 } from './actionsTypes';
 
 export const prueba = () => {
@@ -112,6 +114,8 @@ export function filterFieldBySurface(payload){
   return{
     type: FILTER_BY_SURFACE,
     payload: payload
+  }
+}
     
 export const getFieldDetail = (id) => {
   return async(dispatch) => {
@@ -121,5 +125,19 @@ export const getFieldDetail = (id) => {
       payload: idField.data,
     })
     
+  }
+}
+
+export const userLogin = (user) => {
+  return {
+    type: USER,
+    payload: user
+  }
+}
+
+export function cleanErrors() {
+  return {
+    type: CLEAN_ERRORS,
+    payload: null
   }
 }

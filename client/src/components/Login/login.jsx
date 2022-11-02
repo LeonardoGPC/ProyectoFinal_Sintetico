@@ -3,10 +3,25 @@ import log from './login.module.css'
 import logo from '../img/balon.png'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { userLogin } from '../../redux/actions'
 
 function Login() {
 
     const [dinamic, setDinamic] = useState('0')
+    const dispatch = useDispatch()
+    const user = useSelector((state) => state.user)
+
+    const loginHandler = (e) => {
+        e.preventDefault()
+        if(e.target.value === 'Usuario'){
+            dispatch(userLogin('user'))
+        } else if (e.target.value === 'Club'){
+            dispatch(userLogin('club'))
+        } else {
+            dispatch(userLogin('admin'))
+        }
+    }
 
   return (
     <div className={log.main}>
@@ -38,6 +53,7 @@ function Login() {
         </div>
         <div className={log.login}>
             <img src={logo} className={log.logo}/>
+            {user.length === 0 ? <div>
             <h4>Inicia sesión con Google/Facebook</h4>
             <p className={log.division}>------------ o con tu usuario -----------</p>
             <form>
@@ -50,10 +66,16 @@ function Login() {
                     <input type='password'/>
                 </div>
                 <div className={log.button}>
-                    <input type='submit' value='Iniciar sesión'/>
+                    <input type='button' value='Usuario' onClick={e => loginHandler(e)}/>
+                    <input type='button' value='Club' onClick={e => loginHandler(e)}/>
+                    <input type='button' value='Admin' onClick={e => loginHandler(e)}/>
                 </div>            
             </form>
             <p className={log.switch}>¿Aún no tienes cuenta? <span onClick={() => setDinamic('calc(100% - 30px)')}>Registrate</span></p>
+            </div> : <div className={log.session}>
+            <h2>Sesión iniciada correctamente</h2>
+            <Link to='/' className={log.btn2}>Regresar al inicio</Link>    
+            </div>}
         </div>
         <div className={log.dinamic} style={{transform: `translateX(${dinamic})`}}></div>
       </div>

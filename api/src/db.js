@@ -30,7 +30,7 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const { Field, Facility, Size, Surface, City } = sequelize.models;
+const { Field, Facility, Size, Surface, City, Comment, User, Booking} = sequelize.models;
 
 Field.belongsToMany(Facility, {through: 'fieldFacility'});
 Facility.belongsToMany(Field, {through: 'fieldFacility'});
@@ -43,6 +43,14 @@ Field.belongsTo(Size);
 
 Surface.hasMany(Field);
 Field.belongsTo(Surface);
+
+User.belongsToMany(Field, { through: Booking });
+Field.belongsToMany(User, { through: Booking });
+
+Comment.belongsTo(Booking);
+Booking.hasOne(Comment);
+
+
 
 
 // Aca vendrian las relaciones

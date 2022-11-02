@@ -25,7 +25,7 @@ export default function Planes(){
                         <Link className={plan.button}>Adquirir</Link>
                     </div>
                 </div>
-                <div className={plan.card}>
+                <div className={plan.cardTop}>
                     <img className={plan.img} src={club}/>
                     <h2 className={plan.title}>Clubes</h2>
                     <p className={plan.percent}>AHORRO 50%</p>

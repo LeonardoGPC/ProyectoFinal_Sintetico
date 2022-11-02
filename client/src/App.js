@@ -12,6 +12,7 @@ import { useEffect, useState } from 'react';
 import About from './components/About/about';
 import Login from './components/Login/login';
 import MiniFooter from './components/MiniFooter/MiniFooter';
+import Profile from './components/Profile/profile';
 
 function App() {
 
@@ -36,7 +37,7 @@ function App() {
         <Route path='/clubs' element={<Clubs/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/sintetico' element={<Home/>}/>
-        <Route path='/profile' element={<div><h1>Profile</h1></div>}/>
+        <Route path='/profile' element={<Profile/>}/>
         <Route path='/sintetico/detail/:id' element={<Detail/>}/>
         <Route path='/create' element={<Create/>}/>
         <Route path='*' element={<div><h1>Error 404</h1></div>}/>

@@ -13,6 +13,7 @@ import quincho from "../../img/icons/quincho.png";
 import { Rate } from "antd";
 import ReactStars from "react-stars";
 import { FaStar } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const colors = {
   orange: "#FFBA5A",
@@ -23,16 +24,18 @@ function Detail() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const detailField = useSelector((state) => state.detail);
-  console.log(detailField);
+  // console.log(detailField);
 
+  // ---------------------------------
   const [currentValue, setCurrentValue] = useState(0);
   const [hoverValue, setHoverValue] = useState(undefined);
   const stars = Array(5).fill(0);
-
+  
   const handleClick = (value) => {
     setCurrentValue(value);
-    alert(`Hiciste una puntuación de ${value} estrellas`);
+    // alert(`Hiciste una puntuación de ${value} estrellas`);
   };
+  // console.log("currentValue", currentValue);
 
   const handleMouseOver = (newHoverValue) => {
     setHoverValue(newHoverValue);
@@ -41,6 +44,19 @@ function Detail() {
   const handleMouseLeave = () => {
     setHoverValue(undefined);
   };
+  // ---------------------------------
+  const [comment, setComment] = useState("");
+  const [comments, setComments] = useState([]);
+
+  const onClickHandler = () => {
+    setComments((comments) => [...comments, comment]);
+    setComment("")
+  };
+
+  const onChangeHandler = (e) => {
+    setComment(e.target.value);
+  };
+
   useEffect(() => {
     dispatch(getFieldDetail(id));
   }, [dispatch]);
@@ -60,11 +76,11 @@ function Detail() {
               <div className={styles.info}>
                 <div className={styles.title}>
                   <h3 className={styles.name}>{detailField.name}</h3>
-                  <button className={styles.button}>X</button>
+                  <Link to='/sintetico' className={styles.button}>X</Link>
                 </div>
                 <div className={styles.content}>
                   <ul>
-                    <li>Rating: {detailField.score}</li>
+                    {/* <li>Rating: {detailField.score}</li> */}
                     {/* <li><Rate disabled allowHalf value={detailField.score} character="★" style={{ fontSize: 30}}/></li> */}
                     <li>
                       <ReactStars
@@ -113,12 +129,14 @@ function Detail() {
                       {detailField.address},{" "}
                       {detailField.City ? detailField.City.name : ""}
                     </li>
+                    <li>
+                      <p>{detailField.description}</p>
+                    </li>
                   </ul>
                   <div className={styles.description}>
-                    <p>{detailField.description}</p>
                     <span className={styles.price}>
                       <p>${detailField.price}</p>
-                      <button>Reservar</button>
+                      <Link to='/login'>Reservar</Link>
                     </span>
                   </div>
                 </div>
@@ -148,7 +166,36 @@ function Detail() {
                   necessitatibus voluptas accusamus deserunt architecto.
                 </p>
               </div>
+              {/* ------------------ */}
+              {comments.map((text) => (
+                <div className={styles.comment}>
+                  <div className={styles.userData}>
+                    <figure className={styles.user}>
+                      <img
+                        src="https://images.pexels.com/photos/7562313/pexels-photo-7562313.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                        alt="foto de perfil"
+                        className={styles.profile}
+                      />
+                      <p>Nombre</p>
+                    </figure>
+                    <p>
+                    <ReactStars
+                        count={5}
+                        value={currentValue}
+                        size={24}
+                        edit={false}
+                        color2={"#ffd700"}
+                      />
+                    </p>
+                  </div>
+
+                  <p className={styles.commentData}>{text}</p>
+                </div>
+              ))}
+
+              {/* ------------------ */}
             </div>
+
             <div className={styles.yourComment}>
               <h3> Deja tu comentario </h3>
               <div>
@@ -174,10 +221,12 @@ function Detail() {
                 })}
               </div>
               <textarea
+                value={comment}
+                onChange={onChangeHandler}
                 placeholder="Deja tu comentario..."
                 className={styles.textarea}
               />
-              <button>Submit</button>
+              <button onClick={onClickHandler} disabled={!comment}>Submit</button>
             </div>
           </div>
         </div>

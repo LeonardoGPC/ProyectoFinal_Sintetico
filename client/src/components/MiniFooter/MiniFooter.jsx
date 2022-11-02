@@ -10,16 +10,14 @@ const MiniFooter = () => {
   return (
 
     <div className={style.wrapper}>
-        <div className={style.top}>
-            <img src={Logo} alt='img not found' /> 
-        </div>
+          <img src={Logo} alt='img not found' className={style.top}/> 
                         <div className={style.socialGroup}>
                             <FiInstagram className={style.socialIcon} />
                             <FiFacebook className={style.socialIcon} />
                             <AiOutlineWhatsApp className={style.socialIcon}/>
                         </div>
          <div className={style.derechos}>
-            <p>Derechos reservados.</p>
+            <p>© Derechos reservados.</p>
         </div>               
     </div>
 

@@ -13,7 +13,7 @@ import {
 import s from "./filters.module.css";
 import Flatpickr from 'react-flatpickr'
 import "flatpickr/dist/themes/material_green.css"
-import Fields from "../../Cards/cards.jsx"
+// import Fields from "../../Cards/cards.jsx"
 
 
 
@@ -81,7 +81,7 @@ export default function Filters(){
         <div className={s.container}>
             <div className={s.filtros}>
                 <h1 className={s.h1}>Filtros</h1>
-                <select defaultValue="Title" onChange={(e) => handleCityFilter(e)} id={"select1"}>
+                <select defaultValue="Title" onChange={(e) => handleCityFilter(e)} id={"select1"} className={s.select}>
                     <option value="Title" disabled> Localidad </option>
                     {
                         cities?.map( (c) => {
@@ -94,7 +94,7 @@ export default function Filters(){
                         })
                     }
                 </select>
-                <select defaultValue="Title" onChange={(e) => handleSizeFilter(e)} id={"select2"}>
+                <select defaultValue="Title" onChange={(e) => handleSizeFilter(e)} id={"select2"} className={s.select}>
                     <option value="Title" disabled> Tamaño </option>
                     {
                         sizes?.map( (s) => {
@@ -107,21 +107,22 @@ export default function Filters(){
                     }
                 </select>
                 <div className={s.checkbox}>
-                {surfaces.map((s) => (
-                    <div>
-                        <label id={`${s.name}`}>
-                        {s.name}
+                {surfaces.map((e) => (
+                    <div className={s.check}>
+                        <label id={`${e.name}`}>{e.name}
                         <input
+                            className={s.check_input}
                             type="checkbox"
-                            id={`${s.id}`}
-                            value={s.id}
-                            onChange={(e) => handleSurfaceFilter(e)}
+                            id={`${e.id}`}
+                            value={e.id}
+                            onChange={(f) => handleSurfaceFilter(f)}
                         />
+                        <span className={s.checkmark}></span>
                         </label>
                     </div>
                     ))}
                 </div>
-                <select defaultValue="Title" onChange ={(e) => handleTimeFilter(e) } id={"select3"}>
+                <select defaultValue="Title" onChange ={(e) => handleTimeFilter(e) } id={"select3"} className={s.select}>
                     <option value="Title" disabled> Hora </option>
                     <option value="8" > 8:00 </option>
                     <option value="9" > 9:00 </option>
@@ -142,6 +143,7 @@ export default function Filters(){
                 </select>
                 
                     <Flatpickr
+                    className={s.select}
                     placeholder='Fecha'
                     value={date}
                     options={{
@@ -154,13 +156,13 @@ export default function Filters(){
                         }}
                     onChange={e => handleCalendarChange(e)}
                     />
-                    <button onClick={() => handleResetFilter()}>
+                    <button onClick={() => handleResetFilter()} className={s.button}>
                         resetear filtros
                     </button>
             </div>
-            <div className={s.fields}>
+            {/* <div className={s.fields}>
                 <Fields/>
-            </div>
+            </div> */}
             
         </div>
         

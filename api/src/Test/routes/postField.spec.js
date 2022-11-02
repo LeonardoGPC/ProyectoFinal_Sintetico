@@ -5,10 +5,7 @@ const { Field, conn } = require('../../db');
 
 const agent = session(app);
 
-const pokemon ={
-  name: 'pikachu'
-}
-describe('POST /pokemon route', () => {
+describe('POST / route', () => {
   before(() => conn.authenticate()
   .catch((err) => {
     console.error('Unable to connect to the database:', err);
