@@ -9,6 +9,13 @@ const queryParams = {
   },
 };
 
+const queryParams3 = {
+  attributes: ["comment", "score"],
+  through: {
+    attributes: [],
+  },
+};
+
 const queryParams2 = {
   attributes: ["name"],
 };
@@ -45,9 +52,14 @@ async function getFields() {
         ...queryParams,
       },
       {
+        model: Comment,
+        ...queryParams3,
+      },
+      {
         model: Booking,
         ...queryParams4
-      }
+      },
+
     ],
   });
   if (fields.length) return fields;
@@ -79,9 +91,13 @@ async function getFieldById(id) {
         ...queryParams,
       },
       {
+        model: Comment,
+        ...queryParams3,
+      },
+      {
         model: Booking,
         ...queryParams4
-      }
+      },
     ],
   });
   if (field) return field;
