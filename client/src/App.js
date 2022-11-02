@@ -13,6 +13,7 @@ import About from './components/About/about';
 import Login from './components/Login/login';
 import MiniFooter from './components/MiniFooter/MiniFooter';
 import Profile from './components/Profile/profile';
+import Pagos from './components/Pagos/pagos';
 
 function App() {
 
@@ -45,6 +46,7 @@ function App() {
         <Route path='/contact' element={<ContactForm />}/>
         <Route path='/faq' element={<Faq/>} />
         <Route path= '/minifooter' element={<MiniFooter/>} />
+        <Route path='/pay' element={<Pagos/>}/>
       </Routes>
       {load && <Load/>}
       </div>

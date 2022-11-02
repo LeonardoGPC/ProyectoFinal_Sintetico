@@ -91,9 +91,12 @@
 
 .inse{
   width: 400px;
+  display: flex;
+  /* justify-content: space-around; */
+  align-items: center;
 }
 
-.inse a{
+.inse_link{
   color: black;
   padding: 8px 15px;
   background-color: #98F576;
@@ -102,7 +105,7 @@
   transition: all 500ms ease;
 }
 
-.inse a:hover{
+.inse_link:hover{
   padding: 8px 30px;
   border-radius: 30px;
 }
@@ -122,4 +125,17 @@
   cursor: pointer;
   margin: 0;
   object-fit: cover;
+}
+
+.img2{
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  margin: 0;
+  margin-right: 50px;
+  transition: all 300ms ease;
+}
+
+.img2:hover{
+  transform: rotate(15deg);
 }
