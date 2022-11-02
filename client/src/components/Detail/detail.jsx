@@ -79,9 +79,7 @@ function Detail() {
               <div className={styles.info}>
                 <div className={styles.title}>
                   <h3 className={styles.name}>{detailField.name}</h3>
-                  <Link to="/sintetico" className={styles.button}>
-                    X
-                  </Link>
+                  <div className={styles.button} onClick={() => window.history.back()}>X</div>
                 </div>
                 <div className={styles.content}>
                   <ul>

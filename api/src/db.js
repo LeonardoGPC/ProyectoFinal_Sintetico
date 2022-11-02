@@ -56,8 +56,6 @@ Field.belongsToMany(User, { through: Booking });
 // Field.belongsTo(Comment)
 
 
-
-
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
 

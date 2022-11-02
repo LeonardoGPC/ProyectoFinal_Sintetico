@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import foto from '../../img/foto_perfil.jpg'
 import { cleanErrors } from "../../redux/actions/index.js"
+import cart from '../../img/cart.svg'
 
 export default function Navbar() {
   const dispatch = useDispatch()
@@ -14,7 +15,6 @@ export default function Navbar() {
   // const [link, setLink] = useState('/#2')
   let location = window.location.pathname;
   let user = useSelector((state) => state.user)
-  
   // useEffect(() => {
   //   location === '/' ? setLink('/#2') : setLink('/sintetico')
   // }, [location])
@@ -35,9 +35,16 @@ export default function Navbar() {
           {/* <Link to={link}><p>Ver Canchas</p></Link> */}
           {location === '/' ? <a href='#2'><p>Ver canchas</p></a> : <Link to='/sintetico'><p>Ver Canchas</p></Link> }
         </div>
-        {user.length === 0 ? <div className={style.inse}>
-          <Link to='/login'>Iniciar Sesión</Link>
-        </div> : <div className={style.inse2}><Link to='/profile'><img className={style.img} src={foto}/></Link></div>}
+        {user.length === 0 ? localStorage.length === 0 ? <div className={style.inse}>
+          <Link to='/login' className={style.inse_link}>Iniciar Sesión</Link>
+        </div> : <div className={style.inse}>
+        <Link to='/pay'><img className={style.img2} src={cart}/></Link>
+          <Link to='/login' className={style.inse_link}>Iniciar Sesión</Link>
+        </div> : localStorage.length === 0 ? <div className={style.inse2}><Link to='/profile'><img className={style.img} src={foto}/></Link></div>
+        : <div className={style.inse2}>
+          <Link to='/pay'><img className={style.img2} src={cart}/></Link>
+          <Link to='/profile'><img className={style.img} src={foto}/></Link>
+          </div>}
       </nav>
     </div>
   );

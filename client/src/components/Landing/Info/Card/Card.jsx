@@ -53,6 +53,7 @@ export default function Carousel ({teams}) {
                     ))}
                 </Swiper>
             </div>
+            <Link to='/sintetico' className={s.cta}>Ver más</Link>
         </div>
     )
 }
