@@ -2,11 +2,15 @@ import React from 'react';
 import syntheticLogo from '../img/LogoSintetico.png';
 import style from './navbar.module.css';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import foto from '../../img/foto_perfil.jpg'
+import { cleanErrors } from "../../redux/actions/index.js"
 
 export default function Navbar() {
-
+  const dispatch = useDispatch()
+  function handleErrors(){
+    dispatch(cleanErrors())
+}
   // const [link, setLink] = useState('/#2')
   let location = window.location.pathname;
   let user = useSelector((state) => state.user)
@@ -19,7 +23,7 @@ export default function Navbar() {
     <div className={style.container}>
       <nav className={style.nav}>
         <Link to="/">
-          <img className={style.logo} src={syntheticLogo} alt="logo" />
+          <img className={style.logo} src={syntheticLogo} alt="logo" onClick={() => handleErrors()}/>
         </Link>
         <div className={style.containerLink}>
           <Link to="/">
