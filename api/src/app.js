@@ -11,7 +11,23 @@ server.name = 'API';
 
 server.use(express.urlencoded({ extended: true, limit: '50mb' }));
 server.use(express.json({ limit: '50mb' }));
-server.use(cookieParser());
+server.use(
+  cors({
+    origin: "http://localhost:3000", // <-- location of the react app were connecting to
+    credentials: true,
+  })
+);
+server.use(
+  session({
+    secret: "secretcode",
+    resave: true,
+    saveUninitialized: true,
+  })
+);
+server.use(cookieParser("secretcode"));
+server.use(passport.initialize());
+server.use(passport.session());
+require("./passportConfig")(passport);
 server.use(morgan('dev'));
 server.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*'); // update to match the domain you will make the request from
