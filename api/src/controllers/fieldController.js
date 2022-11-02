@@ -10,7 +10,7 @@ const queryParams = {
 };
 
 const queryParams3 = {
-  attributes: ["comment"],
+  attributes: ["comment", "score"],
   through: {
     attributes: [],
   },
