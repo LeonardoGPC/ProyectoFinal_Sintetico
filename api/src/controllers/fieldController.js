@@ -9,6 +9,13 @@ const queryParams = {
   },
 };
 
+const queryParams3 = {
+  attributes: ["comment", "score"],
+  through: {
+    attributes: [],
+  },
+};
+
 const queryParams2 = {
   attributes: ["name"],
 };
@@ -37,6 +44,10 @@ async function getFields() {
         model: Facility,
         ...queryParams,
       },
+      {
+        model: Comment,
+        ...queryParams3,
+      }
     ],
   });
   if (fields.length) return fields;
@@ -69,6 +80,7 @@ async function getFieldById(id) {
       },
       {
         model: Comment,
+        ...queryParams3,
       },
     ],
   });
