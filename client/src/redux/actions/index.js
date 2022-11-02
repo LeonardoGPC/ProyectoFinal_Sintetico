@@ -13,6 +13,7 @@ import {
   FILTER_BY_TIME,
   FILTER_BY_SURFACE,
   CLEAN_ERRORS,
+  GET_COMMENTS
 } from './actionsTypes';
 
 export const prueba = () => {
@@ -75,69 +76,90 @@ export const postField = (payload) => {
   };
 };
 
-export const getFields = () =>{
+export const getFields = () => {
   return async (dispatch) => {
     const response = await axios.get('http://localhost:3001/fields');
     dispatch({
       type: GET_FIELDS,
       payload: response.data,
-    })
-  }
-}
+    });
+  };
+};
 
-export function filterFieldByCity (payload) {
-  Number(payload)
-  return{
+export function filterFieldByCity(payload) {
+  Number(payload);
+  return {
     type: FILTER_BY_CITY,
-    payload: payload
-  }
+    payload: payload,
+  };
 }
 
-export function filterFieldBySize(payload){ 
-  Number(payload)
+export function filterFieldBySize(payload) {
+  Number(payload);
   return {
     type: FILTER_BY_SIZE,
-    payload: payload
-  }
+    payload: payload,
+  };
 }
 
-export function filterFieldByTime(payload){
-  Number(payload)
+export function filterFieldByTime(payload) {
+  Number(payload);
   return {
     type: FILTER_BY_TIME,
-    payload: payload
-  }
+    payload: payload,
+  };
 }
 
-export function filterFieldBySurface(payload){
-  Number(payload)
-  return{
+export function filterFieldBySurface(payload) {
+  Number(payload);
+  return {
     type: FILTER_BY_SURFACE,
-    payload: payload
-  }
+    payload: payload,
+  };
 }
-    
+
 export const getFieldDetail = (id) => {
-  return async(dispatch) => {
-    const idField = await axios.get("http://localhost:3001/fields/" + id)
+  return async (dispatch) => {
+    const idField = await axios.get('http://localhost:3001/fields/' + id);
     dispatch({
       type: ID_FIELD,
       payload: idField.data,
-    })
-    
-  }
-}
+    });
+  };
+};
+
+export const postComment = (payload) => {
+  return async (dispatch) => {
+    try {
+      await axios.post('http://localhost:3001/comments', payload);
+      dispatch(getFieldDetail(payload.FieldId));
+      alert('Comentario enviado con exito');
+    } catch (error) {
+      alert('Falta agregar comentario');
+    }
+  };
+};
+
+export const getComments = () => {
+  return async (dispatch) => {
+    const response = await axios.get('http://localhost:3001/comments');
+    dispatch({
+      type: GET_COMMENTS,
+      payload: response.data,
+    });
+  };
+};
 
 export const userLogin = (user) => {
   return {
     type: USER,
-    payload: user
-  }
-}
+    payload: user,
+  };
+};
 
 export function cleanErrors() {
   return {
     type: CLEAN_ERRORS,
-    payload: null
-  }
+    payload: null,
+  };
 }

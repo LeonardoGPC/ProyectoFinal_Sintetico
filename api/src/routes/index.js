@@ -6,6 +6,8 @@ const surfaces = require('./surfaces')
 const cities = require('./cities')
 const comments = require('./comments')
 const payments = require('./payments')
+const bookings = require("./bookings")
+
 
 const router = Router();
 
@@ -16,5 +18,6 @@ router.use('/surfaces', surfaces)
 router.use('/cities', cities)
 router.use('/comments', comments)
 router.use('/payments', payments)
+router.use("/bookings", bookings)
 
 module.exports = router;
