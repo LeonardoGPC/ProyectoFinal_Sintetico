@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const router = Router();
 const { getComments } = require("../controllers/commentsController");
-const { Comment, Field } = require("../db");
+const { Comment, fieldComment } = require("../db");
 
 router.get("/", async (req, res) => {
   try {
@@ -14,8 +14,9 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
   try {
-    const { id, score, comment } = req.body;
-    const createComment = await Comment.create({ id, score, comment });
+    const { score, comment, FieldId } = req.body;
+    const createComment = await Comment.create({ score, comment });
+    await fieldComment.create({ FieldId, CommentId: createComment.id });
     res.json(createComment)
     // const createComment = await Comment.create(req.body);
     // res.json(createComment)

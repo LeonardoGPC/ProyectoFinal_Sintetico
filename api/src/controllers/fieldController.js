@@ -3,14 +3,14 @@ const { Field, Facility, Surface, Size, City, Comment } = require("../db");
 const { Op } = require("sequelize");
 
 const queryParams = {
-  attributes: ["name"],
+  attributes: ["id", "name"],
   through: {
     attributes: [],
   },
 };
 
 const queryParams3 = {
-  attributes: ["comment", "score"],
+  attributes: ["id", "comment", "score"],
   through: {
     attributes: [],
   },
