@@ -47,8 +47,14 @@ Field.belongsTo(Surface);
 User.belongsToMany(Field, { through: Booking });
 Field.belongsToMany(User, { through: Booking });
 
+Field.belongsToMany(Booking, {through: "field_bookings"})
+Booking.belongsToMany(Field, {through: "field_bookings"})
+
 Comment.belongsTo(Booking);
 Booking.hasOne(Comment);
+
+
+
 
 
 
