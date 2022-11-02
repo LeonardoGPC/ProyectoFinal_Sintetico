@@ -7,15 +7,27 @@ module.exports = (sequelize) => {
     id: {
         type: DataTypes.INTEGER,
         primaryKey:true,
-        allowNull:false
+        allowNull:false,
+        autoIncrement: true,
+      },
+    comment: {
+        type: DataTypes.STRING,
+        allowNull: false,
       },
     score: {
-      type: DataTypes.STRING,
-    //   allowNull: false,
-    },
-    comment: {
-      type: DataTypes.STRING,
+      type: DataTypes.FLOAT,
       allowNull: false,
     },
-  });
-};
+    date: {
+      type: DataTypes.DATE, //VER
+      allowNull: true,
+    },
+    hour: {
+      type: DataTypes.TIME, //VER
+      allowNull: true,
+    }
+    
+  },{
+    timestamps: false,
+  }
+)};
