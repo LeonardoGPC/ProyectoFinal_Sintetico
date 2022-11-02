@@ -56,7 +56,7 @@ export default function Create() {
       'city',
       'size',
       'surface',
-      'description'
+      'description',
     ];
 
     let canSubmit = true;
@@ -132,7 +132,7 @@ export default function Create() {
                   alt="cancha"
                 />
                 <div className={style.itemsServicios}>
-                  <label className={style.subtittleFa}>Facilidades: </label>
+                  <label className={style.subtittleFa}>Servicios: </label>
                   {facilities.map((f) => (
                     <label key={f.id} className={style.subtittleFa}>
                       {f.name}
@@ -331,23 +331,21 @@ export default function Create() {
                 />
                 {errorState.closeHour && <p>{errorState.closeHour}</p>}
               </div>
-              <div 
-               className={classNames(
-                style.group,
-                errorState.description && style.error,
-                
-              )}
+              <div
+                className={classNames(
+                  style.group,
+                  errorState.description && style.error,
+                )}
               >
                 <label className={style.subtittle}>Descripción: </label>
                 <textarea
-                name='description'
+                  name="description"
                   className={style.textarea}
                   onChange={handleInputChange}
                   onBlur={(e) => validate(e.target, dispatchError)}
                 />
                 {errorState.description && <p>{errorState.description}</p>}
               </div>
-              
             </div>
           </div>
         </form>

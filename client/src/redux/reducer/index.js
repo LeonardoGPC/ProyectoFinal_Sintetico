@@ -12,6 +12,7 @@ import {
   ID_FIELD,
   USER,
   CLEAN_ERRORS,
+  GET_COMMENTS,
 } from '../actions/actionsTypes';
 
 const initialState = {
@@ -24,7 +25,7 @@ const initialState = {
   allFields:[],
   fieldsFilterByCity:[],
   fieldsFilterByCityAndSize: [],
-  detail: [],
+  detail: {},
   user: '',
   errors: null
 };
@@ -122,9 +123,6 @@ const rootReducer = (state = initialState, action) => {
       return {...state, facilities: action.payload}
     }
     
-    case GET_FIELDS:{
-      return {...state, fields: action.payload}
-    }
     case ID_FIELD:{
       return {...state, detail: action.payload}
     }
@@ -133,6 +131,9 @@ const rootReducer = (state = initialState, action) => {
     }
     case CLEAN_ERRORS:{
       return {...state, errors: action.payload}
+    }
+    case  GET_COMMENTS:{
+      return {...state, comments: action.payload}
     }
     default:
       return { ...state };
