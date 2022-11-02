@@ -19,11 +19,11 @@ module.exports = (sequelize) => {
     },
     date: {
       type: DataTypes.DATE, //VER
-      allowNull: false,
+      allowNull: true,
     },
     hour: {
       type: DataTypes.TIME, //VER
-      allowNull: false,
+      allowNull: true,
     }
     
   },{
