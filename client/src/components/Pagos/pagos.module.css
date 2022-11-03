@@ -1,0 +1,137 @@
+.main{
+    min-height: 100vh;
+}
+
+.container{
+    background-color: #1C1C1C;
+    height: calc(100vh - 84px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box{
+    background-color: #242529;
+    color: white;
+    display: flex;
+    padding: 50px;
+    width: 50vw;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.info{
+    background-color: #404040;
+    width: 70%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+.price{
+    width: 100%;
+    height: 100%;
+}
+
+.img{
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px 20px 0 0;
+}
+
+.info h2{
+    text-align: left;
+    margin: 5px 20px;
+    font-size: 30px;
+}
+
+.info select{
+    width: 100%;
+    outline: none;
+    border: none;
+    background-color: #98F576;
+    color: black;
+    border-radius: 0 0 20px 20px;
+    padding: 15px;
+    font-size: 18px;
+}
+
+.type{
+    font-size: 20px;
+    text-align: left;
+    margin: 15px 20px;
+}
+
+.desc{
+    text-align: justify;
+    font-size: 16px;
+    margin: 20px;
+}
+
+.price{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.price_prod{
+    font-size: 20px;
+    color: rgb(180, 180, 180);
+}
+
+.price_desc{
+    font-size: 20px;
+    color: rgb(180, 180, 180);
+    border-bottom: 2px solid #98F576;
+    padding: 0 20px 20px;
+}
+
+.price_total{
+    font-size: 25px;
+    margin: 0;
+}
+
+.price input{
+    color: black;
+    padding: 8px 15px;
+    background-color: #98F576;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 500ms ease;
+    border: none;
+    width: max-content;
+    cursor: pointer;
+  }
+  
+.price input:hover{
+    padding: 8px 30px;
+    border-radius: 30px;
+}
+
+.info2{
+    background-color: #404040;
+    width: 400px;
+    height: 400px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carga{
+    width: 70px;
+    height: 70px;
+    background-color: transparent;
+    border: 5px solid #98F576;
+    border-bottom: none;
+    border-left: none;
+    border-radius: 50%;
+    animation: loop 500ms infinite;
+}
+
+@keyframes loop {
+    0%{transform: rotate(0deg)}
+    50%{transform: rotate(180deg);}
+    100%{transform: rotate(360deg);}
+}
