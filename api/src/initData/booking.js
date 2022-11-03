@@ -1,4 +1,4 @@
-module.exports = {
+/* module.exports = {
     BOOKINGS : [
         { id: 1, date:"8/11/2022", hour: 11, isCancel: false},
         { id: 2, date:"8/11/2022", hour: 12, isCancel: false},
@@ -19,4 +19,4 @@ module.exports = {
         { id: 17, date:"28/11/2022", hour: 13, isCancel: false},
         { id: 18, date:"29/11/2022", hour: 12, isCancel: false},
     ]
-}
+} */

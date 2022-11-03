@@ -38,9 +38,6 @@ Facility.belongsToMany(Field, {through: 'fieldFacility'});
 Field.belongsToMany(Comment, {through: 'fieldComment'});
 Comment.belongsToMany(Field, {through: 'fieldComment'});
 
-Field.belongsToMany(Booking, {through: "field_bookings"})
-Booking.belongsToMany(Field, {through: "field_bookings"})
-
 City.hasMany(Field);
 Field.belongsTo(City);
 
