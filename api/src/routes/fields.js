@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const router = Router();
-const { getFields, createField, deleteField, getFieldById } = require('../controllers/fieldController')
+const { getFields, createField, deleteField, getFieldById, editField } = require('../controllers/fieldController')
 
 router.get('/', async (req, res) => {
     try {
@@ -33,7 +33,7 @@ router.post('/', async (req, res)=>{
     
 });
 
-router.delete('/:id', ({params:{id}}, res)=>{
+router.delete('/:id', async ({params:{id}}, res)=>{
     try{
         deleteField(id);
         res.send("Element was deleted");
@@ -42,4 +42,12 @@ router.delete('/:id', ({params:{id}}, res)=>{
     }
 });
 
+router.put('/:id', async ({params: {id: idField}, body: fieldParams}, res)=>{
+    try{
+        var editedField = await editField(idField, fieldParams);
+        res.send(editedField);
+    }catch(error){
+        res.status(404).send(error.message)
+    }
+});
 module.exports = router;
