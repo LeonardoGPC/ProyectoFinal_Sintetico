@@ -1,4 +1,4 @@
-const { Surface, Size, Facility, City, Field, Comment, Booking } = require("../db");
+const { Surface, Size, Facility, City, Field, Comment, Booking, User } = require("../db");
 const { SURFACES } = require("../initData/surfaces");
 const { SIZES } = require("../initData/sizes");
 const { FACILITIES } = require("../initData/facilities");
@@ -6,6 +6,7 @@ const { CITIES } = require("../initData/cities");
 const { FIELDS } = require("../initData/fields");
 const { COMMENTS } = require("../initData/comments");
 const { BOOKINGS } = require("../initData/booking")
+const { USERS } = require ("../initData/user")
 
 async function chargeDb() {
   const surface = await Surface.findAll();
@@ -20,8 +21,9 @@ async function chargeDb() {
   if (!fields.length) await Field.bulkCreate(FIELDS);
   const comments = await Comment.findAll();
   if (!comments.length) await Comment.bulkCreate(COMMENTS);
-  const bookings = await Booking.findAll()
-  if(!bookings.length) await Booking.bulkCreate(BOOKINGS)
+  /* const bookings = await Booking.findAll()
+  if(!bookings.length) await Booking.bulkCreate(BOOKINGS) */
+  await User.bulkCreate(USERS)
 
   const cancha1 = await Field.findByPk(1);
   await cancha1.addFacilities([1, 2]);
@@ -37,7 +39,10 @@ async function chargeDb() {
   const comment3 = await Field.findByPk(3);
   await comment3.addComment([2, 4]);
 
-  const booking1 = await Field.findByPk(1)
+
+
+
+  /* const booking1 = await Field.findByPk(1)
   await booking1.addBookings([1, 3, 7])
   const booking2 = await Field.findByPk(2)
   await booking2.addBookings([2,4,5])
@@ -48,7 +53,7 @@ async function chargeDb() {
   const booking5 = await Field.findByPk(5)
   await booking5.addBookings([11,13,14])
   const booking6 = await Field.findByPk(6)
-  await booking6.addBookings([15,16,17,18])
+  await booking6.addBookings([15,16,17,18]) */
 }
 
 module.exports = {

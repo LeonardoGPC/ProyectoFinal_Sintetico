@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const router = Router();
-const { getBookings } = require("../controllers/bookingController");
-const { Booking } = require("../db");
+const { getBookings, postBookings} = require("../controllers/bookingController");
+const { Booking, Field, User } = require("../db");
 
 router.get("/", async (req, res) => {
     try {
@@ -14,9 +14,11 @@ router.get("/", async (req, res) => {
 
   router.post("/", async (req, res) => {
     try {
-      const { id, date, hour } = req.body; //Remover id en un futuro
-      const createBooking = await Booking.create({ id, date, hour });
-      res.json(createBooking)
+      const { date, hour, FieldId, UserId } = req.body; 
+      
+       await postBookings(date, hour, FieldId, UserId)
+     
+      res.json("success")
     } catch (error) {
       res.status(404).send({ error: error.message });
     }
