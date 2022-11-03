@@ -1,5 +1,6 @@
 const { default: axios } = require('axios');
 const mercadopago = require('mercadopago');
+const { Booking } = require("../db");
 
 async function createOrdenLink({itemName, price, idUser, idField, date, hour}){
     mercadopago.configure({
@@ -50,17 +51,22 @@ async function createOrdenLink({itemName, price, idUser, idField, date, hour}){
                 idField: Number(descriptionData[1]),
                 date: descriptionData[2].split('-').join('/'),
                 hour: Number(descriptionData[3]),
+                idBooking: status.id
             }
             await createBooking(bookingData)
         }
     }
 }
 
-async function createBooking(){
+/* async function createBooking({idUser, idField, date, hour}){
     //procedemos a crear la reserva
+
+    const newBooking = await Booking.create({date, hour})
+    await newBooking.addFields(idField)
+    await newBooking.addUsers(idUser)
     
 
-}
+} */
 
 module.exports = {
     createOrdenLink,
