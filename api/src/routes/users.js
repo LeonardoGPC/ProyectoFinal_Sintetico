@@ -1,6 +1,11 @@
 const { Router } = require('express');
 const router = Router();
 const { createUser, authenticate } = require('../controllers/userController');
+var LocalStrategy = require('passport-local');
+const passport = require('passport');
+
+require("../passportConfig")(passport);
+
 
 router.post("/", async (req, res) => {
     var userData = req.body;
