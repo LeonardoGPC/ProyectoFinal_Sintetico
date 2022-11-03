@@ -1,18 +1,7 @@
 const axios = require('axios');
 const { Club } = require('../db');
 const { Op } = require('sequelize');
-const crypto = require('crypto');
-
-function getSalt(){
-    return crypto.randomBytes(16).toString('hex');
-}
-
-function getHash(password, salt){
-    const hash = crypto
-    .pbkdf2Sync(password, salt, 1000, 64, 'sha512')
-    .toString('hex');
-    return hash;
-}
+const {getHash, getSalt} = require('../hash');
 
 async function authenticate(userName, password){
     var clubFromDb = await Club.findOne({
@@ -26,8 +15,6 @@ async function authenticate(userName, password){
     if (hashedPassword !== clubFromDb.password) throw new Error("Invalid Password");
     return {id: clubFromDb.id, userName: clubFromDb.userName};
 };
-
-
 
 async function createClub(clubData){
     const {id, companyName, cuit, clubName, email, phone, image,userName, password } = clubData;

@@ -2,6 +2,9 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 const routes = require('./routes/index.js');
+const cors = require('cors')
+const session = require("express-session");
+const passport = require("passport");
 
 require('./db.js');
 
