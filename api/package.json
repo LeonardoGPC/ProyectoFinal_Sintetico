@@ -21,7 +21,8 @@
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "pg": "^8.8.0",
-    "sequelize": "^6.25.3"
+    "sequelize": "^6.25.3",
+    "mercadopago": "^1.5.14"
   },
   "devDependencies": {
     "chai": "^4.3.6",
