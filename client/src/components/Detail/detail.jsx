@@ -1,41 +1,40 @@
-import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import Navbar from "../NavBar/Navbar";
-import styles from "./detail.module.css";
-import { useEffect, useState } from "react";
-import { getFieldDetail } from "../../redux/actions";
-import MiniFooter from "../MiniFooter/MiniFooter";
-import map from "../../img/icons/map.png";
-import buffet from "../../img/icons/buffet.png";
-import duchas from "../../img/icons/duchas.png";
-import estacionamiento from "../../img/icons/estacionamiento.png";
-import quincho from "../../img/icons/quincho.png";
-import { Rate } from "antd";
-import ReactStars from "react-stars";
-import { FaStar } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { useParams } from 'react-router-dom';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import Navbar from '../NavBar/Navbar';
+import styles from './detail.module.css';
+import { useEffect, useState } from 'react';
+import { getFieldDetail } from '../../redux/actions';
+import { postComment } from '../../redux/actions/index.js';
+import MiniFooter from '../MiniFooter/MiniFooter';
+import map from '../../img/icons/map.png';
+import buffet from '../../img/icons/buffet.png';
+import duchas from '../../img/icons/duchas.png';
+import estacionamiento from '../../img/icons/estacionamiento.png';
+import quincho from '../../img/icons/quincho.png';
+import ReactStars from 'react-stars';
+import { FaStar } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const colors = {
-  orange: "#FFBA5A",
-  grey: "#a9a9a9",
+  orange: '#FFBA5A',
+  grey: '#a9a9a9',
 };
 
 function Detail() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const detailField = useSelector((state) => state.detail);
-  // console.log(detailField);
 
   // ---------------------------------
   const [currentValue, setCurrentValue] = useState(0);
   const [hoverValue, setHoverValue] = useState(undefined);
   const stars = Array(5).fill(0);
-  
+
   const handleClick = (value) => {
     setCurrentValue(value);
     // alert(`Hiciste una puntuación de ${value} estrellas`);
   };
-  // console.log("currentValue", currentValue);
 
   const handleMouseOver = (newHoverValue) => {
     setHoverValue(newHoverValue);
@@ -46,11 +45,14 @@ function Detail() {
   };
   // ---------------------------------
   const [comment, setComment] = useState("");
-  const [comments, setComments] = useState([]);
+  const comments = detailField.Comments ?? [];
+  // const [comments, setComments] = useState([]);
 
   const onClickHandler = () => {
-    setComments((comments) => [...comments, comment]);
-    setComment("")
+    // setComments((comments) => [...comments, comment]);
+    setComment('');
+    setCurrentValue(0);
+    dispatch(postComment({ score: currentValue, FieldId: id, comment }));
   };
 
   const onChangeHandler = (e) => {
@@ -59,7 +61,8 @@ function Detail() {
 
   useEffect(() => {
     dispatch(getFieldDetail(id));
-  }, [dispatch]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div>
@@ -76,7 +79,7 @@ function Detail() {
               <div className={styles.info}>
                 <div className={styles.title}>
                   <h3 className={styles.name}>{detailField.name}</h3>
-                  <Link to='/sintetico' className={styles.button}>X</Link>
+                  <div className={styles.button} onClick={() => window.history.back()}>X</div>
                 </div>
                 <div className={styles.content}>
                   <ul>
@@ -88,31 +91,41 @@ function Detail() {
                         value={detailField.score}
                         size={24}
                         edit={false}
-                        color2={"#ffd700"}
+                        color2={'#ffd700'}
                       />
                     </li>
                     <li className={styles.facilities}>
                       {detailField.Facilities?.map((el) => {
                         return (
                           <p
+                            key={el.id}
                             className={styles.facilitieIcon}
                             style={{ margin: 3 }}
                           >
-                            {el.name === "Duchas" ? (
+                            {el.name === 'Duchas' ? (
                               <img
                                 src={duchas}
                                 style={{ height: 25 }}
                                 alt={el.name}
                               />
-                            ) : el.name === "Estacionamiento" ? (
+                            ) : el.name === 'Estacionamiento' ? (
                               <img
                                 src={estacionamiento}
                                 style={{ height: 25 }}
+                                alt="estacionamiento"
                               />
-                            ) : el.name === "Buffet" ? (
-                              <img src={buffet} style={{ height: 25 }} />
+                            ) : el.name === 'Buffet' ? (
+                              <img
+                                src={buffet}
+                                style={{ height: 25 }}
+                                alt="buffet"
+                              />
                             ) : (
-                              <img src={quincho} style={{ height: 25 }} />
+                              <img
+                                src={quincho}
+                                style={{ height: 25 }}
+                                alt="quincho"
+                              />
                             )}
                           </p>
                         );
@@ -120,14 +133,14 @@ function Detail() {
                     </li>
 
                     <li>
-                      Cancha para {detailField.Size ? detailField.Size.name : 0}{" "}
+                      Cancha para {detailField.Size ? detailField.Size.name : 0}{' '}
                       jugadores
                     </li>
                     {/* <li>Tipo de suelo: {detailField.Surface ? detailField.Surface.name : "Sin información"}</li> */}
                     <li>
-                      <img src={map} style={{ height: 25 }} />{" "}
-                      {detailField.address},{" "}
-                      {detailField.City ? detailField.City.name : ""}
+                      <img src={map} style={{ height: 25 }} alt="size" />
+                      {detailField.address},{' '}
+                      {detailField.City ? detailField.City.name : ''}
                     </li>
                     <li>
                       <p>{detailField.description}</p>
@@ -136,39 +149,20 @@ function Detail() {
                   <div className={styles.description}>
                     <span className={styles.price}>
                       <p>${detailField.price}</p>
-                      <Link to='/login'>Reservar</Link>
+                      <Link to="/login">Reservar</Link>
                     </span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
+        
           <div className={styles.review}>
             <h3>Comentarios</h3>
             <div className={styles.container}>
-              <div className={styles.comment}>
-                <div className={styles.userData}>
-                  <figure className={styles.user}>
-                    <img
-                      src="https://images.pexels.com/photos/7562313/pexels-photo-7562313.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                      alt="foto de perfil"
-                      className={styles.profile}
-                    />
-                    <p>Nombre</p>
-                  </figure>
-                  <p>★★★★☆</p>
-                </div>
-                <p className={styles.commentData}>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Culpa magni tenetur possimus iure laudantium odio ducimus sed
-                  aliquid, eveniet illo totam aliquam ab est rerum
-                  necessitatibus voluptas accusamus deserunt architecto.
-                </p>
-              </div>
               {/* ------------------ */}
-              {comments.map((text) => (
-                <div className={styles.comment}>
+              {comments.map((comment) => (
+                <div key={comment.id} className={styles.comment}>
                   <div className={styles.userData}>
                     <figure className={styles.user}>
                       <img
@@ -178,18 +172,16 @@ function Detail() {
                       />
                       <p>Nombre</p>
                     </figure>
-                    <p>
-                    <ReactStars
+                      <ReactStars
                         count={5}
-                        value={currentValue}
+                        value={comment.score}
                         size={24}
                         edit={false}
-                        color2={"#ffd700"}
+                        color2={'#ffd700'}
                       />
-                    </p>
                   </div>
 
-                  <p className={styles.commentData}>{text}</p>
+                  <p className={styles.commentData}>{comment.comment}</p>
                 </div>
               ))}
 
@@ -214,7 +206,7 @@ function Detail() {
                       }
                       style={{
                         marginRight: 10,
-                        cursor: "pointer",
+                        cursor: 'pointer',
                       }}
                     />
                   );
@@ -226,7 +218,9 @@ function Detail() {
                 placeholder="Deja tu comentario..."
                 className={styles.textarea}
               />
-              <button onClick={onClickHandler} disabled={!comment}>Submit</button>
+              <button onClick={onClickHandler} disabled={!comment} >
+                Submit
+              </button>
             </div>
           </div>
         </div>
