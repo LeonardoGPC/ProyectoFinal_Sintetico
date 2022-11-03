@@ -1,11 +1,6 @@
 const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
   sequelize.define('Booking', {
-    id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        allowNull: false
-    },
     date: {
         type: DataTypes.STRING,
         allowNull: false
@@ -19,6 +14,14 @@ module.exports = (sequelize) => {
         allowNull: false,
         defaultValue: false
     },
+   /*  FieldId:{
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    UserId:{
+      type: DataTypes.INTEGER,
+      allowNull: false
+    } */
 
   },{
     timestamps: false,
