@@ -1,5 +1,5 @@
 const axios = require("axios");
-const { Field, Facility, Surface, Size, City, Comment, Booking } = require("../db");
+const { Field, Facility, Surface, Size, City, Comment, User } = require("../db");
 const { Op } = require("sequelize");
 
 const queryParams = {
@@ -56,9 +56,8 @@ async function getFields() {
         ...queryParams3,
       },
       {
-        model: Booking,
-        ...queryParams4
-      },
+        model:User
+      }
     ],
   });
   if (fields.length) return fields;
@@ -94,9 +93,8 @@ async function getFieldById(id) {
         ...queryParams3,
       },
       {
-        model: Booking,
-        ...queryParams4
-      },
+        model: User
+      }
     ],
   });
   if (field) return field;
