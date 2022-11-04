@@ -13,6 +13,7 @@ import {
   USER,
   CLEAN_ERRORS,
   GET_COMMENTS,
+  GET_BOOKINGS
 } from '../actions/actionsTypes';
 
 const initialState = {
@@ -26,6 +27,7 @@ const initialState = {
   fieldsFilterByCity:[],
   fieldsFilterByCityAndSize: [],
   detail: {},
+  bookings: [],
   user: '',
   errors: null,
   plan: {basic: {img: 'https://pbs.twimg.com/media/FFn0jYGWQAgaT2X.jpg', name: 'Básico', price: '18', desc: '50'},
@@ -137,6 +139,9 @@ const rootReducer = (state = initialState, action) => {
     }
     case  GET_COMMENTS:{
       return {...state, comments: action.payload}
+    }
+    case GET_BOOKINGS:{
+      return {...state, bookings: action.payload}
     }
     default:
       return { ...state };

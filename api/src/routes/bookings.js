@@ -14,8 +14,8 @@ router.get("/", async (req, res) => {
 
   router.post("/", async (req, res) => {
     try {
-      const { id, date, hour } = req.body; //Remover id en un futuro
-      const createBooking = await Booking.create({ id, date, hour });
+      const { date, hour, FieldId } = req.body; //Remover id en un futuro
+      const createBooking = await Booking.create({ date, hour, FieldId });
       res.json(createBooking)
     } catch (error) {
       res.status(404).send({ error: error.message });

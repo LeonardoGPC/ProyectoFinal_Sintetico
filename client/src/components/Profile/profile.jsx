@@ -3,7 +3,8 @@ import { useSelector } from 'react-redux'
 import Navbar from '../NavBar/Navbar'
 import prof from './profile.module.css'
 import foto from '../../img/foto_perfil.jpg'
-import {ReservaUsuario} from '../Reservas/ReservaUsuario.jsx'
+
+
 
 function Profile() {
 
@@ -63,11 +64,12 @@ function Profile() {
                     <p className={prof.li} onClick={() => window.location.replace("http://localhost:3000/")}>Cerrar Sesión</p>
                 </div>}
                 <div className={prof.content}>
+                    
 
                 </div>
             </div>
             <div>
-            <ReservaUsuario/>
+            
             </div>
         </div>
       )
