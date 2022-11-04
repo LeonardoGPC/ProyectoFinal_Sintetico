@@ -17,10 +17,10 @@ async function authenticate(userName, password){
 };
 
 async function createUser(userData){
-    const {id, name, lastName, email, phone, image, userName, password } = userData;
+    const {name, lastName, email, phone, image, userName, password } = userData;
     const salt = getSalt();
     var hashedPassword = getHash(password, salt);
-    const user = {id, name, lastName, companyName, cuit, clubName, email, phone, image,userName, password:hashedPassword, salt };
+    const user = {name, lastName, email, phone, image,userName, password: hashedPassword, salt };
     try{
         await User.create(user);
         return "User created successfuly";
@@ -30,12 +30,20 @@ async function createUser(userData){
 }
 
 async function getUser(userId){
-    var userFromDb = User.findByPk(userId);
+    var userFromDb = await User.findByPk(userId);
     if (userFromDb) return userFromDb;
     throw new Error("User not found");
 }
 
+async function getUsers(){
+    var usersFromDb = await User.findAll();
+    if (usersFromDb) return usersFromDb;
+    throw new Error("There is not users in the db");
+}
+
 module.exports = {
     authenticate,
-    createUser
+    createUser,
+    getUser,
+    getUsers
 }
