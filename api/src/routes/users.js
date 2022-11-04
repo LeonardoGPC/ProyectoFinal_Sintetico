@@ -1,7 +1,6 @@
 const { Router } = require('express');
 const router = Router();
-const { createUser, authenticate } = require('../controllers/userController');
-var LocalStrategy = require('passport-local');
+const { createUser, authenticate, getUser } = require('../controllers/userController');
 const passport = require('passport');
 
 require("../passportConfig")(passport);
@@ -27,4 +26,12 @@ router.post("/login", async (req, res)=>{
     }
 });
 
+router.get("/profile", async (req, res) => {
+    try{
+        var userFromDb = await getUser(1);
+        res.send(userFromDb);
+    }catch(error){
+        res.status(404).send(error);
+    }
+})
 module.exports = router

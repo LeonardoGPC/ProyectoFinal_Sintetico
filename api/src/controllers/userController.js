@@ -29,6 +29,12 @@ async function createUser(userData){
     }
 }
 
+async function getUser(userId){
+    var userFromDb = User.findByPk(userId);
+    if (userFromDb) return userFromDb;
+    throw new Error("User not found");
+}
+
 module.exports = {
     authenticate,
     createUser
