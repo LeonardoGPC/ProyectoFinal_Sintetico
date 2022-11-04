@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const router = Router();
-const { getBookings, postBookings} = require("../controllers/bookingController");
+const { getBookings, postBookings, editBooking} = require("../controllers/bookingController");
 const { Booking, Field, User } = require("../db");
 
 router.get("/", async (req, res) => {
@@ -14,9 +14,10 @@ router.get("/", async (req, res) => {
 
   router.post("/", async (req, res) => {
     try {
-      const { date, hour, FieldId, UserId } = req.body; 
+     // { date, hour, FieldId, UserId }
+      const data = req.body; 
       
-       await postBookings(date, hour, FieldId, UserId)
+       await postBookings(data)
      
       res.json("success")
     } catch (error) {
@@ -24,6 +25,16 @@ router.get("/", async (req, res) => {
     }
   });
 
+  router.put('/:id', async (req, res)=>{
+    const data = req.body;
+    const {id: idBooking} = req.params; 
+    try{
+        await editBooking(idBooking, data);
+        res.send("La reserva se edito exitosamente");
+    }catch(error){
+        res.status(404).send(error.message)
+    }
+});
 
 
 module.exports = router;
