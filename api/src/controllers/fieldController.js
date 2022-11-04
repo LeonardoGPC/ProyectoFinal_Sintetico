@@ -9,12 +9,6 @@ const queryParams = {
   },
 };
 
-const queryParams3 = {
-  attributes: ["id", "comment", "score"],
-  through: {
-    attributes: [],
-  },
-};
 
 const queryParams2 = {
   attributes: ["name"],
@@ -52,10 +46,6 @@ async function getFields() {
         ...queryParams,
       },
       {
-        model: Comment,
-        ...queryParams3,
-      },
-      {
         model:User
       }
     ],
@@ -87,10 +77,6 @@ async function getFieldById(id) {
       {
         model: Facility,
         ...queryParams,
-      },
-      {
-        model: Comment,
-        ...queryParams3,
       },
       {
         model: User
