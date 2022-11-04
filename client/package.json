@@ -27,6 +27,7 @@
     "redux-thunk": "^2.4.1",
     "slick-carousel": "^1.8.1",
     "swiper": "^8.4.4",
+    "universal-cookie": "^4.0.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
