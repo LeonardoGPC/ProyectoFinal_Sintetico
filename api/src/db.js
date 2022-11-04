@@ -35,9 +35,6 @@ const { Field, Facility, Size, Surface, City, Comment, User, Booking} = sequeliz
 Field.belongsToMany(Facility, {through: 'fieldFacility'});
 Facility.belongsToMany(Field, {through: 'fieldFacility'});
 
-Field.belongsToMany(Comment, {through: 'fieldComment'});
-Comment.belongsToMany(Field, {through: 'fieldComment'});
-
 City.hasMany(Field);
 Field.belongsTo(City);
 
@@ -50,12 +47,11 @@ Field.belongsTo(Surface);
 User.belongsToMany(Field, { through: Booking });
 Field.belongsToMany(User, { through: Booking });
 
-// Comment.belongsTo(Booking);
-// Booking.hasOne(Comment);
+Comment.hasOne(Booking);
+Booking.belongsTo(Comment);
 
-// Comment.hasMany(Field)
-// Field.belongsTo(Comment)
-
+// Booking.hasOne(Comment)
+// Comment.belongsTo(Booking)
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
