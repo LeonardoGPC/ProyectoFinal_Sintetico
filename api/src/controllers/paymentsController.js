@@ -1,18 +1,30 @@
-const { default: axios } = require('axios');
+const axios = require('axios');
 const mercadopago = require('mercadopago');
-const { Booking } = require("../db");
+const { postBookings, editBooking } = require('./bookingController');
 
-async function createOrdenLink({itemName, price, idUser, idField, date, hour}){
+
+async function createOrdenLink({itemName, price, UserId, bookings}){
     mercadopago.configure({
         access_token: process.env.ACCESS_TOKEN
     });
     //En description estará los datos que no se pueden obtener de la notificación de Mercado pago
-    //idUser, idField, date, hour
+    //(id de cada Booking creada)
+    let idBooking = []
+    for (const item of bookings) {
+        let bookingData = {
+            UserId: UserId,
+            FieldId: item.FieldId,
+            date: item.date,
+            hour: item.hour,
+        }
+        idBooking.push(await postBookings(bookingData))
+    }
+    //idBooking = idBooking.map(e => e[0].dataValues.id)
     var preference = {
         items: [
             {
-                title:  `Reserva: ${itemName}`,
-                description: `${idUser},${idField},${date},${hour}`,
+                title:  itemName,
+                description: idBooking.join(','),
                 quantity: 1,
                 currency_id: 'COP',
                 unit_price: price,
@@ -43,18 +55,14 @@ async function createOrdenLink({itemName, price, idUser, idField, date, hour}){
             }
         })
         .catch((error) => console.log(error))
+
         status = status.data
-        if(status.status === 'approved'){
-            let descriptionData = status.additional_info.items[0].description.split(',')
-            let bookingData = {
-                idUser:  Number(descriptionData[0]),
-                idField: Number(descriptionData[1]),
-                date: descriptionData[2].split('-').join('/'),
-                hour: Number(descriptionData[3]),
-                idBooking: status.id
+        let bookingIds = status.additional_info.items[0].description.split(',')
+            for (const bookingId of bookingIds) {
+                await editBooking(bookingId, {
+                    paymentStatus: status.status.toUpperCase()
+                })
             }
-            await createBooking(bookingData)
-        }
     }
 }
 
