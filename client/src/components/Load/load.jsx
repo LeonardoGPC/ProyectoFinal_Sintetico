@@ -1,6 +1,6 @@
 import React from "react";
 import load from './load.module.css';
-import balon from '../../img/balon.png';
+import balon from '../img/balon.png';
 
 export default function Load(){
     return(

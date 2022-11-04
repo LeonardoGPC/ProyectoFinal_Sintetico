@@ -1,6 +1,6 @@
 import React from 'react'
 import log from './login.module.css'
-import logo from '../img/balon.png'
+import logo from '../img/balones.png'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
@@ -52,7 +52,7 @@ function Login() {
             <p className={log.switch}>¿Ya tienes cuenta? <span onClick={() => setDinamic('0')}>Inicia sesión</span></p>
         </div>
         <div className={log.login}>
-            <img src={logo} className={log.logo}/>
+            <img src={logo} className={log.logo} alt='logo'/>
             {user.length === 0 ? <div>
             <h4>Inicia sesión con Google/Facebook</h4>
             <p className={log.division}>------------ o con tu usuario -----------</p>
