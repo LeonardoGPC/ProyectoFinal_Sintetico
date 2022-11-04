@@ -4,12 +4,21 @@ import Navbar from '../NavBar/Navbar'
 import prof from './profile.module.css'
 import foto from '../../img/foto_perfil.jpg'
 import {ReservaUsuario} from '../Reservas/ReservaUsuario.jsx'
+import Cookies from 'universal-cookie';
 
 function Profile() {
 
     let user = useSelector((state) => state.user)
+    const cookie = new Cookies()
+    const usuario = cookie.get('usuario')
 
-    if(user.length === 0){
+    const closeSesion = () => {
+        cookie.remove('usuario')
+        cookie.remove('password')
+        window.location.replace("http://localhost:3000/")
+    }
+
+    if(typeof usuario === 'undefined'){
         window.location.replace("http://localhost:3000/login");
     } else {
       return (
@@ -28,7 +37,7 @@ function Profile() {
                         
                     </ul>
                   
-                    <p className={prof.li} onClick={() => window.location.replace("http://localhost:3000/")}>Cerrar Sesión</p>
+                    <p className={prof.li} onClick={() => closeSesion()}>Cerrar Sesión</p>
                      
                 </div>
                  : user === 'club' ? 
@@ -44,7 +53,7 @@ function Profile() {
                         <li className={prof.li}>Reservas </li>
                         <li className={prof.li}>Configuración</li>
                     </ul>
-                    <p className={prof.li} onClick={() => window.location.replace("http://localhost:3000/")}>Cerrar Sesión</p>
+                    <p className={prof.li} onClick={() => closeSesion()}>Cerrar Sesión</p>
                 </div>
                 : 
                 <div className={prof.menu}>
@@ -60,7 +69,7 @@ function Profile() {
                         <li className={prof.li}>Configuración</li>
 
                     </ul>
-                    <p className={prof.li} onClick={() => window.location.replace("http://localhost:3000/")}>Cerrar Sesión</p>
+                    <p className={prof.li} onClick={() => closeSesion()}>Cerrar Sesión</p>
                 </div>}
                 <div className={prof.content}>
 

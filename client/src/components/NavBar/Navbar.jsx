@@ -6,8 +6,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import foto from '../../img/foto_perfil.jpg'
 import { cleanErrors } from "../../redux/actions/index.js"
 import cart from '../../img/cart.svg'
+import Cookies from 'universal-cookie';
 
 export default function Navbar() {
+
+  const cookie = new Cookies()
+  const usuario = cookie.get('usuario')
+
   const dispatch = useDispatch()
   function handleErrors(){
     dispatch(cleanErrors())
@@ -35,7 +40,7 @@ export default function Navbar() {
           {/* <Link to={link}><p>Ver Canchas</p></Link> */}
           {location === '/' ? <a href='#2'><p>Ver canchas</p></a> : <Link to='/sintetico'><p>Ver Canchas</p></Link> }
         </div>
-        {user.length === 0 ? localStorage.length === 0 ? <div className={style.inse}>
+        {typeof usuario === 'undefined' ? localStorage.length === 0 ? <div className={style.inse}>
           <Link to='/login' className={style.inse_link}>Iniciar Sesión</Link>
         </div> : <div className={style.inse}>
         <Link to='/pay'><img className={style.img2} src={cart}/></Link>

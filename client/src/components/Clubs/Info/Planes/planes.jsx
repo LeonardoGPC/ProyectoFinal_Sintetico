@@ -18,7 +18,7 @@ export default function Planes(){
                     <img className={plan.img} src={planes.basic.img}/>
                     <h2 className={plan.title}>{planes.club.name}</h2>
                     <p className={plan.percent}>AHORRO {planes.basic.desc}%</p>
-                    <p className={plan.price}>${(planes.basic.price / 100) * planes.basic.desc}/Mes.</p>
+                    <p className={plan.price}>${planes.basic.price - ((planes.basic.price / 100) * planes.basic.desc)}/Mes.</p>
                     <div className={plan.div_prg}>
                         <p className={plan.paragraph}> ✔️ Herramientas de publicación</p>
                         <p className={plan.paragraph}> ✔️ Publicaciones con rating</p>
@@ -33,7 +33,7 @@ export default function Planes(){
                     <img className={plan.img} src={planes.club.img}/>
                     <h2 className={plan.title}>{planes.club.name}</h2>
                     <p className={plan.percent}>AHORRO {planes.club.desc}%</p>
-                    <p className={plan.price}>${(planes.club.price / 100) * planes.club.desc}/Mes.</p>
+                    <p className={plan.price}>${planes.club.price - ((planes.club.price / 100) * planes.club.desc)}/Mes.</p>
                     <div className={plan.div_prg}>
                         <p className={plan.paragraph}> ✔️ Publicaciones ilimitadas</p>
                         <p className={plan.paragraph}> ✔️ Herramientas de publicación</p>
@@ -51,7 +51,7 @@ export default function Planes(){
                     <img className={plan.img} src={planes.premium.img}/>
                     <h2 className={plan.title}>{planes.premium.name}</h2>
                     <p className={plan.percent}>AHORRO {planes.premium.desc}%</p>
-                    <p className={plan.price}>${(planes.premium.price / 100) * planes.premium.desc}/Mes.</p>
+                    <p className={plan.price}>${planes.premium.price - ((planes.premium.price / 100) * planes.premium.desc)}/Mes.</p>
                     <div className={plan.div_prg}>
                         <p className={plan.paragraph}> ✔️ Publicaciones ilimitadas</p>
                         <p className={plan.paragraph}> ✔️ Herramientas de publicación</p>
