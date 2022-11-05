@@ -48,7 +48,7 @@ function App() {
         <Route path='/faq' element={<Faq/>} />
         <Route path= '/minifooter' element={<MiniFooter/>} />
         <Route path='/pay' element={<Pagos/>}/>
-        <Route path='/booking' element={<Booking/>}/>
+        <Route path='/booking/:id' element={<Booking/>}/>
       </Routes>
       {load && <Load/>}
       </div>

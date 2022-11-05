@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { format } from 'date-fns';
 import groupBy from 'json-groupby';
+import { useParams } from 'react-router-dom';
 import { DatePicker } from '@material-ui/pickers';
 import Navbar from '../NavBar/Navbar.jsx';
 import style from './Booking.module.css';
@@ -13,13 +14,14 @@ import Cookies from 'universal-cookie';
 const hours = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23];
 
 function BookingAdmin() {
+  const { id } = useParams();
   const fields = useSelector((state) => state.fields);
   const bookings = useSelector((state) => state.bookings);
   const dispatch = useDispatch();
 
   const [date, changeDate] = useState(new Date());
   const [hour, setHour] = useState('');
-  const [fieldId, setFieldId] = useState('');
+  const [fieldId, setFieldId] = useState(id);
 
   const formattedDate = format(date, 'd/MM/yyyy');
   const bookingInfo = groupBy(bookings, ['date', 'Fields.id'], ['hour']);
