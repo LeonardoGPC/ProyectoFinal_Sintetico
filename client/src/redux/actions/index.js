@@ -153,20 +153,18 @@ export const getComments = () => {
 };
 
 export const postBooking=(payload)=>{
-  return async () => {
+  return async (dispatch) => {
     try {
-       await axios.post('http://localhost:3001/bookings', payload);
+      await axios.post('http://localhost:3001/bookings', payload);
+      dispatch(getBookings());
       alert('Tu Reserva fue creada con exito!');
     } catch (error) {
       alert('No se pudo crear la reserva');
     }
-   
-
   }
-
 }
 
-export const getBookings=(payload)=>{
+export const getBookings=()=>{
   return async (dispatch) => {
     const response = await axios.get('http://localhost:3001/bookings');
     dispatch({

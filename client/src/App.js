@@ -40,7 +40,13 @@ function App() {
         <Route path='/clubs' element={<Clubs/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/sintetico' element={<Home/>}/>
-        <Route path='/profile' element={<Profile/>}/>
+        <Route path='/profile/' element={<Profile/>}>
+          <Route index element={<h1>Bienvenido al perfil</h1>} />
+          <Route
+            path="booking-management"
+            element={<BookingAdmin/>}
+          />
+        </Route>
         <Route path='/sintetico/detail/:id' element={<Detail/>}/>
         <Route path='/create' element={<Create/>}/>
         <Route path='*' element={<div><h1>Error 404</h1></div>}/>
@@ -49,9 +55,7 @@ function App() {
         <Route path='/faq' element={<Faq/>} />
         <Route path= '/minifooter' element={<MiniFooter/>} />
         <Route path='/pay' element={<Pagos/>}/>
-        <Route path='/bookingAdmin' element={<BookingAdmin/>} />
         <Route path='/bookingUser' element={<BookingUser/>}/>
-        
       </Routes>
       {load && <Load/>}
       </div>
