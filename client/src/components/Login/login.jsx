@@ -5,12 +5,22 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { userLogin } from '../../redux/actions'
+import Cookies from 'universal-cookie';
 
 function Login() {
 
     const [dinamic, setDinamic] = useState('0')
     const dispatch = useDispatch()
     const user = useSelector((state) => state.user)
+    const cookie = new Cookies()
+    const [input, setInput] = useState({
+        username: '',
+        password: ''
+    })
+
+    const db = [
+        {username: 'Leonardo', password: 'vyncii1'}, {username: 'admin', password: 'sinteticoIsTheBest'}
+    ]
 
     const loginHandler = (e) => {
         e.preventDefault()
@@ -20,6 +30,26 @@ function Login() {
             dispatch(userLogin('club'))
         } else {
             dispatch(userLogin('admin'))
+        }
+    }
+
+    const typingHandler = (e) => {
+        setInput({
+            ...input,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    const login = (e) => {
+        console.log('submitt')
+        e.preventDefault()
+        const usuario = db.find(f => f.username === input.username && f.password === input.password)
+        if(usuario){
+            cookie.set('usuario', usuario.username)
+            cookie.set('password', usuario.password)
+            window.history.back()
+        } else {
+            alert('El usuario o contraseña es incorrecto')
         }
     }
 
@@ -56,20 +86,23 @@ function Login() {
             {user.length === 0 ? <div>
             <h4>Inicia sesión con Google/Facebook</h4>
             <p className={log.division}>------------ o con tu usuario -----------</p>
-            <form>
+            <form onSubmit={e => login(e)}>
                 <div className={log.user}>
                     <p>Usuario:</p>
-                    <input type='text'/>
+                    <input type='text' name='username' onChange={e => typingHandler(e)}/>
                 </div>
                 <div className={log.pass}>
                     <p>Contraseña:</p>
-                    <input type='password'/>
+                    <input type='password' name='password' onChange={e => typingHandler(e)}/>
                 </div>
-                <div className={log.button}>
+                {/* <div className={log.button}>
                     <input type='button' value='Usuario' onClick={e => loginHandler(e)}/>
                     <input type='button' value='Club' onClick={e => loginHandler(e)}/>
                     <input type='button' value='Admin' onClick={e => loginHandler(e)}/>
-                </div>            
+                </div>             */}
+                <div className={log.button}>
+                    <input type='submit' value='Iniciar Sesión'/>
+                </div> 
             </form>
             <p className={log.switch}>¿Aún no tienes cuenta? <span onClick={() => setDinamic('calc(100% - 30px)')}>Registrate</span></p>
             </div> : <div className={log.session}>

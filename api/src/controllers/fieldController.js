@@ -1,5 +1,5 @@
 const axios = require("axios");
-const { Field, Facility, Surface, Size, City, Comment, Booking } = require("../db");
+const { Field, Facility, Surface, Size, City, Comment, User, Booking } = require("../db");
 const { Op } = require("sequelize");
 
 const queryParams = {
@@ -21,7 +21,7 @@ const queryParams2 = {
 };
 
 const queryParams4 ={
-  attributes: ["date", "hour", "isCancel"],
+  attributes: ["id"],
   through: {
     attributes: [],
   },
@@ -57,7 +57,7 @@ async function getFields() {
       },
       {
         model: Booking,
-        ...queryParams4
+        ...queryParams4,
       },
     ],
   });
@@ -92,10 +92,6 @@ async function getFieldById(id) {
       {
         model: Comment,
         ...queryParams3,
-      },
-      {
-        model: Booking,
-        ...queryParams4
       },
     ],
   });
@@ -154,9 +150,21 @@ async function deleteField(fieldId) {
     throw new Error("El elemento a borrar no existe");
   }
 }
+
+async function editField(fieldId, data){
+    try{
+        var fieldFromDb = await Field.findByPk(fieldId);
+        await fieldFromDb.update(data);
+        fieldFromDb.isNewRecord = false;
+        await fieldFromDb.save();
+    }catch(error){
+        throw new Error("El elemento a editar no existe o los parámetros no son válidos");
+    }
+}
 module.exports = {
-  getFields,
-  getFieldById,
-  createField,
-  deleteField,
-};
+    getFields,
+    getFieldById,
+    createField,
+    deleteField,
+    editField
+}
