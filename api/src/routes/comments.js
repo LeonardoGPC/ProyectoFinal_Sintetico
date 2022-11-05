@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const router = Router();
-const { getComments } = require("../controllers/commentsController");
+const { getComments, postComment } = require("../controllers/commentsController");
 const { Comment, fieldComment } = require("../db");
 
 router.get("/", async (req, res) => {
@@ -14,12 +14,9 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
   try {
-    const { score, comment, FieldId } = req.body;
-    const createComment = await Comment.create({ score, comment });
-    await fieldComment.create({ FieldId, CommentId: createComment.id });
-    res.json(createComment)
-    // const createComment = await Comment.create(req.body);
-    // res.json(createComment)
+    const data = req.body
+    await postComment(data)
+    res.json("Comentario enviado")
   } catch (error) {
     res.status(404).send({ error: error.message });
   }
