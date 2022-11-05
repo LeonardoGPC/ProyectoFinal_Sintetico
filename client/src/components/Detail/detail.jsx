@@ -161,7 +161,7 @@ function Detail() {
                   <div className={styles.description}>
                     <span className={styles.price}>
                       <p>${detailField.price}</p>
-                      <Link to='/pay' onClick={() => storageHandler()}>Reservar</Link>
+                      <Link to='/booking' onClick={() => storageHandler()}>Reservar</Link>
                     </span>
                   </div>
                 </div>

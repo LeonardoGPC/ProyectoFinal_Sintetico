@@ -46,7 +46,7 @@ function Login() {
         await axios.post('http://localhost:3001/users/login', {userName: input.username, password: input.password})
         .then(response => response.data)
         .then(res => {
-            cookie.set('usuario', res.usernName)
+            cookie.set('usuario', res.userName)
             cookie.set('id', res.id)
             window.history.back()
         })

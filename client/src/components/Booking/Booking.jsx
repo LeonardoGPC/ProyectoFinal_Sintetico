@@ -8,6 +8,7 @@ import Navbar from '../NavBar/Navbar.jsx';
 import style from './Booking.module.css';
 import image from '../img/niño.png';
 import { postBooking, getFields, getBookings } from '../../redux/actions';
+import Cookies from 'universal-cookie';
 
 const hours = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23];
 
@@ -33,17 +34,30 @@ function BookingAdmin() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await dispatch(
-      postBooking({ date: format(date, 'd/MM/yyyy'), FieldId: fieldId, hour, UserId: 1 }),
+      postBooking({
+        date: format(date, 'd/MM/yyyy'),
+        FieldId: fieldId,
+        hour,
+        UserId: cookie.get('id'),
+      }),
     );
     changeDate(new Date());
     setHour('');
     setFieldId('');
-    dispatch(getBookings());
+    window.location.replace('http://localhost:3000/pay');
   };
 
   const handleHourChange = (e) => {
     setHour(e.target.value);
   };
+
+  const cookie = new Cookies();
+  const usuario = cookie.get('usuario');
+
+  if (typeof usuario === 'undefined') {
+    window.location.replace('http://localhost:3000/login');
+    return null;
+  }
 
   return (
     <div>
