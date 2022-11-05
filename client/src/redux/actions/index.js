@@ -156,7 +156,6 @@ export const postBooking=(payload)=>{
   return async (dispatch) => {
     try {
       await axios.post('http://localhost:3001/bookings', payload);
-      dispatch(getBookings());
       alert('Tu Reserva fue creada con exito!');
     } catch (error) {
       alert('No se pudo crear la reserva');

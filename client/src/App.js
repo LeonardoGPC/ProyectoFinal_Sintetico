@@ -14,6 +14,7 @@ import Login from './components/Login/login';
 import MiniFooter from './components/MiniFooter/MiniFooter';
 import Profile from './components/Profile/profile';
 import Pagos from './components/Pagos/pagos';
+import Booking from './components/Booking/Booking';
 
 function App() {
 
@@ -47,6 +48,7 @@ function App() {
         <Route path='/faq' element={<Faq/>} />
         <Route path= '/minifooter' element={<MiniFooter/>} />
         <Route path='/pay' element={<Pagos/>}/>
+        <Route path='/booking' element={<Booking/>}/>
       </Routes>
       {load && <Load/>}
       </div>

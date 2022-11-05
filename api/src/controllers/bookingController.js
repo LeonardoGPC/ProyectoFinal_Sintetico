@@ -4,7 +4,7 @@ async function getBookings(){
     const allBookings = await Booking.findAll({
       where: {
         isCancel: false,
-        paymentStatus: "APPROVED"
+        // paymentStatus: "APPROVED"
       },
       include: [{
         model: Field,
