@@ -8,17 +8,13 @@ async function getComments() {
 
 async function postComment({ comment, score, FieldId, UserId }) {
   try {
-    const targetField = await Field.findByPk(FieldId);
-    const targetUser = await User.findByPk(UserId);
     const post = await Comment.create({
       comment: comment,
       score: score,
       UserId: UserId,
       FieldId: FieldId,
     });
-
-    await targetUser.addComment(post);
-    // await post.addField(targetField);
+    return post
   } catch (error) {
     console.log("Error en el controlador postComment: " + error);
   }
