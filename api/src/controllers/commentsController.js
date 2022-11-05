@@ -6,6 +6,16 @@ async function getComments() {
   else throw new Error("No existen datos en la bd");
 }
 
+async function fieldComment(id){
+  const field = await Comment.findAll({
+    where: {
+      FieldId: id
+    }
+  })
+  return field
+}
+
+
 async function postComment({ comment, score, FieldId, UserId }) {
   try {
     const post = await Comment.create({
@@ -23,4 +33,5 @@ async function postComment({ comment, score, FieldId, UserId }) {
 module.exports = {
   getComments,
   postComment,
+  fieldComment,
 };
