@@ -4,8 +4,7 @@ async function getBookings(){
     const allBookings = await Booking.findAll({
       where: {
         isCancel: false,
-        // paymentStatus: "APPROVED"
-        // se comenta porque se necesitan todas las reservaciones en la página del administrador
+        paymentStatus: "APPROVED"
       },
       include: [{
         model: Field,
@@ -22,10 +21,10 @@ async function getBookings(){
 async function postBookings({date, hour, FieldId, UserId}){
  try {
   const targetField = await Field.findByPk(FieldId)
-  const booking = await Booking.create({ date, hour })
-  // const targetUser = await User.findByPk(UserId) 
+  const booking = await Booking.create({ date: date, hour: hour  })
+  const targetUser = await User.findByPk(UserId) 
 
-  // await targetUser.addBooking(booking)
+  await targetUser.addBooking(booking)
   await booking.addField(targetField)
 
   //const newBooking = await targetUser.addField(targetField, { through: { date: date, hour: hour  } })

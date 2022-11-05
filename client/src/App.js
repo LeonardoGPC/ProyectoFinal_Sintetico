@@ -14,8 +14,6 @@ import Login from './components/Login/login';
 import MiniFooter from './components/MiniFooter/MiniFooter';
 import Profile from './components/Profile/profile';
 import Pagos from './components/Pagos/pagos';
-import BookingAdmin from './components/BookingAdmin/BookingAdmin.jsx'
-import BookingUser from './components/BookingUser/BookingUser.jsx'
 
 function App() {
 
@@ -40,13 +38,7 @@ function App() {
         <Route path='/clubs' element={<Clubs/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/sintetico' element={<Home/>}/>
-        <Route path='/profile/' element={<Profile/>}>
-          <Route index element={<h1>Bienvenido al perfil</h1>} />
-          <Route
-            path="booking-management"
-            element={<BookingAdmin/>}
-          />
-        </Route>
+        <Route path='/profile' element={<Profile/>}/>
         <Route path='/sintetico/detail/:id' element={<Detail/>}/>
         <Route path='/create' element={<Create/>}/>
         <Route path='*' element={<div><h1>Error 404</h1></div>}/>
@@ -55,7 +47,6 @@ function App() {
         <Route path='/faq' element={<Faq/>} />
         <Route path= '/minifooter' element={<MiniFooter/>} />
         <Route path='/pay' element={<Pagos/>}/>
-        <Route path='/bookingUser' element={<BookingUser/>}/>
       </Routes>
       {load && <Load/>}
       </div>

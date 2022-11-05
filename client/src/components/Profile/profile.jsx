@@ -1,6 +1,5 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { Outlet, Link } from 'react-router-dom';
 import Navbar from '../NavBar/Navbar'
 import prof from './profile.module.css'
 import foto from '../../img/foto_perfil.jpg'
@@ -65,16 +64,14 @@ function Profile() {
                         <li className={prof.li}>Gestionar Publicaciones</li>
                         <li className={prof.li}>Gestionar Usuarios</li>
                         <li className={prof.li}>Gestionar Precios</li>
-                        <li className={prof.li}>
-                          <Link to="/profile/booking-management">Gestionar Reservas</Link>
-                        </li>
+                        <li className={prof.li}>Gestionar Reservas</li>
                         <li className={prof.li}>Configuración</li>
 
                     </ul>
                     <p className={prof.li} onClick={() => closeSesion()}>Cerrar Sesión</p>
                 </div>}
                 <div className={prof.content}>
-                  <Outlet />
+
                 </div>
             </div>
             <div>

@@ -20,9 +20,9 @@ module.exports = (sequelize) => {
         defaultValue: false
     },
     paymentStatus: {
-      type: DataTypes.ENUM('ENABLED', 'IN_PROCESS', 'APPROVED', 'REJECTED'),
+      type: DataTypes.ENUM('IN_PROCESS', 'APPROVED', 'REJECTED'),
       allowNull:false,
-      defaultValue: "ENABLED"
+      defaultValue: "IN_PROCESS",
     }
    /*  FieldId:{
       type: DataTypes.INTEGER,
