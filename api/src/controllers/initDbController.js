@@ -32,12 +32,12 @@ async function chargeDb() {
   const cancha3 = await Field.findByPk(3);
   await cancha3.addFacilities([1, 2, 3]);
 
-  const comment1 = await Field.findByPk(1);
-  await comment1.addComment([1]);
-  const comment2 = await Field.findByPk(2);
-  await comment2.addComment([3, 4]);
-  const comment3 = await Field.findByPk(3);
-  await comment3.addComment([2, 4]);
+  // const comment1 = await Field.findByPk(1);
+  // await comment1.addComment([1]);
+  // const comment2 = await Field.findByPk(2);
+  // await comment2.addComment([3, 4]);
+  // const comment3 = await Field.findByPk(3);
+  // await comment3.addComment([2, 4]);
 
 
 

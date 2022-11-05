@@ -35,9 +35,6 @@ const { Field, Facility, Size, Surface, City, Comment, User, Booking} = sequeliz
 Field.belongsToMany(Facility, {through: 'fieldFacility'});
 Facility.belongsToMany(Field, {through: 'fieldFacility'});
 
-Field.belongsToMany(Comment, {through: 'fieldComment'});
-Comment.belongsToMany(Field, {through: 'fieldComment'});
-
 City.hasMany(Field);
 Field.belongsTo(City);
 
@@ -49,6 +46,9 @@ Field.belongsTo(Surface);
 
 Field.belongsToMany(Booking, { through: 'field_booking' });
 Booking.belongsToMany(Field, { through: 'field_booking' });
+
+Field.belongsToMany(User, { through: Comment });
+User.belongsToMany(Field, { through: Comment });
 
 User.hasMany(Booking)
 Booking.belongsTo(User)
