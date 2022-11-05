@@ -7,6 +7,7 @@ import { useState } from 'react';
 import Cookies from 'universal-cookie';
 import Rentcard from './Rent/rent';
 import MiniFooter from '../MiniFooter/MiniFooter.jsx';
+import axios from 'axios';
 
 function Pagos() {
 
@@ -22,7 +23,25 @@ function Pagos() {
     // const [datos, setDatos] = useState([])
     // let info = datos
 
-    const pay = () => {
+    const pay = async () => {
+        await axios.post('http://localhost:3001/payments', {
+            UserId:1,
+            price: precio,
+            itemName: "Renta de cancha(s)",
+            bookings:
+            [
+                {
+                date:"04/11/2022",
+                hour: 9,
+                FieldId: 10
+                }
+            ]
+        })
+        .then(response => response.data)
+        .then(res => {
+            window.location.replace(res)
+        })
+        .catch(error => console.log(error))
         localStorage.clear()
     }
 
@@ -54,6 +73,24 @@ function Pagos() {
         }
         setCarga(true)
         setTimeout(changeCarga, 1000)
+    }
+
+    const mercadoPago = async () => {
+        await axios.post('http://localhost:3001/payments', {
+            UserId:1,
+            price: precio,
+            itemName: "Renta de cancha(s)",
+            bookings:
+            [
+                {
+                date:"04/11/2022",
+                hour: 9,
+                FieldId: 10
+                }
+            ]
+        })
+        .then(response => console.log(response))
+        .catch(error => console.log(error))
     }
 
     useEffect(() => {

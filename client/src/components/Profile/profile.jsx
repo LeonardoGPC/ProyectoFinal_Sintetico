@@ -29,7 +29,7 @@ function Profile() {
                     <ul>
                         <li className={prof.profile}>
                             <img className={prof.img} src={foto} alt='imagen'/>
-                            <h2 className={prof.name}>Leonardo Peña</h2>
+                            <h2 className={prof.name}>{usuario}</h2>
                         </li>
                         <li className={prof.li}>Reservas</li>
                         <li className={prof.li}>Configuración</li>
@@ -44,7 +44,7 @@ function Profile() {
                     <ul>
                         <li className={prof.profile}>
                             <img className={prof.img} src={foto} alt='imagen'/>
-                            <h2 className={prof.name}>Leonardo Peña</h2>
+                            <h2 className={prof.name}>{usuario}</h2>
                         </li>
                         <li className={prof.li}>Hacer Publicación</li>
                         <li className={prof.li}>Ver Publicaciones</li>
@@ -59,7 +59,7 @@ function Profile() {
                     <ul>
                         <li className={prof.profile}>
                             <img className={prof.img} src={foto} alt='imagen'/>
-                            <h2 className={prof.name}>Leonardo Peña</h2>
+                            <h2 className={prof.name}>{usuario}</h2>
                         </li>
                         <li className={prof.li}>Gestionar Publicaciones</li>
                         <li className={prof.li}>Gestionar Usuarios</li>
