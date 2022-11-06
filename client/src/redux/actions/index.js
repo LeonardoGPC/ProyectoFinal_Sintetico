@@ -13,7 +13,8 @@ import {
   FILTER_BY_TIME,
   FILTER_BY_SURFACE,
   CLEAN_ERRORS,
-  GET_COMMENTS
+  GET_COMMENTS,
+  GET_FIELD_COMMENTS,
 } from './actionsTypes';
 
 export const prueba = () => {
@@ -127,6 +128,16 @@ export const getFieldDetail = (id) => {
     });
   };
 };
+
+export const getFieldComments = (id) => {
+  return async(dispatch) => {
+    const comments = await axios.get('http://localhost:3001/comments/' + id);
+    dispatch({
+      type:  GET_FIELD_COMMENTS,
+      payload: comments.data,
+    });
+  }
+}
 
 export const postComment = (payload) => {
   return async (dispatch) => {

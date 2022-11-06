@@ -19,11 +19,12 @@ async function chargeDb() {
   if (!city.length) await City.bulkCreate(CITIES);
   const fields = await Field.findAll();
   if (!fields.length) await Field.bulkCreate(FIELDS);
+  await User.bulkCreate(USERS)
   const comments = await Comment.findAll();
   if (!comments.length) await Comment.bulkCreate(COMMENTS);
   /* const bookings = await Booking.findAll()
   if(!bookings.length) await Booking.bulkCreate(BOOKINGS) */
-  await User.bulkCreate(USERS)
+  
 
   const cancha1 = await Field.findByPk(1);
   await cancha1.addFacilities([1, 2]);

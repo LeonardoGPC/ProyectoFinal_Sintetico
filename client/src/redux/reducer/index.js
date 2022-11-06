@@ -13,6 +13,7 @@ import {
   USER,
   CLEAN_ERRORS,
   GET_COMMENTS,
+  GET_FIELD_COMMENTS,
 } from '../actions/actionsTypes';
 
 const initialState = {
@@ -25,6 +26,7 @@ const initialState = {
   allFields:[],
   fieldsFilterByCity:[],
   fieldsFilterByCityAndSize: [],
+  commentsByField: [],
   detail: {},
   user: '',
   errors: null,
@@ -137,6 +139,9 @@ const rootReducer = (state = initialState, action) => {
     }
     case  GET_COMMENTS:{
       return {...state, comments: action.payload}
+    }
+    case GET_FIELD_COMMENTS:{
+      return {...state, commentsByField: action.payload}
     }
     default:
       return { ...state };

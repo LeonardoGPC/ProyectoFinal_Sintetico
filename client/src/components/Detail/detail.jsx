@@ -5,6 +5,7 @@ import Navbar from '../NavBar/Navbar';
 import styles from './detail.module.css';
 import { useEffect, useState } from 'react';
 import { getFieldDetail } from '../../redux/actions';
+import { getFieldComments } from '../../redux/actions';
 import { postComment } from '../../redux/actions/index.js';
 import MiniFooter from '../MiniFooter/MiniFooter';
 import map from '../../img/icons/map.png';
@@ -15,6 +16,7 @@ import quincho from '../../img/icons/quincho.png';
 import ReactStars from 'react-stars';
 import { FaStar } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import Cookies from 'universal-cookie';
 
 const colors = {
   orange: '#FFBA5A',
@@ -25,7 +27,8 @@ function Detail() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const detailField = useSelector((state) => state.detail);
-  console.log(detailField)
+  const cookie = new Cookies()
+  const usuario = cookie.get('usuario')
 
   // ---------------------------------
   const [currentValue, setCurrentValue] = useState(0);
@@ -46,14 +49,14 @@ function Detail() {
   };
   // ---------------------------------
   const [comment, setComment] = useState("");
-  const comments = detailField.Comments ?? [];
+  const comments = useSelector((state)=> state.commentsByField)
   // const [comments, setComments] = useState([]);
 
   const onClickHandler = () => {
     // setComments((comments) => [...comments, comment]);
     setComment('');
     setCurrentValue(0);
-    dispatch(postComment({ score: currentValue, FieldId: id, comment }));
+    dispatch(postComment({ score: currentValue, FieldId: id, comment, UserId: usuario.id }));
   };
 
   const onChangeHandler = (e) => {
@@ -62,6 +65,7 @@ function Detail() {
 
   useEffect(() => {
     dispatch(getFieldDetail(id));
+    dispatch(getFieldComments(id));
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -91,7 +95,12 @@ function Detail() {
               <div className={styles.info}>
                 <div className={styles.title}>
                   <h3 className={styles.name}>{detailField.name}</h3>
-                  <div className={styles.button} onClick={() => window.history.back()}>X</div>
+                  <div
+                    className={styles.button}
+                    onClick={() => window.history.back()}
+                  >
+                    X
+                  </div>
                 </div>
                 <div className={styles.content}>
                   <ul>
@@ -161,14 +170,16 @@ function Detail() {
                   <div className={styles.description}>
                     <span className={styles.price}>
                       <p>${detailField.price}</p>
-                      <Link to='/pay' onClick={() => storageHandler()}>Reservar</Link>
+                      <Link to="/pay" onClick={() => storageHandler()}>
+                        Reservar
+                      </Link>
                     </span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        
+
           <div className={styles.review}>
             <h3>Comentarios</h3>
             <div className={styles.container}>
@@ -178,19 +189,19 @@ function Detail() {
                   <div className={styles.userData}>
                     <figure className={styles.user}>
                       <img
-                        src="https://images.pexels.com/photos/7562313/pexels-photo-7562313.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                        src={comment.User.image}
                         alt="foto de perfil"
                         className={styles.profile}
                       />
-                      <p>Nombre</p>
+                      <p>{comment.User.name}</p>
                     </figure>
-                      <ReactStars
-                        count={5}
-                        value={comment.score}
-                        size={24}
-                        edit={false}
-                        color2={'#ffd700'}
-                      />
+                    <ReactStars
+                      count={5}
+                      value={comment.score}
+                      size={24}
+                      edit={false}
+                      color2={'#ffd700'}
+                    />
                   </div>
 
                   <p className={styles.commentData}>{comment.comment}</p>
@@ -200,40 +211,42 @@ function Detail() {
               {/* ------------------ */}
             </div>
 
-            <div className={styles.yourComment}>
-              <h3> Deja tu comentario </h3>
-              <div>
-                {stars.map((_, index) => {
-                  return (
-                    <FaStar
-                      key={index}
-                      size={24}
-                      onClick={() => handleClick(index + 1)}
-                      onMouseOver={() => handleMouseOver(index + 1)}
-                      onMouseLeave={handleMouseLeave}
-                      color={
-                        (hoverValue || currentValue) > index
-                          ? colors.orange
-                          : colors.grey
-                      }
-                      style={{
-                        marginRight: 10,
-                        cursor: 'pointer',
-                      }}
-                    />
-                  );
-                })}
+            {typeof usuario !== 'undefined' && (
+              <div className={styles.yourComment}>
+                <h3> Deja tu comentario </h3>
+                <div>
+                  {stars.map((_, index) => {
+                    return (
+                      <FaStar
+                        key={index}
+                        size={24}
+                        onClick={() => handleClick(index + 1)}
+                        onMouseOver={() => handleMouseOver(index + 1)}
+                        onMouseLeave={handleMouseLeave}
+                        color={
+                          (hoverValue || currentValue) > index
+                            ? colors.orange
+                            : colors.grey
+                        }
+                        style={{
+                          marginRight: 10,
+                          cursor: 'pointer',
+                        }}
+                      />
+                    );
+                  })}
+                </div>
+                <textarea
+                  value={comment}
+                  onChange={onChangeHandler}
+                  placeholder="Deja tu comentario..."
+                  className={styles.textarea}
+                />
+                <button onClick={onClickHandler} disabled={!comment}>
+                  Submit
+                </button>
               </div>
-              <textarea
-                value={comment}
-                onChange={onChangeHandler}
-                placeholder="Deja tu comentario..."
-                className={styles.textarea}
-              />
-              <button onClick={onClickHandler} disabled={!comment} >
-                Submit
-              </button>
-            </div>
+            )}
           </div>
         </div>
       ) : (
