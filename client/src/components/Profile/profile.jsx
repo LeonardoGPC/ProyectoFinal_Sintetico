@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux'
 import Navbar from '../NavBar/Navbar'
 import prof from './profile.module.css'
 import foto from '../../img/foto_perfil.jpg'
-import {ReservaUsuario} from '../Reservas/ReservaUsuario.jsx'
 import Cookies from 'universal-cookie';
 
 function Profile() {
@@ -76,7 +75,7 @@ function Profile() {
                 </div>
             </div>
             <div>
-            <ReservaUsuario/>
+            
             </div>
         </div>
       )

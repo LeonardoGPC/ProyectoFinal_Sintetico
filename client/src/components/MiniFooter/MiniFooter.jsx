@@ -3,7 +3,7 @@ import style from "./MiniFooter.module.css";
 
 import { FiInstagram, FiFacebook  } from "react-icons/fi";
 import { AiOutlineWhatsApp } from "react-icons/ai";
-import Logo from '../img/balon.png'
+import Logo from '../img/balones.png'
 
 
 const MiniFooter = () => {

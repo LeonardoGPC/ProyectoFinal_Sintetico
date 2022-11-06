@@ -151,7 +151,7 @@ function Detail() {
                     {/* <li>Tipo de suelo: {detailField.Surface ? detailField.Surface.name : "Sin información"}</li> */}
                     <li>
                       <img src={map} style={{ height: 25 }} alt="size" />
-                      {detailField.address},{' '}
+                      {detailField.address},
                       {detailField.City ? detailField.City.name : ''}
                     </li>
                     <li>
@@ -161,7 +161,7 @@ function Detail() {
                   <div className={styles.description}>
                     <span className={styles.price}>
                       <p>${detailField.price}</p>
-                      <Link to='/pay' onClick={() => storageHandler()}>Reservar</Link>
+                      <Link to={'/booking/' + id} onClick={() => storageHandler()}>Reservar</Link>
                     </span>
                   </div>
                 </div>
