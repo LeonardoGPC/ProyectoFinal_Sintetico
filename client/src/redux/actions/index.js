@@ -144,7 +144,6 @@ export const postComment = (payload) => {
   return async (dispatch) => {
     try {
       await axios.post('http://localhost:3001/comments', payload);
-      dispatch(getFieldDetail(payload.FieldId));
       alert('Comentario enviado con exito');
     } catch (error) {
       alert('Falta agregar comentario');

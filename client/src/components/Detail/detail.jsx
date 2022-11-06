@@ -52,11 +52,12 @@ function Detail() {
   const comments = useSelector((state)=> state.commentsByField)
   // const [comments, setComments] = useState([]);
 
-  const onClickHandler = () => {
+  const onClickHandler = async () => {
     // setComments((comments) => [...comments, comment]);
     setComment('');
     setCurrentValue(0);
-    dispatch(postComment({ score: currentValue, FieldId: id, comment, UserId: usuario.id }));
+    await dispatch(postComment({ score: currentValue, FieldId: id, comment, UserId: cookie.get("id") }));
+    dispatch(getFieldComments(id));
   };
 
   const onChangeHandler = (e) => {
