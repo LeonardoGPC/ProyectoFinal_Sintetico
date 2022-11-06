@@ -31,7 +31,7 @@ module.exports = (sequelize) => {
       allowNull: true
     },
     openHour:{
-      type: DataTypes.INTEGER,
+      type: DataTypes.TIME,
       allowNull:false,
       validate: {
         min:0,
@@ -39,7 +39,7 @@ module.exports = (sequelize) => {
       }
     },
     closeHour:{
-      type: DataTypes.INTEGER,
+      type: DataTypes.TIME,
       allowNull:false,
       validate: {
         min:0,
