@@ -18,14 +18,14 @@ module.exports = (sequelize) => {
       type: DataTypes.FLOAT,
       allowNull: false,
     },
-    date: {
-      type: DataTypes.DATE, //VER
-      allowNull: true,
-    },
-    hour: {
-      type: DataTypes.TIME, //VER
-      allowNull: true,
-    }
+    // date: {
+    //   type: DataTypes.DATE, //VER
+    //   allowNull: true,
+    // },
+    // hour: {
+    //   type: DataTypes.TIME, //VER
+    //   allowNull: true,
+    // }
     
   },{
     timestamps: false,
