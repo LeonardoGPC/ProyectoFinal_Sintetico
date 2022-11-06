@@ -1,6 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;800&display=swap');
+/* @import '~antd/dist/antd.css'; */
+
+*{
+  font-family: 'Merriweather Sans', sans-serif;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+*::selection{
+  background-color: #7BC242;
+  color: #F4F1F2;
+}
+
 .App {
   text-align: center;
+  margin: 0;
+  /* background-image: url('./img/bg.jpg');
+  background-size: contain;
+  background-repeat: no-repeat; */
 }
+
+/* .App_bg{
+  background: rgb(0,0,0);
+  background: linear-gradient(180deg, rgba(0,0,0,0.8995973389355743) 0%, rgba(0,0,0,0.30015756302521013) 50%, rgba(0,0,0,0.896796218487395) 100%);
+} */
 
 .App-logo {
   height: 40vmin;

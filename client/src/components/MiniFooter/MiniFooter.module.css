@@ -1,0 +1,49 @@
+.wrapper {
+    display: flex;
+    height: 50px;
+    width: 100%;
+    background-color: #242529;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.top{
+    width: 70px;
+    margin: 0.5rem;
+    position: absolute;
+    bottom: 0;
+    left: 200px;
+}
+
+.socialGroup{
+    color: #98F576;
+    font-size: 40px;
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    justify-content: center;
+    cursor: pointer;
+    margin: 0 25rem;
+}
+
+.socialIcon{
+    margin: 0 3rem;
+    width: 25px;
+}
+
+.icon{
+    cursor: pointer;
+}
+
+.derechos{
+    margin: 0rem;
+    padding: 0.7rem;
+    position: absolute;
+    right: 200px;
+}
+
+.derechos p{
+    font-size: 15px;
+    color: white;
+}

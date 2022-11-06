@@ -1,0 +1,157 @@
+.main{
+    min-height: 100vh;
+}
+
+.container{
+    background-color: #1C1C1C;
+    min-height: calc(100vh - 84px);
+}
+
+.box{
+    color: white;
+    display: flex;
+    padding: 50px;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.img{
+    width: 200px;
+    border-radius: 35px 0 0 35px;
+}
+
+.contenido{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.title{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin: 0 30px;
+}
+
+.title h2{
+    font-size: 35px;
+}
+
+.title p{
+    font-size: 20px;
+}
+
+.price_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
+    margin: 0 50px;
+}
+
+.price_desc{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.price_desc p{
+    color: rgb(145, 145, 145);
+}
+
+.price_container select{
+    outline: none;
+    background-color: #404040;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 20px;
+    transition: all 300ms ease;
+}
+
+.price_container select:hover{
+    background-color: #1C1C1C;
+}
+
+.cards{
+    display: flex;
+    flex-direction: column;
+}
+
+.info{
+    display: flex;
+    background-color: #242529;
+    border-radius: 35px;
+    width: 1000px;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.info input{
+    color: white;
+    background-color: #5B0D11;
+    width: 35px;
+    border: none;
+    outline: none;
+    border-radius: 0 35px 35px 0;
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+.info input:hover{
+    background-color: #92161c;
+}
+
+.info2{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carga{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 5px solid #98F576;
+    border-bottom: none;
+    border-left: none;
+    animation: inf 400ms infinite;
+}
+
+@keyframes inf{
+    0%{transform: rotate(10deg);}
+    50%{transform: rotate(180deg);}
+    100%{transform: rotate(360deg);}
+}
+
+.price{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #404040;
+    padding: 20px 50px;
+    border-radius: 20px;
+    margin: 0 200px;
+}
+
+.price h1{
+    margin: 0 0 30px;
+}
+
+.plan_price{
+    display: flex;
+    gap: 10px;
+    margin: 0 0 20px 30px;
+}
+
+.plan_datos{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+}
