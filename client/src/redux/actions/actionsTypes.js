@@ -14,3 +14,4 @@ export const ID_FIELD = 'ID_FIELD';
 export const CLEAN_ERRORS = "CLEAN_ERRORS";
 export const  GET_COMMENTS = " GET_COMMENTS";
 export const GET_FIELD_COMMENTS = "GET_FIELD_COMMENTS"
+export const GET_BOOKINGS = "GET_BOOKINGS";

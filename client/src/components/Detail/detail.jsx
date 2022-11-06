@@ -69,16 +69,16 @@ function Detail() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const storageHandler = () => {
-    if(localStorage.getItem('rent')){
-      let obj = JSON.parse(localStorage.getItem('rent'))
-      obj.push({id: detailField.id, name: detailField.name, price: detailField.price})
-      localStorage.setItem('rent', JSON.stringify(obj))
-    } else {
-      let obj = [{id: detailField.id, name: detailField.name, price: detailField.price}]
-      localStorage.setItem('rent', JSON.stringify(obj))
-    }
-  }
+  // const storageHandler = () => {
+  //   if(localStorage.getItem('rent')){
+  //     let obj = JSON.parse(localStorage.getItem('rent'))
+  //     obj.push({id: detailField.id, name: detailField.name, price: detailField.price})
+  //     localStorage.setItem('rent', JSON.stringify(obj))
+  //   } else {
+  //     let obj = [{id: detailField.id, name: detailField.name, price: detailField.price}]
+  //     localStorage.setItem('rent', JSON.stringify(obj))
+  //   }
+  // }
 
   return (
     <div>
@@ -160,7 +160,7 @@ function Detail() {
                     {/* <li>Tipo de suelo: {detailField.Surface ? detailField.Surface.name : "Sin información"}</li> */}
                     <li>
                       <img src={map} style={{ height: 25 }} alt="size" />
-                      {detailField.address},{' '}
+                      {detailField.address},
                       {detailField.City ? detailField.City.name : ''}
                     </li>
                     <li>
@@ -170,9 +170,7 @@ function Detail() {
                   <div className={styles.description}>
                     <span className={styles.price}>
                       <p>${detailField.price}</p>
-                      <Link to="/pay" onClick={() => storageHandler()}>
-                        Reservar
-                      </Link>
+                      <Link to={'/booking/' + id}>Reservar</Link>
                     </span>
                   </div>
                 </div>

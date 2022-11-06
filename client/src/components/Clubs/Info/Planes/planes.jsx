@@ -1,14 +1,67 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import plan from './planes.module.css';
 // import basic from '../../../../img/basic.jpg';
 // import club from '../../../../img/club.jpg';
 // import premium from '../../../../img/premium.jpg';
 import { useSelector } from "react-redux";
+import { set } from "date-fns";
 
 export default function Planes(){
 
     const planes = useSelector((state) => state.plan)
+    const [modal, setModal] = useState(false)
+    const [input, setInput] = useState()
+    let rent = localStorage.getItem('rent')
+
+    const basicHandler = () => {
+        localStorage.setItem('plan', 'basic')
+        if(localStorage.getItem('rent')){
+            localStorage.removeItem('rent')
+        }
+        window.location.replace('http://localhost:3000/pay')
+    }
+
+    const clubHandler = () => {
+        localStorage.setItem('plan', 'club')
+        if(localStorage.getItem('rent')){
+            localStorage.removeItem('rent')
+        }
+        window.location.replace('http://localhost:3000/pay')
+    }
+
+    const premiumHandler = () => {
+        localStorage.setItem('plan', 'premium')
+        if(localStorage.getItem('rent')){
+            localStorage.removeItem('rent')
+        }
+        window.location.replace('http://localhost:3000/pay')
+    }
+
+    const popUp = () => {
+        setModal(false)
+        if (input === 'basic'){
+            basicHandler()
+        } else if (input === 'club'){
+            clubHandler()
+        } else {
+            premiumHandler()
+        }
+    }
+
+    const buttonHandler = (e) => {
+        e.preventDefault()
+        setInput(e.target.name)
+        if(rent){
+            setModal(true)
+        } else if (e.target.name === 'basic'){
+            basicHandler()
+        } else if (e.target.name === 'club'){
+            clubHandler()
+        } else {
+            premiumHandler()
+        }
+    }
 
     return(
         <div className={plan.main} id='1'>
@@ -16,7 +69,7 @@ export default function Planes(){
             <div className={plan.planes}>
                 <div className={plan.card}>
                     <img className={plan.img} src={planes.basic.img}/>
-                    <h2 className={plan.title}>{planes.club.name}</h2>
+                    <h2 className={plan.title}>{planes.basic.name}</h2>
                     <p className={plan.percent}>AHORRO {planes.basic.desc}%</p>
                     <p className={plan.price}>${planes.basic.price - ((planes.basic.price / 100) * planes.basic.desc)}/Mes.</p>
                     <div className={plan.div_prg}>
@@ -26,7 +79,7 @@ export default function Planes(){
                         <p className={plan.paragraph}> ✔️ Sube hasta 3 imágenes</p>
                     </div>
                     <div className={plan.btn_div}>
-                        <Link to='/pay' onClick={() => localStorage.setItem('plan', 'basic')} className={plan.button}>Adquirir</Link>
+                        <button onClick={(e) => buttonHandler(e)} name='basic' className={plan.button}>Adquirir</button>
                     </div>
                 </div>
                 <div className={plan.cardTop}>
@@ -44,7 +97,7 @@ export default function Planes(){
                         <p className={plan.paragraph}> ✔️ Contacto con usuarios</p>
                     </div>
                     <div className={plan.btn_div}>
-                        <Link to='/pay' onClick={() => localStorage.setItem('plan', 'club')} className={plan.button}>Adquirir</Link>
+                        <button onClick={(e) => buttonHandler(e)} name='club' className={plan.button}>Adquirir</button>
                     </div>
                 </div>
                 <div className={plan.card}>
@@ -65,10 +118,20 @@ export default function Planes(){
                         <p className={plan.paragraph}> ✔️ Priorida de revisión</p>
                     </div>
                     <div className={plan.btn_div}>
-                        <Link to='/pay' onClick={() => localStorage.setItem('plan', 'premium')} className={plan.button}>Adquirir</Link>
+                        <button onClick={(e) => buttonHandler(e)} name='premium' className={plan.button}>Adquirir</button>
                     </div>
                 </div>
             </div>
+            {modal && <div className={plan.modal_main}>
+                <div className={plan.modal_box}>
+                    <p>Al hacer click en <b>Aceptar</b> se borrarán las reservas<br/>que tienes en tu carrito de compras.</p>
+                    <h1>¿Quieres continuar?</h1>
+                    <div className={plan.modal_btns}>
+                        <button onClick={() => setModal(false)}>Cancelar</button>
+                        <button onClick={() => popUp()}>Aceptar</button>
+                    </div>
+                </div>
+            </div>}
         </div>
     )
 }
