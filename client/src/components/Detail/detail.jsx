@@ -210,7 +210,7 @@ function Detail() {
               {/* ------------------ */}
             </div>
 
-            {typeof usuario !== 'undefined' && (
+            {typeof usuario !== 'undefined' ? (
               <div className={styles.yourComment}>
                 <h3> Deja tu comentario </h3>
                 <div>
@@ -245,7 +245,7 @@ function Detail() {
                   Submit
                 </button>
               </div>
-            )}
+            ): <div>Para dejar un comentario, por favor <Link to='/login'> inicie sesión </Link> </div>}
           </div>
         </div>
       ) : (
