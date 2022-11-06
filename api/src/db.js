@@ -38,9 +38,6 @@ Facility.belongsToMany(Field, {through: 'fieldFacility'});
 Field.belongsToMany(Comment, {through: 'fieldComment'});
 Comment.belongsToMany(Field, {through: 'fieldComment'});
 
-Field.belongsToMany(Booking, {through: "field_bookings"})
-Booking.belongsToMany(Field, {through: "field_bookings"})
-
 City.hasMany(Field);
 Field.belongsTo(City);
 
@@ -50,8 +47,11 @@ Field.belongsTo(Size);
 Surface.hasMany(Field);
 Field.belongsTo(Surface);
 
-User.belongsToMany(Field, { through: Booking });
-Field.belongsToMany(User, { through: Booking });
+Field.belongsToMany(Booking, { through: 'field_booking' });
+Booking.belongsToMany(Field, { through: 'field_booking' });
+
+User.hasMany(Booking)
+Booking.belongsTo(User)
 
 // Comment.belongsTo(Booking);
 // Booking.hasOne(Comment);

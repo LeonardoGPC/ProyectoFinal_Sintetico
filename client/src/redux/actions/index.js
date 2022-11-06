@@ -13,7 +13,9 @@ import {
   FILTER_BY_TIME,
   FILTER_BY_SURFACE,
   CLEAN_ERRORS,
-  GET_COMMENTS
+  GET_COMMENTS,
+  GET_BOOKINGS
+
 } from './actionsTypes';
 
 export const prueba = () => {
@@ -149,6 +151,30 @@ export const getComments = () => {
     });
   };
 };
+
+export const postBooking=(payload)=>{
+  return async (dispatch) => {
+    try {
+      await axios.post('http://localhost:3001/bookings', payload);
+      alert('Tu Reserva fue creada con exito!');
+    } catch (error) {
+      alert('No se pudo crear la reserva');
+    }
+  }
+}
+
+export const getBookings=()=>{
+  return async (dispatch) => {
+    const response = await axios.get('http://localhost:3001/bookings');
+    dispatch({
+      type: GET_BOOKINGS,
+      payload: response.data,
+    })
+
+  }
+}
+
+
 
 export const userLogin = (user) => {
   return {
