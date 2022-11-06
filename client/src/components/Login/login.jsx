@@ -89,37 +89,37 @@ function Login() {
       <div className={log.container}>   
         <div className={log.register}>
             <h2>Registrarse</h2>
-            <form onSubmit={e => registerHandler(e)}>
+            <form onSubmit={e => registerHandler(e)} className={log.form}>
                 <div>
                     <p>Nombre</p>
-                    <input type='text' className={log.inp} name='name' onChange={e => typingHandlerR(e)}/>
+                    <input type='text' className={log.inp} name='name' onChange={e => typingHandlerR(e)} autoComplete='off'/>
                 </div>
                 <div>
                     <p>Apellidos</p>
-                    <input type='text' className={log.inp} name='lastname' onChange={e => typingHandlerR(e)}/>
+                    <input type='text' className={log.inp} name='lastname' onChange={e => typingHandlerR(e)} autoComplete='off'/>
                 </div>
                 <div>
                     <p>Teléfono</p>
-                    <input type='text' className={log.inp} name='phone' onChange={e => typingHandlerR(e)}/>
+                    <input type='text' className={log.inp} name='phone' onChange={e => typingHandlerR(e)} autoComplete='off'/>
                 </div>
                 <div>
                     <p>Usuario</p>
-                    <input type='text' className={log.inp} name='userName' onChange={e => typingHandlerR(e)}/>
+                    <input type='text' className={log.inp} name='userName' onChange={e => typingHandlerR(e)} autoComplete='off'/>
                 </div>
                 <div>
                     <p>Correo</p>
-                    <input type='text' className={log.inp} name='email' onChange={e => typingHandlerR(e)}/>
+                    <input type='text' className={log.inp} name='email' onChange={e => typingHandlerR(e)} autoComplete='off'/>
                 </div>
                 <div>
                     <p>Contraseña</p>
-                    <input type='password' className={log.inp} name='password' onChange={e => typingHandlerR(e)}/>
+                    <input type='password' className={log.inp} name='password' onChange={e => typingHandlerR(e)} autoComplete='off'/>
                 </div>
                 <div>
                     <p>Confirmar contraseña</p>
-                    <input type='password' className={log.inp}/>
+                    <input type='password' className={log.inp} autoComplete='off'/>
                 </div>
                 <div>
-                    <input className={log.btn} type='submit'/>
+                    <input className={log.btn} type='submit' value='Registrarse'/>
                 </div>
             </form>
             <p className={log.switch}>¿Ya tienes cuenta? <span onClick={() => setDinamic('0')}>Inicia sesión</span></p>
@@ -132,7 +132,7 @@ function Login() {
             <form onSubmit={e => login(e)}>
                 <div className={log.user}>
                     <p>Usuario:</p>
-                    <input type='text' name='username' onChange={e => typingHandler(e)}/>
+                    <input type='text' name='username' onChange={e => typingHandler(e)} autoComplete='off'/>
                 </div>
                 <div className={log.pass}>
                     <p>Contraseña:</p>
