@@ -21,7 +21,23 @@ async function fieldComment(id){
       attributes: ["name", "userName", "image"],
     },
   })
-  return field
+  let mapeo = field.map((el) => el.score);
+  let promedio = mapeo.reduce((a, b) => {
+    return a + b / mapeo.length;
+  }, 0);
+  let redondeo = Math.round(promedio);
+  console.log(redondeo);
+  await Field.update(
+    {
+      score: redondeo,
+    },
+    {
+      where: {
+        id: id,
+      },
+    }
+  );
+  return field;
 }
 
 
