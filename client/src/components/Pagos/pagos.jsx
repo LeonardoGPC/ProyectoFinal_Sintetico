@@ -11,7 +11,6 @@ import axios from 'axios';
 
 function Pagos() {
 
-    let user = useSelector((state) => state.user)
     let plan = localStorage.getItem('plan')
     let rent = localStorage.getItem('rent')
     const planes = useSelector((state) => state.plan)
@@ -19,9 +18,6 @@ function Pagos() {
     const cookie = new Cookies()
     const usuario = cookie.get('usuario')
     const [precio, setPrecio] = useState()
-
-    // const [datos, setDatos] = useState([])
-    // let info = datos
 
     const pay = async () => {
         await axios.post('http://localhost:3001/payments', {
@@ -75,24 +71,6 @@ function Pagos() {
         setTimeout(changeCarga, 1000)
     }
 
-    const mercadoPago = async () => {
-        await axios.post('http://localhost:3001/payments', {
-            UserId:1,
-            price: precio,
-            itemName: "Renta de cancha(s)",
-            bookings:
-            [
-                {
-                date:"04/11/2022",
-                hour: 9,
-                FieldId: 10
-                }
-            ]
-        })
-        .then(response => console.log(response))
-        .catch(error => console.log(error))
-    }
-
     useEffect(() => {
         let totalPrice = 0;
         if(rent){
@@ -136,7 +114,7 @@ function Pagos() {
                       </div>
                       <input type='button' value='X' onClick={() => deletePlan()}/>
                   </div>}
-                  {rent && (JSON.parse(rent).length === 1 ? <Rentcard id={JSON.parse(rent)[0].id} deleteHandler={deleteHandler}/> : JSON.parse(rent).map(e => <Rentcard id={e.id} deleteHandler={deleteHandler} />))}
+                  {rent && (JSON.parse(rent).length === 1 ? <Rentcard id={JSON.parse(rent)[0].id} deleteHandler={deleteHandler} hour={JSON.parse(rent)[0].hour} date={JSON.parse(rent)[0].date}/> : JSON.parse(rent).map(e => <Rentcard id={e.id} deleteHandler={deleteHandler} hour={e.hour} date={e.date}/>))}
                   </div>
                   <div className={p.price}>
                     <h1>Productos:</h1>
@@ -165,10 +143,10 @@ function Pagos() {
         return (
             <div className={p.main}>
                 <Navbar/>
-                <div className={p.container}>
-                    <div className={p.box}>
-                        <h1>Lo siento, el carrito<br/>está vacío.</h1>
-                        <input value='Regresar' type='button' onClick={() => window.history.back()}/>
+                <div className={p.container2}>
+                    <div className={p.box2}>
+                        <h1>Lo siento, el carrito<br/>está vacío. :(</h1>
+                        <input value='Regresar' type='button' onClick={() => window.history.back()} className={p.button}/>
                     </div>
                 </div>
                 <MiniFooter/>

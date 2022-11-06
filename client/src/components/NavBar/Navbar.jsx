@@ -1,7 +1,7 @@
 import React from 'react';
 import syntheticLogo from '../img/LogoSintetico.png';
 import style from './navbar.module.css';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import foto from '../../img/foto_perfil.jpg'
 import { cleanErrors } from "../../redux/actions/index.js"
@@ -31,14 +31,14 @@ export default function Navbar() {
           <img className={style.logo} src={syntheticLogo} alt="logo" onClick={() => handleErrors()}/>
         </Link>
         <div className={style.containerLink}>
-          <Link to="/">
+          <NavLink to="/">
             <p>Inicio</p>
-          </Link>
-          <Link to="/about">
+          </NavLink>
+          <NavLink to="/about">
             <p>Nosotros</p>
-          </Link>
+          </NavLink>
           {/* <Link to={link}><p>Ver Canchas</p></Link> */}
-          {location === '/' ? <a href='#2'><p>Ver canchas</p></a> : <Link to='/sintetico'><p>Ver Canchas</p></Link> }
+          {location === '/' ? <a href='#2'><p>Ver canchas</p></a> : <NavLink to='/sintetico'><p>Ver Canchas</p></NavLink> }
         </div>
         {typeof usuario === 'undefined' ? localStorage.length === 0 ? <div className={style.inse}>
           <Link to='/login' className={style.inse_link}>Iniciar Sesión</Link>
