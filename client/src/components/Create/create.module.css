@@ -66,6 +66,7 @@
   background-color: rgba(250, 235, 215, 0.708);
   color: black;
   font-size: 12px;
+  resize: none;
 }
 
 .buttonCrear {
@@ -125,12 +126,12 @@
   width: 421px;
   display: flex;
 }
-.image {
+/* .image {
   width: 400px;
   justify-content: right;
   align-items: center;
   margin-bottom: 50px;
-}
+} */
 .error input,
 .error select,
 .error textarea {

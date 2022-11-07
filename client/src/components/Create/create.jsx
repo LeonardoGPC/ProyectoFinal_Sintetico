@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { useEffect, useReducer } from 'react';
+import React, { useEffect, useReducer, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { postField } from '../../redux/actions/index';
 import { validate } from './validate';
@@ -12,6 +12,7 @@ import {
   getFacilities,
 } from '../../redux/actions';
 import style from './create.module.css';
+import Upload from '../Upload/Upload';
 
 export default function Create() {
   const dispatch = useDispatch();
@@ -19,6 +20,8 @@ export default function Create() {
   const sizes = useSelector((s) => s.sizes);
   const surfaces = useSelector((s) => s.surfaces);
   const facilities = useSelector((s) => s.facilities);
+
+  const[previewSource, setPreviewSource] = useState();
 
   useEffect(() => {
     dispatch(getCities());
@@ -29,9 +32,9 @@ export default function Create() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const [input, setInput] = React.useState({
+  const [input, setInput] = useState({
     name: '',
-    image: '',
+    image: 'https://res.cloudinary.com/deirkmhyd/image/upload/v1667591343/sintetico/canchas-futbol-5_mcwq4s.webp',
     price: '',
     address: '',
     openHour: '',
@@ -43,12 +46,11 @@ export default function Create() {
     facilities: [],
   });
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
 
     const inputsToValidate = [
       'name',
-      'image',
       'price',
       'address',
       'openHour',
@@ -73,9 +75,30 @@ export default function Create() {
     }
 
     if (canSubmit) {
-      dispatch(postField(input));
+      const cloudinaryImg = await uploadImage(previewSource)
+      const obj = input;
+      obj.image = cloudinaryImg;
+      dispatch(postField(obj));
     }
   };
+
+  const uploadImage = async (base64EncondedImage) =>{
+    try {
+        const data = await fetch ('http://localhost:3001/uploads',{
+            method: 'POST',
+            body: JSON.stringify({
+                data: base64EncondedImage
+            }),
+            headers: {'Content-type':'application/json'},
+        })
+        const response = await data.json()
+        return (response.url)
+    } catch (error) {
+        console.log(error)            
+    }
+  }
+
+
   const [errorState, dispatchError] = useReducer((state, action) => {
     return { ...state, [action.type]: action.value };
   }, {});
@@ -85,9 +108,6 @@ export default function Create() {
 
     let targetValue = target.value;
 
-    if (target.name === 'openHour' || target.name === 'closeHour') {
-      targetValue = targetValue.split(':')[0];
-    }
 
     setInput({ ...input, [target.name]: targetValue });
     validate(target, dispatchError);
@@ -117,7 +137,6 @@ export default function Create() {
           onSubmit={handleFormSubmit}
         >
           <h1 className={style.tittle}>Crear cancha</h1>
-
           <div className={style.sections}>
             <div
               className={classNames(
@@ -126,11 +145,7 @@ export default function Create() {
               )}
             >
               <div className={style.right}>
-                <img
-                  className={style.image}
-                  src="https://www.espaciosdeportivos.com.gt/wp-content/uploads/2020/08/canchas-futbol-5.jpg"
-                  alt="cancha"
-                />
+                <Upload previewSource={previewSource} setPreviewSource={setPreviewSource}/>
                 <div className={style.itemsServicios}>
                   <label className={style.subtittleFa}>Servicios: </label>
                   {facilities.map((f) => (
@@ -169,25 +184,7 @@ export default function Create() {
                   onBlur={(e) => validate(e.target, dispatchError)}
                 />
                 {errorState.name && <p>{errorState.name}</p>}
-              </div>
-              <div
-                className={classNames(
-                  style.group,
-                  errorState.image && style.error,
-                )}
-              >
-                <label className={style.subtittle}>Imagen:</label>
-
-                <input
-                  className={style.input}
-                  type="text"
-                  name="image"
-                  value={input.image}
-                  onChange={handleInputChange}
-                  onBlur={(e) => validate(e.target, dispatchError)}
-                />
-                {errorState.image && <p>{errorState.image}</p>}
-              </div>
+              </div>          
               <div
                 className={classNames(
                   style.group,
@@ -310,6 +307,7 @@ export default function Create() {
                   className={style.input}
                   type="time"
                   name="openHour"
+                  step="1800"
                   onChange={handleInputChange}
                   onBlur={(e) => validate(e.target, dispatchError)}
                 />
@@ -326,6 +324,7 @@ export default function Create() {
                   className={style.input}
                   type="time"
                   name="closeHour"
+                  step="1800"
                   onChange={handleInputChange}
                   onBlur={(e) => validate(e.target, dispatchError)}
                 />
