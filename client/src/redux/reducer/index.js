@@ -13,7 +13,8 @@ import {
   USER,
   CLEAN_ERRORS,
   GET_COMMENTS,
-  GET_BOOKINGS
+  GET_FIELD_COMMENTS,
+  GET_BOOKINGS,
 } from '../actions/actionsTypes';
 
 const initialState = {
@@ -26,6 +27,7 @@ const initialState = {
   allFields:[],
   fieldsFilterByCity:[],
   fieldsFilterByCityAndSize: [],
+  commentsByField: [],
   detail: {},
   bookings: [],
   user: '',
@@ -139,6 +141,9 @@ const rootReducer = (state = initialState, action) => {
     }
     case  GET_COMMENTS:{
       return {...state, comments: action.payload}
+    }
+    case GET_FIELD_COMMENTS:{
+      return {...state, commentsByField: action.payload}
     }
     case GET_BOOKINGS:{
       return {...state, bookings: action.payload}
