@@ -32,7 +32,7 @@ async function createOrdenLink({itemName, price, UserId, bookings}){
         ],
         notification_url:  "https://b4dd-2800-484-c80-e234-a51f-819d-8d71-d0ac.ngrok.io/payments/notification",
         back_urls: {
-            success: "https://www.google.com",
+            success: "http://localhost:3000/",
             failure: "http://www.tu-sitio/failure",
             pending: "http://www.tu-sitio/pending"
         },

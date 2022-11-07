@@ -1,11 +1,12 @@
 import React from 'react'
 import log from './login.module.css'
-import logo from '../img/balon.png'
+import logo from '../img/balones.png'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { userLogin } from '../../redux/actions'
 import Cookies from 'universal-cookie';
+import axios from 'axios';
 
 function Login() {
 
@@ -13,14 +14,44 @@ function Login() {
     const dispatch = useDispatch()
     const user = useSelector((state) => state.user)
     const cookie = new Cookies()
+    const [register, setRegister] = useState({
+        name: '',
+        lastName: '',
+        phone: '',
+        userName: '',
+        email: '',
+        password: '',
+    })
     const [input, setInput] = useState({
         username: '',
         password: ''
     })
 
-    const db = [
-        {username: 'Leonardo', password: 'vyncii1'}, {username: 'admin', password: 'sinteticoIsTheBest'}
-    ]
+    const registerHandler = async (e) => {
+        e.preventDefault()
+        await axios.post('http://localhost:3001/users', register)
+        .then(response => console.log(response.data))
+        .catch(error => console.log(error))
+    }
+
+    const typingHandlerR = (e) => {
+        setRegister({
+            ...register,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    const login = async (e) => {
+        e.preventDefault()
+        await axios.post('http://localhost:3001/users/login', {userName: input.username, password: input.password})
+        .then(response => response.data)
+        .then(res => {
+            cookie.set('usuario', res.userName)
+            cookie.set('id', res.id)
+            window.history.back()
+        })
+        .catch(error => alert('Algo salió mal :c'))
+    }
 
     const loginHandler = (e) => {
         e.preventDefault()
@@ -40,56 +71,68 @@ function Login() {
         })
     }
 
-    const login = (e) => {
-        console.log('submitt')
-        e.preventDefault()
-        const usuario = db.find(f => f.username === input.username && f.password === input.password)
-        if(usuario){
-            cookie.set('usuario', usuario.username)
-            cookie.set('password', usuario.password)
-            window.history.back()
-        } else {
-            alert('El usuario o contraseña es incorrecto')
-        }
-    }
+    // const login = (e) => {
+    //     console.log('submitt')
+    //     e.preventDefault()
+    //     const usuario = db.find(f => f.username === input.username && f.password === input.password)
+    //     if(usuario){
+    //         cookie.set('usuario', usuario.username)
+    //         cookie.set('password', usuario.password)
+    //         window.history.back()
+    //     } else {
+    //         alert('El usuario o contraseña es incorrecto')
+    //     }
+    // }
 
   return (
     <div className={log.main}>
       <div className={log.container}>   
         <div className={log.register}>
             <h2>Registrarse</h2>
-            <form>
+            <form onSubmit={e => registerHandler(e)} className={log.form}>
+                <div>
+                    <p>Nombre</p>
+                    <input type='text' className={log.inp} name='name' onChange={e => typingHandlerR(e)} autoComplete='off'/>
+                </div>
+                <div>
+                    <p>Apellidos</p>
+                    <input type='text' className={log.inp} name='lastname' onChange={e => typingHandlerR(e)} autoComplete='off'/>
+                </div>
+                <div>
+                    <p>Teléfono</p>
+                    <input type='text' className={log.inp} name='phone' onChange={e => typingHandlerR(e)} autoComplete='off'/>
+                </div>
                 <div>
                     <p>Usuario</p>
-                    <input type='text' className={log.inp}/>
+                    <input type='text' className={log.inp} name='userName' onChange={e => typingHandlerR(e)} autoComplete='off'/>
                 </div>
                 <div>
                     <p>Correo</p>
-                    <input type='text' className={log.inp}/>
+                    <input type='text' className={log.inp} name='email' onChange={e => typingHandlerR(e)} autoComplete='off'/>
                 </div>
                 <div>
                     <p>Contraseña</p>
-                    <input type='password' className={log.inp}/>
+                    <input type='password' className={log.inp} name='password' onChange={e => typingHandlerR(e)} autoComplete='off'/>
                 </div>
                 <div>
                     <p>Confirmar contraseña</p>
-                    <input type='password' className={log.inp}/>
+                    <input type='password' className={log.inp} autoComplete='off'/>
                 </div>
                 <div>
-                    <input className={log.btn} type='submit'/>
+                    <input className={log.btn} type='submit' value='Registrarse'/>
                 </div>
             </form>
             <p className={log.switch}>¿Ya tienes cuenta? <span onClick={() => setDinamic('0')}>Inicia sesión</span></p>
         </div>
         <div className={log.login}>
-            <img src={logo} className={log.logo}/>
+            <img src={logo} className={log.logo} alt='logo'/>
             {user.length === 0 ? <div>
             <h4>Inicia sesión con Google/Facebook</h4>
             <p className={log.division}>------------ o con tu usuario -----------</p>
             <form onSubmit={e => login(e)}>
                 <div className={log.user}>
                     <p>Usuario:</p>
-                    <input type='text' name='username' onChange={e => typingHandler(e)}/>
+                    <input type='text' name='username' onChange={e => typingHandler(e)} autoComplete='off'/>
                 </div>
                 <div className={log.pass}>
                     <p>Contraseña:</p>

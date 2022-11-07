@@ -58,7 +58,7 @@
     border-bottom: 1px solid white;
     outline: none;
     color: white;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .pass p{
@@ -71,7 +71,7 @@
     border-bottom: 1px solid white;
     outline: none;
     color: white;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .button input{
@@ -121,13 +121,19 @@
     font-size: 20px;
 }
 
+.form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 40px;
+}
+
 .inp{
     background: none;
     border: none;
     border-bottom: 1px solid white;
     outline: none;
     color: white;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .btn{
@@ -140,13 +146,12 @@
     border: none;
     font-size: 18px;
     cursor: pointer;
-    text-align: center;
-    width: 120px;
+    width: 150px;
     transition: all 300ms ease;
 }
 
 .btn:hover{
-    width: 150px;
+    width: 180px;
     border-radius: 20px;
 }
 

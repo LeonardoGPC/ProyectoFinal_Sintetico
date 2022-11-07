@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux'
 import Navbar from '../NavBar/Navbar'
 import prof from './profile.module.css'
 import foto from '../../img/foto_perfil.jpg'
-import {ReservaUsuario} from '../Reservas/ReservaUsuario.jsx'
 import Cookies from 'universal-cookie';
 
 function Profile() {
@@ -30,7 +29,7 @@ function Profile() {
                     <ul>
                         <li className={prof.profile}>
                             <img className={prof.img} src={foto} alt='imagen'/>
-                            <h2 className={prof.name}>Leonardo Peña</h2>
+                            <h2 className={prof.name}>{usuario}</h2>
                         </li>
                         <li className={prof.li}>Reservas</li>
                         <li className={prof.li}>Configuración</li>
@@ -45,7 +44,7 @@ function Profile() {
                     <ul>
                         <li className={prof.profile}>
                             <img className={prof.img} src={foto} alt='imagen'/>
-                            <h2 className={prof.name}>Leonardo Peña</h2>
+                            <h2 className={prof.name}>{usuario}</h2>
                         </li>
                         <li className={prof.li}>Hacer Publicación</li>
                         <li className={prof.li}>Ver Publicaciones</li>
@@ -60,7 +59,7 @@ function Profile() {
                     <ul>
                         <li className={prof.profile}>
                             <img className={prof.img} src={foto} alt='imagen'/>
-                            <h2 className={prof.name}>Leonardo Peña</h2>
+                            <h2 className={prof.name}>{usuario}</h2>
                         </li>
                         <li className={prof.li}>Gestionar Publicaciones</li>
                         <li className={prof.li}>Gestionar Usuarios</li>
@@ -76,7 +75,7 @@ function Profile() {
                 </div>
             </div>
             <div>
-            <ReservaUsuario/>
+            
             </div>
         </div>
       )
