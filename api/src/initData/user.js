@@ -26,7 +26,18 @@ var user3 = {
   email: 'juancarlo@gmail.com',
   phone: '123123',
   password: '123123',
+  type: 'club'
 };
+
+var user4 = {
+  name: 'Developers',
+  lastName: 'Team',
+  userName: 'admin',
+  email: 'devTeam@sintetico.com',
+  phone: '1231231231',
+  password: 'sintetico',
+  type: 'admin'
+}
 
 function addHash(user) {
   var salt = getSalt();
@@ -37,5 +48,5 @@ function addHash(user) {
 }
 
 module.exports = {
-  USERS: [addHash(user1), addHash(user2), addHash(user3)],
+  USERS: [addHash(user1), addHash(user2), addHash(user3), addHash(user4)],
 };

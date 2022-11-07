@@ -90,3 +90,7 @@
 .link{
     color: white;
 }
+
+.li a{
+    text-decoration: none;
+}

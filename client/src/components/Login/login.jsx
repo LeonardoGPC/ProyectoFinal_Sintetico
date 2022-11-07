@@ -17,6 +17,7 @@ function Login() {
     const user = useSelector((state) => state.user)
     const cookie = new Cookies()
     const [modal, setModal] = useState(false)
+    const [modal2, setModal2] = useState(false)
     const [val, setVal] = useState(true)
     const [register, setRegister] = useState({
         name: '',
@@ -42,7 +43,9 @@ function Login() {
     })
 
     const time = () => {
+        setDinamic('0')
         setModal(false)
+        setModal2(false)
     }
 
     const registerHandler = async (e) => {
@@ -82,7 +85,13 @@ function Login() {
             cookie.set('id', res.id)
             window.history.back()
         })
-        .catch(error => alert('Algo salió mal :c'))
+        .catch(error => {
+            setInput({
+                username: '',
+                password: ''
+            })
+            setModal2(true)
+        })
     }
 
     const typingHandler = (e) => {
@@ -107,6 +116,7 @@ function Login() {
     const popUp = () => {
         setDinamic('0')
         setModal(false)
+        setModal2(false)
     }
 
   return (
@@ -164,11 +174,11 @@ function Login() {
             <form onSubmit={e => login(e)}>
                 <div className={log.user}>
                     <p>Usuario:</p>
-                    <input type='text' name='username' onChange={e => typingHandler(e)} autoComplete='off'/>
+                    <input type='text' name='username' onChange={e => typingHandler(e)} autoComplete='off' value={input.username}/>
                 </div>
                 <div className={log.pass}>
                     <p>Contraseña:</p>
-                    <input type='password' name='password' onChange={e => typingHandler(e)}/>
+                    <input type='password' name='password' onChange={e => typingHandler(e)} value={input.password}/>
                 </div>
                 {/* <div className={log.button}>
                     <input type='button' value='Usuario' onClick={e => loginHandler(e)}/>
@@ -194,6 +204,15 @@ function Login() {
                     <h1>✔️</h1>
                     <div className={log.modal_btns}>
                         <button onClick={() => popUp()}>¡Bien!</button>
+                    </div>
+                </div>
+            </div>}
+      {modal2 && <div className={log.modal_main}>
+                <div className={log.modal_box}>
+                    <p>El usuario o contraseña es incorrecto</p>
+                    <h2 className={log.equis}>❌</h2>
+                    <div className={log.modal_btns}>
+                        <button onClick={() => popUp()}>Reintentar</button>
                     </div>
                 </div>
             </div>}

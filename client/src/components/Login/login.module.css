@@ -85,6 +85,13 @@
     font-size: 18px;
     cursor: pointer;
     margin: 0 15px;
+    width: 170px;
+    transition: all 300ms ease;
+}
+
+.button input:hover{
+    width: 220px;
+    border-radius: 30px;
 }
 
 .switch{
@@ -303,4 +310,15 @@
 .modal_btns button:hover{
     padding: 8px 40px;
     border-radius: 30px;
+}
+
+.equis{
+    margin: 20px 0;
+    font-size: 50px; 
+    animation: err 500ms ease-out;
+}
+
+@keyframes err{
+    from{transform: translateX(-50px) rotate(-135deg);}
+    to{transform: translateX(0px) rotate(0deg);}
 }

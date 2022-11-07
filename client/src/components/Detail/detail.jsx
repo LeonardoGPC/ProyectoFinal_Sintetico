@@ -29,6 +29,7 @@ function Detail() {
   const detailField = useSelector((state) => state.detail);
   const cookie = new Cookies()
   const usuario = cookie.get('usuario')
+  const [modal, setModal] = useState(false)
 
   // ---------------------------------
   const [currentValue, setCurrentValue] = useState(0);
@@ -56,6 +57,7 @@ function Detail() {
     // setComments((comments) => [...comments, comment]);
     setComment('');
     setCurrentValue(0);
+    setModal(true)
     await dispatch(postComment({ score: currentValue, FieldId: id, comment, UserId: cookie.get("id") }));
     dispatch(getFieldComments(id));
   };
@@ -242,16 +244,25 @@ function Detail() {
                   className={styles.textarea}
                 />
                 <button onClick={onClickHandler} disabled={!comment}>
-                  Submit
+                  Comentar
                 </button>
               </div>
-            ): <div>Para dejar un comentario, por favor <Link to='/login'> inicie sesión </Link> </div>}
+            ): <div>Para dejar un comentario, por favor <Link to='/login' className={styles.login}> inicie sesión </Link> </div>}
           </div>
         </div>
       ) : (
         <p>Cancha inexistente</p>
       )}
       <MiniFooter />
+      {modal && <div className={styles.modal_main}>
+                <div className={styles.modal_box}>
+                    <p>¡Comentario enviado con éxito!</p>
+                    <h1>✔️</h1>
+                    <div className={styles.modal_btns}>
+                        <button onClick={() => setModal(false)}>Cerrar</button>
+                    </div>
+                </div>
+            </div>}
     </div>
   );
 }
