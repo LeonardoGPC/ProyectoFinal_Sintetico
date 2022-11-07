@@ -5,7 +5,7 @@ const routes = require('./routes/index.js');
 const cors = require('cors')
 const session = require("express-session");
 const passport = require("passport");
-
+var SQLiteStore = require('connect-sqlite3')(session);
 require('./db.js');
 
 const server = express();
@@ -15,19 +15,13 @@ server.name = 'API';
 server.use(express.urlencoded({ extended: true, limit: '50mb' }));
 server.use(express.json({ limit: '50mb' }));
 server.use(
-  cors({
-    origin: "http://localhost:3000", // <-- location of the react app were connecting to
-    credentials: true,
-  })
-);
-server.use(
   session({
     secret: "secretcode",
-    resave: true,
+    resave: false,
     saveUninitialized: true,
   })
 );
-server.use(cookieParser("secretcode"));
+//server.use(cookieParser("secretcode"));
 server.use(passport.authenticate('session'));
 //require("./passportConfig")(passport);
 server.use(morgan('dev'));

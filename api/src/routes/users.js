@@ -1,10 +1,8 @@
 const { Router } = require('express');
 const router = Router();
-const { createUser, authenticate, getUser, getUsers } = require('../controllers/userController');
+const { createUser, getUser, getUsers } = require('../controllers/userController');
 const passport = require('passport');
-
 require("../passportConfig")(passport);
-
 
 router.post("/", async (req, res) => {
     var userData = req.body;
@@ -24,23 +22,32 @@ router.get("/", async (req, res) => {
         res.status(404).send(error);
     }
 })
-router.post("/login", async (req, res)=>{
-    const {userName, password} = req.body;
-    try{
-        var message = await authenticate(userName, password);
-        res.send(message);
-    }catch(error){
-        res.status(404).send(error.message);
-    }
+
+router.post("/login", 
+    passport.authenticate('local',{
+        failureRedirect: '/users/login',
+        successRedirect: '/users' 
+    })
+);
+
+router.get("/login", (req, res) => {
+    res.send("error");
 });
 
-router.get("/:id", async (req, res) => {
-    var {id} = req.params;
+router.get("/profile", async (req, res) => {
     try{
-        var userFromDb = await getUser(id);
+        var userFromDb = await getUser(req.user.id);
         res.send(userFromDb);
     }catch(error){
         res.status(404).send(error.message);
     }
 })
+
+router.post('/logout', function(req, res, next) {
+    req.logout(function(err) {
+        if (err) { return next(err); }
+        res.redirect('/');
+    });
+});
+
 module.exports = router

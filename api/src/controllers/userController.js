@@ -30,6 +30,7 @@ async function createUser(userData){
 }
 
 async function getUser(userId){
+    console.log(userId);
     var userFromDb = await User.findByPk(userId);
     if (userFromDb) return userFromDb;
     throw new Error("User not found");

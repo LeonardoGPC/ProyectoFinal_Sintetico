@@ -1,38 +1,48 @@
-const Club = require("./models/Club");
-const localStrategy = require("passport-local").Strategy;
+const {User} = require("./db");
+const LocalStrategy = require("passport-local");
 const { getHash } = require('./hash');
 
-async function getClub(userName, password){
-    var clubFromDb = await Club.findOne({
-        where:{
-            userName: userName,
-        },
-        plain: true
-    });
-    if (clubFromDb === null) return null;
-    var hashedPassword = getHash(password, clubFromDb.salt);
-    if (hashedPassword !== clubFromDb.password) return null;
-    return clubFromDb;
+async function authenticate(userName, password){
+    try{
+        var userFromDb = await User.findOne({
+            where:{
+                userName: userName,
+            },
+            plain: true
+        });
+    }catch(error){
+        console.log(error);
+    }
+    if (userFromDb === null || userFromDb ===undefined) return null;
+    var hashedPassword = getHash(password, userFromDb.salt);
+    if (hashedPassword !== userFromDb.password) return null;
+    return userFromDb;
 };
 
 module.exports = function (passport) {
     passport.use(
-        new localStrategy(async (username, password, done) => {
-            const clubFromDb = await getClub(username, password);
-            if (clubFromDb) return done(null, clubFromDb);
-            return done(null, false);
+        new LocalStrategy(async function verify (username, password, done){
+            try{
+                const userFromDb = await authenticate(username, password);
+                if (userFromDb === null) return done(null, false);
+                return done(null, userFromDb);
+            }catch(error){
+                console.log("error");
+                return done(error);
+            }
         })
     );
-
+    
     passport.serializeUser((user, cb) => {
-        cb(null, user.id);
+        process.nextTick(function() {
+            cb(null, {id: user.id, username: user.userName});
+        });
     });
-    passport.deserializeUser(async (id, cb) => {
-        try {
-            var club = await Club.findByPk(id);
-            cb(null, club);
-        }catch(error){
-            cb(error);
+    passport.deserializeUser((user, cb) => {
+        process.nextTick(function() {
+            return cb(null, user);
+        });
         }
-    });
+    );
+    
 };
