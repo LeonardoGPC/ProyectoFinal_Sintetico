@@ -4,16 +4,14 @@ import axios from 'axios';
 import { useState } from 'react';
 import rd from './rent.module.css';
 
-function Rentcard({id, deleteHandler}) {
+function Rentcard({id, deleteHandler, date, hour}) {
 
     const [data, setData] = useState()
-    console.log(id)
 
     useEffect( () => {
         async function myData () {
             const idField = await axios.get('http://localhost:3001/fields/' + id);
             setData(idField.data)
-            console.log(idField.data)
         }
         myData()
     }, [])
@@ -29,8 +27,8 @@ function Rentcard({id, deleteHandler}) {
             </div>
             <div className={rd.div_price}>
                 <h3 className={rd.price}>Precio: ${data.price}</h3>
-                <p className={rd.hour}>XX:XX</p>
-                <p className={rd.date}>XX/XX/XX</p>
+                <p className={rd.hour}>Hora: {hour}:00</p>
+                <p className={rd.date}>Fecha: {date}</p>
             </div>
           </div>
           <input type='button' value='X' onClick={() => deleteHandler(data.id)}/>

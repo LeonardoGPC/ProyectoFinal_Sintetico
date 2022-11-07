@@ -8,7 +8,7 @@ import { DatePicker } from '@material-ui/pickers';
 import Navbar from '../NavBar/Navbar.jsx';
 import style from './Booking.module.css';
 import image from '../img/niño.png';
-import { postBooking, getFields, getBookings } from '../../redux/actions';
+import { postBooking, getFields, getBookings, getFieldDetail } from '../../redux/actions';
 import Cookies from 'universal-cookie';
 
 const hours = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23];
@@ -26,15 +26,22 @@ function BookingAdmin() {
   const formattedDate = format(date, 'd/MM/yyyy');
   const bookingInfo = groupBy(bookings, ['date', 'Fields.id'], ['hour']);
   const takenHours = bookingInfo[formattedDate]?.[fieldId]?.hour ?? [];
+  const detailField = useSelector((state) => state.detail)
+
+  const [modal, setModal] = useState(false)
+  const [dis, setDis] = useState(true)
 
   useEffect(() => {
     dispatch(getFields());
     dispatch(getBookings());
+    dispatch(getFieldDetail(id));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if(!localStorage.getItem('plan')){
     await dispatch(
       postBooking({
         date: format(date, 'd/MM/yyyy'),
@@ -43,11 +50,55 @@ function BookingAdmin() {
         UserId: cookie.get('id'),
       }),
     );
+    await storageHandler()
     changeDate(new Date());
     setHour('');
     setFieldId('');
     window.location.replace('http://localhost:3000/pay');
+    } else {
+      setModal(true)
+    }
   };
+
+  useEffect(() => {
+    if(hour.length <= 0){
+      setDis(true)
+    } else {
+      setDis(false)
+    }
+  }, [hour])
+
+  const popUp = async () => {
+    await dispatch(
+      postBooking({
+        date: format(date, 'd/MM/yyyy'),
+        FieldId: fieldId,
+        hour,
+        UserId: cookie.get('id'),
+      }),
+    );
+    await storageHandler()
+    changeDate(new Date());
+    setHour('');
+    setFieldId('');
+    setModal(false)
+    window.location.replace('http://localhost:3000/pay');
+  }
+
+  const storageHandler = () => {
+    if(localStorage.getItem('plan')){
+      localStorage.removeItem('plan')
+    }
+    if(localStorage.getItem('rent')){
+      let obj = JSON.parse(localStorage.getItem('rent'))
+      obj.push({id: detailField.id, name: detailField.name, price: detailField.price, date: format(date, 'd/MM/yyyy'), hour})
+      localStorage.setItem('rent', JSON.stringify(obj))
+    } else {
+      let obj = [{id: detailField.id, name: detailField.name, price: detailField.price, date: format(date, 'd/MM/yyyy'), hour}]
+      localStorage.setItem('rent', JSON.stringify(obj))
+    }
+  }
+
 
   const handleHourChange = (e) => {
     setHour(e.target.value);
@@ -84,7 +135,7 @@ function BookingAdmin() {
             />
           </div>
           <div className={style.contenedorSelect}>
-            <select
+            {/* <select
               name="field"
               onChange={(e) => setFieldId(e.target.value)}
               value={fieldId}
@@ -99,7 +150,7 @@ function BookingAdmin() {
                   </option>
                 );
               })}
-            </select>
+            </select> */}
             <select
               name="hour"
               onChange={handleHourChange}
@@ -122,13 +173,21 @@ function BookingAdmin() {
                 );
               })}
             </select>
-            <button type="submit" className={style.buttonReserve}>
-              Reservar
-            </button>
+            <button type="submit" className={style.button} disabled={dis}>Reservar</button>
           </div>
           <img className={style.image} src={image} alt="niñito lindo" />
         </div>
       </form>
+      {modal && <div className={style.modal_main}>
+                <div className={style.modal_box}>
+                    <p>Al hacer click en <b>Aceptar</b> se borrará el plan<br/>que tienes en tu carrito de compras.</p>
+                    <h1>¿Quieres continuar?</h1>
+                    <div className={style.modal_btns}>
+                        <button onClick={() => setModal(false)}>Cancelar</button>
+                        <button onClick={() => popUp()}>Aceptar</button>
+                    </div>
+                </div>
+            </div>}
     </div>
   );
 }

@@ -122,7 +122,7 @@ export default function Filters(){
                     </div>
                     ))}
                 </div>
-                <select defaultValue="Title" onChange ={(e) => handleTimeFilter(e) } id={"select3"} className={s.select}>
+                {/* <select defaultValue="Title" onChange ={(e) => handleTimeFilter(e) } id={"select3"} className={s.select}>
                     <option value="Title" disabled> Hora </option>
                     <option value="8" > 8:00 </option>
                     <option value="9" > 9:00 </option>
@@ -140,9 +140,9 @@ export default function Filters(){
                     <option value="21" > 21:00 </option>
                     <option value="22" > 22:00 </option>
                     <option value="23" > 23:00 </option>
-                </select>
+                </select> */}
                 
-                    <Flatpickr
+                    {/* <Flatpickr
                     className={s.select}
                     placeholder='Fecha'
                     value={date}
@@ -155,7 +155,7 @@ export default function Filters(){
                             altInput:true,
                         }}
                     onChange={e => handleCalendarChange(e)}
-                    />
+                    /> */}
                     <button onClick={() => handleResetFilter()} className={s.button}>
                         resetear filtros
                     </button>

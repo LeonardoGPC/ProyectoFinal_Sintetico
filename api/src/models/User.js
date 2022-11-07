@@ -26,7 +26,8 @@ module.exports = (sequelize) => {
     },
     image: {
         type: DataTypes.STRING,
-        allowNull:true
+        allowNull:true,
+        defaultValue: 'https://imgs.search.brave.com/LKZaQJ8CXmrdQfwcqrq-UEuEu7Z62flCZgSujQmCc2M/rs:fit:236:236:1/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vMjM2/eC8xNS9iZi9iOS8x/NWJmYjkxMzVmZDhl/YWUyNGY0NzAyMDky/NmEyNzdjYy5qcGc'
         //default value iconito
     },
     password: {
@@ -36,6 +37,10 @@ module.exports = (sequelize) => {
     salt: {
         type: DataTypes.STRING,
         allowNull: true
+    },
+    type: {
+        type: DataTypes.ENUM('user', 'club', 'admin'),
+        defaultValue: 'user'
     }
     
   },{
