@@ -1,6 +1,10 @@
 const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
   sequelize.define('User', {
+    googleId: {
+        type: DataTypes.STRING,
+        allowNull: true,
+    },
     name: {
         type: DataTypes.STRING,
         allowNull:false
@@ -22,7 +26,7 @@ module.exports = (sequelize) => {
     },
     phone: {
         type: DataTypes.STRING,
-        allowNull:false
+        allowNull:true
     },
     image: {
         type: DataTypes.STRING,
@@ -31,7 +35,7 @@ module.exports = (sequelize) => {
     },
     password: {
         type: DataTypes.STRING,
-        allowNull:false
+        allowNull:true
     },
     salt: {
         type: DataTypes.STRING,

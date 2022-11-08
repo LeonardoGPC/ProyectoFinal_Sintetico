@@ -2,7 +2,7 @@ const { Router } = require('express');
 const router = Router();
 const { createUser, getUser, getUsers } = require('../controllers/userController');
 const passport = require('passport');
-require("../passportConfig")(passport);
+
 
 router.post("/", async (req, res) => {
     var userData = req.body;
@@ -34,7 +34,14 @@ router.get("/login", (req, res) => {
     res.send("error");
 });
 
-router.get("/profile", async (req, res) => {
+function isAuthenticated(req, res, next) {
+    console.log(req.user)
+    if (req.user)
+        return next();
+    res.redirect('/users/login');
+}
+
+router.get("/profile", isAuthenticated, async (req, res) => {
     try{
         var userFromDb = await getUser(req.user.id);
         res.send(userFromDb);
@@ -46,8 +53,22 @@ router.get("/profile", async (req, res) => {
 router.post('/logout', function(req, res, next) {
     req.logout(function(err) {
         if (err) { return next(err); }
-        res.redirect('/');
+        res.redirect('/users');
     });
 });
 
+router.get("/google", 
+    passport.authenticate('google', {scope: ['email', 'profile']}));
+
+router.get("/google/callback", 
+    passport.authenticate('google',{
+        successRedirect: '/users/',
+        failureRedirect: '/users/login'
+    }));
+    
+router.get("/info", (req, res) => {
+    console.log(req);
+
+    res.send(req.user);
+});
 module.exports = router
