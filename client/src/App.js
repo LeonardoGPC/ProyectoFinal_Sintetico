@@ -19,6 +19,8 @@ import GestPublicaciones from "./components/Admin/GestPublicaciones";
 import GestUsuarios from "./components/Admin/GestUsuarios";
 import GestPrecios from "./components/Admin/GestPrecios";
 import GestReservas from "./components/Admin/GestReservas";
+import AdminFields from "./components/AdminManageFields/AdminFields";
+import AdminEdit from "./components/AdminManageFields/AdminEdit";
 
 function App() {
   const [load, setLoad] = useState(false);
@@ -59,10 +61,15 @@ function App() {
           <Route path="/minifooter" element={<MiniFooter />} />
           <Route path="/pay" element={<Pagos />} />
           <Route path="/booking/:id" element={<Booking />} />
-          <Route path="/gestionarpublicaciones" element={<GestPublicaciones />} />
-          <Route path='/gestionarusuarios' element={<GestUsuarios />} />
-          <Route path='/gestionarprecios' element={<GestPrecios />} />
-          <Route path='/gestionarreservas' element={<GestReservas />} />
+          <Route
+            path="/gestionarpublicaciones"
+            element={<GestPublicaciones />}
+          />
+          <Route path="/admin/cards" element={<AdminFields />} />
+          <Route path="/admin/cards/edit" element={<AdminEdit />} />
+          <Route path="/gestionarusuarios" element={<GestUsuarios />} />
+          <Route path="/gestionarprecios" element={<GestPrecios />} />
+          <Route path="/gestionarreservas" element={<GestReservas />} />
         </Routes>
         {load && <Load />}
       </div>
