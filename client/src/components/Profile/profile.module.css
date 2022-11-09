@@ -86,3 +86,11 @@
 .content {
     flex: 1;
 }
+
+.link{
+    color: white;
+}
+
+.li a{
+    text-decoration: none;
+}

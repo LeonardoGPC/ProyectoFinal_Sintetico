@@ -42,14 +42,14 @@ function BookingAdmin() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if(!localStorage.getItem('plan')){
-    // await dispatch(
-    //   postBooking({
-    //     date: format(date, 'd/MM/yyyy'),
-    //     FieldId: fieldId,
-    //     hour,
-    //     UserId: cookie.get('id'),
-    //   }),
-    // );
+    await dispatch(
+      postBooking({
+        date: format(date, 'd/MM/yyyy'),
+        FieldId: fieldId,
+        hour,
+        UserId: cookie.get('id'),
+      }),
+    );
     await storageHandler()
     changeDate(new Date());
     setHour('');
@@ -69,14 +69,14 @@ function BookingAdmin() {
   }, [hour])
 
   const popUp = async () => {
-    // await dispatch(
-    //   postBooking({
-    //     date: format(date, 'd/MM/yyyy'),
-    //     FieldId: fieldId,
-    //     hour,
-    //     UserId: cookie.get('id'),
-    //   }),
-    // );
+    await dispatch(
+      postBooking({
+        date: format(date, 'd/MM/yyyy'),
+        FieldId: fieldId,
+        hour,
+        UserId: cookie.get('id'),
+      }),
+    );
     await storageHandler()
     changeDate(new Date());
     setHour('');

@@ -7,6 +7,7 @@ const cities = require('./cities')
 const comments = require('./comments')
 // const score= require('./score')
 const bookings = require("./bookings")
+const uploads = require("./uploads")
 const users = require('./users')
 const payments = require('./payments')
 
@@ -20,7 +21,10 @@ router.use('/cities', cities)
 router.use('/comments', comments)
 // router.use('/score', score)
 router.use("/bookings", bookings)
+router.use("/uploads", uploads)
+
 router.use("/users", users)
+
 
 router.use('/payments', payments)
 module.exports = router;
