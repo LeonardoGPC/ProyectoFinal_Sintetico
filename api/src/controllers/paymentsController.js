@@ -1,6 +1,7 @@
 const axios = require('axios');
 const mercadopago = require('mercadopago');
-const { postBookings, editBooking } = require('./bookingController');
+const { postBookings, editBooking, getAllBookings } = require('./bookingController');
+const { sendReservationEmail } = require('./mailController')
 
 
 async function createOrdenLink({itemName, price, UserId, bookings}){
@@ -30,7 +31,7 @@ async function createOrdenLink({itemName, price, UserId, bookings}){
                 unit_price: price,
             }
         ],
-        notification_url:  "https://b4dd-2800-484-c80-e234-a51f-819d-8d71-d0ac.ngrok.io/payments/notification",
+        notification_url:  "https://e5fc-2800-484-c80-e234-5c21-c166-9b16-5cd3.ngrok.io/payments/notification",
         back_urls: {
             success: "http://localhost:3000/",
             failure: "http://www.tu-sitio/failure",
@@ -57,14 +58,23 @@ async function createOrdenLink({itemName, price, UserId, bookings}){
         .catch((error) => console.log(error))
 
         status = status.data
+        let dataMail= []
         let bookingIds = status.additional_info.items[0].description.split(',')
             for (const bookingId of bookingIds) {
                 await editBooking(bookingId, {
                     paymentStatus: status.status.toUpperCase()
                 })
+                
+                dataMail.push(await getAllBookings(bookingId))
             }
+            sendReservationEmail(dataMail)
     }
+    
 }
+
+//booking = date, hour 
+// field = fieldName, id
+//User = id, name, lastName, userName, email
 
 /* async function createBooking({idUser, idField, date, hour}){
     //procedemos a crear la reserva
