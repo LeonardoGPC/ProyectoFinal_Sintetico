@@ -22,6 +22,7 @@ import GestReservas from "./components/Admin/GestReservas";
 import AdminFields from "./components/AdminManageFields/AdminFields";
 import AdminEdit from "./components/AdminManageFields/AdminEdit";
 import AdminStats from "./components/AdminManageFields/AdminStats";
+import AdminDeleted from "./components/AdminManageFields/AdminDeleted";
 
 function App() {
   const [load, setLoad] = useState(false);
@@ -69,6 +70,7 @@ function App() {
           <Route path="/admin/fields" element={<AdminFields />} />
           <Route path="/admin/fields/edit" element={<AdminEdit />} />
           <Route path="/admin/fields/stats" element={<AdminStats />} />
+          <Route path="/admin/fields/deleted" element={<AdminDeleted />} />
           <Route path="/gestionarusuarios" element={<GestUsuarios />} />
           <Route path="/gestionarprecios" element={<GestPrecios />} />
           <Route path="/gestionarreservas" element={<GestReservas />} />

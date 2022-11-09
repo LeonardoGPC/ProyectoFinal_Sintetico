@@ -21,7 +21,9 @@ const GestPublicaciones = () => {
           <Link to="/admin/fields/stats">
           <button className={style.btn}>Estadisticas</button>
           </Link>
-          {/* <button className={style.btn}>Eliminar Publicación</button> */}
+          <Link to="/admin/fields/deleted">
+          <button className={style.btn}>Publicaciones eliminadas</button>
+          </Link>
           {/* <button className={style.btn}>Modificar Publicación</button> */}
         </div>
       </div>
