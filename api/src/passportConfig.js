@@ -24,6 +24,22 @@ async function authenticate(userName, password) {
     return userFromDb;
 };
 
+async function findOrCreateUser(profile){
+    var userData = {
+        googleId: profile.id,
+        userName: profile.displayName,
+        name: profile.name.givenName,
+        lastName: profile.name.familyName,
+        email: profile.emails[0].value,
+        image: profile.photos[0].value
+    }
+    const [user, created] = await User.findOrCreate({
+        where: { googleId: profile.id },
+        defaults: userData
+    });
+    return user;
+}
+
 module.exports = function (passport) {
     passport.use(
         new LocalStrategy({
@@ -48,20 +64,8 @@ module.exports = function (passport) {
             callbackURL: "http://localhost:3001/users/google/callback"
         },
         async function(accessToken, refreshToken, profile, cb) {
-            return cb(null, profile);
-            var user = {
-                googleId: profile.id,
-                userName: profile.displayName,
-                name: profile.name.givenName,
-                lastName: profile.name.familyName,
-                email: profile.emails[0].value,
-                image: profile.photos[0].value
-            }
-            var user = await User.findOrCreate(user);
+            var user = await findOrCreateUser(profile)
             return cb(null, user);
-            /* User.findOrCreate({ googleId: profile.id }, function (err, user) {
-                return cb(err, user);
-            }); */
         }
     ));
 

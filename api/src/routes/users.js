@@ -35,7 +35,6 @@ router.get("/login", (req, res) => {
 });
 
 function isAuthenticated(req, res, next) {
-    console.log(req.user)
     if (req.user)
         return next();
     res.redirect('/users/login');
@@ -67,8 +66,6 @@ router.get("/google/callback",
     }));
     
 router.get("/info", (req, res) => {
-    console.log(req);
-
     res.send(req.user);
 });
 module.exports = router
