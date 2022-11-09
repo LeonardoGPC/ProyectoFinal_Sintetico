@@ -12,13 +12,15 @@ const GestPublicaciones = () => {
       <div className={style.acciones}>
         <h3 className={style.h3}>Gestionar Publicaciones</h3>
         <div className={style.info}>
-          <Link to="/admin/cards">
+          <Link to="/admin/fields">
             <button className={style.btn}>Publicaciones Actuales</button>
           </Link>
-          <Link to="/admin/cards/edit">
+          <Link to="/admin/fields/edit">
             <button className={style.btn}>Administrar Publicaciones</button>
           </Link>
-          <button className={style.btn}>Crear Publicación</button>
+          <Link to="/admin/fields/stats">
+          <button className={style.btn}>Estadisticas</button>
+          </Link>
           {/* <button className={style.btn}>Eliminar Publicación</button> */}
           {/* <button className={style.btn}>Modificar Publicación</button> */}
         </div>
