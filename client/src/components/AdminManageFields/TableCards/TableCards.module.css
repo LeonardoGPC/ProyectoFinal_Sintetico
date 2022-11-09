@@ -40,6 +40,19 @@ td {
     background-color: rgb(115, 186, 214);
 }
 
+.approve{
+  cursor: pointer;
+  border-radius: 10px;
+  border: none;
+  background-color: #98F576;
+  padding: 5px 5px;
+  margin-left: 5px;
+}
+
+.approve:hover{
+  background-color: #81e05e;
+}
+
 .delete {
   background-color: tomato;
   border: none;

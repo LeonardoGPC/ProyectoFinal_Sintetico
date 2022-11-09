@@ -4,6 +4,7 @@ import { getFields } from "../../../redux/actions";
 import { RiDeleteBin6Line, RiEdit2Line } from "react-icons/ri";
 import styles from "./TableCards.module.css";
 import { Link } from "react-router-dom";
+import { AiOutlineCheck } from "react-icons/ai";
 
 export default function TableCards() {
   const dispatch = useDispatch();
@@ -23,7 +24,8 @@ export default function TableCards() {
             <th>Cancha</th>
             <th>Localidad</th>
             <th>Precio</th>
-            <th>Editar</th>
+            <th>Detalle</th>
+            <th>Estado</th>
             <th>Borrar</th>
           </tr>
         </thead>
@@ -34,13 +36,19 @@ export default function TableCards() {
                 <th>{el.id}</th>
                 <td>{el.name}</td>
                 <td>{el.City.name}</td>
-                <td>{el.price}</td>
+                <td>${el.price}</td>
                 <td>
-                <Link to={`/sintetico/detail/${el.id}`}>
-                  <button className={styles.edit}>
-                    <RiEdit2Line />
+                  <Link to={`/sintetico/detail/${el.id}`}>
+                    <button className={styles.edit}>
+                      <RiEdit2Line />
+                    </button>
+                  </Link>
+                </td>
+                <td>
+                  {el.state}
+                  <button className={styles.approve}>
+                    <AiOutlineCheck />
                   </button>
-                </Link>
                 </td>
                 <td>
                   <button className={styles.delete}>
