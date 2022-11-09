@@ -4,6 +4,7 @@ import Filters from "../Home/Filters/filters";
 import MiniFooter from "../MiniFooter/MiniFooter";
 import Navbar from "../NavBar/Navbar";
 import styles from "./AdminFields.module.css";
+import TableApproved from "./TableCards/TableApproved";
 
 export default function AdminFields() {
   return (
@@ -17,7 +18,7 @@ export default function AdminFields() {
       </div>
       <div className={styles.container}>
         <Filters />
-        <Cards />
+        <TableApproved />
       </div>
       <MiniFooter />
     </div>
