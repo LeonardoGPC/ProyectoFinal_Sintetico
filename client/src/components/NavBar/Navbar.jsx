@@ -3,7 +3,6 @@ import syntheticLogo from '../img/LogoSintetico.png';
 import style from './navbar.module.css';
 import { Link, NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import foto from '../../img/foto_perfil.jpg'
 import { cleanErrors } from "../../redux/actions/index.js"
 import cart from '../../img/cart.svg'
 import Cookies from 'universal-cookie';
@@ -63,7 +62,7 @@ export default function Navbar() {
         </div> : localStorage.length === 0 ? <div className={style.inse2}><Link to='/profile'><img className={style.img} src={userImage.image}/></Link></div>
         : <div className={style.inse2}>
           <Link to='/pay'><img className={style.img2} src={cart}/></Link>
-          <Link to='/profile'><img className={style.img} src={foto}/></Link>
+          <Link to='/profile'><img className={style.img} src={userImage.image}/></Link>
           </div>}
       </nav>
     </div>

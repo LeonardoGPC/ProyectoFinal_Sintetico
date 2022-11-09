@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import { useSelector } from 'react-redux'
 import Navbar from '../NavBar/Navbar'
 import prof from './profile.module.css'
-import foto from '../../img/foto_perfil.jpg'
 import Cookies from 'universal-cookie';
 import GestPublicaciones from '../Admin/GestPublicaciones'
 import { Link } from 'react-router-dom'

@@ -38,7 +38,6 @@ function Pagos() {
             window.location.replace(res)
         })
         .catch(error => console.log(error))
-        localStorage.clear()
     }
 
     const changeCarga = () => {

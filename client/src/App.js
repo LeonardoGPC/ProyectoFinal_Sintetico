@@ -19,6 +19,8 @@ import GestPublicaciones from "./components/Admin/GestPublicaciones";
 import GestUsuarios from "./components/Admin/GestUsuarios";
 import GestPrecios from "./components/Admin/GestPrecios";
 import GestReservas from "./components/Admin/GestReservas";
+import Success from "./components/Pagos/Success/success";
+import Failure from "./components/Pagos/Failure/failure"
 
 function App() {
   const [load, setLoad] = useState(false);
@@ -57,7 +59,11 @@ function App() {
           <Route path="/contact" element={<ContactForm />} />
           <Route path="/faq" element={<Faq />} />
           <Route path="/minifooter" element={<MiniFooter />} />
-          <Route path="/pay" element={<Pagos />} />
+          <Route path="/pay">
+            <Route path='/pay' element={<Pagos />}/>
+            <Route path='/pay/success' element={<Success/>}/>
+            <Route path='/pay/failure' element={<Failure/>}/>
+          </Route>
           <Route path="/booking/:id" element={<Booking />} />
           <Route path="/gestionarpublicaciones" element={<GestPublicaciones />} />
           <Route path='/gestionarusuarios' element={<GestUsuarios />} />
