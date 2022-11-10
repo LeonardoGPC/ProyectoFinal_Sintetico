@@ -1,13 +1,17 @@
 import React, { useState } from "react";
+import { useDispatch} from 'react-redux'
 import emailjs from "emailjs-com";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import style from "./ContactForm.module.css";
 import { FiInstagram, FiFacebook, FiMail } from 'react-icons/fi';
 import { AiOutlineWhatsApp } from 'react-icons/ai';
 
+import { sendInquiryEmail } from "../../../redux/actions/index"
+
 
 const ContactForm = () => {
   const [formularioEnviado, setFormularioEnviado] = useState(false);
+  const dispatch = useDispatch();
 
   const sendEmail = (object) => {
     emailjs
@@ -75,6 +79,7 @@ const ContactForm = () => {
               console.log("Correo enviado exitosamente");
               sendEmail(valores);
               setFormularioEnviado(true);
+              dispatch(sendInquiryEmail(valores.email))
               setTimeout(() => setFormularioEnviado(false), 10000);
             }}
           >
@@ -87,7 +92,7 @@ const ContactForm = () => {
                   <Field
                     type="text"
                     id="nombre"
-                    name="nombre"
+                    name="nombre" 
                     values={values.nombre}
                     
                   />

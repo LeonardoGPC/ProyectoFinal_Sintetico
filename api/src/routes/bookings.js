@@ -12,14 +12,6 @@ router.get("/", async (req, res) => {
     }
   });
 
-router.get("/all", async (req, res) => {
-  try {
-    const bookings = await getAllBookings();
-    res.json(bookings);
-  } catch (error) {
-    res.status(404).send({ error: error.message });
-  }
-});
 
   router.post("/", async (req, res) => {
     try {

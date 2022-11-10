@@ -15,6 +15,7 @@ import {
   GET_COMMENTS,
   GET_FIELD_COMMENTS,
   GET_BOOKINGS,
+  SEND_EMAIL,
 } from '../actions/actionsTypes';
 
 const initialState = {
@@ -147,6 +148,9 @@ const rootReducer = (state = initialState, action) => {
     }
     case GET_BOOKINGS:{
       return {...state, bookings: action.payload}
+    }
+    case SEND_EMAIL:{
+      return{...state}
     }
     default:
       return { ...state };
