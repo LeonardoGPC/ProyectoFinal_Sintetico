@@ -16,38 +16,42 @@ export default function TableDelete() {
 
   return (
     <div className={styles.tablecards}>
-      <table>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Cancha</th>
-            <th>Localidad</th>
-            <th>Precio</th>
-            <th>Jugadores</th>
-            <th>Ver</th>
-          </tr>
-        </thead>
-        <tbody>
-          {fields.map((el) => {
-            return (
-              <tr key={el.id} className={styles.columns}>
-                <th>{el.id}</th>
-                <td>{el.name}</td>
-                <td>{el.City.name}</td>
-                <td>${el.price}</td>
-                <td>{el.Size.name}</td>
-                <td>
-                  <Link to={`/sintetico/detail/${el.id}`}>
-                    <button className={styles.detail}>
-                      <RiEdit2Line />
-                    </button>
-                  </Link>
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+      {fields.state === "DISAPPROVED" ? (
+        fields.map((el) => {
+          return (
+            <table>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Cancha</th>
+                  <th>Localidad</th>
+                  <th>Precio</th>
+                  <th>Jugadores</th>
+                  <th>Ver</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr key={el.id} className={styles.columns}>
+                  <th>{el.id}</th>
+                  <td>{el.name}</td>
+                  <td>{el.City.name}</td>
+                  <td>${el.price}</td>
+                  <td>{el.Size.name}</td>
+                  <td>
+                    <Link to={`/sintetico/detail/${el.id}`}>
+                      <button className={styles.detail}>
+                        <RiEdit2Line />
+                      </button>
+                    </Link>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          );
+        })
+      ) : (
+        <h3 style={{ color: "white" }}>No hay canchas eliminadas</h3>
+      )}
     </div>
   );
 }
