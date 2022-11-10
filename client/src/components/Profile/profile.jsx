@@ -77,10 +77,10 @@ function Profile() {
                             <img className={prof.img} src={userData.image} alt='imagen'/>
                             <h2 className={prof.name}>{usuario}</h2>
                         </li>
-                        <li className={prof.li}>Hacer Publicación</li>
-                        <li className={prof.li}>Ver Publicaciones</li>
-                        <li className={prof.li}>Gestionar mi plan</li>
-                        <li className={prof.li}>Reservas</li>
+                        <li className={prof.li}><Link className={prof.link} to ='/create'>Hacer Publicación</Link></li>
+                        <li className={prof.li}><Link className={prof.link} to='/verPublicaciones'>Ver Publicaciones</Link></li>
+                        <li className={prof.li}><Link className={prof.link} to='/gestionarPlan'>Gestionar mi plan</Link></li>
+                        <li className={prof.li}><Link className={prof.link} to='/reservas'>Reservas</Link></li>
                         <li className={prof.li}>Configuración</li>
                     </ul>
                     <p className={prof.li} onClick={() => closeSesion()}>Cerrar Sesión</p>

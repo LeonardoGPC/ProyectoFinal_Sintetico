@@ -21,9 +21,14 @@ import GestPrecios from "./components/Admin/GestPrecios";
 import GestReservas from "./components/Admin/GestReservas";
 import Success from "./components/Pagos/Success/success";
 import Failure from "./components/Pagos/Failure/failure"
+import ManagePlan from "./components/Clubs/ManagePlan";
+import SeePost from "./components/Clubs/SeePost";
+import BookingsClub from "./components/Clubs/BookingsClub";
+import React from "react";
 
 function App() {
   const [load, setLoad] = useState(false);
+
 
   let location = useLocation();
 
@@ -69,6 +74,9 @@ function App() {
           <Route path='/gestionarusuarios' element={<GestUsuarios />} />
           <Route path='/gestionarprecios' element={<GestPrecios />} />
           <Route path='/gestionarreservas' element={<GestReservas />} />
+          <Route path='/gestionarPlan' element={<ManagePlan/>} />
+          <Route path='/verPublicaciones' element={<SeePost/>}/>
+          <Route path='/reservas' element={<BookingsClub/>}/>
         </Routes>
         {load && <Load />}
       </div>

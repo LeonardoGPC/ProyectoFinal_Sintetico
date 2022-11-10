@@ -50,6 +50,9 @@ export const validate = (target, dispatchError) => {
       if (formValue.length === 0) {
         success = false;
         dispatchError({ type: formName, value: 'El valor es requerido' });
+      }else if( formValue <= 'openHour'){
+        success= false;
+        dispatchError({type: formName, value:'La hora debe ser mayor a la de apertura'})
       }
     }
   

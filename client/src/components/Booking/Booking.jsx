@@ -15,7 +15,7 @@ const hours = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23];
 
 function BookingAdmin() {
   const { id } = useParams();
-  const fields = useSelector((state) => state.fields);
+  // const fields = useSelector((state) => state.fields);
   const bookings = useSelector((state) => state.bookings);
   const dispatch = useDispatch();
 
@@ -27,6 +27,7 @@ function BookingAdmin() {
   const bookingInfo = groupBy(bookings, ['date', 'Fields.id'], ['hour']);
   const takenHours = bookingInfo[formattedDate]?.[fieldId]?.hour ?? [];
   const detailField = useSelector((state) => state.detail)
+  
 
   const [modal, setModal] = useState(false)
   const [dis, setDis] = useState(true)

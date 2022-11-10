@@ -7,11 +7,11 @@ import {
     getFields,
     filterFieldByCity,
     filterFieldBySize,
-    filterFieldByTime,
+    // filterFieldByTime,
     filterFieldBySurface,
   } from "../../../redux/actions/index.js";
 import s from "./filters.module.css";
-import Flatpickr from 'react-flatpickr'
+// import Flatpickr from 'react-flatpickr'
 import "flatpickr/dist/themes/material_green.css"
 // import Fields from "../../Cards/cards.jsx"
 
@@ -23,11 +23,11 @@ export default function Filters(){
     const cities = useSelector((s) => s.cities);
     const sizes = useSelector((s) => s.sizes);
     const surfaces = useSelector((s) => s.surfaces);
-    const fields = useSelector((s)=>s.fields)
+    // const fields = useSelector((s)=>s.fields)
 
     
 
-    const [date, setDate] = useState({date: new Date()})
+    // const [date, setDate] = useState({date: new Date()})
 
     
     useEffect(() => {
@@ -55,10 +55,10 @@ export default function Filters(){
     }
     
 
-    function handleTimeFilter(e) {
-        e.preventDefault()
-        dispatch(filterFieldByTime(e.target.value))
-    }
+    // function handleTimeFilter(e) {
+    //     e.preventDefault()
+    //     dispatch(filterFieldByTime(e.target.value))
+    // }
 
     function handleResetFilter(){
         dispatch(getFields())
@@ -70,11 +70,11 @@ export default function Filters(){
         document.getElementById(`3`).checked = false;
         document.getElementById(`4`).checked = false;
     }
-    function handleCalendarChange (e) {
-        setDate({
-            value: e.target.value
-        })
-    }
+    // function handleCalendarChange (e) {
+    //     setDate({
+    //         value: e.target.value
+    //     })
+    // }
     
     
     return(
