@@ -26,26 +26,28 @@ export default function TableApproved() {
             <th>Ver</th>
           </tr>
         </thead>
-        <tbody>
-          {fields.map((el) => {
-            return (
-              <tr key={el.id} className={styles.columns}>
-                <th>{el.id}</th>
-                <td>{el.name}</td>
-                <td>{el.City.name}</td>
-                <td>${el.price}</td>
-                <td>{el.Size.name}</td>
-                <td>
-                  <Link to={`/sintetico/detail/${el.id}`}>
-                    <button className={styles.detail}>
-                      <RiEdit2Line />
-                    </button>
-                  </Link>
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
+        {fields.map((el) => {
+          return el.state === "APPROVED" ? (
+              <tbody>
+                <tr key={el.id} className={styles.columns}>
+                  <th>{el.id}</th>
+                  <td>{el.name}</td>
+                  <td>{el.City.name}</td>
+                  <td>${el.price}</td>
+                  <td>{el.Size.name}</td>
+                  <td>
+                    <Link to={`/sintetico/detail/${el.id}`}>
+                      <button className={styles.detail}>
+                        <RiEdit2Line />
+                      </button>
+                    </Link>
+                  </td>
+                </tr>
+              </tbody>
+          ) : (
+            <h3></h3>
+          );
+        })}
       </table>
     </div>
   );
