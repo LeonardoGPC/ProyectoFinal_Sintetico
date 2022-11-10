@@ -2,6 +2,7 @@ const axios = require('axios');
 const { User } = require('../db');
 const { Op } = require('sequelize');
 const {getHash, getSalt} = require('../hash');
+const { sendRegistrationEmail } = require("./mailController")
 
 async function authenticate(userName, password){
     var userFromDb = await User.findOne({
@@ -23,6 +24,7 @@ async function createUser(userData){
     const user = {name, lastName, email, phone, image,userName, password: hashedPassword, salt };
     try{
         await User.create(user);
+        sendRegistrationEmail(name, lastName, userName,  email)
         return "User created successfuly";
     }catch(error){
         throw new Error("Invalid Fields");
