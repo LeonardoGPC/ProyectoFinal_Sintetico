@@ -45,7 +45,7 @@ module.exports = (sequelize) => {
         min:0,
         max: 23,
         customValidator(value) {
-          if (value <= this.openHour) {
+          if (value >= this.openHour) {
             throw new Error("Close hour should be bigger than open hour");
           }
         }

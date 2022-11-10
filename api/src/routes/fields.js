@@ -22,12 +22,15 @@ router.get('/:id', async(req, res)=>{
 })
 
 
-router.post('/', async (req, res)=>{
+router.post('/:id', async (req, res)=>{
+    let { id } = req.params
+    console.log("SOY EL IDDDDDDDDDDDDDDDDD",id)
     var field = req.body;
     try{
-        var successMessage = await createField(field);
+        var successMessage = await createField(field, id);
         res.send(successMessage);
     }catch(error){
+        console.log(error)
         res.status(404).send(error.message);
     }
     
