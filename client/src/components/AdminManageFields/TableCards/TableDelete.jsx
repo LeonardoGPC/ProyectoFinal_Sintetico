@@ -8,7 +8,10 @@ import styles from "./TableDelete.module.css";
 export default function TableDelete() {
   const dispatch = useDispatch();
   const fields = useSelector((state) => state.fields);
-  console.log(fields);
+  // console.log(fields);
+
+  const filterField = fields.filter((f) => f.state === "DISAPPROVED");
+  console.log(filterField);
 
   useEffect(() => {
     dispatch(getFields());
@@ -16,21 +19,21 @@ export default function TableDelete() {
 
   return (
     <div className={styles.tablecards}>
-      <table>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Cancha</th>
-            <th>Localidad</th>
-            <th>Precio</th>
-            <th>Jugadores</th>
-            <th>Ver</th>
-          </tr>
-        </thead>
-        {fields.map((el) => {
-          return el.state === "DISAPPROVED" ? (
-            <tbody>
-              <tr key={el.id} className={styles.columns}>
+      {filterField.length > 0 ? (
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Cancha</th>
+              <th>Localidad</th>
+              <th>Precio</th>
+              <th>Jugadores</th>
+              <th>Ver</th>
+            </tr>
+          </thead>
+          {filterField.map((el) => (
+            <tbody className={styles.tbody}>
+              <tr key={el.id}>
                 <th>{el.id}</th>
                 <td>{el.name}</td>
                 <td>{el.City.name}</td>
@@ -45,11 +48,11 @@ export default function TableDelete() {
                 </td>
               </tr>
             </tbody>
-          ) : (
-            <h3></h3>
-          );
-        })}
-      </table>
+          ))}
+        </table>
+      ) : (
+        <h3 className={styles.notfound}>No hay canchas eliminadas</h3>
+      )}
     </div>
   );
 }
