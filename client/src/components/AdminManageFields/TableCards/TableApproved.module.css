@@ -2,6 +2,7 @@
   display: grid;
   justify-items: stretch;
   margin: 10px 70px;
+  min-height: 62vh;
   width: 100%;
 }
 
@@ -20,11 +21,12 @@
   padding: 10px 0;
 }
 
-.tablecards tr:nth-child(even) {
-  background-color: #ddd;
+.tbody tr{
+  border-bottom: 1px solid #4040401e;
+  /* background-color: #ddd; */
 }
 
-.tablecards th,
+.tbody th,
 td {
   padding: 5px;
 }
@@ -39,4 +41,12 @@ td {
 
 .detail:hover {
   background-color: rgb(115, 186, 214);
+}
+
+.notfound{
+  color: #ddd;
+  display: grid;
+  align-items: center;
+  font-size: 30px;
+  font-style: italic;
 }
