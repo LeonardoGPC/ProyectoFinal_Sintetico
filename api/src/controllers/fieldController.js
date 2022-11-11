@@ -23,9 +23,9 @@ const queryParams4 ={
 async function getFields() {
   let fields = await Field.findAll({
     where: {
-      state: {
-        [Op.eq]: "APPROVED",
-      },
+      // state: {
+      //   [Op.eq]: "APPROVED",
+      // },
     },
     include: [
       {
@@ -121,7 +121,7 @@ async function createField(fieldData, OwnerId) {
     openHour,
     closeHour,
     description,
-    state: "APPROVED",
+    state: "PENDING",
   };
   try {
     const newField = await Field.create(field);
