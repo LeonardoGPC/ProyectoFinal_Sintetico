@@ -23,9 +23,9 @@ const queryParams4 ={
 async function getFields() {
   let fields = await Field.findAll({
     where: {
-      state: {
-        [Op.eq]: "APPROVED",
-      },
+      // state: {
+      //   [Op.eq]: "APPROVED",
+      // },
     },
     include: [
       {
@@ -48,6 +48,11 @@ async function getFields() {
         model: Booking,
         ...queryParams4,
       },
+      {
+        model: User,
+        attributes: ["planType"],
+      }
+      
     ],
   });
   if (fields.length) return fields;
@@ -78,13 +83,19 @@ async function getFieldById(id) {
         model: Facility,
         ...queryParams,
       },
+      {
+        model: User,
+        attributes: ["planType"],
+      }
+      
     ],
   });
   if (field) return field;
   else throw new Error("Field does not exist in db");
 }
 
-async function createField(fieldData) {
+async function createField(fieldData, OwnerId) {
+ 
   const {
     id,
     name,
@@ -110,13 +121,14 @@ async function createField(fieldData) {
     openHour,
     closeHour,
     description,
-    state: "APPROVED",
+    state: "PENDING",
   };
   try {
     const newField = await Field.create(field);
     await newField.setSize(size);
     await newField.setSurface(surface);
     await newField.setCity(city);
+    await newField.setUser(OwnerId)
     if (facilities) {
       await newField.addFacilities(facilities);
     }
