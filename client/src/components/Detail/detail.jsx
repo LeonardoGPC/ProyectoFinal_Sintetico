@@ -232,6 +232,7 @@ function Detail() {
                         style={{
                           marginRight: 10,
                           cursor: 'pointer',
+                          transition: 'all 300ms ease'
                         }}
                       />
                     );

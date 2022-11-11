@@ -157,7 +157,7 @@ export default function Filters(){
                     onChange={e => handleCalendarChange(e)}
                     /> */}
                     <button onClick={() => handleResetFilter()} className={s.button}>
-                        resetear filtros
+                        Resetear filtros
                     </button>
             </div>
             {/* <div className={s.fields}>

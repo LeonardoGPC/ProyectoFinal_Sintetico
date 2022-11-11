@@ -17,27 +17,31 @@ function Pagos() {
     const [carga, setCarga] = useState(false)
     const cookie = new Cookies()
     const usuario = cookie.get('usuario')
+    const idUser = cookie.get('id')
     const [precio, setPrecio] = useState()
+    const [btn, setBtn] = useState(false) 
 
     const pay = async () => {
-        await axios.post('http://localhost:3001/payments', {
-            UserId:1,
-            price: precio,
-            itemName: "Renta de cancha(s)",
-            bookings:
-            [
-                {
-                date:"04/11/2022",
-                hour: 9,
-                FieldId: 10
-                }
-            ]
-        })
-        .then(response => response.data)
-        .then(res => {
-            window.location.replace(res)
-        })
-        .catch(error => console.log(error))
+        if(rent){
+            await axios.post('http://localhost:3001/payments', {
+                UserId: idUser,
+                price: precio,
+                itemName: "Renta de cancha(s)",
+                bookings:
+                [
+                    {
+                    date: JSON.parse(rent)[0].date,
+                    hour: JSON.parse(rent)[0].hour,
+                    FieldId: JSON.parse(rent)[0].id
+                    }
+                ]
+            })
+            .then(response => response.data)
+            .then(res => {
+                window.location.replace(res)
+            })
+            .catch(error => console.log(error))
+        }
     }
 
     const changeCarga = () => {
@@ -69,6 +73,14 @@ function Pagos() {
         setCarga(true)
         setTimeout(changeCarga, 1000)
     }
+
+    useEffect(() => {
+        if(precio === 0){
+            window.location.replace('/')
+            if(rent) localStorage.removeItem('rent')
+            if(plan) localStorage.removeItem('plan')
+        }
+    }, [precio])
 
     useEffect(() => {
         let totalPrice = 0;
