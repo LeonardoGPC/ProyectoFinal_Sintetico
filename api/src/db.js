@@ -2,14 +2,16 @@ require('dotenv').config();
 const { Sequelize, Op } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
-const {
-  DB_USER, DB_PASSWORD, DB_HOST,
-} = process.env;
 
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/sintetico`, {
-  logging: false, // set to console.log to see the raw SQL queries
-  native: false, // lets Sequelize know we can use pg-native for ~30% more speed
-});
+let config;
+
+process.env.NODE_ENV?
+config = require("./config/config.js")['development']:
+config = require("./config/config.js")['production']
+
+const sequelize = new Sequelize(config.url, config);
+
+
 const basename = path.basename(__filename);
 
 const modelDefiners = [];

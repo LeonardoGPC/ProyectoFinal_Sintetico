@@ -16,7 +16,7 @@ server.use(express.urlencoded({ extended: true, limit: '50mb' }));
 server.use(express.json({ limit: '50mb' }));
 server.use(
   cors({
-    origin: "http://localhost:3000", // <-- location of the react app were connecting to
+    origin: "http://localhost:3000" || "https://frontsintetico.vercel.app/", // <-- location of the react app were connecting to
     credentials: true,
   })
 );

@@ -6,7 +6,7 @@ export const validate = (target, setError, error, register) => {
     let user;
 
     const validateUser = async () => {
-        let users = await axios.get('http://localhost:3001/users')
+        let users = await axios.get('/users')
         user = users.data.find(e => e.userName === inputValue)
         if(user){
             setError({...error, userName: 'Ya hay un usuario con ese nombre'});

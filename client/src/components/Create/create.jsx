@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { postField } from '../../redux/actions/index';
 import { validate } from './validate';
 import Navbar from '../NavBar/Navbar';
+import{URL} from '../../utils/utils.js'
 
 import {
   getCities,
@@ -84,7 +85,7 @@ export default function Create() {
 
   const uploadImage = async (base64EncondedImage) =>{
     try {
-        const data = await fetch ('http://localhost:3001/uploads',{
+        const data = await fetch (`${URL}/uploads`,{
             method: 'POST',
             body: JSON.stringify({
                 data: base64EncondedImage

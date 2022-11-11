@@ -8,7 +8,7 @@ import GestPublicaciones from '../Admin/GestPublicaciones'
 import { Link } from 'react-router-dom'
 import { useEffect } from 'react'
 import axios from 'axios'
-
+import{URL_APP} from '../../utils/utils.js'
 function Profile() {
 
 
@@ -28,7 +28,7 @@ function Profile() {
 
     useEffect(() => {
         const getUserData = async () => {
-            let data = await axios.get('http://localhost:3001/users/' + idUser)
+            let data = await axios.get('/users/' + idUser)
             setUserData({
                 name: data.data.name,
                 lastName: data.data.lastName,
@@ -45,11 +45,11 @@ function Profile() {
     const closeSesion = () => {
         cookie.remove('usuario')
         cookie.remove('id')
-        window.location.replace("http://localhost:3000/")
+        window.location.replace(URL_APP)
     }
 
     if(typeof usuario === 'undefined'){
-        window.location.replace("http://localhost:3000/login");
+        window.location.replace(`${URL_APP}/login`);
     } else {
       return (
         <div className={prof.main}>

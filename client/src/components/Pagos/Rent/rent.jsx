@@ -10,7 +10,7 @@ function Rentcard({id, deleteHandler, date, hour}) {
 
     useEffect( () => {
         async function myData () {
-            const idField = await axios.get('http://localhost:3001/fields/' + id);
+            const idField = await axios.get('/fields/' + id);
             setData(idField.data)
         }
         myData()

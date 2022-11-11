@@ -2,6 +2,7 @@ const axios = require('axios');
 const mercadopago = require('mercadopago');
 const { postBookings, editBooking } = require('./bookingController');
 
+const url = process.env.CORS_URL || "http://localhost:3000/"
 
 async function createOrdenLink({itemName, price, UserId, bookings}){
     mercadopago.configure({
@@ -32,9 +33,9 @@ async function createOrdenLink({itemName, price, UserId, bookings}){
         ],
         notification_url:  "https://b4dd-2800-484-c80-e234-a51f-819d-8d71-d0ac.ngrok.io/payments/notification",
         back_urls: {
-            success: "http://localhost:3000/",
-            failure: "http://www.tu-sitio/failure",
-            pending: "http://www.tu-sitio/pending"
+            success: url,
+            failure: `${url}/failure`,
+            pending: `${url}/pending`
         },
         auto_return: "approved",
     };

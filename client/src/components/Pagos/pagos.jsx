@@ -8,6 +8,7 @@ import Cookies from 'universal-cookie';
 import Rentcard from './Rent/rent';
 import MiniFooter from '../MiniFooter/MiniFooter.jsx';
 import axios from 'axios';
+import{URL_APP} from '../../utils/utils.js'
 
 function Pagos() {
 
@@ -20,7 +21,7 @@ function Pagos() {
     const [precio, setPrecio] = useState()
 
     const pay = async () => {
-        await axios.post('http://localhost:3001/payments', {
+        await axios.post('/payments', {
             UserId:1,
             price: precio,
             itemName: "Renta de cancha(s)",
@@ -84,7 +85,7 @@ function Pagos() {
     },[rent, plan])
 
     if(typeof usuario === 'undefined'){
-        window.location.replace("http://localhost:3000/login");
+        window.location.replace(`${URL_APP}/login`);
     } else if(plan || rent) {
         return (
           <div className={p.main}>

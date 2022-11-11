@@ -27,7 +27,7 @@ export const prueba = () => {
 
 export const getCities = () => {
   return async (dispatch) => {
-    const response = await axios.get('http://localhost:3001/cities');
+    const response = await axios.get('/cities');
 
     dispatch({
       type: GET_CITIES,
@@ -38,7 +38,7 @@ export const getCities = () => {
 
 export const getSizes = () => {
   return async (dispatch) => {
-    const response = await axios.get('http://localhost:3001/sizes');
+    const response = await axios.get('/sizes');
     dispatch({
       type: GET_SIZES,
       payload: response.data,
@@ -48,7 +48,7 @@ export const getSizes = () => {
 
 export const getSurfaces = () => {
   return async (dispatch) => {
-    const response = await axios.get('http://localhost:3001/surfaces');
+    const response = await axios.get('/surfaces');
     dispatch({
       type: GET_SURFACES,
       payload: response.data,
@@ -58,7 +58,7 @@ export const getSurfaces = () => {
 
 export const getFacilities = () => {
   return async (dispatch) => {
-    const response = await axios.get('http://localhost:3001/facilities');
+    const response = await axios.get('/facilities');
     dispatch({
       type: GET_FACILITIES,
       payload: response.data,
@@ -69,7 +69,7 @@ export const getFacilities = () => {
 export const postField = (payload) => {
   return async () => {
     try {
-      await axios.post('http://localhost:3001/fields', payload);
+      await axios.post('/fields', payload);
       alert('Cancha creada con exito!');
       window.location.href = '/sintetico';
     } catch (error) {
@@ -80,7 +80,7 @@ export const postField = (payload) => {
 
 export const getFields = () => {
   return async (dispatch) => {
-    const response = await axios.get('http://localhost:3001/fields');
+    const response = await axios.get('/fields');
     dispatch({
       type: GET_FIELDS,
       payload: response.data,
@@ -122,7 +122,7 @@ export function filterFieldBySurface(payload) {
 
 export const getFieldDetail = (id) => {
   return async (dispatch) => {
-    const idField = await axios.get('http://localhost:3001/fields/' + id);
+    const idField = await axios.get('/fields/' + id);
     dispatch({
       type: ID_FIELD,
       payload: idField.data,
@@ -132,7 +132,7 @@ export const getFieldDetail = (id) => {
 
 export const getFieldComments = (id) => {
   return async(dispatch) => {
-    const comments = await axios.get('http://localhost:3001/comments/' + id);
+    const comments = await axios.get('/comments/' + id);
     dispatch({
       type:  GET_FIELD_COMMENTS,
       payload: comments.data,
@@ -143,7 +143,7 @@ export const getFieldComments = (id) => {
 export const postComment = (payload) => {
   return async (dispatch) => {
     try {
-      await axios.post('http://localhost:3001/comments', payload);
+      await axios.post('/comments', payload);
     } catch (error) {
       console.log(error)
     }
@@ -152,7 +152,7 @@ export const postComment = (payload) => {
 
 export const getComments = () => {
   return async (dispatch) => {
-    const response = await axios.get('http://localhost:3001/comments');
+    const response = await axios.get('/comments');
     dispatch({
       type: GET_COMMENTS,
       payload: response.data,
@@ -163,7 +163,7 @@ export const getComments = () => {
 export const postBooking=(payload)=>{
   return async (dispatch) => {
     try {
-      await axios.post('http://localhost:3001/bookings', payload);
+      await axios.post('/bookings', payload);
     } catch (error) {
       console.log(error)
     }
@@ -172,7 +172,7 @@ export const postBooking=(payload)=>{
 
 export const getBookings=()=>{
   return async (dispatch) => {
-    const response = await axios.get('http://localhost:3001/bookings');
+    const response = await axios.get('/bookings');
     dispatch({
       type: GET_BOOKINGS,
       payload: response.data,

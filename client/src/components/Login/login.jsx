@@ -50,7 +50,7 @@ function Login() {
 
     const registerHandler = async (e) => {
         e.preventDefault()
-        await axios.post('http://localhost:3001/users', register)
+        await axios.post('/users', register)
         .then(response => {
             console.log(response)
             setModal(true)
@@ -78,7 +78,7 @@ function Login() {
 
     const login = async (e) => {
         e.preventDefault()
-        await axios.post('http://localhost:3001/users/login', {userName: input.username, password: input.password})
+        await axios.post('/users/login', {userName: input.username, password: input.password})
         .then(response => response.data)
         .then(res => {
             cookie.set('usuario', res.userName)
