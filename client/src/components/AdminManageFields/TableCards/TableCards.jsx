@@ -5,11 +5,30 @@ import { RiDeleteBin6Line, RiEdit2Line } from "react-icons/ri";
 import styles from "./TableCards.module.css";
 import { Link } from "react-router-dom";
 import { AiOutlineCheck } from "react-icons/ai";
+import axios from "axios";
 
 export default function TableCards() {
   const dispatch = useDispatch();
   const fields = useSelector((state) => state.fields);
   console.log(fields);
+
+  const handlerState = async (id) => {
+    console.log(id);
+     await axios.put("http://localhost:3001/fields/" + id, {
+      id: id,
+      state: "APPROVED"
+    })
+    window.location.reload()
+  }
+
+  const handlerDelete = async (id) => {
+    console.log(id);
+    await axios.put("http://localhost:3001/fields/" + id, {
+      id: id,
+      state: "DISAPPROVED"
+    })
+    window.location.reload()
+  }
 
   useEffect(() => {
     dispatch(getFields());
@@ -46,12 +65,12 @@ export default function TableCards() {
                 </td>
                 <td>
                   {el.state}
-                  <button className={styles.approve}>
+                  <button onClick={() =>handlerState(el.id)} className={styles.approve}>
                     <AiOutlineCheck />
                   </button>
                 </td>
                 <td>
-                  <button className={styles.delete}>
+                  <button onClick={() => handlerDelete(el.id)} className={styles.delete}>
                     <RiDeleteBin6Line />
                   </button>
                 </td>
