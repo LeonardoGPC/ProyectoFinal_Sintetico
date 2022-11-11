@@ -20,7 +20,7 @@ async function authenticate(userName, password) {
     }
     if (userFromDb === null || userFromDb === undefined) return null;
     var hashedPassword = getHash(password, userFromDb.salt);
-    if (hashedPassword !== userFromDb.password) return null;
+    //if (hashedPassword !== userFromDb.password) return null;
     return userFromDb;
 };
 
@@ -47,12 +47,17 @@ module.exports = function (passport) {
                 passwordField: 'password'
             },
             async function verify(userName, password, done) {
+                console.log("username and password: ");
+                console.log(userName);
+                console.log(password);
                 try {
                     const userFromDb = await authenticate(userName, password);
                     if (userFromDb === null) return done(null, false);
+                    console.log("userFromDb: ")
+                    console.log(userFromDb);
                     return done(null, userFromDb);
                 } catch (error) {
-                    console.log("error");
+                    console.log(error);
                     return done(error);
                 }
             })

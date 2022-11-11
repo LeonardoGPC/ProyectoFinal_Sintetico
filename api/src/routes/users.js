@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const router = Router();
-const { createUser, getUser, getUsers } = require('../controllers/userController');
+const { createUser, getUser, getUsers, createGoogleUser, authenticate } = require('../controllers/userController');
 const passport = require('passport');
 
 
@@ -14,6 +14,26 @@ router.post("/", async (req, res) => {
     }
 });
 
+router.get("/:id", async (req, res) => {
+    var {id} = req.params;
+    try{
+        var message = await getUser(id);
+        res.send(message);
+    }catch(error){
+        res.status(404).send(error);
+    }
+});
+
+router.post("/googleAuth", async (req, res) => {
+    var userData = req.body;
+    try{
+        var successMessage = await createGoogleUser(userData);
+        res.send(successMessage);
+    }catch (error){
+        res.status(404).send(error.message);
+    }
+});
+
 router.get("/", async (req, res) => {
     try{
         var usersFromDb = await getUsers();
@@ -23,18 +43,29 @@ router.get("/", async (req, res) => {
     }
 })
 
-router.post("/login", 
+/* router.post("/login", 
     passport.authenticate('local',{
         failureRedirect: '/users/login',
-        successRedirect: '/info' 
+        successRedirect: '/users/profile' 
     })
-);
+); */
+router.post("/login", async (req, res) => {
+    var {userName, password} = req.body;
+    try{
+        var message = await authenticate(userName, password);
+        res.send(message);
+    }catch(error){
+        res.status(404).send(error);
+    }
+});
 
 router.get("/login", (req, res) => {
-    res.send("error");
+    console.log("error: usuario no encontraoo")
+    res.status(404).send("usuario no encontrado");
 });
 
 function isAuthenticated(req, res, next) {
+    console.log(req.user);
     if (req.user)
         return next();
     res.redirect('/users/login');
@@ -45,6 +76,7 @@ router.get("/profile", isAuthenticated, async (req, res) => {
         var userFromDb = await getUser(req.user.id);
         res.send(userFromDb);
     }catch(error){
+        console.log(error);
         res.status(404).send(error.message);
     }
 })
@@ -65,7 +97,4 @@ router.get("/google/callback",
         failureRedirect: '/users/login'
     }));
     
-router.get("/info", (req, res) => {
-    res.send(req.user);
-});
 module.exports = router

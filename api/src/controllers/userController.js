@@ -3,6 +3,18 @@ const { User } = require('../db');
 const { Op } = require('sequelize');
 const {getHash, getSalt} = require('../hash');
 
+async function createGoogleUser(userData){
+    try{
+        const [user, created] = await User.findOrCreate({
+            where: userData,
+        });
+        console.log(user);
+        return user;
+        
+    }catch(error){
+        throw new Error("error");
+    }
+}
 async function authenticate(userName, password){
     var userFromDb = await User.findOne({
         where:{
@@ -46,5 +58,6 @@ module.exports = {
     authenticate,
     createUser,
     getUser,
-    getUsers
+    getUsers,
+    createGoogleUser
 }
