@@ -43,9 +43,34 @@ async function getUsers(){
     throw new Error("There is not users in the db");
 }
 
+async function editUser(userId, data){
+    
+    try{
+        var userFromDb= await User.findByPk(userId);
+        await userFromDb.update(data);
+        await userFromDb.save();
+    }catch(error){
+        throw new Error("El elemento a editar no existe o los parámetros no son válidos");
+    }
+}
+
+async function editUserPlanType(userId, data){
+    
+    try{
+        var userFromDb= await User.findByPk(userId);
+        await userFromDb.update(data);
+        await userFromDb.save();
+    }catch(error){
+        
+        throw new Error("El elemento a editar no existe o los parámetros no son válidos");
+    }
+}
+
 module.exports = {
     authenticate,
     createUser,
     getUser,
-    getUsers
+    getUsers,
+    editUser,
+    editUserPlanType,
 }

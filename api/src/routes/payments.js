@@ -5,6 +5,7 @@ const router = Router()
 
 router.post('/', async(req, res) => {
     const data = req.body
+    console.log(data)
     try {
         const response = await createOrdenLink(data)
         res.json(response)

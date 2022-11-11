@@ -48,6 +48,10 @@ async function getFields() {
         model: Booking,
         ...queryParams4,
       },
+      {
+        model: User,
+        attributes: ["planType"],
+      }
       
     ],
   });
@@ -79,6 +83,10 @@ async function getFieldById(id) {
         model: Facility,
         ...queryParams,
       },
+      {
+        model: User,
+        attributes: ["planType"],
+      }
       
     ],
   });
