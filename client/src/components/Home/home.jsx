@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import MiniFooter from '../MiniFooter/MiniFooter.jsx'
 import { useSelector, useDispatch } from "react-redux"
 import { cleanErrors } from "../../redux/actions/index.js"
+import logo from '../img/LogoSintetico.png'
 
 
 export default function Home(){
@@ -39,14 +40,16 @@ function handleErrors(){
                     <MiniFooter/>
                 </div>
                 :
+                <>
                 <div className={home.container}>
                     <Navbar/>
                     <div className={home.div}>
                         <Filters/>
                         <Cards/>
                     </div>
-                    <MiniFooter/>
                 </div>
+                <MiniFooter/>
+                </>
             }
         </div>
     )

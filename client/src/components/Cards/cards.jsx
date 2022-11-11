@@ -25,14 +25,14 @@ export default function Cards() {
       dataLength={fieldsByPage.length}
       hasMore={fields.length !== fieldsByPage.length}
       next={() => setPage((prevPage) => prevPage + 1)}
-      loader={<h4>Loading...</h4>}
-      height="657px"
+      loader={<h4 style={{color: 'white'}}>Loading...</h4>}
+      height="calc(100vh - 86px)"
       className={style.scroll}
     >
       <div className={style.container}>
         {fieldsByPage.map((field) => {
           return (
-            <div key={field.id}>
+            <div key={field.id} className={style.div_group}>
             <Link  className={style.group} to={`/sintetico/detail/${field.id}`}>
               <div className={style.secondContainer}>
                 <img
