@@ -1,17 +1,19 @@
-import React from 'react';
-import ReactStars from 'react-stars';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
-import { getFields } from '../../redux/actions';
-import style from './cards.module.css';
-import InfiniteScroll from 'react-infinite-scroll-component';
-import { Link } from 'react-router-dom';
+import React from "react";
+import ReactStars from "react-stars";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { getFields } from "../../redux/actions";
+import style from "./cards.module.css";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { Link } from "react-router-dom";
 
 export default function Cards() {
   const dispatch = useDispatch();
-  const fields = useSelector((state) => state.fields);
+  const fieldState = useSelector((state) => state.fields);
+  const fields = fieldState.filter((f) => f.state === "APPROVED");
+  console.log(fields);
   const [page, setPage] = useState(1);
- 
+
   const itemsPerPage = 3;
   const fieldsByPage = fields.slice(0, page * itemsPerPage);
 

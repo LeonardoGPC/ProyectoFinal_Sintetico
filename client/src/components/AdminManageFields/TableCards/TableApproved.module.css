@@ -1,0 +1,52 @@
+.tablecards {
+  display: grid;
+  justify-items: stretch;
+  margin: 10px 70px;
+  min-height: 62vh;
+  width: 100%;
+}
+
+.tablecards table {
+  background-color: white;
+  border-collapse: collapse;
+}
+
+.tablecards thead {
+  background-color: #105b10;
+  color: white;
+  border-bottom: 1px solid #404040;
+}
+
+.tablecards thead th {
+  padding: 10px 0;
+}
+
+.tbody tr{
+  border-bottom: 1px solid #4040401e;
+  /* background-color: #ddd; */
+}
+
+.tbody th,
+td {
+  padding: 5px;
+}
+
+.detail {
+  background-color: skyblue;
+  border: none;
+  border-radius: 10px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.detail:hover {
+  background-color: rgb(115, 186, 214);
+}
+
+.notfound{
+  color: #ddd;
+  display: grid;
+  align-items: center;
+  font-size: 30px;
+  font-style: italic;
+}

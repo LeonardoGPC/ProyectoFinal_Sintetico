@@ -19,6 +19,10 @@ import GestPublicaciones from "./components/Admin/GestPublicaciones";
 import GestUsuarios from "./components/Admin/GestUsuarios";
 import GestPrecios from "./components/Admin/GestPrecios";
 import GestReservas from "./components/Admin/GestReservas";
+import AdminFields from "./components/AdminManageFields/AdminFields";
+import AdminEdit from "./components/AdminManageFields/AdminEdit";
+import AdminStats from "./components/AdminManageFields/AdminStats";
+import AdminDeleted from "./components/AdminManageFields/AdminDeleted";
 import Success from "./components/Pagos/Success/success";
 import Failure from "./components/Pagos/Failure/failure"
 import ManagePlan from "./components/Clubs/ManagePlan";
@@ -26,6 +30,7 @@ import SeePost from "./components/Clubs/SeePost";
 import BookingsClub from "./components/Clubs/BookingsClub";
 import React from "react";
 import Error from "./components/Error/error";
+
 
 function App() {
   const [load, setLoad] = useState(false);
@@ -87,6 +92,17 @@ function App() {
           <Route path='/gestionarPlan' element={<ManagePlan/>} />
           <Route path='/verPublicaciones' element={<SeePost/>}/>
           <Route path='/reservas' element={<BookingsClub/>}/>
+          <Route
+            path="/gestionarpublicaciones"
+            element={<GestPublicaciones />}
+          />
+          <Route path="/admin/fields" element={<AdminFields />} />
+          <Route path="/admin/fields/edit" element={<AdminEdit />} />
+          <Route path="/admin/fields/stats" element={<AdminStats />} />
+          <Route path="/admin/fields/deleted" element={<AdminDeleted />} />
+          <Route path="/gestionarusuarios" element={<GestUsuarios />} />
+          <Route path="/gestionarprecios" element={<GestPrecios />} />
+          <Route path="/gestionarreservas" element={<GestReservas />} />
         </Routes>
         {load && <Load />}
       </div>
