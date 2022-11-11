@@ -3,14 +3,11 @@ const { Sequelize, Op } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
 
-let config;
-
-process.env.NODE_ENV?
+process.env.NODE_ENV === 'development'?
 config = require("./config/config.js")['development']:
 config = require("./config/config.js")['production']
 
 const sequelize = new Sequelize(config.url, config);
-
 
 const basename = path.basename(__filename);
 
