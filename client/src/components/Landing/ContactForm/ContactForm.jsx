@@ -15,7 +15,7 @@ const ContactForm = () => {
 
   const sendEmail = (object) => {
     emailjs
-      .send("service_judsk5d", "template_dfn95ge", object, "aZf1nfm7dqaftSLF1")
+      .send("service_5eok4w9", "template_16chfn4", object, "SsZ4eLleWyNfpeo4b")
       .then((res) => {
         console.log(res);
       })
