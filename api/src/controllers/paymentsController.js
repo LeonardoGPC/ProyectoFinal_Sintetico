@@ -1,14 +1,11 @@
 const axios = require('axios');
 const mercadopago = require('mercadopago');
-const { postBookings, editBooking } = require('./bookingController');
+const { postBookings, editBooking, getAllBookings } = require('./bookingController');
+const { sendReservationEmail } = require('./mailController');
+const { editUser, editUserPlanType } = require('./userController');
 
 
-async function createOrdenLink({itemName, price, UserId, bookings}){
-    mercadopago.configure({
-        access_token: process.env.ACCESS_TOKEN
-    });
-    //En description estará los datos que no se pueden obtener de la notificación de Mercado pago
-    //(id de cada Booking creada)
+async function createBooking(UserId, bookings){
     let idBooking = []
     for (const item of bookings) {
         let bookingData = {
@@ -19,22 +16,37 @@ async function createOrdenLink({itemName, price, UserId, bookings}){
         }
         idBooking.push(await postBookings(bookingData))
     }
-    //idBooking = idBooking.map(e => e[0].dataValues.id)
+    return  idBooking.join(',')
+}
+
+async function createOrdenLink({itemName, price, UserId, bookings}){//reserva --- plan basic
+    
+    mercadopago.configure({
+        access_token: process.env.ACCESS_TOKEN
+    });
+    //En description estará los datos que no se pueden obtener de la notificación de Mercado pago
+    //(id de cada Booking creada)
+    let description = "";
+    if(itemName.toLowerCase().includes('reserva')){
+       description = await createBooking(UserId, bookings)
+    }else {
+        description = UserId.toString()
+    }
     var preference = {
         items: [
             {
                 title:  itemName,
-                description: idBooking.join(','),
+                description: description,
                 quantity: 1,
                 currency_id: 'COP',
                 unit_price: price,
             }
         ],
-        notification_url:  "https://b4dd-2800-484-c80-e234-a51f-819d-8d71-d0ac.ngrok.io/payments/notification",
+        notification_url:  "https://b104-2800-484-c80-e234-247c-6607-1c7a-9db2.ngrok.io/payments/notification",
         back_urls: {
-            success: "http://localhost:3000/",
-            failure: "http://www.tu-sitio/failure",
-            pending: "http://www.tu-sitio/pending"
+            success: "http://localhost:3000/pay/success",
+            failure: "http://localhost:3000/pay/failure",
+            pending: "http://localhost:3000/"
         },
         auto_return: "approved",
     };
@@ -56,25 +68,37 @@ async function createOrdenLink({itemName, price, UserId, bookings}){
         })
         .catch((error) => console.log(error))
 
-        status = status.data
-        let bookingIds = status.additional_info.items[0].description.split(',')
-            for (const bookingId of bookingIds) {
-                await editBooking(bookingId, {
-                    paymentStatus: status.status.toUpperCase()
-                })
+            status = status.data
+            let ArritemPurchase = status.additional_info.items[0].title.split(' ')
+            
+
+            if(ArritemPurchase[0].toLowerCase() === 'plan'){
+                let userId = Number(status.additional_info.items[0].description)
+                if(status.status === "approved"){
+                    editUser(userId,{type: "club"})
+                    editUserPlanType(userId, { planType: ArritemPurchase[1].toLowerCase() }) 
+                    //enviar correo
+                }
+            }
+            if(ArritemPurchase[0].toLowerCase() === 'reserva'){
+                let dataMail= []
+                let bookingIds = status.additional_info.items[0].description.split(',')
+                for (const bookingId of bookingIds) {
+                    await editBooking(bookingId, {
+                        paymentStatus: status.status.toUpperCase()
+                    })
+                    
+                    dataMail.push(await getAllBookings(bookingId))
+                }
+                if(status.status === 'approved'){
+                    sendReservationEmail(dataMail)
+                }
             }
     }
+    
 }
 
-/* async function createBooking({idUser, idField, date, hour}){
-    //procedemos a crear la reserva
 
-    const newBooking = await Booking.create({date, hour})
-    await newBooking.addFields(idField)
-    await newBooking.addUsers(idUser)
-    
-
-} */
 
 module.exports = {
     createOrdenLink,

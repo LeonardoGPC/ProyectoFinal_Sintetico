@@ -12,8 +12,13 @@ module.exports = (sequelize) => {
     },
     hour: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: false,
+        validate: {
+          min:8,
+          max: 23
+          },
     },
+
     isCancel: {
         type: DataTypes.BOOLEAN,
         allowNull: false,

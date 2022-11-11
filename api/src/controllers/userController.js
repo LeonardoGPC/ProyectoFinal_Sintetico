@@ -2,6 +2,7 @@ const axios = require('axios');
 const { User } = require('../db');
 const { Op } = require('sequelize');
 const {getHash, getSalt} = require('../hash');
+const { sendRegistrationEmail } = require("./mailController")
 
 async function authenticate(userName, password){
     var userFromDb = await User.findOne({
@@ -23,6 +24,7 @@ async function createUser(userData){
     const user = {name, lastName, email, phone, image,userName, password: hashedPassword, salt };
     try{
         await User.create(user);
+        sendRegistrationEmail(name, lastName, userName,  email)
         return "User created successfuly";
     }catch(error){
         throw new Error("Invalid Fields");
@@ -41,9 +43,34 @@ async function getUsers(){
     throw new Error("There is not users in the db");
 }
 
+async function editUser(userId, data){
+    
+    try{
+        var userFromDb= await User.findByPk(userId);
+        await userFromDb.update(data);
+        await userFromDb.save();
+    }catch(error){
+        throw new Error("El elemento a editar no existe o los parámetros no son válidos");
+    }
+}
+
+async function editUserPlanType(userId, data){
+    
+    try{
+        var userFromDb= await User.findByPk(userId);
+        await userFromDb.update(data);
+        await userFromDb.save();
+    }catch(error){
+        
+        throw new Error("El elemento a editar no existe o los parámetros no son válidos");
+    }
+}
+
 module.exports = {
     authenticate,
     createUser,
     getUser,
-    getUsers
+    getUsers,
+    editUser,
+    editUserPlanType,
 }
