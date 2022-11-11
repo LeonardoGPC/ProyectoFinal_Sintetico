@@ -160,6 +160,11 @@
 
 .button:disabled{
   background-color:#404040;
-  color: white;
+  color: rgb(145, 145, 145);
   cursor: default;
+}
+
+.button:disabled:hover{
+  border-radius: 5px;
+  width: 130px;
 }

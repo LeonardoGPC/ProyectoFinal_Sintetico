@@ -25,6 +25,7 @@ import ManagePlan from "./components/Clubs/ManagePlan";
 import SeePost from "./components/Clubs/SeePost";
 import BookingsClub from "./components/Clubs/BookingsClub";
 import React from "react";
+import Error from "./components/Error/error";
 
 function App() {
   const [load, setLoad] = useState(false);
@@ -37,8 +38,27 @@ function App() {
   };
 
   useEffect(() => {
-    setLoad(true);
-    setTimeout(animation, 1750);
+    console.log(location)
+    switch (location.pathname) {
+      case '/': 
+        if(!location.hash){
+          setLoad(true);
+          setTimeout(animation, 1750);
+          break;
+        }
+        break;
+      case '/clubs':
+        if(!location.hash){
+          setLoad(true);
+          setTimeout(animation, 1750);
+          break;
+        }
+        break;
+      case '/pay':
+        setLoad(true);
+        setTimeout(animation, 1750);
+        break;
+    }
   }, [location]);
 
   return (
@@ -52,18 +72,8 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/sintetico/detail/:id" element={<Detail />} />
           <Route path="/create" element={<Create />} />
-          <Route
-            path="*"
-            element={
-              <div>
-                <h1>Error 404</h1>
-              </div>
-            }
-          />
+          <Route path="*" element={<Error/>} />
           <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<ContactForm />} />
-          <Route path="/faq" element={<Faq />} />
-          <Route path="/minifooter" element={<MiniFooter />} />
           <Route path="/pay">
             <Route path='/pay' element={<Pagos />}/>
             <Route path='/pay/success' element={<Success/>}/>
