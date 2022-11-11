@@ -17,6 +17,10 @@ function BookingAdmin() {
   const { id } = useParams();
   // const fields = useSelector((state) => state.fields);
   const bookings = useSelector((state) => state.bookings);
+
+  // bookings.filter((booking)=>{
+  //   if(booking)
+  // })
   const dispatch = useDispatch();
 
   const [date, changeDate] = useState(new Date());

@@ -1,0 +1,112 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 50px;
+    box-shadow: rgba(83, 80, 80, 0.4) 0px 2px 4px,
+      rgba(16, 16, 16, 0.3) 0px 7px 13px -3px,
+      rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  }
+  
+  .group {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    text-decoration: none;
+  }
+  .secondContainer {
+    width: 900px;
+    display: flex;
+  }
+  .image {
+    width: 250px;
+    clip-path: polygon(0 0, 100% 0, 75%);
+    border-left: 5px;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+  
+  }
+  .containerDescription {
+    width: 600px;
+    height: 100%;
+    padding: 20px;
+    background-color: #404040;
+    box-sizing: border-box;
+    color: aliceblue;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+  .description {
+    font-size: 15px;
+    text-align: left;
+    margin-top: 10px;
+  }
+  
+  .titulo {
+    margin-right: 350px;
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+  .raiting {
+    margin-right: 450px;
+  }
+  .label {
+    color: grey;
+  }
+  
+  .label:hover {
+    color: #98f576;
+  }
+  .label:hover ~ label {
+    color: #98f576;
+  }
+  
+  input[type='radio']:checked ~ label {
+    color: #98f576;
+  }
+  .clasificacion {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+  }
+  input[type='radio'] {
+    display: none;
+  }
+  .thirdContainer {
+    background-color: #404040;
+    width: 160px;
+    margin-left: -50px;
+    font-size: 16px;
+    color: aliceblue;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    text-align: left;
+    padding-right: 25px;
+    color: #98f576;
+  }
+  
+  .precio {
+    margin-top: 16px;
+    font-size: 14px;
+    margin-bottom: 15px;
+    margin-left: 35px;
+    padding-right: 15px;
+  }
+  
+  .localidad {
+    font-size: 14px;
+    margin-bottom: 15px;
+    margin-left: 35px;
+  }
+  
+  .tamaño {
+    font-size: 14px;
+    margin-left: 35px;
+  }
+  .superficie{
+    margin-top: 16px;
+    font-size: 14px;
+    margin-bottom: 15px;
+    margin-left: 35px;
+  
+  }

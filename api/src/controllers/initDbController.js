@@ -33,6 +33,13 @@ async function chargeDb() {
   const cancha3 = await Field.findByPk(3);
   await cancha3.addFacilities([1, 2, 3]);
 
+  const cancha11 = await Field.findByPk(11);
+  await cancha11.setUser(1)
+  const cancha12 = await Field.findByPk(12);
+  await cancha12.setUser(1)
+  const cancha13 = await Field.findByPk(13);
+  await cancha13.setUser(1)
+
   // const comment1 = await Field.findByPk(1);
   // await comment1.addComment([1]);
   // const comment2 = await Field.findByPk(2);

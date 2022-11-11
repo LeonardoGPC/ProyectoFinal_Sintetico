@@ -1,4 +1,4 @@
-export const validate = (target, dispatchError) => {
+export const validate = (target, dispatchError, input) => {
     const formName = target.name;
     const formValue = target.value;
     let success = true;
@@ -50,7 +50,7 @@ export const validate = (target, dispatchError) => {
       if (formValue.length === 0) {
         success = false;
         dispatchError({ type: formName, value: 'El valor es requerido' });
-      }else if( formValue <= 'openHour'){
+      }else if( formValue <= input.openHour){
         success= false;
         dispatchError({type: formName, value:'La hora debe ser mayor a la de apertura'})
       }
