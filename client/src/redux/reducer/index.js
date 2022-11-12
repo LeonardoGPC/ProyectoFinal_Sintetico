@@ -16,6 +16,7 @@ import {
   GET_FIELD_COMMENTS,
   GET_BOOKINGS,
   SEND_EMAIL,
+  GET_USER,
 } from '../actions/actionsTypes';
 
 const initialState = {
@@ -32,6 +33,7 @@ const initialState = {
   detail: {},
   bookings: [],
   user: '',
+  allUsers: [],
   errors: null,
   plan: {basic: {img: 'https://pbs.twimg.com/media/FFn0jYGWQAgaT2X.jpg', name: 'Básico', price: '2800', desc: '50'},
         club: {img: 'https://www.bluehills.org/assets/uploads/athletics/fall/Soccer.jpg', name: 'Clubes', price: '6000', desc: '50'},
@@ -54,6 +56,13 @@ const rootReducer = (state = initialState, action) => {
           fieldsFilterByCity: action.payload,
           fieldsFilterByCityAndSize: [],
           errors: null,
+        }
+      }
+
+      case GET_USER:{
+        return{
+          ...state,
+          allUsers: action.payload,
         }
       }
 

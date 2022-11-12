@@ -17,6 +17,7 @@ import {
   GET_FIELD_COMMENTS,
   GET_BOOKINGS,
   SEND_EMAIL,
+  GET_USER,
 } from './actionsTypes';
 
 export const prueba = () => {
@@ -104,6 +105,16 @@ export const getFields = () => {
     });
   };
 };
+
+export const getUsers = () => {
+  return async (dispatch) => {
+    const users = await axios.get("http://localhost:3001/users")
+    dispatch({
+      type: GET_USER,
+      payload: users.data,
+    })
+  }
+}
 
 export function filterFieldByCity(payload) {
   Number(payload);
