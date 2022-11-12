@@ -8,7 +8,7 @@ import Cookies from 'universal-cookie';
 import Rentcard from './Rent/rent';
 import MiniFooter from '../MiniFooter/MiniFooter.jsx';
 import axios from 'axios';
-import{URL_APP} from '../../utils/utils.js'
+import { URL_APP } from '../../utils/utils';
 
 function Pagos() {
 
@@ -23,25 +23,26 @@ function Pagos() {
     const [btn, setBtn] = useState(false) 
 
     const pay = async () => {
-        await axios.post('/payments', {
-            UserId:1,
-            price: precio,
-            itemName: "Renta de cancha(s)",
-            bookings:
-            [
-                {
-                date:"04/11/2022",
-                hour: 9,
-                FieldId: 10
-                }
-            ]
-        })
-        .then(response => response.data)
-        .then(res => {
-            window.location.replace(res)
-        })
-        .catch(error => console.log(error))
-        localStorage.clear()
+        if(rent){
+            await axios.post('/payments', {
+                UserId: idUser,
+                price: precio,
+                itemName: "Renta de cancha(s)",
+                bookings:
+                [
+                    {
+                    date: JSON.parse(rent)[0].date,
+                    hour: JSON.parse(rent)[0].hour,
+                    FieldId: JSON.parse(rent)[0].id
+                    }
+                ]
+            })
+            .then(response => response.data)
+            .then(res => {
+                window.location.replace(res)
+            })
+            .catch(error => console.log(error))
+        }
     }
 
     const changeCarga = () => {
