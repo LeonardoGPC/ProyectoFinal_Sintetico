@@ -18,7 +18,9 @@ function Pagos() {
     const [carga, setCarga] = useState(false)
     const cookie = new Cookies()
     const usuario = cookie.get('usuario')
+    const idUser = cookie.get('id')
     const [precio, setPrecio] = useState()
+    const [btn, setBtn] = useState(false) 
 
     const pay = async () => {
         await axios.post('/payments', {
@@ -71,6 +73,14 @@ function Pagos() {
         setCarga(true)
         setTimeout(changeCarga, 1000)
     }
+
+    useEffect(() => {
+        if(precio === 0){
+            window.location.replace('/')
+            if(rent) localStorage.removeItem('rent')
+            if(plan) localStorage.removeItem('plan')
+        }
+    }, [precio])
 
     useEffect(() => {
         let totalPrice = 0;

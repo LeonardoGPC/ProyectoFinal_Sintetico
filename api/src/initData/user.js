@@ -13,8 +13,8 @@ var user1 = {
 var user2 = {
   name: 'agus',
   lastName: 'asd',
-  userName: 'agus-asd',
-  email: 'juancarlo@gmail.com',
+  userName: 'agus123',
+  email: 'agusgarnero3@gmail.com',
   phone: '123123',
   password: '123123',
 };

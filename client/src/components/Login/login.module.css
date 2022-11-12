@@ -168,7 +168,7 @@
     border: none;
     font-size: 18px;
     cursor: pointer;
-    width: 150px;
+    width: 160px;
     transition: all 300ms ease;
 }
 
@@ -181,6 +181,11 @@
     background-color: #404040;
     color: white;
     cursor: default;
+}
+
+.btn:disabled:hover{
+    width: 160px;
+    border-radius: 5px;
 }
 
 .btn2{

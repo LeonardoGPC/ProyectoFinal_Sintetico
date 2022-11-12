@@ -1,17 +1,19 @@
-import React from 'react';
-import ReactStars from 'react-stars';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
-import { getFields } from '../../redux/actions';
-import style from './cards.module.css';
-import InfiniteScroll from 'react-infinite-scroll-component';
-import { Link } from 'react-router-dom';
+import React from "react";
+import ReactStars from "react-stars";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { getFields } from "../../redux/actions";
+import style from "./cards.module.css";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { Link } from "react-router-dom";
 
 export default function Cards() {
   const dispatch = useDispatch();
-  const fields = useSelector((state) => state.fields);
+  const fieldState = useSelector((state) => state.fields);
+  const fields = fieldState.filter((f) => f.state === "APPROVED");
+  console.log(fields);
   const [page, setPage] = useState(1);
- 
+
   const itemsPerPage = 3;
   const fieldsByPage = fields.slice(0, page * itemsPerPage);
 
@@ -25,14 +27,14 @@ export default function Cards() {
       dataLength={fieldsByPage.length}
       hasMore={fields.length !== fieldsByPage.length}
       next={() => setPage((prevPage) => prevPage + 1)}
-      loader={<h4>Loading...</h4>}
-      height="657px"
+      loader={<h4 style={{color: 'white'}}>Loading...</h4>}
+      height="calc(100vh - 86px)"
       className={style.scroll}
     >
       <div className={style.container}>
         {fieldsByPage.map((field) => {
           return (
-            <div key={field.id}>
+            <div key={field.id} className={style.div_group}>
             <Link  className={style.group} to={`/sintetico/detail/${field.id}`}>
               <div className={style.secondContainer}>
                 <img

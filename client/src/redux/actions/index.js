@@ -16,6 +16,7 @@ import {
   GET_COMMENTS,
   GET_FIELD_COMMENTS,
   GET_BOOKINGS,
+  SEND_EMAIL,
 } from './actionsTypes';
 
 export const prueba = () => {
@@ -24,6 +25,21 @@ export const prueba = () => {
     payload: 'prueba',
   };
 };
+
+
+
+export  function sendInquiryEmail(payload){
+  console.log("payload", payload)
+return async (dispatch) => {
+  const response = await axios.post('http://localhost:3001/inquirys', {mail:payload} )
+  dispatch({
+    type: SEND_EMAIL,
+    payload: response.data
+  })
+}
+  
+    
+}
 
 export const getCities = () => {
   return async (dispatch) => {
@@ -77,6 +93,7 @@ export const postField = (payload) => {
     }
   };
 };
+
 
 export const getFields = () => {
   return async (dispatch) => {
@@ -196,3 +213,5 @@ export function cleanErrors() {
     payload: null,
   };
 }
+
+

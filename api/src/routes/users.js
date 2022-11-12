@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const router = Router();
-const { createUser, authenticate, getUser, getUsers } = require('../controllers/userController');
+const { createUser, authenticate, getUser, getUsers, editUser } = require('../controllers/userController');
 const passport = require('passport');
 
 require("../passportConfig")(passport);
@@ -40,6 +40,20 @@ router.get("/:id", async (req, res) => {
         var userFromDb = await getUser(id);
         res.send(userFromDb);
     }catch(error){
+        res.status(404).send(error.message);
+    }
+})
+
+router.put("/:id", async (req,res)=> {
+    const { id } = req.params
+    const data = req.body
+    try {
+
+        const userUpgrade = await editUser(id, data)
+
+        res.status(200).send(userUpgrade)
+    } catch (error) {
+        console.log(error)
         res.status(404).send(error.message);
     }
 })

@@ -43,6 +43,9 @@ Field.belongsTo(Size);
 Surface.hasMany(Field);
 Field.belongsTo(Surface);
 
+User.hasMany(Field, {foreignKey: "OwnerId"})
+Field.belongsTo(User, {foreignKey: "OwnerId"})
+
 Field.belongsToMany(Booking, { through: 'field_booking' });
 Booking.belongsToMany(Field, { through: 'field_booking' });
 

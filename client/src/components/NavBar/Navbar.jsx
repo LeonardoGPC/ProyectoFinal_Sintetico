@@ -2,13 +2,12 @@ import React from 'react';
 import syntheticLogo from '../img/LogoSintetico.png';
 import style from './navbar.module.css';
 import { Link, NavLink } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import foto from '../../img/foto_perfil.jpg'
+import { useDispatch } from 'react-redux';
 import { cleanErrors } from "../../redux/actions/index.js"
-import cart from '../../img/cart.svg'
 import Cookies from 'universal-cookie';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import Cart from "../Cart/Cart";
 
 export default function Navbar() {
 
@@ -58,12 +57,12 @@ export default function Navbar() {
         {typeof usuario === 'undefined' ? localStorage.length === 0 ? <div className={style.inse}>
           <Link to='/login' className={style.inse_link}>Iniciar Sesión</Link>
         </div> : <div className={style.inse}>
-        <Link to='/pay'><img className={style.img2} src={cart}/></Link>
+        <Link to='/pay'><Cart /></Link>
           <Link to='/login' className={style.inse_link}>Iniciar Sesión</Link>
-        </div> : localStorage.length === 0 ? <div className={style.inse2}><Link to='/profile'><img className={style.img} src={userImage.image}/></Link></div>
+        </div> : localStorage.length === 0 ? <div className={style.inse2}><Link to='/profile'><img className={style.img} src={userImage} alt="profile"/></Link></div>
         : <div className={style.inse2}>
-          <Link to='/pay'><img className={style.img2} src={cart}/></Link>
-          <Link to='/profile'><img className={style.img} src={foto}/></Link>
+          <Link to='/pay'><Cart /></Link>
+          <Link to='/profile'><img className={style.img} src={userImage} alt="profile"/></Link>
           </div>}
       </nav>
     </div>
