@@ -1,0 +1,30 @@
+.tablecards {
+    display: grid;
+    justify-items: stretch;
+    margin: 10px 70px;
+    min-height: 62vh;
+  }
+  
+  .tablecards table {
+    background-color: white;
+    border-collapse: collapse;
+  }
+  
+  .tablecards thead {
+    background-color: #105b10;
+    color: white;
+    border-bottom: 1px solid #404040;
+  }
+  
+  .tablecards thead th {
+    padding: 10px 0;
+  }
+  
+  .tablecards tr:nth-child(even) {
+    background-color: #ddd;
+  }
+  
+  .tablecards th,
+  td {
+    padding: 5px;
+  }
