@@ -9,7 +9,7 @@ export default function AdminAllUser() {
     <div className={styles.adminedit}>
       <Navbar />
       <div className={styles.title}>
-        <Link to="/gestionarpublicaciones">
+        <Link to="/gestionarusuarios">
           <button className={styles.button}>Volver</button>
         </Link>
         <h1>Editar Publicaciones</h1>
