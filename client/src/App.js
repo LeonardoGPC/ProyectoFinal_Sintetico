@@ -26,6 +26,7 @@ import AdminDeleted from "./components/AdminManageFields/AdminDeleted";
 import Success from "./components/Pagos/Success/success";
 import Failure from "./components/Pagos/Failure/failure"
 import Error from "./components/Error/error";
+import AdminAllUser from "./components/AdminManageUser/AdminAllUser";
 
 
 function App() {
@@ -38,7 +39,7 @@ function App() {
   };
 
   useEffect(() => {
-    console.log(location)
+    // console.log(location)
     switch (location.pathname) {
       case '/': 
         if(!location.hash){
@@ -89,6 +90,7 @@ function App() {
           <Route path="/admin/fields/stats" element={<AdminStats />} />
           <Route path="/admin/fields/deleted" element={<AdminDeleted />} />
           <Route path="/gestionarusuarios" element={<GestUsuarios />} />
+          <Route path="/admin/users/edit" element={<AdminAllUser />} />
           <Route path="/gestionarprecios" element={<GestPrecios />} />
           <Route path="/gestionarreservas" element={<GestReservas />} />
         </Routes>
