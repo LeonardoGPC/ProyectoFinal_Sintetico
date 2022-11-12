@@ -27,6 +27,7 @@ import Success from "./components/Pagos/Success/success";
 import Failure from "./components/Pagos/Failure/failure"
 import Error from "./components/Error/error";
 import AdminAllUser from "./components/AdminManageUser/AdminAllUser";
+import AdminManagePlan from "./components/AdminManagePlan/AdminManagePlan";
 
 
 function App() {
@@ -92,6 +93,7 @@ function App() {
           <Route path="/gestionarusuarios" element={<GestUsuarios />} />
           <Route path="/admin/users/edit" element={<AdminAllUser />} />
           <Route path="/gestionarprecios" element={<GestPrecios />} />
+          <Route path="/admin/plan" element={<AdminManagePlan />} />
           <Route path="/gestionarreservas" element={<GestReservas />} />
         </Routes>
         {load && <Load />}
