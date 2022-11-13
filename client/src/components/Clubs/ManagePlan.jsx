@@ -29,7 +29,11 @@ export default function ManagePlan() {
 
   const changePlan = (e) => {
     setPlan(e.target.value);
-    localStorage.setItem('plan', e.target.value);
+    if (e.target.value !== 'none' && e.target.value !== user?.planType) {
+      localStorage.setItem('plan', e.target.value);
+    } else {
+      localStorage.removeItem('plan');
+    }
   };
 
   return (
@@ -45,7 +49,7 @@ export default function ManagePlan() {
             <th>Descuento</th>
             <th>Ver</th>
             {mostrarPagar && <th>Pago</th>}
-            {mostrarCancelarPlan && <th>Cancela tu plan</th>}
+            {/* {mostrarCancelarPlan && <th>Cancela tu plan</th>} */}
           </tr>
         </thead>
 
@@ -89,11 +93,11 @@ export default function ManagePlan() {
                 </Link>
               </td>
             )}
-            {mostrarCancelarPlan &&
+            {/* {mostrarCancelarPlan &&
             ( <td>
                 <button className={styles.cancelar}>Cancelar</button>
             </td> 
-              )}
+              )} */}
              
           </tr>
         </tbody>
