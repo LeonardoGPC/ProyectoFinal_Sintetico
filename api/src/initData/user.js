@@ -11,8 +11,8 @@ var user1 = {
 };
 
 var user2 = {
-  name: 'agus',
-  lastName: 'asd',
+  name: 'Agustin',
+  lastName: 'Garnero',
   userName: 'agus123',
   email: 'agusgarnero3@gmail.com',
   phone: '123123',
@@ -20,16 +20,39 @@ var user2 = {
 };
 
 var user3 = {
-  name: 'julian',
-  lastName: 'carlasdaos',
-  userName: 'julian-carlasdaos',
-  email: 'juancarlo@gmail.com',
+  name: 'Nicolas',
+  lastName: 'Rodriguez',
+  userName: 'Nico',
+  email: 'nicolasrodriguezh77@gmail.com',
   phone: '123123',
   password: '123123',
-  type: 'club'
+  type: 'club',
+  planType: 'club',
 };
 
 var user4 = {
+  name: 'Gina',
+  lastName: 'Suarez',
+  userName: 'Gina',
+  email: 'ginin_95@hotmail.com',
+  phone: '1231231231',
+  password: '123123',
+  type: 'club',
+  planType: 'club',
+}
+
+var user5 = {
+  name: 'Maximiliano',
+  lastName: 'Jayme',
+  userName: 'Maxi',
+  email: 'maxijayme@gmail.com',
+  phone: '1231231231',
+  password: '123123',
+  type: 'club',
+  planType: 'premium',
+}
+
+var user6 = {
   name: 'Developers',
   lastName: 'Team',
   userName: 'admin',
@@ -48,5 +71,5 @@ function addHash(user) {
 }
 
 module.exports = {
-  USERS: [addHash(user1), addHash(user2), addHash(user3), addHash(user4)],
+  USERS: [addHash(user1), addHash(user2), addHash(user3), addHash(user4), addHash(user5), addHash(user6),],
 };

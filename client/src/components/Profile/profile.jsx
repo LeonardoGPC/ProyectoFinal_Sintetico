@@ -6,6 +6,7 @@ import Cookies from "universal-cookie";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { getBookings, getFields } from "../../redux/actions";
+import Settings from "./Configuracion/settings";
 
 function Profile() {
   let bookings = useSelector((state) => state.bookings);
@@ -31,7 +32,8 @@ function Profile() {
     dispatch(getFields())
   }, [dispatch]);
 
-  const [showText, setShowText] = useState(false);
+  const [showText, setShowText] = useState(true);
+  const [settings, setSettings] = useState(false)
 
   const arr = bookings;
   const getById = arr.filter((e) => e.UserId === userData.id);
@@ -60,6 +62,8 @@ function Profile() {
     window.location.replace("http://localhost:3000/");
   };
 
+  console.log(settings)
+
   if (typeof usuario === "undefined") {
     window.location.replace("http://localhost:3000/login");
   } else {
@@ -74,11 +78,11 @@ function Profile() {
                   <img className={prof.img} src={userData.image} alt="imagen" />
                   <h2 className={prof.name}>{userData.name}</h2>
                 </li>
-                <li className={prof.li} onClick={() => setShowText(!showText)}>
+                <li className={prof.li} onClick={() => (setShowText(true), setSettings(false))}>
                   Reservas
                 </li>
 
-                <li className={prof.li}>Configuración</li>
+                <li className={prof.li} onClick={() => (setShowText(false), setSettings(true))}>Configuración</li>
               </ul>
 
               {showText && (
@@ -104,38 +108,77 @@ function Profile() {
                 Cerrar Sesión
               </p>
             </div>
-          ) : userData.type === 'club' ? 
-                 <div className={prof.menu}>
-                    <ul>
-                        <li className={prof.profile}>
-                            <img className={prof.img} src={userData.image} alt='imagen'/>
-                            <h2 className={prof.name}>{usuario}</h2>
-                        </li>
-                        <li className={prof.li}><Link className={prof.link} to ='/create'>Hacer Publicación</Link></li>
-                        <li className={prof.li}><Link className={prof.link} to='/verPublicaciones'>Ver Publicaciones</Link></li>
-                        <li className={prof.li}><Link className={prof.link} to='/gestionarPlan'>Gestionar mi plan</Link></li>
-                        <li className={prof.li}><Link className={prof.link} to='/reservas'>Reservas</Link></li>
-                        <li className={prof.li}>Configuración</li>
-                    </ul>
-                    <p className={prof.li} onClick={() => closeSesion()}>Cerrar Sesión</p>
-                </div> : <div className={prof.menu}>
-                    <ul>
-                        <li className={prof.profile}>
-                            <img className={prof.img} src={userData.image} alt='imagen'/>
-                            <h2 className={prof.name}>{usuario}</h2>
-                        </li>
-                        <li className={prof.li}><Link className={prof.link} to ='/gestionarpublicaciones'>Gestionar Publicaciones</Link></li>
-                        <li className={prof.li}><Link className={prof.link} to= '/gestionarusuarios'>Gestionar Usuarios</Link></li>
-                        <li className={prof.li}><Link className={prof.link} to= '/gestionarprecios'>Gestionar Precios</Link></li>
-                        <li className={prof.li}><Link className={prof.link} to='/gestionarreservas'>Gestionar Reservas</Link></li>
-                        <li className={prof.li}>Configuración</li>
+          ) : userData.type === "club" ? (
+            <div className={prof.menu}>
+              <ul>
+                <li className={prof.profile}>
+                  <img className={prof.img} src={userData.image} alt="imagen" />
+                  <h2 className={prof.name}>{usuario}</h2>
+                </li>
+                <li className={prof.li}>Hacer Publicación</li>
+                <li className={prof.li}>Ver Publicaciones</li>
+                <li className={prof.li}>Gestionar mi plan</li>
+                <li className={prof.li} onClick={() => (setShowText(true), setSettings(false))}>Reservas</li>
+                <li className={prof.li} onClick={() => (setShowText(false), setSettings(true))}>Configuración</li>
               </ul>
               <p className={prof.li} onClick={() => closeSesion()}>
                 Cerrar Sesión
               </p>
             </div>
-          }
-          <div className={prof.content}></div>
+          ) : (
+            <div className={prof.menu}>
+              <ul>
+                <li className={prof.profile}>
+                  <img className={prof.img} src={userData.image} alt="imagen" />
+                  <h2 className={prof.name}>{usuario}</h2>
+                </li>
+                <li className={prof.li}>
+                  <Link className={prof.link} to="/gestionarpublicaciones">
+                    Gestionar Publicaciones
+                  </Link>
+                </li>
+                <li className={prof.li}>
+                  <Link className={prof.link} to="/gestionarusuarios">
+                    Gestionar Usuarios
+                  </Link>
+                </li>
+                <li className={prof.li}>
+                  <Link className={prof.link} to="/gestionarprecios">
+                    Gestionar Precios
+                  </Link>
+                </li>
+                <li className={prof.li}>
+                  <Link className={prof.link} to="/gestionarreservas">
+                    Gestionar Reservas
+                  </Link>
+                </li>
+                <li className={prof.li} onClick={() => (setShowText(false), setSettings(true))}>Configuración</li>
+              </ul>
+              <p className={prof.li} onClick={() => closeSesion()}>
+                Cerrar Sesión
+              </p>
+            </div>
+          )}
+          <div className={prof.content}>{showText && (
+                <div className={prof.contentInfo}>
+                  {getById?.map((e) => {
+                    return (                     
+                      <div className={prof.divInfo} key={e.id}>
+                        <div className={prof.zone}>
+                          <h3 className={prof.zoneBooking}>Reservas</h3>
+                        <h3 className={prof.info}>Fecha: {e.date}</h3>
+                        <h3 className={prof.info}>Horario: {e.hour}</h3>
+                        <h3 className={prof.info}>
+                          Cancha: {e.Fields[0].name}
+                        </h3>
+                      </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+              {settings && <Settings/>}
+              </div>
         </div>
         <div></div>
       </div>

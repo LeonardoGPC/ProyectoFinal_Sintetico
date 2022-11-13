@@ -43,7 +43,6 @@ function App() {
   };
 
   useEffect(() => {
-    console.log(location)
     switch (location.pathname) {
       case '/': 
         if(!location.hash){
@@ -63,6 +62,14 @@ function App() {
         setLoad(true);
         setTimeout(animation, 1750);
         break;
+      case '/login':
+        setLoad(true);
+        setTimeout(animation, 1750);
+        break;
+      case '/about':
+        setLoad(true);
+        setTimeout(animation, 1750);
+        break;
     }
   }, [location]);
 
@@ -74,7 +81,7 @@ function App() {
           <Route path="/clubs" element={<Clubs />} />
           <Route path="/login" element={<Login />} />
           <Route path="/sintetico" element={<Home />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile" element={<Profile />}/>
           <Route path="/sintetico/detail/:id" element={<Detail />} />
           <Route path="/create" element={<Create />} />
           <Route path="*" element={<Error/>} />

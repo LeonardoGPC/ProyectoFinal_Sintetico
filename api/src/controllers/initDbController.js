@@ -17,51 +17,52 @@ async function chargeDb() {
   if (!facility.length) await Facility.bulkCreate(FACILITIES);
   const city = await City.findAll();
   if (!city.length) await City.bulkCreate(CITIES);
+  const users = await User.findAll();
+  if (!users.length) await User.bulkCreate(USERS)
   const fields = await Field.findAll();
   if (!fields.length) await Field.bulkCreate(FIELDS);
-  await User.bulkCreate(USERS)
   const comments = await Comment.findAll();
   if (!comments.length) await Comment.bulkCreate(COMMENTS);
-  /* const bookings = await Booking.findAll()
-  if(!bookings.length) await Booking.bulkCreate(BOOKINGS) */
-  
 
+  //Se crean las reservas
+  await Booking.bulkCreate(BOOKINGS) 
+  const bookings = await Booking.findAll()
+  let countIdfield = 1
+  //Se vinculan las reservas con cada cancha
+  for (let i = 0; i < bookings.length; i++) {
+    let booking = bookings[i]
+    await booking.addField(countIdfield)
+    countIdfield++
+    if(countIdfield >= 10) countIdfield = 1;
+  }
+ 
+  
+  //Se vinculan las facilities a cada cancha
   const cancha1 = await Field.findByPk(1);
   await cancha1.addFacilities([1, 2]);
   const cancha2 = await Field.findByPk(2);
   await cancha2.addFacilities([2]);
   const cancha3 = await Field.findByPk(3);
   await cancha3.addFacilities([1, 2, 3]);
-
-  const cancha11 = await Field.findByPk(11);
-  await cancha11.setUser(1)
-  const cancha12 = await Field.findByPk(12);
-  await cancha12.setUser(1)
-  const cancha13 = await Field.findByPk(13);
-  await cancha13.setUser(1)
-
-  // const comment1 = await Field.findByPk(1);
-  // await comment1.addComment([1]);
-  // const comment2 = await Field.findByPk(2);
-  // await comment2.addComment([3, 4]);
-  // const comment3 = await Field.findByPk(3);
-  // await comment3.addComment([2, 4]);
-
-
+  const cancha4 = await Field.findByPk(4);
+  await cancha4.addFacilities([1, 2]);
+  const cancha5 = await Field.findByPk(5);
+  await cancha5.addFacilities([2]);
+  const cancha6 = await Field.findByPk(6);
+  await cancha6.addFacilities([1, 2, 3]);
+  const cancha7 = await Field.findByPk(7);
+  await cancha7.addFacilities([1, 2]);
+  const cancha8 = await Field.findByPk(8);
+  await cancha8.addFacilities([2]);
+  const cancha9 = await Field.findByPk(9);
+  await cancha9.addFacilities([1, 2, 3]);
+  const cancha10 = await Field.findByPk(10);
+  await cancha10.addFacilities([1, 2, 3]);
 
 
-  /* const booking1 = await Field.findByPk(1)
-  await booking1.addBookings([1, 3, 7])
-  const booking2 = await Field.findByPk(2)
-  await booking2.addBookings([2,4,5])
-  const booking3 = await Field.findByPk(3)
-  await booking3.addBookings([6,8,9])
-  const booking4 = await Field.findByPk(4)
-  await booking4.addBookings([10,12])
-  const booking5 = await Field.findByPk(5)
-  await booking5.addBookings([11,13,14])
-  const booking6 = await Field.findByPk(6)
-  await booking6.addBookings([15,16,17,18]) */
+
+
+  
 }
 
 module.exports = {

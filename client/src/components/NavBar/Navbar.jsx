@@ -20,6 +20,8 @@ export default function Navbar() {
     let data = await axios.get('http://localhost:3001/users/' + idUser)
     setUserImage({image: data.data.image})
   }
+  
+  console.log(userImage)
 
   useEffect(() => {
     if(idUser){
