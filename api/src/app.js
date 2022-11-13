@@ -1,13 +1,12 @@
 const express = require('express');
-const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 const routes = require('./routes/index.js');
-const cors = require('cors')
 const session = require("express-session");
 const passport = require("passport");
-
 require('./db.js');
-
+require('dotenv').config();
+const cors = require("cors");
+const { SECRET_KEY } = process.env;
 const server = express();
 
 server.name = 'API';
@@ -15,24 +14,18 @@ server.name = 'API';
 server.use(express.urlencoded({ extended: true, limit: '50mb' }));
 server.use(express.json({ limit: '50mb' }));
 server.use(
-  cors({
-    origin: "http://localhost:3000", // <-- location of the react app were connecting to
-    credentials: true,
-  })
-);
-server.use(
   session({
-    secret: "secretcode",
-    resave: true,
+    secret: SECRET_KEY,
+    resave: false,
     saveUninitialized: true,
   })
 );
-server.use(cookieParser("secretcode"));
 server.use(passport.authenticate('session'));
-//require("./passportConfig")(passport);
+
+require("./passportConfig")(passport);
 server.use(morgan('dev'));
 server.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*'); // update to match the domain you will make the request from
+  res.header('Access-Control-Allow-Origin', 'http://localhost:3000'); // update to match the domain you will make the request from
   res.header('Access-Control-Allow-Credentials', 'true');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');

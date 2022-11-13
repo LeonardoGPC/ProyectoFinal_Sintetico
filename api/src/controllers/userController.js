@@ -4,6 +4,18 @@ const { Op } = require('sequelize');
 const {getHash, getSalt} = require('../hash');
 const { sendRegistrationEmail } = require("./mailController")
 
+async function createGoogleUser(userData){
+    try{
+        const [user, created] = await User.findOrCreate({
+            where: userData,
+        });
+        console.log(user);
+        return user;
+        
+    }catch(error){
+        throw new Error("error");
+    }
+}
 async function authenticate(userName, password){
     var userFromDb = await User.findOne({
         where:{
@@ -32,6 +44,7 @@ async function createUser(userData){
 }
 
 async function getUser(userId){
+    console.log(userId);
     var userFromDb = await User.findByPk(userId);
     if (userFromDb) return userFromDb;
     throw new Error("User not found");
@@ -71,6 +84,7 @@ module.exports = {
     createUser,
     getUser,
     getUsers,
+    createGoogleUser,
     editUser,
     editUserPlanType,
 }
