@@ -100,9 +100,6 @@ function App() {
           <Route path='/gestionarusuarios' element={<GestUsuarios />} />
           <Route path='/gestionarprecios' element={<GestPrecios />} />
           <Route path='/gestionarreservas' element={<GestReservas />} />
-          <Route path='/gestionarPlan' element={<ManagePlan/>} />
-          <Route path='/verPublicaciones' element={<SeePost/>}/>
-          <Route path='/reservas' element={<BookingsClub/>}/>
           <Route
             path="/gestionarpublicaciones"
             element={<GestPublicaciones />}
