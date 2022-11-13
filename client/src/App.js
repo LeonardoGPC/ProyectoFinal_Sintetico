@@ -81,7 +81,11 @@ function App() {
           <Route path="/clubs" element={<Clubs />} />
           <Route path="/login" element={<Login />} />
           <Route path="/sintetico" element={<Home />} />
-          <Route path="/profile" element={<Profile />}/>
+          <Route path="/profile/" element={<Profile />}>
+            <Route path="verPublicaciones" element={<SeePost />} />
+            <Route path="gestionarPlan" element={<ManagePlan />} />
+            <Route path="reservas" element={<BookingsClub />} />
+          </Route>
           <Route path="/sintetico/detail/:id" element={<Detail />} />
           <Route path="/create" element={<Create />} />
           <Route path="*" element={<Error/>} />
@@ -107,9 +111,6 @@ function App() {
           <Route path="/admin/fields/edit" element={<AdminEdit />} />
           <Route path="/admin/fields/stats" element={<AdminStats />} />
           <Route path="/admin/fields/deleted" element={<AdminDeleted />} />
-          <Route path="/gestionarusuarios" element={<GestUsuarios />} />
-          <Route path="/gestionarprecios" element={<GestPrecios />} />
-          <Route path="/gestionarreservas" element={<GestReservas />} />
         </Routes>
         {load && <Load />}
       </div>
