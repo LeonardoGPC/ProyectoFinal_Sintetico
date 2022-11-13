@@ -14,6 +14,7 @@ module.exports = {
         SurfaceId: 2,
         score: 4,
         description: "Disfruta de una hora de juego en nuestras canchas de fútbol 7, reúne a otros 6 amigos y pon en prácticas todas tus habilidades en este deporte. También podrás comprar el alquiler de balón para tu práctica.",
+        OwnerId: 3
       },
       {
         name: "Boca",
@@ -30,6 +31,7 @@ module.exports = {
         score: 5,
         description:
           "Ven y disfruta un divertido partido de fútbol 5 con tus amigos. Arma tu grupo de 10 amigos, alquila la cancha en la sede de tu preferencia y demuestra el campeón que llevas dentro. Ejercítate, pon a prueba tu resistencia física y hazle un golazo a la diversión. También podrás comprar el alquiler de balón para tu práctica.",
+        OwnerId: 3
       },
       {
         name: "San Lorenzo",
@@ -45,6 +47,7 @@ module.exports = {
         SurfaceId: 3,
         score: 4.5,
         description: "Adquiriendo este servicio podrás disfrutar con 9 de tus mejores amigos o familiares de un muy buen partido de fútbol. Muestra todas tus habilidades en este deporte y siéntete como todo un jugador profesional en las canchas de San Lorenzo.",
+        OwnerId: 3
       },
       {
         name: "La hinchada FC",
@@ -60,6 +63,7 @@ module.exports = {
         SurfaceId: 1,
         score: 4.5,
         description: "Disfruta de una hora de juego en nuestras canchas de fútbol 7, reúne a otros 6 amigos y pon en prácticas todas tus habilidades en este deporte. También podrás comprar el alquiler de balón para tu práctica.",
+        OwnerId: 4
       },
       {
         name: "El predio (caballito)",
@@ -75,6 +79,7 @@ module.exports = {
         SurfaceId: 2,
         score: 4,
         description: "Disfruta de una hora de juego en nuestras canchas de fútbol 7, reúne a otros 6 amigos y pon en prácticas todas tus habilidades en este deporte. También podrás comprar el alquiler de balón para tu práctica.",
+        OwnerId: 4
       },
       {
         name: "Asturiano Fútbol Club",
@@ -90,6 +95,7 @@ module.exports = {
         SurfaceId: 3,
         score: 3,
         description: "Adquiriendo este servicio podrás disfrutar con 9 de tus mejores amigos o familiares de un muy buen partido de fútbol. Muestra todas tus habilidades en este deporte y siéntete como todo un jugador profesional en las canchas de Asturiano Fútbol Club.",
+        OwnerId: 4
       },
       {
         name: "Federal 5",
@@ -105,6 +111,7 @@ module.exports = {
         SurfaceId: 4,
         score: 5,
         description: "Disfruta de un muy buen partido de fútbol 11 con tus mejores amigos o familiares, muestra todas tus habilidades en este deporte y siéntete como todo un jugador prefesional en las canchas que Federal 5 tiene para ti.",
+        OwnerId: 4
       },
       {
         name: "Punto Gol",
@@ -120,6 +127,7 @@ module.exports = {
         SurfaceId: 3,
         score: 4,
         description: "Disfruta de un muy buen partido de fútbol 11 con tus mejores amigos o familiares, muestra todas tus habilidades en este deporte y siéntete como todo un jugador prefesional en las canchas que Punto Gol tiene para ti.",
+        OwnerId: 5
       },
       {
         name: "Solis Cano II",
@@ -135,6 +143,7 @@ module.exports = {
         SurfaceId: 2,
         score: 3,
         description: "Disfruta de un muy buen partido de fútbol 11 con tus mejores amigos o familiares, muestra todas tus habilidades en este deporte y siéntete como todo un jugador prefesional en las canchas que Solis Cano II tiene para ti.",
+        OwnerId: 5
       },
       {
         name: "Ciudad (Ex-Muni)",
@@ -150,6 +159,8 @@ module.exports = {
         SurfaceId: 1,
         score: 4.5,
         description: "Ven y disfruta un divertido partido de fútbol 5 con tus amigos. Arma tu grupo de 10 amigos, alquila la cancha en la sede de tu preferencia y demuestra el campeón que llevas dentro. Ejercítate, pon a prueba tu resistencia física y hazle un golazo a la diversión. También podrás comprar el alquiler de balón para tu práctica.",
+        OwnerId: 3,
+        OwnerId: 5
       },
     ],
 
