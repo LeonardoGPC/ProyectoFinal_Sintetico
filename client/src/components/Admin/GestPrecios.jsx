@@ -14,7 +14,9 @@ const GestPrecios = () => {
           <Link to="/admin/plan">
             <button className={style.btn}>Ver planes vigentes</button>
           </Link>
+          <Link to="/admin/plan/edit">
           <button className={style.btn}>Modificar Precios Planes</button>
+          </Link>
         </div>
       </div>
     </div>
