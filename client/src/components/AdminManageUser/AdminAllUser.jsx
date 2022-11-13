@@ -12,7 +12,7 @@ export default function AdminAllUser() {
         <Link to="/gestionarusuarios">
           <button className={styles.button}>Volver</button>
         </Link>
-        <h1>Editar Publicaciones</h1>
+        <h1>Editar Usuario</h1>
       </div>
       <EditUser />
       <MiniFooter />

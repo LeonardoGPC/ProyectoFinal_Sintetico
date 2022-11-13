@@ -1,6 +1,8 @@
+import axios from "axios";
+import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getUsers } from "../../../redux/actions";
+import { getUsers, putUser } from "../../../redux/actions";
 import styles from "./EditUser.module.css";
 
 export default function EditUser() {
@@ -8,6 +10,38 @@ export default function EditUser() {
   const users = useSelector((state) => state.allUsers);
   const filterUsers = users.filter((user) => user.type != "admin");
   console.log(filterUsers);
+
+  const planNone = async (id) => {
+    await axios.put("http://localhost:3001/users/" + id, {
+      id: id,
+      planType: "none",
+    });
+    window.location.reload();
+  };
+
+  const planBasico = async (id) => {
+    await axios.put("http://localhost:3001/users/" + id, {
+      id: id,
+      planType: "basico",
+    });
+    window.location.reload();
+  };
+
+  const planClub = async (id) => {
+    await axios.put("http://localhost:3001/users/" + id, {
+      id: id,
+      planType: "club",
+    });
+    window.location.reload();
+  };
+
+  const planPremium = async (id) => {
+    await axios.put("http://localhost:3001/users/" + id, {
+      id: id,
+      planType: "premium",
+    });
+    window.location.reload();
+  };
 
   useEffect(() => {
     dispatch(getUsers());
@@ -37,12 +71,22 @@ export default function EditUser() {
                 <td>{el.phone}</td>
                 <td>{el.planType}</td>
                 <td>
-                  <select>
-                    <option value="none">Ninguno</option>
-                    <option value="basico">Básico</option>
-                    <option value="club">Club</option>
-                    <option value="premium">Premium</option>
-                  </select>
+                  <ul className={styles.plan}>
+                    <li>
+                      <button onClick={() => planNone(el.id)}>Ninguno</button>
+                    </li>
+                    <li>
+                      <button onClick={() => planBasico(el.id)}>Básico</button>
+                    </li>
+                    <li>
+                      <button onClick={() => planClub(el.id)}>Club</button>
+                    </li>
+                    <li>
+                      <button onClick={() => planPremium(el.id)}>
+                        Premium
+                      </button>
+                    </li>
+                  </ul>
                 </td>
               </tr>
             );
