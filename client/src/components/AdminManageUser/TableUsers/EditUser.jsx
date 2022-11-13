@@ -8,7 +8,11 @@ import styles from "./EditUser.module.css";
 export default function EditUser() {
   const dispatch = useDispatch();
   const users = useSelector((state) => state.allUsers);
-  const filterUsers = users.filter((user) => user.type != "admin");
+  const filterUsers = users
+    .filter((user) => user.type != "admin")
+    .sort(function (a, b) {
+      return a.id - b.id;
+    });
   console.log(filterUsers);
 
   const planNone = async (id) => {
