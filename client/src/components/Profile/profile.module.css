@@ -85,6 +85,7 @@
 
 .content {
   flex: 1;
+  background-color: #242529;
 }
 
 .link {
@@ -98,44 +99,36 @@
 .contentInfo {
   display: flex;
   justify-content: space-between;
-  width: 1200px;
-  margin-left: 20rem;
-  margin-top: -230px;
-  height: 400px;
-  align-items: center;
+  width: 100%;
+  align-items: flex-start;
   position: relative;
-  
+  flex-wrap: wrap;
+  padding: 30px;
 }
 
 .divInfo {
-  display: grid;
-  margin-top: -400px;
-  width: 1200px;
   font-size: 22px;
-  padding: 10px;
-  
-
+  color: white;
+  width: 300px;
+  margin: 15px;
 }
 
 .info {
   width: 100%;
   text-align: left;
-  margin: 0.5rem;
-  margin-left: 20px;
 }
 
 .zone {
-  background-color: #242529;
+  background-color: #404040;
   width: 100%;
+  height: 200px;
   display: grid;
   border-radius: 20px;
   text-align: left;
+  padding: 20px;
 }
 
 .zoneBooking{
   font-size: 18px;
-  display: flex;
-  margin-left: 5rem;
-  flex-direction: column;
   text-align: left;
 }
