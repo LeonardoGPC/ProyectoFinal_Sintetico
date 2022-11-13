@@ -19,17 +19,17 @@ export default function Plan() {
           <tr className={styles.columns}>
             <th>{planes.basic.name}</th>
             <th>{planes.basic.price}</th>
-            <td>{planes.basic.desc}</td>
+            <td>{planes.basic.desc}%</td>
           </tr>
           <tr className={styles.columns}>
             <th>{planes.club.name}</th>
             <th>{planes.club.price}</th>
-            <td>{planes.club.desc}</td>
+            <td>{planes.club.desc}%</td>
           </tr>
           <tr className={styles.columns}>
             <th>{planes.premium.name}</th>
             <th>{planes.premium.price}</th>
-            <td>{planes.premium.desc}</td>
+            <td>{planes.premium.desc}%</td>
           </tr>
         </tbody>
       </table>

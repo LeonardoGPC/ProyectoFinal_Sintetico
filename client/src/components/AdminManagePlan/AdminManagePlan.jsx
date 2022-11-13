@@ -9,7 +9,7 @@ export default function AdminManagePlan() {
     <div className={styles.adminmanageplan}>
       <Navbar />
       <div className={styles.title}>
-        <Link to="/gestionarusuarios">
+        <Link to="/gestionarprecios">
           <button className={styles.button}>Volver</button>
         </Link>
         <h1>Editar Publicaciones</h1>
