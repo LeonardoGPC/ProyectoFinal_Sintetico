@@ -10,6 +10,7 @@ const bookings = require("./bookings")
 const uploads = require("./uploads")
 const users = require('./users')
 const payments = require('./payments')
+const inquiry = require ("./inquiry")
 
 const router = Router();
 
@@ -22,7 +23,7 @@ router.use('/comments', comments)
 // router.use('/score', score)
 router.use("/bookings", bookings)
 router.use("/uploads", uploads)
-
+router.use("/inquirys", inquiry)
 router.use("/users", users)
 
 

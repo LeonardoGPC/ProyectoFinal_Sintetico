@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const router = Router();
-const { createUser, getUser, getUsers, createGoogleUser, authenticate } = require('../controllers/userController');
+const { createUser, getUser, getUsers, createGoogleUser, authenticate, editUser} = require('../controllers/userController');
 const passport = require('passport');
 
 
@@ -97,4 +97,17 @@ router.get("/google/callback",
         failureRedirect: '/users/login'
     }));
     
+router.put("/:id", async (req,res)=> {
+    const { id } = req.params
+    const data = req.body
+    try {
+
+        const userUpgrade = await editUser(id, data)
+
+        res.status(200).send(userUpgrade)
+    } catch (error) {
+        console.log(error)
+        res.status(404).send(error.message);
+    }
+})
 module.exports = router

@@ -8,25 +8,40 @@ body {
   flex-direction: column;
   justify-content: center;
   margin-top: 50px;
+  width: 100%;
+  min-height: calc(100vh - 86px);
   box-shadow: rgba(83, 80, 80, 0.4) 0px 2px 4px,
     rgba(16, 16, 16, 0.3) 0px 7px 13px -3px,
     rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
+.div_group{
+  margin: 0 50px;
+}
+
 .group {
   display: flex;
-  
   justify-content: center;
   margin-bottom: 30px;
   border-radius: 10px;
   text-decoration: none;
 }
+
+.group:hover .containerDescription{
+  background-color: #4d4d4d;
+}
+
+.group:hover .thirdContainer{
+  background-color: #4d4d4d;
+}
+
 .secondContainer {
   width: 900px;
   display: flex;
 }
 .image {
   width: 250px;
+  object-fit: cover;
   clip-path: polygon(0 0, 100% 0, 75%);
   border-left: 5px;
   border-bottom-left-radius: 20px;
@@ -42,7 +57,9 @@ body {
   color: aliceblue;
   margin-bottom: 10px;
   text-align: left;
+  transition: all 300ms ease;
 }
+
 .description {
   font-size: 15px;
   text-align: left;
@@ -86,34 +103,40 @@ input[type='radio'] {
   color: aliceblue;
   border-bottom-right-radius: 10px;
   border-top-right-radius: 10px;
-  text-align: left;
+  text-align: right;
   padding-right: 25px;
+  padding-left: 50px;
   color: #98f576;
+  transition: all 300ms ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-end;
 }
 
 .precio {
-  margin-top: 16px;
+  /* margin-top: 16px; */
   font-size: 14px;
-  margin-bottom: 15px;
-  margin-left: 35px;
-  padding-right: 15px;
+  /* margin-bottom: 15px; */
+  /* margin-left: 35px; */
+  /* padding-right: 15px; */
 }
 
 .localidad {
   font-size: 14px;
-  margin-bottom: 15px;
-  margin-left: 35px;
+  /* margin-bottom: 15px;
+  margin-left: 35px; */
 }
 
 .tamaño {
   font-size: 14px;
-  margin-left: 35px;
+  /* margin-left: 35px; */
 }
 .superficie{
-  margin-top: 16px;
+  /* margin-top: 16px; */
   font-size: 14px;
-  margin-bottom: 15px;
-  margin-left: 35px;
+  /* margin-bottom: 15px;
+  margin-left: 35px; */
 
 }
 

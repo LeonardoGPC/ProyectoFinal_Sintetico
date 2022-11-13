@@ -1,19 +1,19 @@
 
-/* .container {
-    display: flex;
+.container {
+    /* display: flex;
     width: 100%;
-    justify-content: space-around;
-} */
+    justify-content: space-around; */
+    height: 100%;
+}
 
 
 .filtros{
     display: flex;
     flex-direction: column;
     width: 300px;
-    height: 80vh;
-    background: #242529;
-    margin-top: 50px;
-    border-radius: 60px;
+    height: 100%;
+    background: #1C1C1C;
+    border-right: 3px solid #404040;
     padding: 0 30px;
     justify-content: space-around;
 }
@@ -37,7 +37,7 @@
 }
 
 .select:hover{
-    background-color: #1C1C1C;
+    background-color: #242529;
 }
 
 .check{
@@ -85,7 +85,7 @@
 }
 
 .check label:hover .check_input ~ .checkmark {
-    background-color: #1C1C1C;
+    background-color: #242529;
   }
 
 .check label input:checked ~ .checkmark {

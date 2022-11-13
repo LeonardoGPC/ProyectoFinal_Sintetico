@@ -45,6 +45,10 @@ module.exports = (sequelize) => {
     type: {
         type: DataTypes.ENUM('user', 'club', 'admin'),
         defaultValue: 'user'
+    },
+    planType: {
+        type: DataTypes.ENUM('none', 'basico', 'club', "premium"),
+        defaultValue: 'none'
     }
     
   },{
