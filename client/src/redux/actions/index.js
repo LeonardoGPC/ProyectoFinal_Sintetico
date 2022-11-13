@@ -18,6 +18,7 @@ import {
   GET_BOOKINGS,
   SEND_EMAIL,
   GET_USER,
+  PUT_USER,
 } from './actionsTypes';
 
 export const prueba = () => {
@@ -112,6 +113,16 @@ export const getUsers = () => {
     dispatch({
       type: GET_USER,
       payload: users.data,
+    })
+  }
+}
+
+export const putUser = (id) => {
+  return async (dispatch) => {
+    const user = await axios.put("http://localhost:3001/users/" + id)
+    dispatch({
+      type: PUT_USER,
+      payload: user.data,
     })
   }
 }

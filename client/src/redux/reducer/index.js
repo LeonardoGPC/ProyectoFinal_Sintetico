@@ -17,6 +17,7 @@ import {
   GET_BOOKINGS,
   SEND_EMAIL,
   GET_USER,
+  PUT_USER,
 } from '../actions/actionsTypes';
 
 const initialState = {
@@ -145,6 +146,9 @@ const rootReducer = (state = initialState, action) => {
     }
     case USER:{
       return {...state, user: action.payload}
+    }
+    case PUT_USER:{
+      return {...state}
     }
     case CLEAN_ERRORS:{
       return {...state, errors: action.payload}

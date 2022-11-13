@@ -7,6 +7,7 @@ export const POST_CANCHA = 'POST_CANCHA';
 export const GET_FIELDS = 'GET_FIELDS';
 export const USER = 'USER'
 export const GET_USER = "GET_USER";
+export const PUT_USER = "PUT_USER";
 export const FILTER_BY_CITY = "FILTER_BY_CITY";
 export const FILTER_BY_SIZE = "FILTER_BY_SIZE"
 export const FILTER_BY_TIME = "FILTER_BY_TIME"
