@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Navbar from "../NavBar/Navbar";
 import prof from "./profile.module.css";
-import foto from "../../img/foto_perfil.jpg";
 import Cookies from "universal-cookie";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";

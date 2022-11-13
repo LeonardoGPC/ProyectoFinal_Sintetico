@@ -38,7 +38,6 @@ function App() {
   };
 
   useEffect(() => {
-    console.log(location)
     switch (location.pathname) {
       case '/': 
         if(!location.hash){
@@ -55,6 +54,10 @@ function App() {
         }
         break;
       case '/pay':
+        setLoad(true);
+        setTimeout(animation, 1750);
+        break;
+      case '/login':
         setLoad(true);
         setTimeout(animation, 1750);
         break;
