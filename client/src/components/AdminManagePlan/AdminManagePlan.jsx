@@ -12,7 +12,7 @@ export default function AdminManagePlan() {
         <Link to="/gestionarprecios">
           <button className={styles.button}>Volver</button>
         </Link>
-        <h1>Editar Publicaciones</h1>
+        <h1>Planes vigentes</h1>
       </div>
       <Plan />
       <MiniFooter />
