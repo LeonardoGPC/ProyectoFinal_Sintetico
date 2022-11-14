@@ -15,9 +15,9 @@ const queryParams2 = {
 
 const queryParams4 ={
   include: User,
-  where: {
+  /* where: {
     paymentStatus: "APPROVED",
-  },
+  }, */
 }
 
 async function getFields() {

@@ -1,8 +1,9 @@
 const axios = require('axios');
 const mercadopago = require('mercadopago');
 const { postBookings, editBooking, getAllBookings } = require('./bookingController');
-const { sendReservationEmail } = require('./mailController');
+const { sendReservationEmail, sendPlanEmail } = require('./mailController');
 const { editUser, editUserPlanType } = require('./userController');
+const { getUser } = require ("./userController")
 
 const url = process.env.CORS_URL || "http://localhost:3000/"
 
@@ -45,8 +46,8 @@ async function createOrdenLink({itemName, price, UserId, bookings}){//reserva --
         ],
         notification_url:  "https://b104-2800-484-c80-e234-247c-6607-1c7a-9db2.ngrok.io/payments/notification",
         back_urls: {
-            success: `${url}/pay/success`,
-            failure: `${url}/pay/failure`,
+            success: `${url}pay/success`,
+            failure: `${url}pay/failure`,
             pending: `${url}`
         },
         auto_return: "approved",
@@ -75,10 +76,11 @@ async function createOrdenLink({itemName, price, UserId, bookings}){//reserva --
 
             if(ArritemPurchase[0].toLowerCase() === 'plan'){
                 let userId = Number(status.additional_info.items[0].description)
+                let userData = await getUser(userId)
                 if(status.status === "approved"){
                     editUser(userId,{type: "club"})
                     editUserPlanType(userId, { planType: ArritemPurchase[1].toLowerCase() }) 
-                    //enviar correo
+                    sendPlanEmail(userData)
                 }
             }
             if(ArritemPurchase[0].toLowerCase() === 'reserva'){
