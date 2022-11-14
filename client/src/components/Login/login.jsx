@@ -75,8 +75,7 @@ function Login() {
 
     const registerHandler = async (e) => {
         e.preventDefault()
-        // await axios.post('/users', register, {withCredentials: true})
-        await axios.post('/users', register)
+        await axios.post('/users', register, /* {withCredentials: true} */)
         .then(response => {
             setModal(true)
             setRegister({
@@ -103,8 +102,7 @@ function Login() {
 
     const login = (e) => {
         e.preventDefault()
-        // axios.post('/users/login',{userName: input.username, password: input.password}, {withCredentials: true })
-        axios.post('/users/login',{userName: input.username, password: input.password})
+        axios.post('/users/login',{userName: input.username, password: input.password}/* , {withCredentials: true } */)
         .then(response => {
             return response.data;
         })

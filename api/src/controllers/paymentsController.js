@@ -1,8 +1,9 @@
 const axios = require('axios');
 const mercadopago = require('mercadopago');
 const { postBookings, editBooking, getAllBookings } = require('./bookingController');
-const { sendReservationEmail } = require('./mailController');
+const { sendReservationEmail, sendPlanEmail } = require('./mailController');
 const { editUser, editUserPlanType } = require('./userController');
+const { getUser } = require ("./userController")
 
 const url = process.env.CORS_URL || "http://localhost:3000/"
 
@@ -75,10 +76,11 @@ async function createOrdenLink({itemName, price, UserId, bookings}){//reserva --
 
             if(ArritemPurchase[0].toLowerCase() === 'plan'){
                 let userId = Number(status.additional_info.items[0].description)
+                let userData = await getUser(userId)
                 if(status.status === "approved"){
                     editUser(userId,{type: "club"})
                     editUserPlanType(userId, { planType: ArritemPurchase[1].toLowerCase() }) 
-                    //enviar correo
+                    sendPlanEmail(userData)
                 }
             }
             if(ArritemPurchase[0].toLowerCase() === 'reserva'){
