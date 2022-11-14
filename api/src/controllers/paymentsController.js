@@ -5,7 +5,7 @@ const { sendReservationEmail, sendPlanEmail } = require('./mailController');
 const { editUser, editUserPlanType } = require('./userController');
 const { getUser } = require ("./userController")
 
-const url = process.env.CORS_URL || "http://localhost:3000/"
+const url = "http://localhost:3000/" || process.env.CORS_URL  
 
 async function createBooking(UserId, bookings){
     let idBooking = []
