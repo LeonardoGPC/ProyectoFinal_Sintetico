@@ -14,7 +14,7 @@ export default function ManagePlan() {
   const [plan, setPlan] = useState('');
   const detallePlan = planes[plan];
   const mostrarPagar = user?.planType !== plan && plan !== 'none';
-  const mostrarCancelarPlan = user?.planType !== plan && plan ==='none';
+  // const mostrarCancelarPlan = user?.planType !== plan && plan ==='none';
 
   useEffect(() => {
     const cookie = new Cookies();
@@ -56,9 +56,7 @@ export default function ManagePlan() {
         <tbody className={styles.tbody}>
           <tr>
             <td className={styles.club}>
-              {/* {planes.map((plan)=> (
 
-                ) */}
 
               <select
                 value={plan}
@@ -68,7 +66,7 @@ export default function ManagePlan() {
                 <option value="" disabled>
                   Cambiar plan
                 </option>    
-                <option value="basic">Basico</option>
+                <option value="basico">Basico</option>
                 <option value="club">Clubes</option>
                 <option value="premium">Premium </option>
                  <option value="none">None</option>

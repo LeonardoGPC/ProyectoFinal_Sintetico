@@ -14,9 +14,9 @@ const queryParams2 = {
 };
 
 const queryParams4 ={
-  attributes: ["id"],
-  through: {
-    attributes: [],
+  include: User,
+  where: {
+    paymentStatus: "APPROVED",
   },
 }
 
