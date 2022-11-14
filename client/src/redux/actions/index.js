@@ -84,6 +84,7 @@ export const getFacilities = () => {
 };
 
 export const postField = (payload, id) => {
+  /* console.log(isNaN(id)) //true no es un numero */
   return async () => {
     try {
       await axios.post('/fields/' + id, payload);
