@@ -68,13 +68,13 @@ module.exports.sendInquiryEmail = async (email) => {
     .catch((err) => console.log(err))
 }
 
-module.exports.sendPlanEmail = async (email) => {
+module.exports.sendPlanEmail = async (userData) => {
     transport.sendMail({
         from:  BOT_EMAIL,
-        to: email,
+        to: userData.email,
         subject: "Plan adquirido ✅",
         html: 
-        `<h1>Felicidades ${dataMail[0].userName}❕❕ Ya tienes tus plan listo</h1>
+        `<h1>Felicidades ${userData.userName}❕❕ Ya tienes tus plan listo</h1>
          <h1>Muchas gracias por contar con nuestro servicio❕❕😃</h1>
          <h2>Puedes continuar a la pagina atravez del siguiente link</h2> <h2><a href= "http://localhost:3000/">Click Aqui ⚽</a></h2>` 
          
