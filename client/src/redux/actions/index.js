@@ -31,7 +31,7 @@ export const prueba = () => {
 export  function sendInquiryEmail(payload){
   console.log("payload", payload)
 return async (dispatch) => {
-  const response = await axios.post('http://localhost:3001/inquirys', {mail:payload} )
+  const response = await axios.post('/inquirys', {mail:payload} )
   dispatch({
     type: SEND_EMAIL,
     payload: response.data
