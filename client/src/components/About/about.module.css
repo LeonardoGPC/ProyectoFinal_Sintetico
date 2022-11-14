@@ -9,7 +9,7 @@
     align-items: center;
 }
 
-.text, h3{
+.text, .container h3{
     margin-top: 40px;
     color: white;
     font-size: 20px;

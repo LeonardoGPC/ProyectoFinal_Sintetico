@@ -46,9 +46,11 @@
     cursor: pointer;
 }
 
-p{
-    color: #ffffff;
+.medios p{
+    color: white;
+    margin-right: 30px;
 }
+
 .medios{
     display: flex;
     flex-direction: row;
