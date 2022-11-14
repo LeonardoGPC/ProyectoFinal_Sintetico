@@ -38,6 +38,22 @@ function Profile() {
   const arr = bookings;
   const getById = arr.filter((e) => e.UserId === userData.id);
   console.log(getById, "result");
+    useEffect(() => {
+        const getUserData = async () => {
+            let data = await axios.get(`http://localhost:3001/users/${idUser}`, {withCredentials: true });
+            //let data = await axios.get('http://localhost:3001/users/' + idUser)
+            setUserData({
+                name: data.data.name,
+                lastName: data.data.lastName,
+                userName: data.data.userName,
+                email: data.data.email,
+                phone: data.data.phone,
+                image: data.data.image,
+                type: data.data.type
+            })
+        }
+        getUserData()
+    }, [])
 
   useEffect(() => {
     const getUserData = async () => {
