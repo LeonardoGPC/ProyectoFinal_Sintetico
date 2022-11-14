@@ -17,11 +17,10 @@ export default function Navbar() {
   const [userImage, setUserImage] = useState({image: ''})
 
   const getUserData = async () => {
-    let data = await axios.get(`/users/${idUser}`, {withCredentials: true });
+    // let data = await axios.get(`/users/${idUser}`, {withCredentials: true });
+    let data = await axios.get(`/users/${idUser}`);
     setUserImage({image: data.data.image})
   }
-  
-  console.log(userImage)
 
   useEffect(() => {
     if(idUser){

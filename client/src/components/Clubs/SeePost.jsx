@@ -3,9 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getFields } from '../../redux/actions';
 import { Link } from "react-router-dom";
-import { RiEdit2Line } from "react-icons/ri";
+import { RiEdit2Line, RiDeleteBin6Line } from "react-icons/ri";
 import styles from './seePost.module.css';
 import Cookie from "universal-cookie";
+import axios from "axios";
 
 
 export default function SeePost() {
@@ -15,6 +16,14 @@ export default function SeePost() {
   const fields = useSelector((state) => state.fields).filter((f) => f.OwnerId === id);
  const fieldsAproved =  fields.filter((f) => f.state === "APPROVED");
  
+ const handlerDelete = async (id) => {
+  console.log(id);
+  await axios.put("http://localhost:3001/fields/" + id, {
+    id: id,
+    state: "DISAPPROVED"
+  })
+  window.location.reload()
+}
 
   useEffect(() => {
     dispatch(getFields());
@@ -35,6 +44,7 @@ export default function SeePost() {
               <th>Precio</th>
               <th>Jugadores</th>
               <th>Ver</th>
+              <th>Borrar</th>
             </tr>
           </thead>
           {fieldsAproved.map((el) => (
@@ -51,6 +61,11 @@ export default function SeePost() {
                       <RiEdit2Line />
                     </button>
                   </Link>
+                </td>
+                <td>
+                  <button onClick={() => handlerDelete(el.id)} className={styles.delete}>
+                    <RiDeleteBin6Line />
+                  </button>
                 </td>
               </tr>
             </tbody>

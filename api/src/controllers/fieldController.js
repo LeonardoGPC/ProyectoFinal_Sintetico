@@ -14,9 +14,9 @@ const queryParams2 = {
 };
 
 const queryParams4 ={
-  include: User,
-  where: {
-    paymentStatus: "APPROVED",
+  include: {
+    model: User,
+    attributes: ["phone", "email", "name", "lastName"]
   },
 }
 

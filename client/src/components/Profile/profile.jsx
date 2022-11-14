@@ -38,11 +38,10 @@ function Profile() {
 
   const arr = bookings;
   const getById = arr.filter((e) => e.UserId === userData.id);
-  console.log(getById, "result");
     useEffect(() => {
         const getUserData = async () => {
-            let data = await axios.get(`http://localhost:3001/users/${idUser}`, {withCredentials: true });
-            //let data = await axios.get('http://localhost:3001/users/' + idUser)
+            // let data = await axios.get(`http://localhost:3001/users/${idUser}`, {withCredentials: true });
+            let data = await axios.get('http://localhost:3001/users/' + idUser)
             setUserData({
                 name: data.data.name,
                 lastName: data.data.lastName,
@@ -78,8 +77,6 @@ function Profile() {
     cookie.remove("id");
     window.location.replace(URL_APP);
   };
-
-  console.log(settings)
 
   if (typeof usuario === "undefined") {
     window.location.replace(`${URL_APP}/login`);
@@ -158,7 +155,7 @@ function Profile() {
           )}
           <div className={prof.content}>{showText && (
                 <div className={prof.contentInfo}>
-                  {getById?.map((e) => {
+                  {getById.length > 0 ? getById.map((e) => {
                     return (                     
                       <div className={prof.divInfo} key={e.id}>
                         <div className={prof.zone}>
@@ -171,7 +168,10 @@ function Profile() {
                       </div>
                       </div>
                     );
-                  })}
+                  }) : <div className={prof.noReserv}>
+                    <h1>No has reservado ninguna cancha.</h1>
+                    <Link className={prof.cta} to='/sintetico'>Reservar</Link>
+                    </div>}
                 </div>
               )}
               {settings && <Settings/>}

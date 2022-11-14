@@ -55,9 +55,29 @@ async function chargeDb() {
   const cancha8 = await Field.findByPk(8);
   await cancha8.addFacilities([2]);
   const cancha9 = await Field.findByPk(9);
-  await cancha9.addFacilities([1, 2, 3]);
+  await cancha9.addFacilities([1, 3]);
   const cancha10 = await Field.findByPk(10);
-  await cancha10.addFacilities([1, 2, 3]);
+  await cancha10.addFacilities([1,3]);
+  const cancha11 = await Field.findByPk(11);
+  await cancha11.addFacilities([2, 3]);
+  const cancha12 = await Field.findByPk(12);
+  await cancha12.addFacilities([2, 3]);
+  const cancha13 = await Field.findByPk(13);
+  await cancha13.addFacilities([1, 2]);
+  const cancha14 = await Field.findByPk(14);
+  await cancha14.addFacilities([1, 2]);
+  const cancha15 = await Field.findByPk(15);
+  await cancha15.addFacilities([1, 2, 3]);
+  const cancha16 = await Field.findByPk(16);
+  await cancha16.addFacilities([1, 3]);
+  const cancha17 = await Field.findByPk(17);
+  await cancha17.addFacilities([1, 3]);
+  const cancha18 = await Field.findByPk(18);
+  await cancha18.addFacilities([2, 3]);
+  const cancha19 = await Field.findByPk(19);
+  await cancha19.addFacilities([1, 2]);
+  const cancha20 = await Field.findByPk(20);
+  await cancha20.addFacilities([1, 2, 3]);
 
 
 

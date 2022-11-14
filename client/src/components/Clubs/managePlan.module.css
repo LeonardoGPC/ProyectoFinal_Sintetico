@@ -32,22 +32,16 @@
   background-color: #ddd;
 }
 
-.tablePlan .th,
-td {
-  
-  padding: 5px;
-}
-
 .tablePlan td {
   width: 200px;
   height: 60px;
-  
+  padding: 5px;
 }
 .precio{
     font-size: 20px;
 }
-/* .tablePlan td,
-ul {
+.tablePlan td,
+.tablePlan ul {
   text-decoration: none;
   flex-direction: column;
   justify-content: left;
@@ -92,18 +86,7 @@ ul {
   background-color: rgb(115, 186, 214);
 }
 
-/* .approve{
-    cursor: pointer;
-    border-radius: 10px;
-    border: none;
-    background-color: #98F576;
-    padding: 5px 5px;
-    margin-left: 5px;
-  }
-  
-  .approve:hover{
-    background-color: #81e05e;
-  } */
+
 
   .continuar{
     transition: all 0.3s ease 0s; 
