@@ -10,22 +10,22 @@ export default function EditPlan() {
         {/* ------------------------PLANES----------------------------------- */}
         <div className={styles.card}>
           <div className={styles.plan}>
-            <img src={planes.basic.img} />
+            <img src={planes.basico.img} />
             <div>
-              <h2>{planes.basic.name}</h2>
-              <p>${planes.basic.price}</p>
-              <p>AHORRO {planes.basic.desc}%</p>
+              <h2>{planes.basico.name}</h2>
+              <p>${planes.basico.price}</p>
+              <p>AHORRO {planes.basico.desc}%</p>
               <p>
                 $
-                {planes.basic.price -
-                  (planes.basic.price / 100) * planes.basic.desc}
+                {planes.basico.price -
+                  (planes.basico.price / 100) * planes.basico.desc}
                 /Mes.
               </p>
             </div>
           </div>
           {/* ------------ */}
           <div className={styles.edit}>
-            <h2>{planes.basic.name}</h2>
+            <h2>{planes.basico.name}</h2>
             <div>
               <p>DESCUENTO</p>
               <input type="text" className={styles.text} />
