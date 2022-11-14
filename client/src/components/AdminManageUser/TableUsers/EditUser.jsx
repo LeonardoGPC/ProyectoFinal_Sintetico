@@ -77,16 +77,16 @@ export default function EditUser() {
                 <td>
                   <ul className={styles.plan}>
                     <li>
-                      <button onClick={() => planNone(el.id)}>Ninguno</button>
+                      <button onClick={() => planNone(el.id)} className={styles.button}>Ninguno</button>
                     </li>
                     <li>
-                      <button onClick={() => planBasico(el.id)}>Básico</button>
+                      <button onClick={() => planBasico(el.id)} className={styles.button}>Básico</button>
                     </li>
                     <li>
-                      <button onClick={() => planClub(el.id)}>Club</button>
+                      <button onClick={() => planClub(el.id)} className={styles.button}>Club</button>
                     </li>
                     <li>
-                      <button onClick={() => planPremium(el.id)}>
+                      <button onClick={() => planPremium(el.id)} className={styles.button}>
                         Premium
                       </button>
                     </li>
