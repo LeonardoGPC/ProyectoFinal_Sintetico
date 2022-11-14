@@ -28,7 +28,7 @@ export default function Cards() {
       hasMore={fields.length !== fieldsByPage.length}
       next={() => setPage((prevPage) => prevPage + 1)}
       loader={<h4 style={{color: 'white'}}>Loading...</h4>}
-      height="calc(100vh - 86px)"
+      height="calc(100vh - 136px)"
       className={style.scroll}
     >
       <div className={style.container}>

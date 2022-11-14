@@ -6,12 +6,14 @@ import teams from "../data"
 import inf from './info.module.css';
 import Card from "./Card/Card.jsx";
 
+
 export default function Info() {
+    
     return (
         <div className={inf.bgimg}>
             <div className={inf.bgfilter}>
                 <Header/>
-                <Card teams={teams}/>
+                <Card/>
                 <Benefits/>
                 <Faq/>
             </div>

@@ -40,8 +40,8 @@ const {chargeDb} = require('./src/controllers/initDbController')
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
   //charge()
-  server.listen(3001, () => {
-    console.log('listening at 3001'); // eslint-disable-line no-console
+  server.listen(process.env.PORT, () => {
+    console.log('listening at server', process.env.PORT); // eslint-disable-line no-console
     chargeDb();
   });
 });

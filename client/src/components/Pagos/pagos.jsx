@@ -8,6 +8,7 @@ import Cookies from 'universal-cookie';
 import Rentcard from './Rent/rent';
 import MiniFooter from '../MiniFooter/MiniFooter.jsx';
 import axios from 'axios';
+import { URL_APP } from '../../utils/utils';
 
 function Pagos() {
 
@@ -23,10 +24,10 @@ function Pagos() {
 
     const pay = async () => {
         if(rent){
-            await axios.post('http://localhost:3001/payments', {
+            await axios.post('/payments', {
                 UserId: idUser,
                 price: precio,
-                itemName: "Renta de cancha(s)",
+                itemName: "Reserva",
                 bookings:
                 [
                     {
@@ -35,6 +36,17 @@ function Pagos() {
                     FieldId: JSON.parse(rent)[0].id
                     }
                 ]
+            })
+            .then(response => response.data)
+            .then(res => {
+                window.location.replace(res)
+            })
+            .catch(error => console.log(error))
+        } else {
+            await axios.post('http://localhost:3001/payments', {
+                UserId: idUser,
+                price: precio,
+                itemName: `Plan ${plan}`,
             })
             .then(response => response.data)
             .then(res => {
@@ -95,7 +107,7 @@ function Pagos() {
     },[rent, plan])
 
     if(typeof usuario === 'undefined'){
-        window.location.replace("http://localhost:3000/login");
+        window.location.replace(`${URL_APP}/login`);
     } else if(plan || rent) {
         return (
           <div className={p.main}>
@@ -117,7 +129,7 @@ function Pagos() {
                         </div>
                       <select defaultValue='default' onChange={(e) => changePlan(e)}>
                         <option value='default' disabled>Cambiar plan</option>
-                        <option value='basic'>Básico</option>
+                        <option value='basico'>Básico</option>
                         <option value='club'>Clubes</option>
                         <option value='premium'>Premium</option>
                       </select>

@@ -34,6 +34,7 @@
     color: white;
     font-size: 18px;
     transition: all 300ms ease;
+    text-align: left;
 }
 span{
     font-size: 30px;
@@ -51,6 +52,7 @@ span{
     max-height: 0;
     overflow: hidden;
     transition: all 0.5s cubic-bezier(0,1,0,1);
+
 }
 
 .content .show{  
@@ -58,6 +60,7 @@ span{
     height: auto;
     max-width: 9999px;
     transition: all 0.5s cubic-bezier(1,0,1,0);
+    
 }
 
 .item:hover{

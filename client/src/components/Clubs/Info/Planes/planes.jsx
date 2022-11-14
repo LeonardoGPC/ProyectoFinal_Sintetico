@@ -15,7 +15,7 @@ export default function Planes(){
     let rent = localStorage.getItem('rent')
 
     const basicHandler = () => {
-        localStorage.setItem('plan', 'basic')
+        localStorage.setItem('plan', 'basico')
         if(localStorage.getItem('rent')){
             localStorage.removeItem('rent')
         }
@@ -40,7 +40,7 @@ export default function Planes(){
 
     const popUp = () => {
         setModal(false)
-        if (input === 'basic'){
+        if (input === 'basico'){
             basicHandler()
         } else if (input === 'club'){
             clubHandler()
@@ -54,7 +54,7 @@ export default function Planes(){
         setInput(e.target.name)
         if(rent){
             setModal(true)
-        } else if (e.target.name === 'basic'){
+        } else if (e.target.name === 'basico'){
             basicHandler()
         } else if (e.target.name === 'club'){
             clubHandler()
@@ -68,10 +68,10 @@ export default function Planes(){
             <h1 className={plan.select}>Selecciona un plan</h1>
             <div className={plan.planes}>
                 <div className={plan.card}>
-                    <img className={plan.img} src={planes.basic.img}/>
-                    <h2 className={plan.title}>{planes.basic.name}</h2>
-                    <p className={plan.percent}>AHORRO {planes.basic.desc}%</p>
-                    <p className={plan.price}>${planes.basic.price - ((planes.basic.price / 100) * planes.basic.desc)}/Mes.</p>
+                    <img className={plan.img} src={planes.basico.img}/>
+                    <h2 className={plan.title}>{planes.basico.name}</h2>
+                    <p className={plan.percent}>AHORRO {planes.basico.desc}%</p>
+                    <p className={plan.price}>${planes.basico.price - ((planes.basico.price / 100) * planes.basico.desc)}/Mes.</p>
                     <div className={plan.div_prg}>
                         <p className={plan.paragraph}> ✔️ Herramientas de publicación</p>
                         <p className={plan.paragraph}> ✔️ Publicaciones con rating</p>
@@ -79,7 +79,7 @@ export default function Planes(){
                         <p className={plan.paragraph}> ✔️ Sube hasta 3 imágenes</p>
                     </div>
                     <div className={plan.btn_div}>
-                        <button onClick={(e) => buttonHandler(e)} name='basic' className={plan.button}>Adquirir</button>
+                        <button onClick={(e) => buttonHandler(e)} name='basico' className={plan.button}>Adquirir</button>
                     </div>
                 </div>
                 <div className={plan.cardTop}>
@@ -115,7 +115,7 @@ export default function Planes(){
                         <p className={plan.paragraph}> ✔️ Contacto con usuarios</p>
                         <p className={plan.paragraph}> ✔️ Mayor recomendación</p>
                         <p className={plan.paragraph}> ✔️ Aparece en mejores canchas</p>
-                        <p className={plan.paragraph}> ✔️ Priorida de revisión</p>
+                        <p className={plan.paragraph}> ✔️ Prioridad de revisión</p>
                     </div>
                     <div className={plan.btn_div}>
                         <button onClick={(e) => buttonHandler(e)} name='premium' className={plan.button}>Adquirir</button>

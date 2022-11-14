@@ -25,14 +25,22 @@ import AdminStats from "./components/AdminManageFields/AdminStats";
 import AdminDeleted from "./components/AdminManageFields/AdminDeleted";
 import Success from "./components/Pagos/Success/success";
 import Failure from "./components/Pagos/Failure/failure"
+import ManagePlan from "./components/Clubs/ManagePlan";
+import SeePost from "./components/Clubs/SeePost";
+import BookingsClub from "./components/Clubs/BookingsClub";
+import React from "react";
 import Error from "./components/Error/error";
 import AdminAllUser from "./components/AdminManageUser/AdminAllUser";
 import AdminManagePlan from "./components/AdminManagePlan/AdminManagePlan";
 import AdminEditPlan from "./components/AdminManagePlan/AdminEditPlan";
 
+import { FaGoogle } from "react-icons/fa";
 
 function App() {
+  
+
   const [load, setLoad] = useState(false);
+
 
   let location = useLocation();
 
@@ -41,7 +49,6 @@ function App() {
   };
 
   useEffect(() => {
-    // console.log(location)
     switch (location.pathname) {
       case '/': 
         if(!location.hash){
@@ -61,6 +68,14 @@ function App() {
         setLoad(true);
         setTimeout(animation, 1750);
         break;
+      case '/login':
+        setLoad(true);
+        setTimeout(animation, 1750);
+        break;
+      case '/about':
+        setLoad(true);
+        setTimeout(animation, 1750);
+        break;
     }
   }, [location]);
 
@@ -72,7 +87,11 @@ function App() {
           <Route path="/clubs" element={<Clubs />} />
           <Route path="/login" element={<Login />} />
           <Route path="/sintetico" element={<Home />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile/" element={<Profile />}>
+            <Route path="verPublicaciones" element={<SeePost />} />
+            <Route path="gestionarPlan" element={<ManagePlan />} />
+            <Route path="reservas" element={<BookingsClub />} />
+          </Route>
           <Route path="/sintetico/detail/:id" element={<Detail />} />
           <Route path="/create" element={<Create />} />
           <Route path="*" element={<Error/>} />
@@ -83,6 +102,10 @@ function App() {
             <Route path='/pay/failure' element={<Failure/>}/>
           </Route>
           <Route path="/booking/:id" element={<Booking />} />
+          <Route path="/gestionarpublicaciones" element={<GestPublicaciones />} />
+          <Route path='/gestionarusuarios' element={<GestUsuarios />} />
+          <Route path='/gestionarprecios' element={<GestPrecios />} />
+          <Route path='/gestionarreservas' element={<GestReservas />} />
           <Route
             path="/gestionarpublicaciones"
             element={<GestPublicaciones />}
