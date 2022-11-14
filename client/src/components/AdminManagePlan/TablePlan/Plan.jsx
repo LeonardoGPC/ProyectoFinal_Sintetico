@@ -17,9 +17,9 @@ export default function Plan() {
         </thead>
         <tbody>
           <tr className={styles.columns}>
-            <th>{planes.basic.name}</th>
-            <th>{planes.basic.price}</th>
-            <td>{planes.basic.desc}%</td>
+            <th>{planes.basico.name}</th>
+            <th>{planes.basico.price}</th>
+            <td>{planes.basico.desc}%</td>
           </tr>
           <tr className={styles.columns}>
             <th>{planes.club.name}</th>
