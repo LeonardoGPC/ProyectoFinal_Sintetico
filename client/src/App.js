@@ -26,6 +26,7 @@ import AdminDeleted from "./components/AdminManageFields/AdminDeleted";
 import Success from "./components/Pagos/Success/success";
 import Failure from "./components/Pagos/Failure/failure"
 import Error from "./components/Error/error";
+import ProfileAvatar from "./components/Profile/ProfileAvatar/ProfileAvatar"
 
 
 function App() {
@@ -91,6 +92,7 @@ function App() {
           <Route path="/gestionarusuarios" element={<GestUsuarios />} />
           <Route path="/gestionarprecios" element={<GestPrecios />} />
           <Route path="/gestionarreservas" element={<GestReservas />} />
+          <Route exact path="/crop" element={<ProfileAvatar />} />          
         </Routes>
         {load && <Load />}
       </div>
