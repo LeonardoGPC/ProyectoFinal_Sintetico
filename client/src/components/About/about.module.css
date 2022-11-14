@@ -3,17 +3,48 @@
     background-color: #1C1C1C;
 }
 
-.text{
-    margin: 100px;
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.text, h3{
+    margin-top: 40px;
     color: white;
     font-size: 20px;
-
+    width: 80%;
     animation: in1 1.5s ease;
     animation-delay: 1s;
 }
 
+.players{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 50px;
+}
+
+.card{
+    height: 300px;
+}
+
+.profileLinks{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: -15px;
+    gap: 20px;
+}
+
+.linkProfile{
+    height: 40px;
+}
+
 .wave{
-    position: absolute;
+    position: relative;
     bottom: 0;
     left: 0;
 

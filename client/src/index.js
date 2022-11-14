@@ -9,7 +9,9 @@ import store from './redux/store';
 import {MuiPickersUtilsProvider} from '@material-ui/pickers'
 import DateFnsUtils from '@date-io/date-fns'
 import esLocale from 'date-fns/locale/es'
+import axios from 'axios'
 
+axios.defaults.baseURL = "https://sintetico.herokuapp.com" || "http://localhost:3001";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>

@@ -10,7 +10,7 @@ import style from './Booking.module.css';
 import image from '../img/niño.png';
 import { postBooking, getFields, getBookings, getFieldDetail } from '../../redux/actions';
 import Cookies from 'universal-cookie';
-
+import{URL_APP} from '../../utils/utils.js'
 const hours = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23];
 
 function BookingAdmin() {
@@ -59,7 +59,7 @@ function BookingAdmin() {
     changeDate(new Date());
     setHour('');
     setFieldId('');
-    window.location.replace('http://localhost:3000/pay');
+    window.location.replace('/pay');
     } else {
       setModal(true)
     }
@@ -87,7 +87,7 @@ function BookingAdmin() {
     setHour('');
     setFieldId('');
     setModal(false)
-    window.location.replace('http://localhost:3000/pay');
+    window.location.replace('/pay');
   }
 
   const storageHandler = () => {
@@ -113,7 +113,7 @@ function BookingAdmin() {
   const usuario = cookie.get('usuario');
 
   if (typeof usuario === 'undefined') {
-    window.location.replace('http://localhost:3000/login');
+    window.location.replace(`${URL_APP}/login`);
     return null;
   }
 

@@ -6,6 +6,7 @@ import Cookies from "universal-cookie";
 import { Link, Outlet } from "react-router-dom";
 import axios from "axios";
 import { getBookings, getFields } from "../../redux/actions";
+import { URL_APP } from "../../utils/utils";
 import Settings from "./Configuracion/settings";
 
 function Profile() {
@@ -57,7 +58,7 @@ function Profile() {
 
   useEffect(() => {
     const getUserData = async () => {
-      let data = await axios.get("http://localhost:3001/users/" + idUser);
+      let data = await axios.get("/users/" + idUser);
       setUserData({
         id: data.data.id,
         name: data.data.name,
@@ -75,13 +76,13 @@ function Profile() {
   const closeSesion = () => {
     cookie.remove("usuario");
     cookie.remove("id");
-    window.location.replace("http://localhost:3000/");
+    window.location.replace(URL_APP);
   };
 
   console.log(settings)
 
   if (typeof usuario === "undefined") {
-    window.location.replace("http://localhost:3000/login");
+    window.location.replace(`${URL_APP}/login`);
   } else {
     return (
       <div className={prof.main}>

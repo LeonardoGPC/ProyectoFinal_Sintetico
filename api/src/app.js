@@ -13,6 +13,7 @@ server.name = 'API';
 
 server.use(express.urlencoded({ extended: true, limit: '50mb' }));
 server.use(express.json({ limit: '50mb' }));
+server.use(cors());
 server.use(
   session({
     secret: SECRET_KEY,
@@ -25,12 +26,20 @@ server.use(passport.authenticate('session'));
 require("./passportConfig")(passport);
 server.use(morgan('dev'));
 server.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'http://localhost:3000'); // update to match the domain you will make the request from
-  res.header('Access-Control-Allow-Credentials', 'true');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
-  next();
-});
+  res.header("Access-Control-Allow-Origin", "*")
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested, Content-Type, Accept Authorization"
+  )
+  if (req.method === "OPTIONS") {
+    res.header(
+      "Access-Control-Allow-Methods",
+      "POST, PUT, PATCH, GET, DELETE"
+    )
+    return res.status(200).json({})
+  }
+  next()
+})
 
 server.use('/', routes);
 
