@@ -27,8 +27,11 @@ import Success from "./components/Pagos/Success/success";
 import Failure from "./components/Pagos/Failure/failure"
 import Error from "./components/Error/error";
 
+import { FaGoogle } from "react-icons/fa";
 
 function App() {
+  
+
   const [load, setLoad] = useState(false);
 
   let location = useLocation();
