@@ -17,9 +17,11 @@ export default function Navbar() {
   const [userImage, setUserImage] = useState({image: ''})
 
   const getUserData = async () => {
-    let data = await axios.get('/users/' + idUser)
+    let data = await axios.get(`/users/${idUser}`, {withCredentials: true });
     setUserImage({image: data.data.image})
   }
+  
+  console.log(userImage)
 
   useEffect(() => {
     if(idUser){
@@ -59,10 +61,10 @@ export default function Navbar() {
         </div> : <div className={style.inse}>
         <Link to='/pay'><Cart /></Link>
           <Link to='/login' className={style.inse_link}>Iniciar Sesión</Link>
-        </div> : localStorage.length === 0 ? <div className={style.inse2}><Link to='/profile'><img className={style.img} src={userImage} alt="profile"/></Link></div>
+        </div> : localStorage.length === 0 ? <div className={style.inse2}><Link to='/profile'><img className={style.img} src={userImage.image} alt="profile"/></Link></div>
         : <div className={style.inse2}>
           <Link to='/pay'><Cart /></Link>
-          <Link to='/profile'><img className={style.img} src={userImage} alt="profile"/></Link>
+          <Link to='/profile'><img className={style.img} src={userImage.image} alt="profile"/></Link>
           </div>}
       </nav>
     </div>

@@ -3,6 +3,7 @@ import React, { useEffect, useReducer, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { postField } from '../../redux/actions/index';
 import { validate } from './validate';
+import Cookies from 'universal-cookie';
 import Navbar from '../NavBar/Navbar';
 import{URL} from '../../utils/utils.js'
 
@@ -23,6 +24,10 @@ export default function Create() {
   const facilities = useSelector((s) => s.facilities);
 
   const[previewSource, setPreviewSource] = useState();
+  
+  const cookie = new Cookies()
+  const idUser = cookie.get('id')
+ 
 
   useEffect(() => {
     dispatch(getCities());
@@ -67,9 +72,9 @@ export default function Create() {
     for (let inputToValidate of inputsToValidate) {
       const isValid = validate(
         e.target.elements[inputToValidate],
-        dispatchError,
+        dispatchError, input
       );
-
+        
       if (!isValid) {
         canSubmit = false;
       }
@@ -79,7 +84,7 @@ export default function Create() {
       const cloudinaryImg = await uploadImage(previewSource)
       const obj = input;
       obj.image = cloudinaryImg;
-      dispatch(postField(obj));
+      dispatch(postField(obj, idUser));
     }
   };
 
@@ -111,7 +116,7 @@ export default function Create() {
 
 
     setInput({ ...input, [target.name]: targetValue });
-    validate(target, dispatchError);
+    validate(target, dispatchError, input);
   };
 
   const handlecheck = (e) => {
@@ -182,7 +187,7 @@ export default function Create() {
                   name="name"
                   value={input.name}
                   onChange={handleInputChange}
-                  onBlur={(e) => validate(e.target, dispatchError)}
+                  onBlur={(e) => validate(e.target, dispatchError, input)}
                 />
                 {errorState.name && <p>{errorState.name}</p>}
               </div>          
@@ -200,7 +205,7 @@ export default function Create() {
                   name="price"
                   value={input.price}
                   onChange={handleInputChange}
-                  onBlur={(e) => validate(e.target, dispatchError)}
+                  onBlur={(e) => validate(e.target, dispatchError, input)}
                 />
                 {errorState.price && <p>{errorState.price}</p>}
               </div>
@@ -215,7 +220,7 @@ export default function Create() {
                   className={style.input}
                   name="city"
                   onChange={handleInputChange}
-                  onBlur={(e) => validate(e.target, dispatchError)}
+                  onBlur={(e) => validate(e.target, dispatchError, input)}
                 >
                   <option value="">Seleccione una localidad</option>
 
@@ -240,7 +245,7 @@ export default function Create() {
                   name="address"
                   value={input.address}
                   onChange={handleInputChange}
-                  onBlur={(e) => validate(e.target, dispatchError)}
+                  onBlur={(e) => validate(e.target, dispatchError, input)}
                 />
                 {errorState.address && <p>{errorState.address}</p>}
               </div>
@@ -255,7 +260,7 @@ export default function Create() {
                   onChange={handleInputChange}
                   name="size"
                   className={style.input}
-                  onBlur={(e) => validate(e.target, dispatchError)}
+                  onBlur={(e) => validate(e.target, dispatchError, input)}
                 >
                   <option value="">Seleccione un tamaño</option>
                   {sizes.map((size) => (
@@ -263,7 +268,7 @@ export default function Create() {
                       key={size.id}
                       value={size.id}
                       onChange={handleInputChange}
-                      onBlur={(e) => validate(e.target, dispatchError)}
+                      onBlur={(e) => validate(e.target, dispatchError, input)}
                     >
                       Futbol {size.name}
                     </option>
@@ -282,7 +287,7 @@ export default function Create() {
                   className={style.input}
                   name="surface"
                   onChange={handleInputChange}
-                  onBlur={(e) => validate(e.target, dispatchError)}
+                  onBlur={(e) => validate(e.target, dispatchError, input)}
                 >
                   <option value="">Seleccione una superficie</option>
                   {surfaces.map((surface) => (
@@ -310,7 +315,7 @@ export default function Create() {
                   name="openHour"
                   step="1800"
                   onChange={handleInputChange}
-                  onBlur={(e) => validate(e.target, dispatchError)}
+                  onBlur={(e) => validate(e.target, dispatchError, input)}
                 />
                 {errorState.openHour && <p>{errorState.openHour}</p>}
               </div>
@@ -327,7 +332,7 @@ export default function Create() {
                   name="closeHour"
                   step="1800"
                   onChange={handleInputChange}
-                  onBlur={(e) => validate(e.target, dispatchError)}
+                  onBlur={(e) => validate(e.target, dispatchError, input)}
                 />
                 {errorState.closeHour && <p>{errorState.closeHour}</p>}
               </div>
@@ -342,7 +347,7 @@ export default function Create() {
                   name="description"
                   className={style.textarea}
                   onChange={handleInputChange}
-                  onBlur={(e) => validate(e.target, dispatchError)}
+                  onBlur={(e) => validate(e.target, dispatchError, input)}
                 />
                 {errorState.description && <p>{errorState.description}</p>}
               </div>

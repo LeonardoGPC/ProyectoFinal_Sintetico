@@ -80,12 +80,13 @@ export const getFacilities = () => {
       payload: response.data,
     });
   };
+
 };
 
-export const postField = (payload) => {
+export const postField = (payload, id) => {
   return async () => {
     try {
-      await axios.post('/fields', payload);
+      await axios.post('/fields/' + id, payload);
       alert('Cancha creada con exito!');
       window.location.href = '/sintetico';
     } catch (error) {
@@ -95,9 +96,10 @@ export const postField = (payload) => {
 };
 
 
+
 export const getFields = () => {
   return async (dispatch) => {
-    const response = await axios.get('/fields');
+    const response = await axios.get('/fields' );
     dispatch({
       type: GET_FIELDS,
       payload: response.data,

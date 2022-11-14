@@ -3,10 +3,11 @@ import { useSelector, useDispatch } from "react-redux";
 import Navbar from "../NavBar/Navbar";
 import prof from "./profile.module.css";
 import Cookies from "universal-cookie";
-import { Link, useParams } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import axios from "axios";
 import { getBookings, getFields } from "../../redux/actions";
 import { URL_APP } from "../../utils/utils";
+import Settings from "./Configuracion/settings";
 
 function Profile() {
   let bookings = useSelector((state) => state.bookings);
@@ -32,11 +33,28 @@ function Profile() {
     dispatch(getFields())
   }, [dispatch]);
 
-  const [showText, setShowText] = useState(false);
+  const [showText, setShowText] = useState(true);
+  const [settings, setSettings] = useState(false)
 
   const arr = bookings;
   const getById = arr.filter((e) => e.UserId === userData.id);
   console.log(getById, "result");
+    useEffect(() => {
+        const getUserData = async () => {
+            let data = await axios.get(`http://localhost:3001/users/${idUser}`, {withCredentials: true });
+            //let data = await axios.get('http://localhost:3001/users/' + idUser)
+            setUserData({
+                name: data.data.name,
+                lastName: data.data.lastName,
+                userName: data.data.userName,
+                email: data.data.email,
+                phone: data.data.phone,
+                image: data.data.image,
+                type: data.data.type
+            })
+        }
+        getUserData()
+    }, [])
 
   useEffect(() => {
     const getUserData = async () => {
@@ -61,6 +79,8 @@ function Profile() {
     window.location.replace(URL_APP);
   };
 
+  console.log(settings)
+
   if (typeof usuario === "undefined") {
     window.location.replace(`${URL_APP}/login`);
   } else {
@@ -75,32 +95,12 @@ function Profile() {
                   <img className={prof.img} src={userData.image} alt="imagen" />
                   <h2 className={prof.name}>{userData.name}</h2>
                 </li>
-                <li className={prof.li} onClick={() => setShowText(!showText)}>
+                <li className={prof.li} onClick={() => (setShowText(true), setSettings(false))}>
                   Reservas
                 </li>
 
-                <li className={prof.li}>Configuración</li>
+                <li className={prof.li} onClick={() => (setShowText(false), setSettings(true))}>Configuración</li>
               </ul>
-
-              {showText && (
-                <div className={prof.contentInfo}>
-                  {getById?.map((e) => {
-                    return (                     
-                      <div className={prof.divInfo} key={e.id}>
-                        <div className={prof.zone}>
-                          <h3 className={prof.zoneBooking}>Reservas</h3>
-                        <h3 className={prof.info}>Fecha: {e.date}</h3>
-                        <h3 className={prof.info}>Horario: {e.hour}</h3>
-                        <h3 className={prof.info}>
-                          Cancha: {e.Fields[0].name}
-                        </h3>
-                      </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              )}
-
               <p className={prof.li} onClick={() => closeSesion()}>
                 Cerrar Sesión
               </p>
@@ -109,14 +109,14 @@ function Profile() {
             <div className={prof.menu}>
               <ul>
                 <li className={prof.profile}>
-                  <img className={prof.img} src={userData.image} alt="imagen" />
+                  <img className={prof.img} src={userData.image} alt='imagen'/>
                   <h2 className={prof.name}>{usuario}</h2>
                 </li>
-                <li className={prof.li}>Hacer Publicación</li>
-                <li className={prof.li}>Ver Publicaciones</li>
-                <li className={prof.li}>Gestionar mi plan</li>
-                <li className={prof.li}>Reservas</li>
-                <li className={prof.li}>Configuración</li>
+                <li className={prof.li}><Link className={prof.link} to ='/create'>Hacer Publicación</Link></li>
+                <li className={prof.li}><Link className={prof.link} to='/profile/verPublicaciones'>Ver Publicaciones</Link></li>
+                <li className={prof.li}><Link className={prof.link} to='/profile/gestionarPlan'>Gestionar mi plan</Link></li>
+                <li className={prof.li}><Link className={prof.link} to='/profile/reservas'>Reservas</Link></li>
+                <li className={prof.li} onClick={() => (setShowText(false), setSettings(true))}>Configuración</li>
               </ul>
               <p className={prof.li} onClick={() => closeSesion()}>
                 Cerrar Sesión
@@ -149,14 +149,34 @@ function Profile() {
                     Gestionar Reservas
                   </Link>
                 </li>
-                <li className={prof.li}>Configuración</li>
+                <li className={prof.li} onClick={() => (setShowText(false), setSettings(true))}>Configuración</li>
               </ul>
               <p className={prof.li} onClick={() => closeSesion()}>
                 Cerrar Sesión
               </p>
             </div>
           )}
-          <div className={prof.content}></div>
+          <div className={prof.content}>{showText && (
+                <div className={prof.contentInfo}>
+                  {getById?.map((e) => {
+                    return (                     
+                      <div className={prof.divInfo} key={e.id}>
+                        <div className={prof.zone}>
+                          <h3 className={prof.zoneBooking}>Reservas</h3>
+                        <h3 className={prof.info}>Fecha: {e.date}</h3>
+                        <h3 className={prof.info}>Horario: {e.hour}</h3>
+                        <h3 className={prof.info}>
+                          Cancha: {e.Fields[0].name}
+                        </h3>
+                      </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+              {settings && <Settings/>}
+              <Outlet />
+              </div>
         </div>
         <div></div>
       </div>
