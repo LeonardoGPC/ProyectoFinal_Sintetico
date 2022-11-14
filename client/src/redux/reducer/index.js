@@ -33,7 +33,7 @@ const initialState = {
   bookings: [],
   user: '',
   errors: null,
-  plan: {basic: {img: 'https://pbs.twimg.com/media/FFn0jYGWQAgaT2X.jpg', name: 'Básico', price: '2800', desc: '50'},
+  plan: {basico: {img: 'https://pbs.twimg.com/media/FFn0jYGWQAgaT2X.jpg', name: 'Básico', price: '2800', desc: '50'},
         club: {img: 'https://www.bluehills.org/assets/uploads/athletics/fall/Soccer.jpg', name: 'Clubes', price: '6000', desc: '50'},
         premium: {img: 'https://static01.nyt.com/images/2020/09/25/sports/25soccer-nationalWEB1/merlin_177451008_91c7b66d-3c8a-4963-896e-54280f374b6d-mobileMasterAt3x.jpg', name: 'Premium', price: '12300', desc: '50'}}
 };

@@ -1,0 +1,162 @@
+.tablePlan {
+  margin: 10px 70px;
+  margin-top: 2%;
+  
+}
+.tittle{
+  color: white;
+  font-size: 30px;
+  margin-bottom: 60px;
+
+}
+
+
+
+.tablePlan table {
+  background-color: white;
+  border-collapse: collapse;
+  
+}
+
+.tablePlan thead {
+  background-color: #289c28;
+  color: white;
+  border-bottom: 1px solid #404040;
+}
+
+.tablePlan thead th {
+  padding: 10px 0;
+}
+
+.tablePlan tr:nth-child(even) {
+  background-color: #ddd;
+}
+
+.tablePlan .th,
+td {
+  
+  padding: 5px;
+}
+
+.tablePlan td {
+  width: 200px;
+  height: 60px;
+  
+}
+.precio{
+    font-size: 20px;
+}
+.tablePlan td,
+ul {
+  text-decoration: none;
+  flex-direction: column;
+  justify-content: left;
+  list-style: none;
+}
+.tablePlan .club {
+  font-size: 19px;
+}
+
+.tablePlan .precio {
+  font-size: 19px;
+}
+
+
+.tablePlan .nombre{
+    font-size: 19px;
+}
+.tablePlan .descuento{
+    font-size: 19px;
+}
+
+
+.edit {
+  background-color: skyblue;
+  border: none;
+  border-radius: 10px;
+  padding: 8px;
+  cursor: pointer;
+  font-size: 15px
+}
+.select{
+    width: 140px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: #40404027;
+}
+
+.edit:hover {
+  background-color: rgb(115, 186, 214);
+}
+
+/* .approve{
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    background-color: #98F576;
+    padding: 5px 5px;
+    margin-left: 5px;
+  }
+  
+  .approve:hover{
+    background-color: #81e05e;
+  } */
+
+  .continuar{
+    transition: all 0.3s ease 0s; 
+    cursor: pointer; 
+    outline: none;
+    color: black;
+    padding: 8px 10px;
+    background-color: #98F576;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    font-size: 15px;
+    text-align: center;
+    width: 100px;
+  }
+  .continuar:hover {
+   
+    width: 130px;
+    border-radius: 20px;
+  }
+  
+  .continuar button:active {
+    transform: translateY(-1px);
+  }
+
+.delete {
+  background-color: tomato;
+  border: none;
+  border-radius: 10px;
+  padding: 8px;
+  cursor: pointer;
+  font-size: 25px
+}
+
+.cancelar{
+  transition: all 0.3s ease 0s; 
+  cursor: pointer; 
+  outline: none;
+  color: black;
+  padding: 8px 10px;
+  background-color: red;
+  text-decoration: none;
+  border-radius: 5px;
+  border: none;
+  font-size: 15px;
+  text-align: center;
+  width: 80px;
+}
+
+.cancelar:hover {
+  
+  width: 110px;
+  border-radius: 20px;
+}
+
+

@@ -11,6 +11,7 @@
   font-size: 16px;
   display: grid;
   justify-items: center;
+  min-height: calc(100vh - 136px);
 }
 
 .detail p {

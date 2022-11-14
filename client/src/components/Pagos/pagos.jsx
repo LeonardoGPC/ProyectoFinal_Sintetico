@@ -27,7 +27,7 @@ function Pagos() {
             await axios.post('/payments', {
                 UserId: idUser,
                 price: precio,
-                itemName: "Renta de cancha(s)",
+                itemName: "Reserva",
                 bookings:
                 [
                     {
@@ -36,6 +36,17 @@ function Pagos() {
                     FieldId: JSON.parse(rent)[0].id
                     }
                 ]
+            })
+            .then(response => response.data)
+            .then(res => {
+                window.location.replace(res)
+            })
+            .catch(error => console.log(error))
+        } else {
+            await axios.post('http://localhost:3001/payments', {
+                UserId: idUser,
+                price: precio,
+                itemName: `Plan ${plan}`,
             })
             .then(response => response.data)
             .then(res => {
@@ -118,7 +129,7 @@ function Pagos() {
                         </div>
                       <select defaultValue='default' onChange={(e) => changePlan(e)}>
                         <option value='default' disabled>Cambiar plan</option>
-                        <option value='basic'>Básico</option>
+                        <option value='basico'>Básico</option>
                         <option value='club'>Clubes</option>
                         <option value='premium'>Premium</option>
                       </select>
