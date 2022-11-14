@@ -24,7 +24,7 @@ import AdminEdit from "./components/AdminManageFields/AdminEdit";
 import AdminStats from "./components/AdminManageFields/AdminStats";
 import AdminDeleted from "./components/AdminManageFields/AdminDeleted";
 import Success from "./components/Pagos/Success/success";
-import Failure from "./components/Pagos/Failure/failure"
+import Failure from "./components/Pagos/Failure/failure";
 import ManagePlan from "./components/Clubs/ManagePlan";
 import SeePost from "./components/Clubs/SeePost";
 import BookingsClub from "./components/Clubs/BookingsClub";
@@ -35,12 +35,10 @@ import AdminManagePlan from "./components/AdminManagePlan/AdminManagePlan";
 import AdminEditPlan from "./components/AdminManagePlan/AdminEditPlan";
 
 import { FaGoogle } from "react-icons/fa";
+import AdminRestrict from "./components/AdminManageUser/AdminRestrict";
 
 function App() {
-  
-
   const [load, setLoad] = useState(false);
-
 
   let location = useLocation();
 
@@ -50,29 +48,29 @@ function App() {
 
   useEffect(() => {
     switch (location.pathname) {
-      case '/': 
-        if(!location.hash){
+      case "/":
+        if (!location.hash) {
           setLoad(true);
           setTimeout(animation, 1750);
           break;
         }
         break;
-      case '/clubs':
-        if(!location.hash){
+      case "/clubs":
+        if (!location.hash) {
           setLoad(true);
           setTimeout(animation, 1750);
           break;
         }
         break;
-      case '/pay':
+      case "/pay":
         setLoad(true);
         setTimeout(animation, 1750);
         break;
-      case '/login':
+      case "/login":
         setLoad(true);
         setTimeout(animation, 1750);
         break;
-      case '/about':
+      case "/about":
         setLoad(true);
         setTimeout(animation, 1750);
         break;
@@ -94,18 +92,21 @@ function App() {
           </Route>
           <Route path="/sintetico/detail/:id" element={<Detail />} />
           <Route path="/create" element={<Create />} />
-          <Route path="*" element={<Error/>} />
+          <Route path="*" element={<Error />} />
           <Route path="/about" element={<About />} />
           <Route path="/pay">
-            <Route path='/pay' element={<Pagos />}/>
-            <Route path='/pay/success' element={<Success/>}/>
-            <Route path='/pay/failure' element={<Failure/>}/>
+            <Route path="/pay" element={<Pagos />} />
+            <Route path="/pay/success" element={<Success />} />
+            <Route path="/pay/failure" element={<Failure />} />
           </Route>
           <Route path="/booking/:id" element={<Booking />} />
-          <Route path="/gestionarpublicaciones" element={<GestPublicaciones />} />
-          <Route path='/gestionarusuarios' element={<GestUsuarios />} />
-          <Route path='/gestionarprecios' element={<GestPrecios />} />
-          <Route path='/gestionarreservas' element={<GestReservas />} />
+          <Route
+            path="/gestionarpublicaciones"
+            element={<GestPublicaciones />}
+          />
+          <Route path="/gestionarusuarios" element={<GestUsuarios />} />
+          <Route path="/gestionarprecios" element={<GestPrecios />} />
+          <Route path="/gestionarreservas" element={<GestReservas />} />
           <Route
             path="/gestionarpublicaciones"
             element={<GestPublicaciones />}
@@ -116,6 +117,7 @@ function App() {
           <Route path="/admin/fields/deleted" element={<AdminDeleted />} />
           <Route path="/gestionarusuarios" element={<GestUsuarios />} />
           <Route path="/admin/users/edit" element={<AdminAllUser />} />
+          <Route path="/admin/users/restrict" element={<AdminRestrict />} />
           <Route path="/gestionarprecios" element={<GestPrecios />} />
           <Route path="/admin/plan" element={<AdminManagePlan />} />
           <Route path="/admin/plan/edit" element={<AdminEditPlan />} />
