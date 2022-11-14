@@ -6,13 +6,29 @@ import "swiper/css/free-mode";
 import "swiper/css/autoplay";
 import s from "./Card.module.css"
 import { Link } from "react-router-dom"
+import { useDispatch, useSelector} from "react-redux"
+import { useEffect } from "react"
+import { getFields } from "../../../../redux/actions/index"
 
-export default function Carousel ({teams}) {
+export default function Carousel () {
+
+
+    const dispatch = useDispatch()
+    const fieldState = useSelector((state) => state.fields);
+    const fieldsApproved = fieldState.filter((f) => f.state === "APPROVED");
+    /* const fieldsPremium = fieldsApproved.filter((f) => f.User.planType === "premium"); */
+    
+
+    useEffect(() => {
+        dispatch(getFields());
+      }, []);
+
+
     return (
         <div className={s.body} id='2'>
             <div className={s.container}>
                 <Swiper freeMode={true} grabCursor={true} autoplay={{delay: 3000}} modules={[FreeMode, Autoplay]} className={s.mySwiper} slidesPerView={3} spaceBetween={60}> 
-                    {teams.map(t => (
+                    {fieldsApproved.map(t => (
                         <SwiperSlide>
                             <div className={s.card} key={t.id}>
                                 <div>
@@ -33,7 +49,7 @@ export default function Carousel ({teams}) {
                                     <div className={s.derecha}>
                                         <span className={s.iconsData}>
                                             <i class="fa-solid fa-person"></i>
-                                            <span>{t.sizes}</span>
+                                            <span>{t.Size.name}</span>  
                                         </span>
                                         <span className={s.iconsData}>
                                             <i class="fa-solid fa-dollar-sign"></i>
@@ -41,7 +57,7 @@ export default function Carousel ({teams}) {
                                         </span>
                                         <span className={s.iconsData}>
                                             <i class="fa-solid fa-ruler"></i>
-                                            <span>{t.surfaces}</span>
+                                            <span>{t.Surface.name}</span>
                                         </span>
                                     </div>
                                 </div>

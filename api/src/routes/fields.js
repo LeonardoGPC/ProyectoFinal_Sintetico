@@ -24,7 +24,7 @@ router.get('/:id', async(req, res)=>{
 
 router.post('/:id', async (req, res)=>{
     let { id } = req.params
-    console.log("SOY EL IDDDDDDDDDDDDDDDDD",id)
+    
     var field = req.body;
     try{
         var successMessage = await createField(field, id);
