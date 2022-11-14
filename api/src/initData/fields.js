@@ -162,6 +162,51 @@ module.exports = {
         OwnerId: 3,
         OwnerId: 5
       },
+      {
+        name: "Mi canchita",
+        image:
+          "https://www.parqueygrama.com/wp-content/uploads/2019/04/cancha-de-futbol.jpg",
+        state: "APPROVED",
+        price: 5000,
+        address: "Santiago del Estero 1280 , Capital Federal",
+        openHour: '8:00',
+        closeHour: '23:00',
+        CityId: 1,
+        SizeId: 2,
+        SurfaceId: 2,
+        score: 4.5,
+        description: "Disfruta de una hora de juego en nuestras canchas de fútbol 7, reúne a otros 6 amigos y pon en prácticas todas tus habilidades en este deporte. También podrás comprar el alquiler de balón para tu práctica.",
+      },
+      {
+        name: "La bombonera",
+        image:
+          "https://www.citytowersgreen.com/images/amenidades/departamentos-en-preventa-con-cancha-de-futbol.jpg",
+        state: "APPROVED",
+        price: 7000,
+        address: "4517 Gore Street, Capital Federal",
+        openHour: '8:00',
+        closeHour: '23:00',
+        CityId: 1,
+        SizeId: 3,
+        SurfaceId: 2,
+        score: 4.5,
+        description: "Adquiriendo este servicio podrás disfrutar con 9 de tus mejores amigos o familiares de un muy buen partido de fútbol. Muestra todas tus habilidades en este deporte y siéntete como todo un jugador profesional en las canchas de Asturiano Fútbol Club.",
+      },
+      {
+        name: 'Champions',
+        image:
+          "https://www.colsubsidio.com/landing/bloc/images/galeria/cancha-de-futbol/cancha-de-futbol-1.jpg?ver=2",
+        state: "APPROVED",
+        price: 6000,
+        address: "Miguel B. Sanchez 1050 , Capital Federal",
+        openHour: '8:00',
+        closeHour: '20:00',
+        CityId: 1,
+        SizeId: 4,
+        SurfaceId: 2,
+        score: 4,
+        description: "Disfruta de un muy buen partido de fútbol 11 con tus mejores amigos o familiares, muestra todas tus habilidades en este deporte y siéntete como todo un jugador prefesional en las canchas que Solis Cano II tiene para ti.",
+      },
     ],
 
   };

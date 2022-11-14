@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Navbar from "../NavBar/Navbar";
 import prof from "./profile.module.css";
 import Cookies from "universal-cookie";
-import { Link, useParams } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import axios from "axios";
 import { getBookings, getFields } from "../../redux/actions";
 import Settings from "./Configuracion/settings";
@@ -92,13 +92,13 @@ function Profile() {
             <div className={prof.menu}>
               <ul>
                 <li className={prof.profile}>
-                  <img className={prof.img} src={userData.image} alt="imagen" />
+                  <img className={prof.img} src={userData.image} alt='imagen'/>
                   <h2 className={prof.name}>{usuario}</h2>
                 </li>
-                <li className={prof.li}>Hacer Publicación</li>
-                <li className={prof.li}>Ver Publicaciones</li>
-                <li className={prof.li}>Gestionar mi plan</li>
-                <li className={prof.li} onClick={() => (setShowText(true), setSettings(false))}>Reservas</li>
+                <li className={prof.li}><Link className={prof.link} to ='/create'>Hacer Publicación</Link></li>
+                <li className={prof.li}><Link className={prof.link} to='/profile/verPublicaciones'>Ver Publicaciones</Link></li>
+                <li className={prof.li}><Link className={prof.link} to='/profile/gestionarPlan'>Gestionar mi plan</Link></li>
+                <li className={prof.li}><Link className={prof.link} to='/profile/reservas'>Reservas</Link></li>
                 <li className={prof.li} onClick={() => (setShowText(false), setSettings(true))}>Configuración</li>
               </ul>
               <p className={prof.li} onClick={() => closeSesion()}>
@@ -158,6 +158,7 @@ function Profile() {
                 </div>
               )}
               {settings && <Settings/>}
+              <Outlet />
               </div>
         </div>
         <div></div>

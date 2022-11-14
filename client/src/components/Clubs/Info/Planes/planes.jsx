@@ -115,7 +115,7 @@ export default function Planes(){
                         <p className={plan.paragraph}> ✔️ Contacto con usuarios</p>
                         <p className={plan.paragraph}> ✔️ Mayor recomendación</p>
                         <p className={plan.paragraph}> ✔️ Aparece en mejores canchas</p>
-                        <p className={plan.paragraph}> ✔️ Priorida de revisión</p>
+                        <p className={plan.paragraph}> ✔️ Prioridad de revisión</p>
                     </div>
                     <div className={plan.btn_div}>
                         <button onClick={(e) => buttonHandler(e)} name='premium' className={plan.button}>Adquirir</button>
