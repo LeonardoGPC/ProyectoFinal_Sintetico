@@ -65,7 +65,6 @@ export default function TableEditPremium() {
                   </Link>
                 </td>
                 <td>{el.User.planType}</td>
-                <td>{el.User.planType}</td>
                 <td>
                   {el.state != "APPROVED" ? (
                     <>
