@@ -1,5 +1,8 @@
 .statsplan {
   color: black;
+  display: grid;
+  justify-items: center;
+  justify-content: center;
 }
 
 .container {
@@ -51,6 +54,9 @@
 
 .grafico {
   background-color: antiquewhite;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 20px;
   color: black;
   width: 600px;
 }
