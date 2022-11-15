@@ -84,11 +84,11 @@ function App() {
           <Route path="/clubs" element={<Clubs />} />
           <Route path="/login" element={<Login />} />
           <Route path="/sintetico" element={<Home />} />
-          <Route path="/profile/" element={<Profile />}>
-            <Route path="verPublicaciones" element={<SeePost />} />
+          <Route path="/profile/" element={<Profile />}/>
+            {/* <Route path="verPublicaciones" element={<SeePost />} />
             <Route path="gestionarPlan" element={<ManagePlan />} />
-            <Route path="reservas" element={<BookingsClub />} />
-          </Route>
+            <Route path="reservas" element={<BookingsClub />} /> */}
+          {/* </Route> */}
           <Route path="/sintetico/detail/:id" element={<Detail />} />
           <Route path="/create" element={<Create />} />
           <Route path="*" element={<Error/>} />
@@ -99,14 +99,14 @@ function App() {
             <Route path='/pay/failure' element={<Failure/>}/>
           </Route>
           <Route path="/booking/:id" element={<Booking />} />
-          <Route path="/gestionarpublicaciones" element={<GestPublicaciones />} />
+          {/* <Route path="/gestionarpublicaciones" element={<GestPublicaciones />} />
           <Route path='/gestionarusuarios' element={<GestUsuarios />} />
           <Route path='/gestionarprecios' element={<GestPrecios />} />
-          <Route path='/gestionarreservas' element={<GestReservas />} />
-          <Route
+          <Route path='/gestionarreservas' element={<GestReservas />} /> */}
+          {/* <Route
             path="/gestionarpublicaciones"
             element={<GestPublicaciones />}
-          />
+          /> */}
           <Route path="/admin/fields" element={<AdminFields />} />
           <Route path="/admin/fields/edit" element={<AdminEdit />} />
           <Route path="/admin/fields/stats" element={<AdminStats />} />
