@@ -15,10 +15,10 @@ const GestUsuarios = () => {
             <button className={style.btn}>Administrar usuarios</button>
           </Link>
           {/* <button className={style.btn}>Upgradear Usuario</button> */}
-          <Link to="/admin/users/restrict">
-            <button className={style.btn}>Restringir Usuario</button>
+          <Link to="/admin/users/plan">
+            <button className={style.btn}>Beneficios de usuario</button>
           </Link>
-          <button className={style.btn}>Otorgar Permisos</button>
+          {/* <button className={style.btn}>Otorgar Permisos</button> */}
         </div>
       </div>
     </div>

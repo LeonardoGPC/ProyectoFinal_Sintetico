@@ -35,7 +35,7 @@ import AdminManagePlan from "./components/AdminManagePlan/AdminManagePlan";
 import AdminEditPlan from "./components/AdminManagePlan/AdminEditPlan";
 
 import { FaGoogle } from "react-icons/fa";
-import AdminRestrict from "./components/AdminManageUser/AdminRestrict";
+import UserBenefits from "./components/AdminManageUser/UserBenefits";
 
 function App() {
   const [load, setLoad] = useState(false);
@@ -117,7 +117,7 @@ function App() {
           <Route path="/admin/fields/deleted" element={<AdminDeleted />} />
           <Route path="/gestionarusuarios" element={<GestUsuarios />} />
           <Route path="/admin/users/edit" element={<AdminAllUser />} />
-          <Route path="/admin/users/restrict" element={<AdminRestrict />} />
+          <Route path="/admin/users/plan" element={<UserBenefits />} />
           <Route path="/gestionarprecios" element={<GestPrecios />} />
           <Route path="/admin/plan" element={<AdminManagePlan />} />
           <Route path="/admin/plan/edit" element={<AdminEditPlan />} />
