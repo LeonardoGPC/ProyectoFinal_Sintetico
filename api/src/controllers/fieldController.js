@@ -1,5 +1,5 @@
 const axios = require("axios");
-const { Field, Facility, Surface, Size, City, Comment, User, Booking } = require("../db");
+const { Field, Facility, Surface, Size, City, Comment, User, Booking, Sequelize } = require("../db");
 const { Op } = require("sequelize");
 
 const queryParams = {
@@ -60,7 +60,7 @@ async function getFields() {
 }
 
 async function getFieldById(id) {
-  const field = await Field.findByPk(id, {
+  var field = await Field.findByPk(id, {
     where: {
       state: {
         [Op.eq]: "APPROVED",
@@ -86,10 +86,30 @@ async function getFieldById(id) {
       {
         model: User,
         attributes: ["planType"],
-      }
+      },
+      /* {
+        model: Booking,
+        include:[{
+          model: User,
+          include:[{
+            model: Comment
+          }]
+        }
+        ]
+      } */
       
     ],
   });
+  const comments = await Comment.findOne({
+    where: {
+      FieldId: id,
+    },
+    attributes: [
+      [Sequelize.fn('AVG', Sequelize.col('score')), 'scr']
+    ],
+    plain: true
+  })
+  field.score = comments.dataValues.scr;
   if (field) return field;
   else throw new Error("Field does not exist in db");
 }
