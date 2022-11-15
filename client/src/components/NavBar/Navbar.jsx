@@ -25,7 +25,6 @@ export default function Navbar({userData}) {
   
   useEffect(() => {
     if(idUser){
-      console.log(userData)
       getUserData(userData)
     }
 }, [userData])

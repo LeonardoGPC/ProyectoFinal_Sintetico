@@ -11,7 +11,7 @@ export default function AdminFields() {
     <div className={styles.adminfields}>
       <Navbar />
       <div className={styles.title}>
-        <Link to="/profile">
+        <Link to="/gestionarpublicaciones">
           <button className={styles.button}>Volver</button>
         </Link>
         <h1>Publicaciones aprobadas</h1>

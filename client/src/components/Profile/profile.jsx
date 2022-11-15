@@ -73,7 +73,7 @@ function Profile() {
         setSettings(false)
       }
     }
-  }, [userData])
+  }, [userData.type])
 
   const switchHandler = (value) => {
     if(userData){
@@ -173,9 +173,7 @@ function Profile() {
   const closeSesion = () => {
     cookie.remove("usuario");
     cookie.remove("id");
-    cookie.remove("usuario");
-    cookie.remove("id");
-    window.location.replace(URL_APP);
+    return window.location.replace(URL_APP);
   };
 
   if (typeof usuario === "undefined") {
@@ -212,6 +210,7 @@ function Profile() {
                 <li className={prof.li} onClick={() => switchHandler('gestPlan')}>Gestionar mi plan</li>
                 <li className={prof.li} onClick={() => switchHandler('gestRese')}>Reservas</li>
                 <li className={prof.li} onClick={() => switchHandler('settings')}>Configuración</li>
+
                 {/* <li className={prof.li}><Link className={prof.link} to ='/create'>Hacer Publicación</Link></li>
                 <li className={prof.li} onClick={() => switchHandler('verPubli')}><Link className={prof.link} to='/profile/verPublicaciones'>Ver Publicaciones</Link></li>
                 <li className={prof.li} onClick={() => switchHandler('gestPlan')}><Link className={prof.link} to='/profile/gestionarPlan'>Gestionar mi plan</Link></li>
@@ -225,7 +224,7 @@ function Profile() {
           ) : (
             <div className={prof.menu}>
               <ul>
-                <li className={prof.profile}>
+                {/* <li className={prof.profile}>
                   <img className={prof.img} src={userData.image} alt="imagen" />
                   <h2 className={prof.name}>{usuario}</h2>
                 </li>
@@ -240,8 +239,9 @@ function Profile() {
                 </li>
                 <li className={prof.li} onClick={() => switchHandler('gestRes')}>
                     Gestionar Reservas
-                </li>
-                {/* <li className={prof.li} onClick={() => switchHandler('gestPubli')}>
+                </li> */}
+
+                <li className={prof.li} onClick={() => switchHandler('gestPubli')}>
                   <Link className={prof.link} to="/gestionarpublicaciones">
                     Gestionar Publicaciones
                   </Link>
@@ -256,13 +256,13 @@ function Profile() {
                     Gestionar Precios
                   </Link>
                 </li>
-                {/* No se si es necesario que intervenga el admin en las reservas
+                 {/* No se si es necesario que intervenga el admin en las reservas
                 <li className={prof.li} onClick={() => switchHandler('gestRes')}>
                   <Link className={prof.link} to="/gestionarreservas">
                     Gestionar Reservas
                   </Link>
                 </li> */}
-                <li className={prof.li} onClick={() => switchHandler('settings')}>Configuración</li>
+                <li className={prof.li} onClick={() => switchHandler('settings')}><Link className={prof.link} to='/profile'>Configuración</Link></li>
               </ul>
               
               <p className={prof.li} onClick={() => closeSesion()}>
@@ -272,14 +272,14 @@ function Profile() {
           )}
           <div className={prof.content}>
               {reserve && <Reservas/>}
-              {settings && <Settings/>}
+              {settings && <Settings setModal={setModal} imgData={userData}/>}
               {verPubli && <SeePost/>}
               {gestPlan && <ManagePlan/>}
               {gestRese && <BookingsClub/>}
-              {gestPubli && <GestPublicaciones/>}
+              {/* {gestPubli && <GestPublicaciones/>}
               {gestUsers && <GestUsuarios/>}
               {gestPrice && <GestPrecios/>}
-              {gestRes && <GestReservas/>}
+              {gestRes && <GestReservas/>} */}
           </div>
         </div>
         {modal && <div className={prof.modal_main}>

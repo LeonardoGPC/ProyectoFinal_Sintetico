@@ -102,10 +102,10 @@ function App() {
             <Route path="/pay/failure" element={<Failure />} />
           </Route>
           <Route path="/booking/:id" element={<Booking />} />
-          {/* <Route path="/gestionarpublicaciones" element={<GestPublicaciones />} />
+          <Route path="/gestionarpublicaciones" element={<GestPublicaciones />} />
           <Route path='/gestionarusuarios' element={<GestUsuarios />} />
           <Route path='/gestionarprecios' element={<GestPrecios />} />
-          <Route path='/gestionarreservas' element={<GestReservas />} /> */}
+          <Route path='/gestionarreservas' element={<GestReservas />} />
           <Route path="/admin/fields" element={<AdminFields />} />
           <Route path="/admin/fields/premium" element={<AdminEditPremium />} />
           <Route path="/admin/fields/edit" element={<AdminEdit />} />
