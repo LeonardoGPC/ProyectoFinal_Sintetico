@@ -11,7 +11,7 @@ import DateFnsUtils from '@date-io/date-fns'
 import esLocale from 'date-fns/locale/es'
 import axios from 'axios'
 
-axios.defaults.baseURL = "https://sintetico.herokuapp.com" || "http://localhost:3001";
+axios.defaults.baseURL = "http://localhost:3001" || "https://sintetico.herokuapp.com";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>

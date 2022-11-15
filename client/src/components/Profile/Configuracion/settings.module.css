@@ -1,6 +1,6 @@
 .img{
-    width: 400px;
-    height: 400px;
+    width: 200px;
+    height: 200px;
     object-fit: cover;
     border-radius: 50%;
     cursor: pointer;
@@ -49,6 +49,7 @@
 .inp:active,
 .inp:focus{
     border-bottom: 3px solid #98F576;
+    background: none;
 }
 
 .actualizar{

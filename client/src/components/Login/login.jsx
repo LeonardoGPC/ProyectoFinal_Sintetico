@@ -12,6 +12,7 @@ import { validate } from './validate'
 import jwt_decode from "jwt-decode";
 
 function Login() {
+
     async function handleCallBackResponse(response){
         var userObject = jwt_decode(response.credential);
         var object = {
@@ -28,14 +29,13 @@ function Login() {
         cookie.set('id', id)
         window.history.back()
     }
-    
     useEffect(()=>{
         google.accounts.id.initialize({
             client_id: '953309372189-7c7r2om3ll3jtpj5qqpmipos5rsddkq2.apps.googleusercontent.com',
             callback: handleCallBackResponse
         });
         google.accounts.id.renderButton(document.getElementById("signInDiv"),
-        {theme: "outline", size: "large"});
+        {theme: "outline", size: "large", });
     }, []);
     const [dinamic, setDinamic] = useState('0')
     const dispatch = useDispatch()
@@ -75,9 +75,12 @@ function Login() {
 
     const registerHandler = async (e) => {
         e.preventDefault()
+<<<<<<< HEAD
         await axios.post('/users', register)
+=======
+        await axios.post('/users', register, /* {withCredentials: true} */)
+>>>>>>> Developer
         .then(response => {
-            console.log(response)
             setModal(true)
             setRegister({
             name: '',
@@ -103,7 +106,11 @@ function Login() {
 
     const login = (e) => {
         e.preventDefault()
+<<<<<<< HEAD
         axios.post('/users/login',{userName: input.username, password: input.password})
+=======
+        axios.post('/users/login',{userName: input.username, password: input.password}/* , {withCredentials: true } */)
+>>>>>>> Developer
         .then(response => {
             return response.data;
         })
@@ -197,7 +204,7 @@ function Login() {
         </div>
         <div className={log.login}>
             <img src={logo} className={log.logo} alt='logo'/>
-            {user.length === 0 ? <div>
+            {user.length === 0 ? <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
             <div id="signInDiv"></div>
             <p className={log.division}>------------ o con tu usuario -----------</p>
             <form onSubmit={e => login(e)}>

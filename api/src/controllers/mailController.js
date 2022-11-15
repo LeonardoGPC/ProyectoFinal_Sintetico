@@ -1,9 +1,10 @@
 const { transport } = require('../mailer')
 
+
 const {
     BOT_EMAIL,
   } = process.env;
-
+const url = "http://localhost:3000" ||  process.env.CORS_URL 
 
 module.exports.sendRegistrationEmail = (name, lastName, userName, email) => {
     transport.sendMail({
@@ -15,8 +16,8 @@ module.exports.sendRegistrationEmail = (name, lastName, userName, email) => {
         `<h1>Felicidades ${userName}❕❕ Tu registro ha sido completado con exito</h1>
         <h1>Que es Sintetic⚽?</h1>
         <h2>Bienvenido a la web de TUS canchas. En Sintetico podras hacer reservas al instante ⌚ y poner en alquiler tus canchas en minutos 💎</h2>
-        <h2>Queres saber mas acerca de nosotros?</h2> <h2><a href= "http://localhost:3000/about">Click Aqui ⚽</a></h2>
-        <h2>Queres empezar a alquilar?</h2> <h2><a href= "http://localhost:3000/">Click Aqui ⚽</a></h2>`
+        <h2>Queres saber mas acerca de nosotros?</h2> <h2><a href= ${url}/about>Click Aqui ⚽</a></h2>
+        <h2>Queres empezar a alquilar?</h2> <h2><a href= ${url}>Click Aqui ⚽</a></h2>`
         
         
         
@@ -45,7 +46,7 @@ module.exports.sendReservationEmail = (dataMail) => {
         html: 
         `<h1>Felicidades ${dataMail[0].userName}❕❕ Ya tienes tus reservas listas</h1>
          <h1>${text}</h1>
-         <h2>Ahora puedes revisar todas tus reservas en el perfil de la pagina o ingresando al siguiente link<h2> <h2> <a href="http://localhost:3000/">Click Aqui ⚽</a></h2>`
+         <h2>Ahora puedes revisar todas tus reservas en el perfil de la pagina o ingresando al siguiente link<h2> <h2> <a href=${url}/profile>Click Aqui ⚽</a></h2>`
          
         
         
@@ -62,8 +63,23 @@ module.exports.sendInquiryEmail = async (email) => {
         `<h1>Tu consulta ha sido recibida por un administrador</h1>
          <h1>En el lapso de algunas horas recibiras un email con la respuesta a tu consulta</h1>
          <h1>Muchas gracias por contar con nuestro servicio❕❕😃</h1>
-         <h2>Puedes continuar a la pagina atravez del siguiente link</h2> <h2><a href= "http://localhost:3000/">Click Aqui ⚽</a></h2>` 
+         <h2>Puedes continuar a la pagina atravez del siguiente link</h2> <h2><a href= ${url}>Click Aqui ⚽</a></h2>` 
          
     })
     .catch((err) => console.log(err))
 }
+
+module.exports.sendPlanEmail = async (userData) => {
+    transport.sendMail({
+        from:  BOT_EMAIL,
+        to: userData.email,
+        subject: "Plan adquirido ✅",
+        html: 
+        `<h1>Felicidades ${userData.userName}❕❕ Ya tienes tus plan listo</h1>
+         <h1>Muchas gracias por contar con nuestro servicio❕❕😃</h1>
+         <h2>Puedes continuar a la pagina atravez del siguiente link</h2> <h2><a href= ${url}>Click Aqui ⚽</a></h2>` 
+         
+    })
+    .catch((err) => console.log(err))
+}
+

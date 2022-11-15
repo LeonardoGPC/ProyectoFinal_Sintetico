@@ -3,7 +3,7 @@ import style from './Faq.module.css'
 
 const data = [{
     question: '¿Qué datos necesito para registrarme?',
-    answer: 'Para registrarte en Sintento, deberás iniciar sesión con una red social (Facebook o Google) o podrás ingresar completando un formulario con tus datos. Esto nos servirá para poder dejar los datos de la reserva al club.'
+    answer: 'Para registrarte en Sintento, deberás iniciar sesión con Google o podrás ingresar completando un formulario con tus datos. Esto nos servirá para poder dejar los datos de la reserva al club.'
 },
 {
     question: '¿Cómo reservar un turno para jugar?',
