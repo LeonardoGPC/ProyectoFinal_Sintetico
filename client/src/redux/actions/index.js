@@ -118,7 +118,7 @@ export const getFields = () => {
 
 export const getUsers = () => {
   return async (dispatch) => {
-    const users = await axios.get("http://localhost:3001/users")
+    const users = await axios.get("/users")
     dispatch({
       type: GET_USER,
       payload: users.data,
@@ -128,7 +128,7 @@ export const getUsers = () => {
 
 export const putUser = (id) => {
   return async (dispatch) => {
-    const user = await axios.put("http://localhost:3001/users/" + id)
+    const user = await axios.put("/users/" + id)
     dispatch({
       type: PUT_USER,
       payload: user.data,
