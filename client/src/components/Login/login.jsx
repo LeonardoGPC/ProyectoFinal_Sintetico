@@ -75,11 +75,7 @@ function Login() {
 
     const registerHandler = async (e) => {
         e.preventDefault()
-<<<<<<< HEAD
-        await axios.post('/users', register)
-=======
         await axios.post('/users', register, /* {withCredentials: true} */)
->>>>>>> Developer
         .then(response => {
             setModal(true)
             setRegister({
