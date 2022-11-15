@@ -62,11 +62,12 @@ export default function BookingsClub() {
                     <td>{booking.User.email}</td>
                   </tr>
                 ));
-              } else {
-                return <tr>
-                  <td colSpan={7}>No hay reservas en la cancha {field.name}</td>
-                </tr>
-              }
+               }
+              // else {
+              //   return <tr>
+              //     <td colSpan={7}>No hay reservas en la cancha {field.name}</td>
+              //   </tr>
+              // }
             },
           )}
         </tbody>
