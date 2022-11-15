@@ -78,6 +78,16 @@ async function editUserPlanType(userId, data){
         throw new Error("El elemento a editar no existe o los parámetros no son válidos");
     }
 }
+async function deleteAccount(userId) {
+    try{
+        var userFromDb = await User.findByPk(userId)
+        await userFromDb.destroy()
+    }catch(error) {
+        throw new Error("El elemento a borrar no existe");
+    }
+}
+
+
 
 module.exports = {
     authenticate,
@@ -87,4 +97,5 @@ module.exports = {
     createGoogleUser,
     editUser,
     editUserPlanType,
+    deleteAccount
 }

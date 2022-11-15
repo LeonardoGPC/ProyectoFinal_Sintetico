@@ -34,6 +34,7 @@ function Profile() {
   useEffect(() => {
     dispatch(getBookings());
     dispatch(getFields())
+ 
   }, [dispatch]);
 
   const [showText, setShowText] = useState(true);
@@ -74,6 +75,7 @@ function Profile() {
     };
     getUserData();
   }, []);
+
 
   const closeSesion = () => {
     cookie.remove("usuario");
@@ -152,6 +154,7 @@ function Profile() {
                 </li> */}
                 <li className={prof.li} onClick={() => (setShowText(false), setSettings(true))}>Configuración</li>
               </ul>
+              
               <p className={prof.li} onClick={() => closeSesion()}>
                 Cerrar Sesión
               </p>
