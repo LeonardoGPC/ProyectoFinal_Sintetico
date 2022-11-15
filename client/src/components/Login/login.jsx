@@ -13,6 +13,8 @@ import jwt_decode from "jwt-decode";
 
 function Login() {
 
+    const google = window.google;
+
     async function handleCallBackResponse(response){
         var userObject = jwt_decode(response.credential);
         var object = {
