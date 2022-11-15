@@ -1,36 +1,20 @@
-import { useEffect } from "react";
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { plan } from "../../../redux/actions";
-import styles from "./EditPlan.module.css";
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { plan } from '../../../redux/actions';
+import styles from './EditPlan.module.css';
 
 export default function EditPlan() {
   const planes = useSelector((state) => state.plan);
   console.log(planes);
   const dispatch = useDispatch();
 
-  const [edit, setEdit] = useState({
-    price: "",
-    desc: "",
-  });
 
-  const handleChange = (e) => {
-    console.log(e.target.value);
-    setEdit({
-      ...edit,
-      [e.target.name]: e.target.value,
-    });
-  };
+  const [basico, setBasico] = useState(planes.basico);
+  const [club, setClub] = useState(planes.club);
+  const [premium, setPremium] = useState(planes.premium);
 
-  const handleSubmit = (e) => {
-    console.log("hola soy un console");
-    e.preventDefault();
-    dispatch(plan(edit));
-    console.log("edit: " + edit);
-    setEdit({
-      price: "",
-      desc: "",
-    });
+  const handleSubmit = (editPlan, key) => {
+    dispatch(plan(editPlan, key));
   };
 
   return (
@@ -39,31 +23,52 @@ export default function EditPlan() {
         {/* ------------------------PLANES----------------------------------- */}
         <div className={styles.card}>
           <div className={styles.plan}>
-            <img src={planes.basico.img} />
+            <img src={basico.img} alt="basico" />
             <div>
-              <h2>{planes.basico.name}</h2>
-              <p>${planes.basico.price}</p>
-              <p>AHORRO {planes.basico.desc}%</p>
+              <h2>{basico.name}</h2>
+              <p>${basico.price}</p>
+              <p>AHORRO {basico.desc}%</p>
               <p>
-                $
-                {planes.basico.price -
-                  (planes.basico.price / 100) * planes.basico.desc}
+                ${basico.price - (basico.price / 100) * basico.desc}
                 /Mes.
               </p>
             </div>
           </div>
           {/* ------------ */}
           <div className={styles.edit}>
-            <h2>{planes.basico.name}</h2>
+            <h2>{basico.name}</h2>
             <div>
               <p>DESCUENTO</p>
-              <input type="text" name="desc" value={edit.desc} onChange={(e) => handleChange(e)} className={styles.text} />
-              <input type="submit" onClick={(e) => handleSubmit(e)} className={styles.button} />
+              <input
+                type="text"
+                name="desc"
+                value={basico.desc}
+                onChange={(e) => setBasico({ ...basico, desc: e.target.value })}
+                className={styles.text}
+              />
+              <input
+                type="button"
+                onClick={() => handleSubmit(basico, 'basico')}
+                value="Guardar"
+                className={styles.button}
+              />
             </div>
             <div>
               <p>PRECIO</p>
-              <input type="text" className={styles.text} />
-              <input type="submit" className={styles.button} />
+              <input
+                type="text"
+                className={styles.text}
+                value={basico.price}
+                onChange={(e) =>
+                  setBasico({ ...basico, price: e.target.value })
+                }
+              />
+              <input
+                type="button"
+                value="Guardar"
+                onClick={() => handleSubmit(basico, 'basico')}
+                className={styles.button}
+              />
             </div>
           </div>
         </div>
@@ -71,31 +76,49 @@ export default function EditPlan() {
         {/* ------------------------PLANES----------------------------------- */}
         <div className={styles.card}>
           <div className={styles.plan}>
-            <img src={planes.club.img} />
+            <img src={club.img} />
             <div>
-              <h2>{planes.club.name}</h2>
-              <p>${planes.club.price}</p>
-              <p>AHORRO {planes.club.desc}%</p>
+              <h2>{club.name}</h2>
+              <p>${club.price}</p>
+              <p>AHORRO {club.desc}%</p>
               <p>
-                $
-                {planes.club.price -
-                  (planes.club.price / 100) * planes.club.desc}
+                ${club.price - (club.price / 100) * club.desc}
                 /Mes.
               </p>
             </div>
           </div>
           {/* ------------ */}
           <div className={styles.edit}>
-            <h2>{planes.club.name}</h2>
+            <h2>{club.name}</h2>
             <div>
               <p>DESCUENTO</p>
-              <input type="text" className={styles.text} />
-              <input type="submit" className={styles.button} />
+              <input
+                type="text"
+                className={styles.text}
+                value={club.desc}
+                onChange={(e) => setClub({ ...club, desc: e.target.value })}
+              />
+              <input
+                type="button"
+                value="Guardar"
+                onClick={() => handleSubmit(club, 'club')}
+                className={styles.button}
+              />
             </div>
             <div>
               <p>PRECIO</p>
-              <input type="text" className={styles.text} />
-              <input type="submit" className={styles.button} />
+              <input
+                type="text"
+                className={styles.text}
+                value={club.price}
+                onChange={(e) => setClub({ ...club, price: e.target.value })}
+              />
+              <input
+                type="button"
+                value="Guardar"
+                onClick={() => handleSubmit(club, 'club')}
+                className={styles.button}
+              />
             </div>
           </div>
         </div>
@@ -103,31 +126,54 @@ export default function EditPlan() {
         {/* ------------------------PLANES----------------------------------- */}
         <div className={styles.card}>
           <div className={styles.plan}>
-            <img src={planes.premium.img} />
+            <img src={premium.img} />
             <div>
-              <h2>{planes.premium.name}</h2>
-              <p>${planes.premium.price}</p>
-              <p>AHORRO {planes.premium.desc}%</p>
+              <h2>{premium.name}</h2>
+              <p>${premium.price}</p>
+              <p>AHORRO {premium.desc}%</p>
               <p>
-                $
-                {planes.premium.price -
-                  (planes.premium.price / 100) * planes.premium.desc}
+                ${premium.price - (premium.price / 100) * premium.desc}
                 /Mes.
               </p>
             </div>
           </div>
           {/* ------------ */}
           <div className={styles.edit}>
-            <h2>{planes.premium.name}</h2>
+            <h2>{premium.name}</h2>
             <div>
               <p>DESCUENTO</p>
-              <input type="text" className={styles.text} />
-              <input type="submit" className={styles.button} />
+              <input
+                type="text"
+                name="desc"
+                value={premium.desc}
+                onChange={(e) =>
+                  setPremium({ ...premium, desc: e.target.value })
+                }
+                className={styles.text}
+              />
+              <input
+                type="button"
+                value="Guardar"
+                onClick={() => handleSubmit(premium, 'premium')}
+                className={styles.button}
+              />
             </div>
             <div>
               <p>PRECIO</p>
-              <input type="text" className={styles.text} />
-              <input type="submit" className={styles.button} />
+              <input
+                type="text"
+                className={styles.text}
+                value={premium.price}
+                onChange={(e) =>
+                  setPremium({ ...premium, price: e.target.value })
+                }
+              />
+              <input
+                type="button"
+                value="Guardar"
+                onClick={() => handleSubmit(premium, 'premium')}
+                className={styles.button}
+              />
             </div>
           </div>
         </div>
