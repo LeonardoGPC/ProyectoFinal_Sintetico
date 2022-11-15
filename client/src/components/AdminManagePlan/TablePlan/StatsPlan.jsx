@@ -5,8 +5,8 @@ import styles from "./StatsPlan.module.css";
 import {
   CartesianGrid,
   Legend,
-  Line,
-  LineChart,
+  Bar,
+  BarChart,
   Tooltip,
   XAxis,
   YAxis,
@@ -26,13 +26,24 @@ export default function StatsPlan() {
   console.log("Total de usuarios: " + usersTotal);
 
   const data = [
-    { name: "2017", react: 32, angular: 37, vue: 60 },
-    { name: "2018", react: 42, angular: 42, vue: 54 },
-    { name: "2019", react: 51, angular: 41, vue: 54 },
-    { name: "2020", react: 60, angular: 37, vue: 28 },
-    { name: "2021", react: 51, angular: 31, vue: 27 },
-    { name: "2022", react: 95, angular: 44, vue: 49 },
+    { name: "Ningun plan", none: usersNone },
+    { name: "Básico", basico: usersBasico },
+    { name: "Club", club: usersClub },
+    { name: "Premium", premium: usersPremium },
+    { name: "Total usuarios", total: usersTotal },
   ];
+
+  const CustomTooltip = ({ active, payload, label }) => {
+    if (active && payload && payload.length) {
+      return (
+        <div className="custom-tooltip">
+          <p className="label">{`${label} : ${payload[0].value}`}</p>
+        </div>
+      );
+    }
+
+    return null;
+  };
 
   useEffect(() => {
     dispatch(getUsers());
@@ -44,31 +55,58 @@ export default function StatsPlan() {
       <div className={styles.club}>Club: {usersClub}</div>
       <div className={styles.premium}>Premium: {usersPremium}</div>
       <div className={styles.grafico}>
-        <LineChart width={600} height={300} data={data}>
-          <Line
+        <BarChart
+          width={600}
+          height={300}
+          data={data}
+          margin={{
+            top: 5,
+            right: 30,
+            left: 20,
+            bottom: 5,
+          }}
+        >
+          <Bar
             type="monotone"
-            dataKey="react"
-            stroke="#2196F3"
+            dataKey="none"
+            fill="#105B10"
             strokeWidth={3}
+            barSize={30}
           />
-          <Line
+          <Bar
             type="monotone"
-            dataKey="angular"
-            stroke="#F44236"
+            dataKey="basico"
+            fill="#105B10"
             strokeWidth={3}
+            barSize={30}
           />
-          <Line
+          <Bar
             type="monotone"
-            dataKey="vue"
-            stroke="#FFCA29"
+            dataKey="club"
+            fill="#105B10"
             strokeWidth={3}
+            barSize={30}
+          />
+          <Bar
+            type="monotone"
+            dataKey="premium"
+            fill="#105B10"
+            strokeWidth={3}
+            barSize={30}
+          />
+          <Bar
+            type="monotone"
+            dataKey="total"
+            fill="#105B10"
+            strokeWidth={3}
+            barSize={30}
           />
           <CartesianGrid stroke="#ccc" />
           <XAxis dataKey="name" />
           <YAxis />
-          <Tooltip />
+          <Tooltip content={<CustomTooltip />} />
           <Legend />
-        </LineChart>
+        </BarChart>
       </div>
     </div>
   );
