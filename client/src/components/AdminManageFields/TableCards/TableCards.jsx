@@ -44,6 +44,7 @@ export default function TableCards() {
             <th>Localidad</th>
             <th>Precio</th>
             <th>Detalle</th>
+            <th>Plan</th>
             <th>Estado</th>
             <th>Borrar</th>
           </tr>
@@ -63,6 +64,7 @@ export default function TableCards() {
                     </button>
                   </Link>
                 </td>
+                <td>{el.User.planType}</td>
                 <td>
                   {el.state}
                   <button onClick={() =>handlerState(el.id)} className={styles.approve}>
