@@ -30,6 +30,7 @@ import SeePost from "./components/Clubs/SeePost";
 import BookingsClub from "./components/Clubs/BookingsClub";
 import React from "react";
 import Error from "./components/Error/error";
+import ProfileAvatar from "./components/Profile/ProfileAvatar/ProfileAvatar"
 import AdminAllUser from "./components/AdminManageUser/AdminAllUser";
 import AdminManagePlan from "./components/AdminManagePlan/AdminManagePlan";
 import AdminEditPlan from "./components/AdminManagePlan/AdminEditPlan";

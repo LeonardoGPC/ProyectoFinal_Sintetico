@@ -16,7 +16,7 @@ import GestPublicaciones from "../Admin/GestPublicaciones";
 import GestUsuarios from "../Admin/GestUsuarios";
 import GestPrecios from "../Admin/GestPrecios";
 import GestReservas from "../Admin/GestReservas";
-import { RiContactsBookLine } from "react-icons/ri";
+import ProfileAvatar from "./ProfileAvatar/ProfileAvatar.jsx";
 
 function Profile() {
   let bookings = useSelector((state) => state.bookings);
@@ -35,11 +35,14 @@ function Profile() {
     image: "",
     type: "",
   });
+
+  const [modal, setModal] = useState(false)
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getBookings());
     dispatch(getFields())
+ 
   }, [dispatch]);
 
   const [reserve, setReserve] = useState(false);
@@ -134,8 +137,8 @@ function Profile() {
   const getById = arr.filter((e) => e.UserId === userData.id);
     useEffect(() => {
         const getUserData = async () => {
-            // let data = await axios.get(`http://localhost:3001/users/${idUser}`, {withCredentials: true });
-            let data = await axios.get('http://localhost:3001/users/' + idUser)
+            // let data = await axios.get(`/users/${idUser}`, {withCredentials: true });
+            let data = await axios.get('/users/' + idUser)
             setUserData({
                 name: data.data.name,
                 lastName: data.data.lastName,
@@ -166,6 +169,7 @@ function Profile() {
     getUserData();
   }, []);
 
+
   const closeSesion = () => {
     cookie.remove("usuario");
     cookie.remove("id");
@@ -179,7 +183,7 @@ function Profile() {
   } else {
     return (
       <div className={prof.main}>
-        <Navbar />
+        <Navbar userData={userData}/>
         <div className={prof.div}>
           {userData.type === "user" ? (
             <div className={prof.menu}>
@@ -260,33 +264,13 @@ function Profile() {
                 </li> */}
                 <li className={prof.li} onClick={() => switchHandler('settings')}>Configuración</li>
               </ul>
+              
               <p className={prof.li} onClick={() => closeSesion()}>
                 Cerrar Sesión
               </p>
             </div>
           )}
           <div className={prof.content}>
-            {/* {reserve && (
-                // <div className={prof.contentInfo}>
-                //   {getById.length > 0 ? getById.map((e) => {
-                //     return (                     
-                //       <div className={prof.divInfo} key={e.id}>
-                //         <div className={prof.zone}>
-                //           <h3 className={prof.zoneBooking}>Reservas</h3>
-                //         <h3 className={prof.info}>Fecha: {e.date}</h3>
-                //         <h3 className={prof.info}>Horario: {e.hour}</h3>
-                //         <h3 className={prof.info}>
-                //           Cancha: {e.Fields[0].name}
-                //         </h3>
-                //       </div>
-                //       </div>
-                //     );
-                //   }) : <div className={prof.noReserv}>
-                //     <h1>No has reservado ninguna cancha.</h1>
-                //     <Link className={prof.cta} to='/sintetico'>Reservar</Link>
-                //     </div>}
-                // </div>
-            // )} */ }
               {reserve && <Reservas/>}
               {settings && <Settings/>}
               {verPubli && <SeePost/>}
@@ -298,6 +282,11 @@ function Profile() {
               {gestRes && <GestReservas/>}
           </div>
         </div>
+        {modal && <div className={prof.modal_main}>
+          <div className={prof.modal_box}>
+            <ProfileAvatar setModal={setModal} userData={userData} setUserData={setUserData} idUser={idUser}/>                    
+          </div>
+        </div>}
       </div>
     );
   }

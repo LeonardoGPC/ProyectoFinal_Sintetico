@@ -16,6 +16,7 @@ import {
   GET_FIELD_COMMENTS,
   GET_BOOKINGS,
   SEND_EMAIL,
+  DELETE_ACCOUNT
   GET_USER,
   PUT_USER,
   PLAN,
@@ -35,6 +36,7 @@ const initialState = {
   detail: {},
   bookings: [],
   user: '',
+  deleteUser: [],
   allUsers: [],
   errors: null,
   plan: {basico: {img: 'https://pbs.twimg.com/media/FFn0jYGWQAgaT2X.jpg', name: 'Básico', price: '2800', desc: '50'},
@@ -170,6 +172,11 @@ const rootReducer = (state = initialState, action) => {
     }
     case SEND_EMAIL:{
       return{...state}
+    }
+    case DELETE_ACCOUNT: {
+      return {
+        ...state, deleteUser: action.payload
+      }
     }
     default:
       return { ...state };
