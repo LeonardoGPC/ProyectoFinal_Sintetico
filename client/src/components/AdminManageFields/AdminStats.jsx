@@ -8,7 +8,7 @@ export default function AdminStats() {
     <div className={styles.adminstats}>
       <Navbar />
       <div className={styles.stats}>
-        <Link to="/profile">
+        <Link to="/gestionarpublicaciones">
           <button className={styles.button}>Volver</button>
         </Link>
         <h1 className={styles.title}>Página en construcción...</h1>
