@@ -10,26 +10,26 @@ import axios from "axios";
 export default function TableEditPremium() {
   const dispatch = useDispatch();
   const fieldState = useSelector((state) => state.fields);
-  const fields = fieldState.filter(f => f.User.planType === "premium")
+  const fields = fieldState.filter((f) => f.User.planType === "premium");
   console.log(fields);
 
   const handlerState = async (id) => {
     console.log(id);
-     await axios.put("http://localhost:3001/fields/" + id, {
+    await axios.put("http://localhost:3001/fields/" + id, {
       id: id,
-      state: "APPROVED"
-    })
-    window.location.reload()
-  }
+      state: "APPROVED",
+    });
+    window.location.reload();
+  };
 
   const handlerDelete = async (id) => {
     console.log(id);
     await axios.put("http://localhost:3001/fields/" + id, {
       id: id,
-      state: "DISAPPROVED"
-    })
-    window.location.reload()
-  }
+      state: "DISAPPROVED",
+    });
+    window.location.reload();
+  };
 
   useEffect(() => {
     dispatch(getFields());
@@ -65,14 +65,21 @@ export default function TableEditPremium() {
                   </Link>
                 </td>
                 <td>{el.User.planType}</td>
+                <td>{el.User.planType}</td>
                 <td>
-                  {el.state}
-                  <button
-                    onClick={() => handlerState(el.id)}
-                    className={styles.approve}
-                  >
-                    <AiOutlineCheck />
-                  </button>
+                  {el.state != "APPROVED" ? (
+                    <>
+                      {el.state}
+                      <button
+                        onClick={() => handlerState(el.id)}
+                        className={styles.approve}
+                      >
+                        <AiOutlineCheck />
+                      </button>
+                    </>
+                  ) : (
+                    el.state
+                  )}
                 </td>
                 <td>
                   <button

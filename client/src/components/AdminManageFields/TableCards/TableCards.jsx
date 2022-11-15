@@ -14,21 +14,21 @@ export default function TableCards() {
 
   const handlerState = async (id) => {
     console.log(id);
-     await axios.put("http://localhost:3001/fields/" + id, {
+    await axios.put("http://localhost:3001/fields/" + id, {
       id: id,
-      state: "APPROVED"
-    })
-    window.location.reload()
-  }
+      state: "APPROVED",
+    });
+    window.location.reload();
+  };
 
   const handlerDelete = async (id) => {
     console.log(id);
     await axios.put("http://localhost:3001/fields/" + id, {
       id: id,
-      state: "DISAPPROVED"
-    })
-    window.location.reload()
-  }
+      state: "DISAPPROVED",
+    });
+    window.location.reload();
+  };
 
   useEffect(() => {
     dispatch(getFields());
@@ -66,13 +66,25 @@ export default function TableCards() {
                 </td>
                 <td>{el.User.planType}</td>
                 <td>
-                  {el.state}
-                  <button onClick={() =>handlerState(el.id)} className={styles.approve}>
-                    <AiOutlineCheck />
-                  </button>
+                  {el.state != "APPROVED" ? (
+                    <>
+                      {el.state}
+                      <button
+                        onClick={() => handlerState(el.id)}
+                        className={styles.approve}
+                      >
+                        <AiOutlineCheck />
+                      </button>
+                    </>
+                  ) : (
+                    el.state
+                  )}
                 </td>
                 <td>
-                  <button onClick={() => handlerDelete(el.id)} className={styles.delete}>
+                  <button
+                    onClick={() => handlerDelete(el.id)}
+                    className={styles.delete}
+                  >
                     <RiDeleteBin6Line />
                   </button>
                 </td>
