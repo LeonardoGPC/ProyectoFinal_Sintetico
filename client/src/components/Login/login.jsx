@@ -13,6 +13,8 @@ import jwt_decode from "jwt-decode";
 
 function Login() {
 
+    const google = window.google;
+
     async function handleCallBackResponse(response){
         var userObject = jwt_decode(response.credential);
         var object = {
@@ -24,7 +26,7 @@ function Login() {
             googleId: userObject.sub
 
         }
-        var {data: {id}} = await axios.post('http://localhost:3001/users/googleAuth', object);
+        var {data: {id}} = await axios.post('/users/googleAuth', object);
         cookie.set('usuario', object.userName)
         cookie.set('id', id)
         window.history.back()

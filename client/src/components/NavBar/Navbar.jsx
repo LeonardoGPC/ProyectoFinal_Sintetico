@@ -9,24 +9,26 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Cart from "../Cart/Cart";
 
-export default function Navbar() {
+export default function Navbar({userData}) {
 
   const cookie = new Cookies()
   const usuario = cookie.get('usuario')
   const idUser = cookie.get('id')
   const [userImage, setUserImage] = useState({image: ''})
 
-  const getUserData = async () => {
-    // let data = await axios.get(`/users/${idUser}`, {withCredentials: true });
-    let data = await axios.get(`/users/${idUser}`);
-    setUserImage({image: data.data.image})
+  const getUserData = async (userData) => {
+    let data;
+    if(userData) setUserImage({image : userData.image})
+    else{data = await axios.get(`/users/${idUser}`);
+    setUserImage({image: data.data.image})}
   }
-
+  
   useEffect(() => {
     if(idUser){
-      getUserData()
+      console.log(userData)
+      getUserData(userData)
     }
-}, [])
+}, [userData])
 
   const dispatch = useDispatch()
   function handleErrors(){

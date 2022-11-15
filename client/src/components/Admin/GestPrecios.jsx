@@ -6,7 +6,6 @@ import style from "./GestPrecios.module.css";
 const GestPrecios = () => {
   return (
     <div className={style.admin}>
-      <Profile />
       <div className={style.container}></div>
       <div className={style.acciones}>
         <h3 className={style.h3}>Gestionar Precios</h3>

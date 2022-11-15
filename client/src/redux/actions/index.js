@@ -17,6 +17,7 @@ import {
   GET_FIELD_COMMENTS,
   GET_BOOKINGS,
   SEND_EMAIL,
+  DELETE_ACCOUNT
   GET_USER,
   PUT_USER,
   PLAN,
@@ -245,4 +246,12 @@ export function cleanErrors() {
   };
 }
 
-
+export const deleteAccount = (id) => {
+  return async (dispatch) => {
+    const response = await axios.delete('/users/' + id)
+    dispatch({
+      type: DELETE_ACCOUNT,
+      payload: response.data
+    })
+  }
+}

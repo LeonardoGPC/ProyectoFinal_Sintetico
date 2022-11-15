@@ -1,0 +1,66 @@
+.contentInfo {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    align-items: flex-start;
+    position: relative;
+    flex-wrap: wrap;
+    padding: 30px;
+  }
+  
+  .divInfo {
+    font-size: 22px;
+    color: white;
+    width: 300px;
+    margin: 15px;
+  }
+  
+  .info {
+    width: 100%;
+    text-align: left;
+  }
+  
+  .zone {
+    background-color: #404040;
+    width: 100%;
+    height: 200px;
+    display: grid;
+    border-radius: 20px;
+    text-align: left;
+    padding: 20px;
+  }
+  
+  .zoneBooking{
+    font-size: 18px;
+    text-align: left;
+  }
+  
+  .noReserv{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+  }
+  
+  .noReserv h1{
+    color: white;
+  }
+  
+  .cta{
+    width: max-content;
+    padding: 8px 15px;
+    cursor: pointer;
+    color: black;
+    background-color: #98F576;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    text-decoration: none;
+    transition: all 500ms ease;
+  }
+  
+  .cta:hover{
+    padding: 8px 30px;
+    border-radius: 30px;
+  }

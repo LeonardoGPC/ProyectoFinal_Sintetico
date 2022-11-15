@@ -1,7 +1,9 @@
 const { Router } = require('express');
 const router = Router();
-const { createUser, getUser, getUsers, createGoogleUser, authenticate, editUser} = require('../controllers/userController');
+const { createUser, getUser, getUsers, createGoogleUser, authenticate, editUser, deleteAccount } = require('../controllers/userController');
 const passport = require('passport');
+const { User } = require ('../db')
+
 
 
 router.post("/", async (req, res) => {
@@ -110,4 +112,16 @@ router.put("/:id", async (req,res)=> {
         res.status(404).send(error.message);
     }
 })
+
+router.delete('/:id', async ({params: {id}}, res) => {
+    try{
+        deleteAccount(id)
+        res.send('Element was deleted')
+
+    }catch(error){
+        res.status(404).send(error.message)
+    }
+})
+
+
 module.exports = router
