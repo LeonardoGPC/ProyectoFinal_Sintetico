@@ -24,6 +24,7 @@
 .tableBookings table {
   background-color: white;
   border-collapse: collapse;
+  margin-left: 30px;
 }
 
 .tableBookings thead {
