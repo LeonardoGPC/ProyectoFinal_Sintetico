@@ -14,7 +14,7 @@ export default function TableCards() {
 
   const handlerState = async (id) => {
     console.log(id);
-    await axios.put("http://localhost:3001/fields/" + id, {
+    await axios.put("/fields/" + id, {
       id: id,
       state: "APPROVED",
     });
@@ -23,7 +23,7 @@ export default function TableCards() {
 
   const handlerDelete = async (id) => {
     console.log(id);
-    await axios.put("http://localhost:3001/fields/" + id, {
+    await axios.put("/fields/" + id, {
       id: id,
       state: "DISAPPROVED",
     });
