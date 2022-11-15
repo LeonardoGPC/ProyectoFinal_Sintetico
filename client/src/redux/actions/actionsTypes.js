@@ -1,4 +1,5 @@
 export const PRUEBA = 'PRUEBA';
+export const PLAN = 'PLAN';
 export const GET_CITIES = 'GET_CITIES';
 export const GET_SIZES = 'GET_SIZES';
 export const GET_SURFACES = 'GET_SURFACES';

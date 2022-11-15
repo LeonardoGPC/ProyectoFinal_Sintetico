@@ -19,6 +19,7 @@ import {
   SEND_EMAIL,
   GET_USER,
   PUT_USER,
+  PLAN,
 } from './actionsTypes';
 
 export const prueba = () => {
@@ -28,7 +29,12 @@ export const prueba = () => {
   };
 };
 
-
+export const plan = (editPlan) => {
+  return {
+    type: PLAN,
+    payload: editPlan,
+  }
+}
 
 export  function sendInquiryEmail(payload){
   console.log("payload", payload)

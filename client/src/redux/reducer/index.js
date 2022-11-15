@@ -18,6 +18,7 @@ import {
   SEND_EMAIL,
   GET_USER,
   PUT_USER,
+  PLAN,
 } from '../actions/actionsTypes';
 
 const initialState = {
@@ -48,6 +49,11 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         prueba: action.payload,
       };
+      case PLAN:
+        return{
+          ...state,
+          plan: action.payload,
+        }
 
       case GET_FIELDS:{
         return {
