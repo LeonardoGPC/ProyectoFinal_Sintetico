@@ -252,6 +252,7 @@ function Profile() {
                     Gestionar Precios
                   </Link>
                 </li>
+                {/* No se si es necesario que intervenga el admin en las reservas
                 <li className={prof.li} onClick={() => switchHandler('gestRes')}>
                   <Link className={prof.link} to="/gestionarreservas">
                     Gestionar Reservas
