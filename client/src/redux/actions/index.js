@@ -17,6 +17,9 @@ import {
   GET_FIELD_COMMENTS,
   GET_BOOKINGS,
   SEND_EMAIL,
+  GET_USER,
+  PUT_USER,
+  PLAN,
 } from './actionsTypes';
 
 export const prueba = () => {
@@ -26,7 +29,12 @@ export const prueba = () => {
   };
 };
 
-
+export const plan = (editPlan) => {
+  return {
+    type: PLAN,
+    payload: editPlan,
+  }
+}
 
 export  function sendInquiryEmail(payload){
   console.log("payload", payload)
@@ -107,6 +115,26 @@ export const getFields = () => {
     });
   };
 };
+
+export const getUsers = () => {
+  return async (dispatch) => {
+    const users = await axios.get("/users")
+    dispatch({
+      type: GET_USER,
+      payload: users.data,
+    })
+  }
+}
+
+export const putUser = (id) => {
+  return async (dispatch) => {
+    const user = await axios.put("/users/" + id)
+    dispatch({
+      type: PUT_USER,
+      payload: user.data,
+    })
+  }
+}
 
 export function filterFieldByCity(payload) {
   Number(payload);

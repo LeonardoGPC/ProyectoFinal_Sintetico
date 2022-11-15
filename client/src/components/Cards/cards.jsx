@@ -10,8 +10,14 @@ import { Link } from "react-router-dom";
 export default function Cards() {
   const dispatch = useDispatch();
   const fieldState = useSelector((state) => state.fields);
-  const fields = fieldState.filter((f) => f.state === "APPROVED");
-  console.log(fields);
+  const canchas = fieldState.filter((f) => f.state === "APPROVED");
+
+  let canchaPremium = canchas.filter(f => f.User.planType === "premium")
+  console.log("canchaPremium" + canchaPremium);
+  let canchaClub = canchas.filter(f => f.User.planType === "club")
+  let fields = canchaPremium.concat(canchaClub)
+
+
   const [page, setPage] = useState(1);
 
   const itemsPerPage = 3;

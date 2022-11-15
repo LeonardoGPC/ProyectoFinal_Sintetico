@@ -141,11 +141,12 @@ function Profile() {
                     Gestionar Precios
                   </Link>
                 </li>
+                {/* No se si es necesario que intervenga el admin en las reservas
                 <li className={prof.li}>
                   <Link className={prof.link} to="/gestionarreservas">
                     Gestionar Reservas
                   </Link>
-                </li>
+                </li> */}
                 <li className={prof.li} onClick={() => (setShowText(false), setSettings(true))}>Configuración</li>
               </ul>
               <p className={prof.li} onClick={() => closeSesion()}>

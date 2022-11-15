@@ -1,15 +1,16 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { getFields } from "../../../redux/actions";
 import { RiDeleteBin6Line, RiEdit2Line } from "react-icons/ri";
-import styles from "./TableCards.module.css";
-import { Link } from "react-router-dom";
 import { AiOutlineCheck } from "react-icons/ai";
+import styles from "./TableEditPremium.module.css";
 import axios from "axios";
 
-export default function TableCards() {
+export default function TableEditPremium() {
   const dispatch = useDispatch();
-  const fields = useSelector((state) => state.fields);
+  const fieldState = useSelector((state) => state.fields);
+  const fields = fieldState.filter((f) => f.User.planType === "premium");
   console.log(fields);
 
   const handlerState = async (id) => {
@@ -33,7 +34,6 @@ export default function TableCards() {
   useEffect(() => {
     dispatch(getFields());
   }, []);
-
   return (
     <div className={styles.tablecards}>
       <table>

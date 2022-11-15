@@ -16,6 +16,9 @@ import {
   GET_FIELD_COMMENTS,
   GET_BOOKINGS,
   SEND_EMAIL,
+  GET_USER,
+  PUT_USER,
+  PLAN,
 } from '../actions/actionsTypes';
 
 const initialState = {
@@ -32,6 +35,7 @@ const initialState = {
   detail: {},
   bookings: [],
   user: '',
+  allUsers: [],
   errors: null,
   plan: {basico: {img: 'https://pbs.twimg.com/media/FFn0jYGWQAgaT2X.jpg', name: 'Básico', price: '2800', desc: '50'},
         club: {img: 'https://www.bluehills.org/assets/uploads/athletics/fall/Soccer.jpg', name: 'Clubes', price: '6000', desc: '50'},
@@ -45,6 +49,11 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         prueba: action.payload,
       };
+      case PLAN:
+        return{
+          ...state,
+          plan: action.payload,
+        }
 
       case GET_FIELDS:{
         return {
@@ -54,6 +63,13 @@ const rootReducer = (state = initialState, action) => {
           fieldsFilterByCity: action.payload,
           fieldsFilterByCityAndSize: [],
           errors: null,
+        }
+      }
+
+      case GET_USER:{
+        return{
+          ...state,
+          allUsers: action.payload,
         }
       }
 
@@ -136,6 +152,9 @@ const rootReducer = (state = initialState, action) => {
     }
     case USER:{
       return {...state, user: action.payload}
+    }
+    case PUT_USER:{
+      return {...state}
     }
     case CLEAN_ERRORS:{
       return {...state, errors: action.payload}
