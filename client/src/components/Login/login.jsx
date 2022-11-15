@@ -102,11 +102,7 @@ function Login() {
 
     const login = (e) => {
         e.preventDefault()
-<<<<<<< HEAD
-        axios.post('/users/login',{userName: input.username, password: input.password})
-=======
         axios.post('/users/login',{userName: input.username, password: input.password}/* , {withCredentials: true } */)
->>>>>>> Developer
         .then(response => {
             return response.data;
         })
