@@ -15,7 +15,7 @@ import {
 export default function StatsPlan() {
   const dispatch = useDispatch();
   const users = useSelector((state) => state.allUsers);
-
+  console.log("hola soy un console");
   const usersNone = users.filter((user) => user.planType === "none").length;
   const usersBasico = users.filter((user) => user.planType === "basico").length;
   const usersClub = users.filter((user) => user.planType === "club").length;
