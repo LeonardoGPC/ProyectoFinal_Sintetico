@@ -56,7 +56,7 @@ export default function StatsPlan() {
       <div className={styles.premium}>Premium: {usersPremium}</div>
       <div className={styles.grafico}>
         <BarChart
-          width={600}
+          width={500}
           height={300}
           data={data}
           margin={{
@@ -66,6 +66,11 @@ export default function StatsPlan() {
             bottom: 5,
           }}
         >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" />
+          <YAxis />
+          <Tooltip content={<CustomTooltip />} />
+          {/* <Legend /> */}
           <Bar
             type="monotone"
             dataKey="none"
@@ -101,11 +106,6 @@ export default function StatsPlan() {
             strokeWidth={3}
             barSize={30}
           />
-          <CartesianGrid stroke="#ccc" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip content={<CustomTooltip />} />
-          <Legend />
         </BarChart>
       </div>
     </div>
