@@ -35,11 +35,11 @@
 
 .tbody tr {
   border-bottom: 1px solid #e2d7d71e;
-  /* background-color: #ddd; */
+  
 }
 
 .tbody th,
-td {
+.tbody td {
   padding: 5px;
 }
 
@@ -54,6 +54,18 @@ td {
 .details:hover {
   background-color: rgb(115, 186, 214);
 }
+.delete {
+  background-color: tomato;
+  border: none;
+  border-radius: 10px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.delete:hover{
+    background-color: rgb(228, 78, 52);
+}
+
 
 .notfound {
   color: #ddd;

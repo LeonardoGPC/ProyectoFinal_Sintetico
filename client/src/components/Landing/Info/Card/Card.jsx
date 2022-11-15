@@ -17,7 +17,6 @@ export default function Carousel () {
     const fieldState = useSelector((state) => state.fields);
     const fieldsApproved = fieldState.filter((f) => f.state === "APPROVED");
     // const fieldsPremium = fieldsApproved.filter((f) => f.User.planType === "premium");
-    
 
     useEffect(() => {
         dispatch(getFields());

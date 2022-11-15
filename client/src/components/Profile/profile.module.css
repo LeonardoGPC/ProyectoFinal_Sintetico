@@ -98,7 +98,7 @@
 
 .contentInfo {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   width: 100%;
   align-items: flex-start;
   position: relative;
@@ -132,7 +132,6 @@
   font-size: 18px;
   text-align: left;
 }
-
 
 .modal_main{
   width: 100%;

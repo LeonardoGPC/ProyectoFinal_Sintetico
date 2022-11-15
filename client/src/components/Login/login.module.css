@@ -327,3 +327,8 @@
     from{transform: translateX(-50px) rotate(-135deg);}
     to{transform: translateX(0px) rotate(0deg);}
 }
+
+.googleForm{
+    padding: 50px;
+    background-color: red;
+}

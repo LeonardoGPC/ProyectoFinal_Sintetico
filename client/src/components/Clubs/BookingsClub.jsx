@@ -47,17 +47,27 @@ export default function BookingsClub() {
         </thead>
         <tbody className={styles.tbody}>
           {fields.map((field) =>
-            field.Bookings.map((booking) => (
-              <tr key={booking.id}>
-                <td>{field.id}</td>
-                <td>{field.name}</td>
-                <td>{booking.date}</td>
-                <td>{booking.hour}</td>
-                <td>{booking.User.name}</td>
-                <td>{booking.User.phone}</td>
-                <td>{booking.User.email}</td>
-              </tr>
-            )),
+            {
+              const bookings = field.Bookings.filter((b) => b.paymentStatus === "APPROVED");
+
+              if (bookings.length) {
+                return bookings.map((booking) => (
+                  <tr key={booking.id}>
+                    <td>{field.id}</td>
+                    <td>{field.name}</td>
+                    <td>{booking.date}</td>
+                    <td>{booking.hour}</td>
+                    <td>{booking.User.name}</td>
+                    <td>{booking.User.phone}</td>
+                    <td>{booking.User.email}</td>
+                  </tr>
+                ));
+              } else {
+                return <tr>
+                  <td colSpan={7}>No hay reservas en la cancha {field.name}</td>
+                </tr>
+              }
+            },
           )}
         </tbody>
       </table>
