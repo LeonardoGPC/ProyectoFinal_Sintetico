@@ -81,14 +81,14 @@ export async function getCroppedImg(
   ctx.putImageData(data, 0, 0)
 
   // As Base64 string
-  // return canvas.toDataURL('image/jpeg');
+  return canvas.toDataURL('image/jpeg');
 
   // As a blob
-  return new Promise((resolve, reject) => {
-    canvas.toBlob((file) => {
-      resolve(URL.createObjectURL(file))
-    }, 'image/jpeg')
-  })
+  // return new Promise((resolve, reject) => {
+  //   canvas.toBlob((file) => {
+  //     resolve(URL.createObjectURL(file))
+  //   }, 'image/jpeg')
+  // })
 }
 
 export async function getRotatedImage(imageSrc, rotation = 0) {
@@ -113,7 +113,6 @@ export async function getRotatedImage(imageSrc, rotation = 0) {
   return new Promise((resolve) => {
     canvas.toBlob((file) => {
       const re = resolve(URL.createObjectURL(file))
-      console.log(re)
     }, 'image/png')
   })
 }

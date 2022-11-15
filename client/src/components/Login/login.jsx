@@ -23,7 +23,7 @@ function Login() {
             googleId: userObject.sub
 
         }
-        var {data: {id}} = await axios.post('http://localhost:3001/users/googleAuth', object);
+        var {data: {id}} = await axios.post('/users/googleAuth', object);
         cookie.set('usuario', object.userName)
         cookie.set('id', id)
         window.history.back()
@@ -75,9 +75,8 @@ function Login() {
 
     const registerHandler = async (e) => {
         e.preventDefault()
-        await axios.post('/users', register, {withCredentials: true})
+        await axios.post('/users', register)
         .then(response => {
-            console.log(response)
             setModal(true)
             setRegister({
             name: '',
@@ -103,7 +102,7 @@ function Login() {
 
     const login = (e) => {
         e.preventDefault()
-        axios.post('/users/login',{userName: input.username, password: input.password}, {withCredentials: true })
+        axios.post('/users/login',{userName: input.username, password: input.password})
         .then(response => {
             return response.data;
         })

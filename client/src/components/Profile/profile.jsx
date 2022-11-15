@@ -8,6 +8,7 @@ import axios from "axios";
 import { getBookings, getFields } from "../../redux/actions";
 import { URL_APP } from "../../utils/utils";
 import Settings from "./Configuracion/settings";
+import ProfileAvatar from "./ProfileAvatar/ProfileAvatar.jsx";
 
 function Profile() {
   let bookings = useSelector((state) => state.bookings);
@@ -26,6 +27,8 @@ function Profile() {
     image: "",
     type: "",
   });
+
+  const [modal, setModal] = useState(false)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -38,10 +41,9 @@ function Profile() {
 
   const arr = bookings;
   const getById = arr.filter((e) => e.UserId === userData.id);
-  console.log(getById, "result");
     useEffect(() => {
         const getUserData = async () => {
-            let data = await axios.get(`http://localhost:3001/users/${idUser}`, {withCredentials: true });
+            let data = await axios.get(`/users/${idUser}`, {withCredentials: true });
             //let data = await axios.get('http://localhost:3001/users/' + idUser)
             setUserData({
                 name: data.data.name,
@@ -79,14 +81,12 @@ function Profile() {
     window.location.replace(URL_APP);
   };
 
-  console.log(settings)
-
   if (typeof usuario === "undefined") {
     window.location.replace(`${URL_APP}/login`);
   } else {
     return (
       <div className={prof.main}>
-        <Navbar />
+        <Navbar userData={userData}/>
         <div className={prof.div}>
           {userData.type === "user" ? (
             <div className={prof.menu}>
@@ -174,11 +174,16 @@ function Profile() {
                   })}
                 </div>
               )}
-              {settings && <Settings/>}
+              {settings && <Settings setModal={setModal} imgData={userData}/>}
               <Outlet />
               </div>
         </div>
         <div></div>
+        {modal && <div className={prof.modal_main}>
+                <div className={prof.modal_box}>
+                    <ProfileAvatar setModal={setModal} userData={userData} setUserData={setUserData} idUser={idUser}/>                    
+                </div>
+        </div>}
       </div>
     );
   }

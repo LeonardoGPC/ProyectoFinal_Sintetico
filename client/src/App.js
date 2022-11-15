@@ -115,8 +115,7 @@ function App() {
 
           <Route path="/gestionarusuarios" element={<GestUsuarios />} />
           <Route path="/gestionarprecios" element={<GestPrecios />} />
-          <Route path="/gestionarreservas" element={<GestReservas />} />
-          <Route exact path="/crop" element={<ProfileAvatar />} />          
+          <Route path="/gestionarreservas" element={<GestReservas />} />     
         </Routes>
         {load && <Load />}
       </div>

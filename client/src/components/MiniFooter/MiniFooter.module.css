@@ -46,8 +46,9 @@
     cursor: pointer;
 }
 
-p{
+.medios p{
     color: #ffffff;
+    margin-right: 10px;
 }
 .medios{
     display: flex;

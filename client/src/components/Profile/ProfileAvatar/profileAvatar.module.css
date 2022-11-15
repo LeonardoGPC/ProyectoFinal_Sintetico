@@ -22,7 +22,8 @@
   align-items: center;
 }
 
-p{
+.controls p{
+  margin-top: 25px;
   margin-right: 20px;
 }
 .zoomRange {

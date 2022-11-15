@@ -3,42 +3,29 @@ import Cropper from 'react-easy-crop'
 import style from './profileAvatar.module.css'
 import {Slider} from '@material-ui/core';
 import { getCroppedImg } from './canvasUtils';
+import{URL} from '../../../utils/utils.js'
+import axios from 'axios';
 
-function ProfileAvatar({ photoURL, setOpenCrop, setPhotoURL, setFile }) {
+function ProfileAvatar(prop) {
     const [state, setState] = useState({
     imageSrc:
-    'https://img.huffingtonpost.com/asset/5ab4d4ac2000007d06eb2c56.jpeg?cache=sih0jwle4e&ops=1910_1000',
+    prop.userData.image,
     })
     const [crop, setCrop] = useState({ x: 0, y: 0 })
-    const [zoom, setZoom] = useState(1.3)
+    const [zoom, setZoom] = useState(1.6)
     const [rotation, setRotation] = useState(0);
     const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
 
     const cropComplete = (croppedArea, croppedAreaPixels) => {
         setCroppedAreaPixels(croppedAreaPixels);
       };
-    
-    const cropImage = async () => {
-    try {
-        const { file, url } = await getCroppedImg(
-        photoURL,
-        croppedAreaPixels,
-        rotation
-        );
-        setPhotoURL(url);
-        setFile(file);
-        setOpenCrop(false);
-    } catch (error) {
-        console.log(error);
-    }
-    };
 
     const[previewSource, setPreviewSource] = useState();
 
     const handleFileInputChange = (e) =>{
         const file = e.target.files[0];
         const {type} = file;
-        if(type.endsWith ('jpeg' || type.endsWith ('jpg') || type.endsWith ('png'))){
+        if(type.endsWith ('jpeg') || type.endsWith ('jpg') || type.endsWith ('png')){
              previewFile(file);
         }
     } 
@@ -51,7 +38,46 @@ function ProfileAvatar({ photoURL, setOpenCrop, setPhotoURL, setFile }) {
         }
     }
 
+    const cropImage = async () => {
+      try {
+          const file = await getCroppedImg(
+          state.imageSrc,
+          croppedAreaPixels,
+          rotation
+          );
+          const cloudinaryImg = await uploadImage(file)
+          prop.setUserData({...prop.userData, image: cloudinaryImg})
+          return (prop.userData)
+      } catch (error) {
+          console.log(error);
+      }
+    };
 
+    const uploadImage = async (base64EncondedImage) =>{
+      try {
+          const data = await fetch (`${URL}/uploads`,{
+              method: 'POST',
+              body: JSON.stringify({
+                  data: base64EncondedImage
+              }),
+              headers: {'Content-type':'application/json'},
+          })
+          const response = await data.json()
+          imageSaveDb(response.url)
+          return (response.url)
+      } catch (error) {
+          console.log(error)            
+      }
+    }
+
+    const imageSaveDb = async (url) => {
+      axios.put('/users/' + prop.idUser, {
+          image: url
+      })
+      // .then(response => {
+      //     window.location.reload()
+      // })
+  }
 
     return (
       <div className={style.cropper}>
@@ -62,7 +88,7 @@ function ProfileAvatar({ photoURL, setOpenCrop, setPhotoURL, setFile }) {
           zoom={zoom}
           rotation={rotation}
           aspect={1}
-          cropSize={{width: 200, height: 200}}
+          cropSize={{width: 250, height: 250}}
           onCropComplete={cropComplete}
           cropShape="round"
           showGrid={false}
@@ -74,7 +100,7 @@ function ProfileAvatar({ photoURL, setOpenCrop, setPhotoURL, setFile }) {
         <div className={style.controls}>
             <p>Zoom</p>
             <Slider
-            min={1.3}
+            min={0.5}
             max={3}
             step={0.1}
             value={zoom}
@@ -93,8 +119,8 @@ function ProfileAvatar({ photoURL, setOpenCrop, setPhotoURL, setFile }) {
         <div>
             <label htmlFor="field" className={style.imageUpload}> Añadir foto </label>
             <input type="file" id="field" accept="image/png, image/jpeg" onChange={handleFileInputChange} className={style.input} />
-            <button onClick={cropImage} className={style.imageUpload}>Aceptar</button>
-            <button onClick={() => setOpenCrop(false) } className={style.imageUpload}>Cancelar</button>
+            <button onClick={() => {prop.setModal(false); cropImage()}} className={style.imageUpload}>Aceptar</button>
+            <button onClick={() => prop.setModal(false) } className={style.imageUpload}>Cancelar</button>
         </div>
       </div>
     )

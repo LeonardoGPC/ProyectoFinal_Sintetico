@@ -3,8 +3,9 @@ import Cookies from 'universal-cookie'
 import s from './settings.module.css'
 import edit from '../../../img/icons/edit.svg'
 import axios from 'axios'
+import{URL} from '../../../utils/utils.js'
 
-function Settings() {
+function Settings({setModal, imgData}) {
 
     const cookie = new Cookies()
     const idUser = cookie.get('id')
@@ -27,28 +28,32 @@ function Settings() {
 
     useEffect(() => {
         if(idUser){
-            fetch('http://localhost:3001/users/' + idUser)
+            fetch(`${URL}/users/` + idUser)
             .then(response => response.json())
             .then(res => setUserData(res))
             .catch(error => console.log(error))
         }
     }, [])
 
+  
     const inputHandler = (e) => {
         setInput({
             ...input,
             [e.target.name]: e.target.value
         })
+        setUserData({
+          ...userData,
+          [e.target.name]: e.target.value
+        })
     }
 
     const submitHandler = async (e) => {
         e.preventDefault()
-        axios.put('http://localhost:3001/users/' + idUser, {
+        axios.put('/users/' + idUser, {
             [e.target[0].name]: e.target[0].value
         })
         .then(response => {
-            setEditS({...editS, [e.target[0].name]: true})
-            window.location.reload()
+            setEditS({...editS, [e.target[0].name]: true})  
         })
     }
 
@@ -56,7 +61,7 @@ function Settings() {
       <div style={{color: 'white', display: 'flex', margin: '50px', gap: '50px'}}>
         {userData ? <>
         <div className={s.div_img}>
-          <img src={userData.image} className={s.img}/>
+          <img src={imgData.image} onClick={()=>setModal(true)} className={s.img}/>
         </div>
         <div className={s.container}>
         <div>
