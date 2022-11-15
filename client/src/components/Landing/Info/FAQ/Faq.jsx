@@ -42,7 +42,7 @@ const toggle = (i) => {
             <div className={style.item}>
                 <div className={style.title} onClick={() => toggle(i)}>
                     <h2>{item.question}</h2>
-                    <span>{selected === i ? '-' : '+'}</span>
+                    <span className={style.span}>{selected === i ? '-' : '+'}</span>
                 </div>
                 <div className={selected === i ? style.show  : style.content}>{item.answer}</div>
             </div>
