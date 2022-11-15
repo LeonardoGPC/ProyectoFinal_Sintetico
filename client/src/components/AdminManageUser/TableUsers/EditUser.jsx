@@ -16,7 +16,7 @@ export default function EditUser() {
   console.log(filterUsers);
 
   const planNone = async (id) => {
-    await axios.put("http://localhost:3001/users/" + id, {
+    await axios.put("/users/" + id, {
       id: id,
       planType: "none",
     });
@@ -24,7 +24,7 @@ export default function EditUser() {
   };
 
   const planBasico = async (id) => {
-    await axios.put("http://localhost:3001/users/" + id, {
+    await axios.put("/users/" + id, {
       id: id,
       planType: "basico",
     });
@@ -32,7 +32,7 @@ export default function EditUser() {
   };
 
   const planClub = async (id) => {
-    await axios.put("http://localhost:3001/users/" + id, {
+    await axios.put("/users/" + id, {
       id: id,
       planType: "club",
     });
@@ -40,7 +40,7 @@ export default function EditUser() {
   };
 
   const planPremium = async (id) => {
-    await axios.put("http://localhost:3001/users/" + id, {
+    await axios.put("/users/" + id, {
       id: id,
       planType: "premium",
     });
