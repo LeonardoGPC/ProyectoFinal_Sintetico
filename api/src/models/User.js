@@ -31,7 +31,7 @@ module.exports = (sequelize) => {
     image: {
         type: DataTypes.STRING,
         allowNull:true,
-        defaultValue: 'https://imgs.search.brave.com/LKZaQJ8CXmrdQfwcqrq-UEuEu7Z62flCZgSujQmCc2M/rs:fit:236:236:1/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vMjM2/eC8xNS9iZi9iOS8x/NWJmYjkxMzVmZDhl/YWUyNGY0NzAyMDky/NmEyNzdjYy5qcGc'
+        defaultValue: 'https://res.cloudinary.com/deirkmhyd/image/upload/v1668551430/sintetico/jx4co8voyonxdxusng4w.jpg'
         //default value iconito
     },
     password: {
