@@ -50,9 +50,13 @@ const rootReducer = (state = initialState, action) => {
         prueba: action.payload,
       };
       case PLAN:
+        const { editPlan, key } = action.payload;
         return{
           ...state,
-          plan: action.payload,
+          plan: {
+            ...state.plan,
+            [key]: editPlan,
+          },
         }
 
       case GET_FIELDS:{

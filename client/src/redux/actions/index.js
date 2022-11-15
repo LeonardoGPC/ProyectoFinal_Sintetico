@@ -29,10 +29,10 @@ export const prueba = () => {
   };
 };
 
-export const plan = (editPlan) => {
+export const plan = (editPlan, key) => {
   return {
     type: PLAN,
-    payload: editPlan,
+    payload: { editPlan, key },
   }
 }
 
