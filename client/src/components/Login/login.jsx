@@ -24,7 +24,7 @@ function Login() {
             googleId: userObject.sub
 
         }
-        var {data: {id}} = await axios.post('http://localhost:3001/users/googleAuth', object);
+        var {data: {id}} = await axios.post('/users/googleAuth', object);
         cookie.set('usuario', object.userName)
         cookie.set('id', id)
         window.history.back()

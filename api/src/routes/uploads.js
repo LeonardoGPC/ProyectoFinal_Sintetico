@@ -8,7 +8,6 @@ router.post('/', async (req, res) => {
         const uploadResponse = await cloudinary.uploader.upload(fileStr, {
             upload_preset: 'sintetico_setup'
         })
-        console.log(uploadResponse)
         res.json({url:uploadResponse.secure_url});
     } catch (error) {
         

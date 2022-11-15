@@ -8,6 +8,7 @@ import axios from "axios";
 import { getBookings, getFields } from "../../redux/actions";
 import { URL_APP } from "../../utils/utils";
 import Settings from "./Configuracion/settings";
+import ProfileAvatar from "./ProfileAvatar/ProfileAvatar.jsx";
 
 function Profile() {
   let bookings = useSelector((state) => state.bookings);
@@ -26,6 +27,8 @@ function Profile() {
     image: "",
     type: "",
   });
+
+  const [modal, setModal] = useState(false)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -41,8 +44,8 @@ function Profile() {
   const getById = arr.filter((e) => e.UserId === userData.id);
     useEffect(() => {
         const getUserData = async () => {
-            // let data = await axios.get(`http://localhost:3001/users/${idUser}`, {withCredentials: true });
-            let data = await axios.get('http://localhost:3001/users/' + idUser)
+            // let data = await axios.get(`/users/${idUser}`, {withCredentials: true });
+            let data = await axios.get('/users/' + idUser)
             setUserData({
                 name: data.data.name,
                 lastName: data.data.lastName,
@@ -85,7 +88,7 @@ function Profile() {
   } else {
     return (
       <div className={prof.main}>
-        <Navbar />
+        <Navbar userData={userData}/>
         <div className={prof.div}>
           {userData.type === "user" ? (
             <div className={prof.menu}>
@@ -143,11 +146,12 @@ function Profile() {
                     Gestionar Precios
                   </Link>
                 </li>
+                {/* No se si es necesario que intervenga el admin en las reservas
                 <li className={prof.li}>
                   <Link className={prof.link} to="/gestionarreservas">
                     Gestionar Reservas
                   </Link>
-                </li>
+                </li> */}
                 <li className={prof.li} onClick={() => (setShowText(false), setSettings(true))}>Configuración</li>
               </ul>
               
@@ -177,11 +181,16 @@ function Profile() {
                     </div>}
                 </div>
               )}
-              {settings && <Settings/>}
+              {settings && <Settings setModal={setModal} imgData={userData}/>}
               <Outlet />
               </div>
         </div>
         <div></div>
+        {modal && <div className={prof.modal_main}>
+                <div className={prof.modal_box}>
+                    <ProfileAvatar setModal={setModal} userData={userData} setUserData={setUserData} idUser={idUser}/>                    
+                </div>
+        </div>}
       </div>
     );
   }

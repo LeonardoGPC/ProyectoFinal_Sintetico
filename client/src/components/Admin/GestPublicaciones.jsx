@@ -15,16 +15,20 @@ const GestPublicaciones = () => {
           <Link to="/admin/fields">
             <button className={style.btn}>Publicaciones Actuales</button>
           </Link>
+          <Link to="/admin/fields/premium">
+            <button className={style.btn} style={{ backgroundColor: "gold" }}>
+              Publicaciones PREMIUM{" "}
+            </button>
+          </Link>
           <Link to="/admin/fields/edit">
             <button className={style.btn}>Administrar Publicaciones</button>
           </Link>
           <Link to="/admin/fields/stats">
-          <button className={style.btn}>Estadisticas</button>
+            <button className={style.btn}>Estadisticas</button>
           </Link>
           <Link to="/admin/fields/deleted">
-          <button className={style.btn}>Publicaciones eliminadas</button>
+            <button className={style.btn}>Publicaciones eliminadas</button>
           </Link>
-          {/* <button className={style.btn}>Modificar Publicación</button> */}
         </div>
       </div>
     </div>
