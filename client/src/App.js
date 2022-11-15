@@ -37,6 +37,7 @@ import AdminEditPlan from "./components/AdminManagePlan/AdminEditPlan";
 import { FaGoogle } from "react-icons/fa";
 import UserBenefits from "./components/AdminManageUser/UserBenefits";
 import AdminEditPremium from "./components/AdminManageFields/AdminEditPremium";
+import AdminPlanStats from "./components/AdminManagePlan/AdminPlanStats";
 
 function App() {
   const [load, setLoad] = useState(false);
@@ -123,6 +124,7 @@ function App() {
           <Route path="/gestionarprecios" element={<GestPrecios />} />
           <Route path="/admin/plan" element={<AdminManagePlan />} />
           <Route path="/admin/plan/edit" element={<AdminEditPlan />} />
+          <Route path="/admin/plan/stats" element={<AdminPlanStats />} />
           <Route path="/gestionarreservas" element={<GestReservas />} />
         </Routes>
         {load && <Load />}
