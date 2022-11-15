@@ -1,9 +1,56 @@
-.statsplan{
-    color: white;
+.statsplan {
+  color: black;
 }
 
-.grafico{
-    background-color: antiquewhite;
-    color: black;
-    width: 600px;
+.container {
+  display: flex;
+  font-style: italic;
+}
+
+.none {
+  background-color: #F3DE2C;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+}
+.basico {
+  background-color: #7CB518;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  margin: 10px;
+}
+.club {
+  background-color: #5C8001;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  margin: 10px;
+}
+.premium {
+  background-color: #FBB02D;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.grafico {
+  background-color: antiquewhite;
+  color: black;
+  width: 600px;
 }

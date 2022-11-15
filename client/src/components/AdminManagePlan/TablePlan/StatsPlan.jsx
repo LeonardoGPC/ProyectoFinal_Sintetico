@@ -50,10 +50,33 @@ export default function StatsPlan() {
   }, []);
   return (
     <div className={styles.statsplan}>
-      <div className={styles.none}>Gratis: {usersNone}</div>
-      <div className={styles.basico}>Básico: {usersBasico}</div>
-      <div className={styles.club}>Club: {usersClub}</div>
-      <div className={styles.premium}>Premium: {usersPremium}</div>
+      <div className={styles.container}>
+        <div className={styles.none}>
+          <span>
+            <p>Gratis</p>
+            <p>{usersNone}</p>
+          </span>
+        </div>
+        <div className={styles.basico}>
+          <span>
+            <p>Básico</p>
+            <p>{usersBasico}</p>
+          </span>
+        </div>
+        <div className={styles.club}>
+          <span>
+            <p>Club</p>
+            <p>{usersClub}</p>
+          </span>
+        </div>
+        <div className={styles.premium}>
+          <span>
+            <p>Premium</p>
+            <p>{usersPremium}</p>
+          </span>
+        </div>
+      </div>
+
       <div className={styles.grafico}>
         <BarChart
           width={500}
