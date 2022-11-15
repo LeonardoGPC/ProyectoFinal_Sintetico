@@ -1,9 +1,38 @@
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { plan } from "../../../redux/actions";
 import styles from "./EditPlan.module.css";
 
 export default function EditPlan() {
   const planes = useSelector((state) => state.plan);
   console.log(planes);
+  const dispatch = useDispatch();
+
+  const [edit, setEdit] = useState({
+    price: "",
+    desc: "",
+  });
+
+  const handleChange = (e) => {
+    console.log(e.target.value);
+    setEdit({
+      ...edit,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    console.log("hola soy un console");
+    e.preventDefault();
+    dispatch(plan(edit));
+    console.log("edit: " + edit);
+    setEdit({
+      price: "",
+      desc: "",
+    });
+  };
+
   return (
     <div className={styles.editplan}>
       <div className={styles.container}>
@@ -28,8 +57,8 @@ export default function EditPlan() {
             <h2>{planes.basico.name}</h2>
             <div>
               <p>DESCUENTO</p>
-              <input type="text" className={styles.text} />
-              <input type="submit" className={styles.button} />
+              <input type="text" name="desc" value={edit.desc} onChange={(e) => handleChange(e)} className={styles.text} />
+              <input type="submit" onClick={(e) => handleSubmit(e)} className={styles.button} />
             </div>
             <div>
               <p>PRECIO</p>
