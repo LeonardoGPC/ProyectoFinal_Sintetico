@@ -51,14 +51,31 @@ async function getFields() {
       {
         model: User,
         attributes: ["planType"],
-      }
-      
+      },
     ],
   });
-  if (fields.length) return fields;
+  if (fields.length){
+    for (let i = 0; i < fields.length; i++){
+      var field = fields[i];
+      field.score = await getFieldAvg(field.id);
+    }
+    return fields;
+  }
   else throw new Error("there is no data in db");
 }
+async function getFieldAvg(id){
+  const comments = await Comment.findOne({
+    where: {
+      FieldId: id,
+    },
+    attributes: [
+      [Sequelize.fn('AVG', Sequelize.col('score')), 'scr']
+    ],
+    plain: true
+  })
+  return comments.dataValues.scr;
 
+}
 async function getFieldById(id) {
   var field = await Field.findByPk(id, {
     where: {
@@ -86,30 +103,11 @@ async function getFieldById(id) {
       {
         model: User,
         attributes: ["planType"],
-      },
-      /* {
-        model: Booking,
-        include:[{
-          model: User,
-          include:[{
-            model: Comment
-          }]
-        }
-        ]
-      } */
-      
+      },      
     ],
   });
-  const comments = await Comment.findOne({
-    where: {
-      FieldId: id,
-    },
-    attributes: [
-      [Sequelize.fn('AVG', Sequelize.col('score')), 'scr']
-    ],
-    plain: true
-  })
-  field.score = comments.dataValues.scr;
+
+  field.score = await getFieldAvg(id);
   if (field) return field;
   else throw new Error("Field does not exist in db");
 }
