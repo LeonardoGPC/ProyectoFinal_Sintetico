@@ -36,6 +36,7 @@ import AdminEditPlan from "./components/AdminManagePlan/AdminEditPlan";
 
 import { FaGoogle } from "react-icons/fa";
 import UserBenefits from "./components/AdminManageUser/UserBenefits";
+import AdminEditPremium from "./components/AdminManageFields/AdminEditPremium";
 
 function App() {
   const [load, setLoad] = useState(false);
@@ -112,6 +113,7 @@ function App() {
             element={<GestPublicaciones />}
           />
           <Route path="/admin/fields" element={<AdminFields />} />
+          <Route path="/admin/fields/premium" element={<AdminEditPremium />} />
           <Route path="/admin/fields/edit" element={<AdminEdit />} />
           <Route path="/admin/fields/stats" element={<AdminStats />} />
           <Route path="/admin/fields/deleted" element={<AdminDeleted />} />
