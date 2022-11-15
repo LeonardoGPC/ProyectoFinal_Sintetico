@@ -9,7 +9,7 @@ export default function AdminEdit() {
     <div className={styles.adminedit}>
       <Navbar />
       <div className={styles.title}>
-        <Link to="/profile">
+        <Link to="/gestionarpublicaciones">
           <button className={styles.button}>Volver</button>
         </Link>
         <h1>Editar Publicaciones</h1>

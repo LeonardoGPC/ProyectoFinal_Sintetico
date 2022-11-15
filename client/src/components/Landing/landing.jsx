@@ -7,7 +7,9 @@ import { useEffect } from "react";
 export default function Landing() {
 
 function scroll () {
-    window.scrollTo(0, 0)
+    if(window.scrollY === 86){
+        window.scrollTo(0, 0)
+    }
 }
 
     useEffect(() => {

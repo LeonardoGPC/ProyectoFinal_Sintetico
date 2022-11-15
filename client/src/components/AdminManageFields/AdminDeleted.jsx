@@ -9,7 +9,7 @@ export default function AdminDeleted() {
     <div className={styles.admindelete}>
       <Navbar />
       <div className={styles.title}>
-        <Link to="/profile">
+        <Link to="/gestionarpublicaciones">
           <button className={styles.button}>Volver</button>
         </Link>
         <h1>Publicaciones eliminadas</h1>

@@ -98,6 +98,22 @@ module.exports = {
         OwnerId: 5
       },
       {
+        name: "Toluca FC",
+        image:
+          "https://alquilatucancha.com/uploads/clubs/bg/federal-5-caba.jpeg?607183",
+        state: "APPROVED",
+        price: 3500,
+        address: "Fair 1360, Monte Grande , Capital Federal",
+        openHour: '9:00',
+        closeHour: '23:00',
+        CityId: 1,
+        SizeId: 4,
+        SurfaceId: 3,
+        score: 5,
+        description: "Disfruta de un muy buen partido de fútbol 11 con tus mejores amigos o familiares, muestra todas tus habilidades en este deporte y siéntete como todo un jugador prefesional en las canchas que Punto Gol tiene para ti.",
+        OwnerId: 5
+      },
+      {
         name: "Solis Cano II",
         image:
           "https://alquilatucancha.com/static/results/generic-sport-thumb.jpg",

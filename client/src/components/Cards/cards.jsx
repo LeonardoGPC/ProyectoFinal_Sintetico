@@ -13,7 +13,6 @@ export default function Cards() {
   const canchas = fieldState.filter((f) => f.state === "APPROVED");
 
   let canchaPremium = canchas.filter(f => f.User.planType === "premium")
-  console.log("canchaPremium" + canchaPremium);
   let canchaClub = canchas.filter(f => f.User.planType === "club")
   let fields = canchaPremium.concat(canchaClub)
 
