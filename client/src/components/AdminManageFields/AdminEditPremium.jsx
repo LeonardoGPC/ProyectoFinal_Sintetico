@@ -7,15 +7,15 @@ import TableEditPremium from "./TableCards/TableEditPremium";
 export default function AdminEditPremium() {
   return (
     <div className={styles.adminpremium}>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className={styles.title}>
-        <Link to="/gestionarpublicaciones">
+        {/* <Link to="/gestionarpublicaciones">
           <button className={styles.button}>Volver</button>
-        </Link>
-        <h1>Editar Publicaciones PREMIUM</h1>
+        </Link> */}
+        <h1>Editar publicaciones premium</h1>
       </div>
       <TableEditPremium />
-      <MiniFooter />
+      {/* <MiniFooter /> */}
     </div>
   );
 }

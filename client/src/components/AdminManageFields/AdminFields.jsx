@@ -9,18 +9,18 @@ import TableApproved from "./TableCards/TableApproved";
 export default function AdminFields() {
   return (
     <div className={styles.adminfields}>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className={styles.title}>
-        <Link to="/gestionarpublicaciones">
+        {/* <Link to="/gestionarpublicaciones">
           <button className={styles.button}>Volver</button>
-        </Link>
+        </Link> */}
         <h1>Publicaciones aprobadas</h1>
       </div>
       <div className={styles.container}>
-        <Filters />
+        {/* <Filters /> */}
         <TableApproved />
       </div>
-      <MiniFooter />
+      {/* <MiniFooter /> */}
     </div>
   );
 }

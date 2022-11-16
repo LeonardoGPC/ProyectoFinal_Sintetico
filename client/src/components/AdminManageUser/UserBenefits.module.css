@@ -1,13 +1,14 @@
 .userbenefits{
-    background-color: #1c1c1c;
-    min-height: 100vh;
+    /* background-color: #1c1c1c;
+    min-height: 100vh; */
+    margin: 50px 0;
 }
 
 .title{
     display: flex;
     justify-content: space-evenly;
     color: white;
-    margin-top: 50px;
+    margin-bottom: 30px;
 }
 
 .button {

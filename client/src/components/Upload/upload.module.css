@@ -2,21 +2,21 @@
     margin-bottom: 30px;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: flex-start;
   }
     
   .selectFieldImgContainer{
-    width: 400px;
-    height: 300px;
+    width: 350px;
+    height: 250px;
     overflow: hidden;
     display: flex;
     margin-bottom: 15px;
   }
 
   .image {
-    justify-content: right;
+    justify-content: center;
     align-items: center;
-    width: 400px; 
+    width: 350px; 
     height: auto;
   }
   

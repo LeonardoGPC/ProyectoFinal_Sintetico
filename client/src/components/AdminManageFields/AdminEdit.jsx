@@ -7,16 +7,16 @@ import TableCards from "./TableCards/TableCards";
 export default function AdminEdit() {
   return (
     <div className={styles.adminedit}>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className={styles.title}>
-        <Link to="/gestionarpublicaciones">
+        {/* <Link to="/gestionarpublicaciones">
           <button className={styles.button}>Volver</button>
-        </Link>
+        </Link> */}
         <h1>Editar Publicaciones</h1>
       </div>
       <TableCards />
       <div className={styles.container}></div>
-      <MiniFooter />
+      {/* <MiniFooter /> */}
     </div>
   );
 }

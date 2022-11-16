@@ -69,36 +69,49 @@ function Settings({setModal, imgData}) {
     window.location.replace(URL_APP);
   }
 
+  const closeSesion = () => {
+    cookie.remove("usuario");
+    cookie.remove("id");
+    return window.location.replace(URL_APP);
+  };
+
     return (
-      <div style={{color: 'white', display: 'flex', margin: '50px', gap: '50px'}}>
+      <div style={{color: 'white', display: 'flex', flexDirection: 'column'}}>
         {userData ? <>
-        <div className={s.div_img}>
-          <img src={imgData.image} onClick={()=>setModal(true)} className={s.img}/>
+        <div className={s.main} style={{display: 'flex', margin: '50px', gap: '50px'}}>
+          <div className={s.div_img}>
+            <img src={imgData.image} onClick={()=>setModal(true)} className={s.img}/>
+          </div>
+          <div className={s.container}>
+          <div>
+            <p>Email</p>
+            {editS.email ? <h2>{userData.email} <img src={edit} className={s.icon} onClick={() => (setEditS({...editS, email: false}), setInput({...input, email: userData.email}))}/></h2> : <form onSubmit={(e) => submitHandler(e)}><input className={s.inp} type='text' onChange={(e) => inputHandler(e)} name='email' value={input.email}/><input type='submit' value='' className={s.actualizar}/><input value='' onClick={() => setEditS({...editS, email: true})} type='button' className={s.cancelar}/></form>}
+          </div>
+          <div>
+            <p>Usuario</p>
+            {editS.userName ? <h2>{userData.userName} <img src={edit} className={s.icon} onClick={() => (setEditS({...editS, userName: false}), setInput({...input, userName: userData.userName}))}/></h2> : <form onSubmit={(e) => submitHandler(e)}><input className={s.inp} type='text' onChange={(e) => inputHandler(e)} name='userName' value={input.userName}/><input type='submit' value='' className={s.actualizar}/><input value='' onClick={() => setEditS({...editS, userName: true})} type='button' className={s.cancelar}/></form>}
+          </div>
+          </div>
         </div>
-        <div className={s.container}>
-        <div>
-          <p>Nombre</p>
-          {editS.name ? <h2>{userData.name} <img src={edit} className={s.icon} onClick={() => (setEditS({...editS, name: false}), setInput({...input, name: userData.name}))}/></h2> : <form onSubmit={(e) => submitHandler(e)}><input className={s.inp} type='text' onChange={(e) => inputHandler(e)} name='name' value={input.name}/><input type='submit' value='' className={s.actualizar}/><input value='' onClick={() => setEditS({...editS, name: true})} type='button' className={s.cancelar}/></form>}
-        </div>
-        <div>
-          <p>Apellido</p>
-          {editS.lastName ? <h2>{userData.lastName} <img src={edit} className={s.icon} onClick={() => (setEditS({...editS, lastName: false}), setInput({...input, lastName: userData.lastName}))}/></h2> : <form onSubmit={(e) => submitHandler(e)}><input className={s.inp} type='text' onChange={(e) => inputHandler(e)} name='lastName' value={input.lastName}/><input type='submit' value='' className={s.actualizar}/><input value='' onClick={() => setEditS({...editS, lastName: true})} type='button' className={s.cancelar}/></form>}
-        </div>
-        <div>
-          <p>Email</p>
-          {editS.email ? <h2>{userData.email} <img src={edit} className={s.icon} onClick={() => (setEditS({...editS, email: false}), setInput({...input, email: userData.email}))}/></h2> : <form onSubmit={(e) => submitHandler(e)}><input className={s.inp} type='text' onChange={(e) => inputHandler(e)} name='email' value={input.email}/><input type='submit' value='' className={s.actualizar}/><input value='' onClick={() => setEditS({...editS, email: true})} type='button' className={s.cancelar}/></form>}
-        </div>
-        <div>
-          <p>Usuario</p>
-          {editS.userName ? <h2>{userData.userName} <img src={edit} className={s.icon} onClick={() => (setEditS({...editS, userName: false}), setInput({...input, userName: userData.userName}))}/></h2> : <form onSubmit={(e) => submitHandler(e)}><input className={s.inp} type='text' onChange={(e) => inputHandler(e)} name='userName' value={input.userName}/><input type='submit' value='' className={s.actualizar}/><input value='' onClick={() => setEditS({...editS, userName: true})} type='button' className={s.cancelar}/></form>}
-        </div>
-        <div>
-          <p>Teléfono</p>
-          {editS.phone ? <h2>{userData.phone} <img src={edit} className={s.icon} onClick={() => (setEditS({...editS, phone: false}), setInput({...input, phone: userData.phone}))}/></h2> : <form onSubmit={(e) => submitHandler(e)}><input className={s.inp} type='text' onChange={(e) => inputHandler(e)} name='phone' value={input.phone}/><input type='submit' value='' className={s.actualizar}/><input value='' onClick={() => setEditS({...editS, phone: true})} type='button' className={s.cancelar}/></form>}
-        </div>
-        <div>
-          <button onClick={(e) => deleteUser(e)} className={s.deleteBtn}>Eliminar Cuenta</button>
-        </div>
+        <div className={s.datos}>
+          <div>
+            <p>Nombre</p>
+            {editS.name ? <h2>{userData.name} <img src={edit} className={s.icon} onClick={() => (setEditS({...editS, name: false}), setInput({...input, name: userData.name}))}/></h2> : <form onSubmit={(e) => submitHandler(e)}><input className={s.inp} type='text' onChange={(e) => inputHandler(e)} name='name' value={input.name}/><input type='submit' value='' className={s.actualizar}/><input value='' onClick={() => setEditS({...editS, name: true})} type='button' className={s.cancelar}/></form>}
+          </div>
+          <div>
+            <p>Apellido</p>
+            {editS.lastName ? <h2>{userData.lastName} <img src={edit} className={s.icon} onClick={() => (setEditS({...editS, lastName: false}), setInput({...input, lastName: userData.lastName}))}/></h2> : <form onSubmit={(e) => submitHandler(e)}><input className={s.inp} type='text' onChange={(e) => inputHandler(e)} name='lastName' value={input.lastName}/><input type='submit' value='' className={s.actualizar}/><input value='' onClick={() => setEditS({...editS, lastName: true})} type='button' className={s.cancelar}/></form>}
+          </div>
+          <div>
+            <p>Teléfono</p>
+            {editS.phone ? <h2>{userData.phone} <img src={edit} className={s.icon} onClick={() => (setEditS({...editS, phone: false}), setInput({...input, phone: userData.phone}))}/></h2> : <form onSubmit={(e) => submitHandler(e)}><input className={s.inp} type='text' onChange={(e) => inputHandler(e)} name='phone' value={input.phone}/><input type='submit' value='' className={s.actualizar}/><input value='' onClick={() => setEditS({...editS, phone: true})} type='button' className={s.cancelar}/></form>}
+          </div>
+          <div>
+            <button onClick={(e) => deleteUser(e)} className={s.deleteBtn}>Eliminar Cuenta</button>
+          </div>
+          <div>
+            <button onClick={() => closeSesion()} className={s.deleteBtn2}>Cerrar Sesión</button>
+          </div>
         </div>
         </> : <h1 style={{color: 'white'}}>Cargando...</h1>}
       </div>

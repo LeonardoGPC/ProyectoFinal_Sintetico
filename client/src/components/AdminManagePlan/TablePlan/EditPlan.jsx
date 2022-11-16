@@ -24,7 +24,7 @@ export default function EditPlan() {
         <div className={styles.card}>
           <div className={styles.plan}>
             <img src={basico.img} alt="basico" />
-            <div>
+            <div className={styles.txt}>
               <h2>{basico.name}</h2>
               <p>${basico.price}</p>
               <p>AHORRO {basico.desc}%</p>
@@ -77,7 +77,7 @@ export default function EditPlan() {
         <div className={styles.card}>
           <div className={styles.plan}>
             <img src={club.img} />
-            <div>
+            <div className={styles.txt}>
               <h2>{club.name}</h2>
               <p>${club.price}</p>
               <p>AHORRO {club.desc}%</p>
@@ -127,7 +127,7 @@ export default function EditPlan() {
         <div className={styles.card}>
           <div className={styles.plan}>
             <img src={premium.img} />
-            <div>
+            <div className={styles.txt}>
               <h2>{premium.name}</h2>
               <p>${premium.price}</p>
               <p>AHORRO {premium.desc}%</p>

@@ -99,6 +99,8 @@
 .inse_link{
   color: black;
   padding: 8px 15px;
+  width: 140px;
+  margin: 0 10px;
   background-color: #98F576;
   text-decoration: none;
   border-radius: 5px;
@@ -106,7 +108,8 @@
 }
 
 .inse_link:hover{
-  padding: 8px 30px;
+  width: 160px;
+  margin: 0;
   border-radius: 30px;
 }
 

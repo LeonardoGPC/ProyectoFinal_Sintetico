@@ -74,10 +74,10 @@ export default function EditUser() {
                 <td>{el.email}</td>
                 <td>{el.phone}</td>
                 <td>{el.planType}</td>
-                <td>
+                <td style={{border: 'none'}}>
                   <ul className={styles.plan}>
                     <li>
-                      <button onClick={() => planNone(el.id)} className={styles.button}>Ninguno</button>
+                      <button onClick={() => planNone(el.id)} className={styles.button} style={{borderRadius: '30px 0 0 30px'}}>Ninguno</button>
                     </li>
                     <li>
                       <button onClick={() => planBasico(el.id)} className={styles.button}>Básico</button>
@@ -86,7 +86,7 @@ export default function EditUser() {
                       <button onClick={() => planClub(el.id)} className={styles.button}>Club</button>
                     </li>
                     <li>
-                      <button onClick={() => planPremium(el.id)} className={styles.button}>
+                      <button onClick={() => planPremium(el.id)} className={styles.button} style={{borderRadius: '0 30px 30px 0'}}>
                         Premium
                       </button>
                     </li>

@@ -1,8 +1,9 @@
 .plan {
-    display: grid;
-    justify-items: stretch;
-    margin: 10px 70px;
-    min-height: 62vh;
+    /* display: grid;
+    justify-items: stretch; */
+    /* margin: 10px 70px; */
+    /* min-height: 62vh; */
+    margin: 0 auto;
   }
 
   .container{
@@ -12,14 +13,14 @@
   }
   
   .plan table {
-    background-color: white;
+    /* background-color: white; */
     border-collapse: collapse;
     width: 80%;
   }
   
   .plan thead {
-    background-color: #105b10;
-    color: white;
+    background-color: #98F576;
+    color: black;
     border-bottom: 1px solid #404040;
   }
   
@@ -31,8 +32,12 @@
     border-bottom: 1px solid #4040401e;
     /* background-color: #ddd; */
   }
+
+  .columns{
+    color: white;
+  }
   
-  .tbody th,
-  td {
+  .columns th{
     padding: 5px;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
   }

@@ -9,6 +9,12 @@
   width: 100%;
 }
 
+.menu_container{
+  width: 300px;
+  border-right: 2px solid#404040;
+  min-height: calc(100vh - 86px);
+}
+
 .menu {
   width: 300px;
   border-right: 2px solid#404040;
@@ -68,12 +74,40 @@
 
 .li:hover::after {
   content: "";
+  width: 5px;
+  border-radius: 5px 0 0 5px;
+  height: 100%;
+  background-color: #98f576;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.lia {
+  font-size: 18px;
+  padding: 20px 0;
+  text-align: left;
+  padding-left: 60px;
+  list-style: none;
+  position: relative;
+  transition: all 300ms ease;
+  background-color: #242529;
+  cursor: pointer;
+}
+
+/* .lia:hover {
+  background-color: #242529;
+} */
+
+.lia::after {
+  content: "";
   width: 15px;
   height: 100%;
   background-color: #98f576;
   position: absolute;
   top: 0;
   right: 0;
+  transition: all 300ms ease;
 }
 
 .menu p {

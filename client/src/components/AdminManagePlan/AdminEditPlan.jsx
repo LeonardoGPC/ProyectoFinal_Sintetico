@@ -7,15 +7,15 @@ import EditPlan from "./TablePlan/EditPlan";
 export default function AdminEditPlan() {
   return (
     <div className={styles.admineditplan}>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className={styles.title}>
-        <Link to="/gestionarprecios">
+        {/* <Link to="/gestionarprecios">
           <button className={styles.button}>Volver</button>
-        </Link>
+        </Link> */}
         <h1>Editar Planes</h1>
       </div>
       <EditPlan />
-      <MiniFooter />
+      {/* <MiniFooter /> */}
     </div>
   );
 }

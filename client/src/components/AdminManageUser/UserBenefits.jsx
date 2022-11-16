@@ -7,15 +7,15 @@ import styles from "./UserBenefits.module.css";
 export default function UserBenefits() {
   return (
     <div className={styles.userbenefits}>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className={styles.title}>
-        <Link to="/gestionarusuarios">
+        {/* <Link to="/gestionarusuarios">
           <button className={styles.button}>Volver</button>
-        </Link>
+        </Link> */}
         <h1>Beneficios de Usuario</h1>
       </div>
       <Benefits />
-      <MiniFooter />
+      {/* <MiniFooter /> */}
     </div>
   );
 }

@@ -1,71 +1,106 @@
 .editplan {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 10%;
+  /* width: 100%; */
+  /* display: flex;
+  justify-content: center; */
+  /* margin-bottom: 10%; */
   color: white;
+  margin: 0 200px;
 }
 
 .card {
-  display: grid;
-  grid-template-columns: 40% 60%;
+  display: flex;
+  /* grid-template-columns: 40% 60%; */
+  justify-content: center;
   margin: 20px;
+  align-items: center;
 }
 
-.card div{
+/* .card div{
   display: grid;
   align-content: center;
-}
+} */
 
 .plan {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 60% 40%;
+  /* width: 100%; */
+  /* display: grid;
+  grid-template-columns: 60% 40%; */
+  height: 100%;
+  display: flex;
   align-items: center;
-  justify-items: stretch;
+  justify-content: center;
 }
 
-.plan div {
-  height: 100%;
+.txt{
+  height: 150px;
   /* background-color: #ffffff6b; */
   background-color: #98F576;
   color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 20px;
 }
 
 .plan img {
   object-fit: cover;
-  height: 30vh;
+  height: 150px;
+  width: 250px;
   border-radius: 20px 0 0 20px;
 }
 
 .edit {
-  width: 100%;
+  /* width: 100%; */
   border-radius: 0 20px 20px 0;
   background-color: #404040;
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  height: 150px;
   justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.edit p{
+  width: 100px;
+  text-align: left;
 }
 
 .edit div {
   display: flex;
-  justify-content: flex-end;
+  gap: 20px;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  /* justify-content: flex-end; */
   padding-top: 20px;
 }
 
 .text{
-  border-radius: 5px;
+  width: 80px;
+  text-align: center;
+  background: none;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid white;
+  color: white;
+  font-size: 16px;
 }
 
 .button{
   cursor: pointer;
-  border-radius: 15px;
+  width: 100px;
+  border-radius: 5px;
   border: 0;
   transition: all 300ms ease;
-  font-style: italic;
+  height: 25px;
+  background-color: #98F576;
+  margin: 0 10px;
 }
 
 .button:hover{
-  background-color: #98F576;
+  border-radius: 15px;
+  width: 120px;
+  margin: 0;
 }
 
 /* .button{

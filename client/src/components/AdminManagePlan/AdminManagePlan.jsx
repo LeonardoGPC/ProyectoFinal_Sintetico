@@ -7,15 +7,15 @@ import { Link } from "react-router-dom";
 export default function AdminManagePlan() {
   return (
     <div className={styles.adminmanageplan}>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className={styles.title}>
-        <Link to="/gestionarprecios">
+        {/* <Link to="/gestionarprecios">
           <button className={styles.button}>Volver</button>
-        </Link>
+        </Link> */}
         <h1>Planes vigentes</h1>
       </div>
       <Plan />
-      <MiniFooter />
+      {/* <MiniFooter /> */}
     </div>
   );
 }
