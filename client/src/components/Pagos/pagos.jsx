@@ -102,7 +102,6 @@ function Pagos() {
         if (plan) {
             totalPrice += planes[plan].desc ? Number(planes[plan].price) - ((Number(planes[plan].price) / 100) * Number(planes[plan].desc)) : Number(planes[plan].price)
         }
-        console.log('cambio')
         setPrecio(totalPrice)
     },[rent, plan])
 

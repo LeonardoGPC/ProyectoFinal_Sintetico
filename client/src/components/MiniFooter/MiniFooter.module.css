@@ -29,7 +29,6 @@
     flex-direction: row;
     gap: 4rem;
     justify-content: center;
-    cursor: pointer;
 }
 
 .derechos p{
@@ -40,6 +39,7 @@
 .socialIcon{
     width: 25px;
     gap: 1rem;
+    cursor: pointer;
 }
 
 .icon{

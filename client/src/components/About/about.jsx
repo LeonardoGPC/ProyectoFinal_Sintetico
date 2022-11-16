@@ -19,10 +19,10 @@ function About() {
           <div className={abt.card1}>
             <img src="https://res.cloudinary.com/deirkmhyd/image/upload/v1668422140/sintetico/agus_ayqfwp.png" alt="Agustin" className={abt.card}/>
             <div className={abt.profileLinks}>
-              <a href="">
+              <a href=''>
                 <img src="https://res.cloudinary.com/deirkmhyd/image/upload/v1668422608/sintetico/linkedin_rxgsl3.png" alt="linkdin" className={abt.linkProfile} />
               </a>
-              <a href="">
+              <a href="https://github.com/agusgarnero" target='_BLANK'>
                 <img src="https://res.cloudinary.com/deirkmhyd/image/upload/v1668422915/sintetico/github_sliu0u.png" alt="linkdin" className={abt.linkProfile} />
               </a>              
             </div>
@@ -65,10 +65,10 @@ function About() {
           <div className={abt.card5}>
             <img src="https://res.cloudinary.com/deirkmhyd/image/upload/v1668422139/sintetico/Leo_onkmaj.png" alt="Agustin" className={abt.card}/>
             <div className={abt.profileLinks}>
-              <a href="">
+              <a href="https://www.linkedin.com/in/leonardo-pe%C3%B1a-493096249/" target='_BLANK'>
                 <img src="https://res.cloudinary.com/deirkmhyd/image/upload/v1668422608/sintetico/linkedin_rxgsl3.png" alt="linkdin" className={abt.linkProfile} />
               </a>
-              <a href="">
+              <a href="https://github.com/LeonardoGPC" target='_BLANK'>
                 <img src="https://res.cloudinary.com/deirkmhyd/image/upload/v1668422915/sintetico/github_sliu0u.png" alt="linkdin" className={abt.linkProfile} />
               </a>              
             </div>
@@ -87,10 +87,10 @@ function About() {
           <div className={abt.card7}>
             <img src="https://res.cloudinary.com/deirkmhyd/image/upload/v1668422140/sintetico/Maxi_zn2iqv.png" alt="Agustin" className={abt.card}/>
             <div className={abt.profileLinks}>
-              <a href="">
+              <a href="https://www.linkedin.com/in/maxi-jayme/" target='_BLANK'>
                 <img src="https://res.cloudinary.com/deirkmhyd/image/upload/v1668422608/sintetico/linkedin_rxgsl3.png" alt="linkdin" className={abt.linkProfile} />
               </a>
-              <a href="">
+              <a href="https://github.com/maxijayme" target='_BLANK'>
                 <img src="https://res.cloudinary.com/deirkmhyd/image/upload/v1668422915/sintetico/github_sliu0u.png" alt="linkdin" className={abt.linkProfile} />
               </a>              
             </div>

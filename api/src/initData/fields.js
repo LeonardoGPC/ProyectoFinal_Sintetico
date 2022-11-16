@@ -71,15 +71,15 @@ module.exports = {
           "https://alquilatucancha.com/uploads/clubs/bg/federal-5-caba.jpeg?607183",
         state: "APPROVED",
         price: 5000,
-        address: "Bustamante 39, La Tablada , GBA Oeste",
+        address: "Bustamante 39, La Tablada, GBA Oeste",
         openHour: '9:00',
         closeHour: '23:00',
         CityId: 1,
         SizeId: 4,
         SurfaceId: 4,
         score: 5,
-        description: "Disfruta de un muy buen partido de fútbol 11 con tus mejores amigos o familiares, muestra todas tus habilidades en este deporte y siéntete como todo un jugador prefesional en las canchas que Federal 5 tiene para ti.",
-        OwnerId: 4
+        description: "Disfruta de un muy buen partido de fútbol 11 con tus mejores amigos o familiares, muestra todas tus habilidades en este deporte y siéntete como todo un jugador profesional en las canchas que Federal 5 tiene para ti.",
+        OwnerId: 5
       },
       {
         name: "Punto Gol",
@@ -94,23 +94,7 @@ module.exports = {
         SizeId: 4,
         SurfaceId: 3,
         score: 4,
-        description: "Disfruta de un muy buen partido de fútbol 11 con tus mejores amigos o familiares, muestra todas tus habilidades en este deporte y siéntete como todo un jugador prefesional en las canchas que Punto Gol tiene para ti.",
-        OwnerId: 5
-      },
-      {
-        name: "Toluca FC",
-        image:
-          "https://alquilatucancha.com/uploads/clubs/bg/federal-5-caba.jpeg?607183",
-        state: "APPROVED",
-        price: 3500,
-        address: "Fair 1360, Monte Grande , Capital Federal",
-        openHour: '9:00',
-        closeHour: '23:00',
-        CityId: 1,
-        SizeId: 4,
-        SurfaceId: 3,
-        score: 5,
-        description: "Disfruta de un muy buen partido de fútbol 11 con tus mejores amigos o familiares, muestra todas tus habilidades en este deporte y siéntete como todo un jugador prefesional en las canchas que Punto Gol tiene para ti.",
+        description: "Disfruta de un muy buen partido de fútbol 11 con tus mejores amigos o familiares, muestra todas tus habilidades en este deporte y siéntete como todo un jugador profesional en las canchas que Punto Gol tiene para ti.",
         OwnerId: 5
       },
       {
@@ -126,7 +110,7 @@ module.exports = {
         SizeId: 4,
         SurfaceId: 2,
         score: 3,
-        description: "Disfruta de un muy buen partido de fútbol 11 con tus mejores amigos o familiares, muestra todas tus habilidades en este deporte y siéntete como todo un jugador prefesional en las canchas que Solis Cano II tiene para ti.",
+        description: "Disfruta de un muy buen partido de fútbol 11 con tus mejores amigos o familiares, muestra todas tus habilidades en este deporte y siéntete como todo un jugador profesional en las canchas que Solis Cano II tiene para ti.",
         OwnerId: 5
       },
       {
@@ -184,14 +168,14 @@ module.exports = {
           "https://www.hoysejuega.com/uploads/Modules/ImagenesComplejos/800_600_show-gol-mendoza-canchas-de-futbol.jpg",
         state: "APPROVED",
         price: 6000,
-        address: "Miguel B. Sanchez 1050 , Capital Federal",
+        address: "Miguel B. Sanchez 1050, Capital Federal",
         openHour: '8:00',
         closeHour: '20:00',
         CityId: 1,
         SizeId: 4,
         SurfaceId: 2,
         score: 4,
-        description: "Disfruta de un muy buen partido de fútbol 11 con tus mejores amigos o familiares, muestra todas tus habilidades en este deporte y siéntete como todo un jugador prefesional en las canchas que Solis Cano II tiene para ti.",
+        description: "Disfruta de un muy buen partido de fútbol 11 con tus mejores amigos o familiares, muestra todas tus habilidades en este deporte y siéntete como todo un jugador profesional en las canchas que Champions tiene para ti.",
         OwnerId: 5,
       },
       {
@@ -206,7 +190,7 @@ module.exports = {
         SizeId: 2,
         SurfaceId: 1,
         score: 4,
-        description: "Disfruta de un muy buen partido de fútbol 11 con tus mejores amigos o familiares, muestra todas tus habilidades en este deporte y siéntete como todo un jugador prefesional en las canchas que Solis Cano II tiene para ti.",
+        description: "Disfruta de un muy buen partido de fútbol 11 con tus mejores amigos o familiares, muestra todas tus habilidades en este deporte y siéntete como todo un jugador profesional en las canchas que Lo de pablo tiene para ti.",
         OwnerId: 3,
       },
       {
@@ -254,7 +238,7 @@ module.exports = {
         SizeId: 3,
         SurfaceId:1,
         score: 4,
-        description: "Disfruta de un muy buen partido de fútbol 11 con tus mejores amigos o familiares, muestra todas tus habilidades en este deporte y siéntete como todo un jugador prefesional en las canchas que Solis Cano II tiene para ti.",
+        description: "Disfruta de un muy buen partido de fútbol 11 con tus mejores amigos o familiares, muestra todas tus habilidades en este deporte y siéntete como todo un jugador profesional en las canchas que Solis Calcho tiene para ti.",
         OwnerId: 4,
       },
       {
@@ -269,7 +253,7 @@ module.exports = {
         SizeId: 2,
         SurfaceId:3,
         score: 4,
-        description: "Disfruta de un muy buen partido de fútbol 11 con tus mejores amigos o familiares, muestra todas tus habilidades en este deporte y siéntete como todo un jugador prefesional en las canchas que Solis Cano II tiene para ti.",
+        description: "Disfruta de un muy buen partido de fútbol 11 con tus mejores amigos o familiares, muestra todas tus habilidades en este deporte y siéntete como todo un jugador profesional en las canchas que La Calle Club tiene para ti.",
         OwnerId: 5,
       },
       {
@@ -284,7 +268,7 @@ module.exports = {
         SizeId: 3,
         SurfaceId:2,
         score: 4,
-        description: "Disfruta de un muy buen partido de fútbol 11 con tus mejores amigos o familiares, muestra todas tus habilidades en este deporte y siéntete como todo un jugador prefesional en las canchas que Solis Cano II tiene para ti.",
+        description: "Disfruta de un muy buen partido de fútbol 11 con tus mejores amigos o familiares, muestra todas tus habilidades en este deporte y siéntete como todo un jugador profesional en las canchas que Futbol noble tiene para ti.",
         OwnerId: 4,
       },
       {
@@ -299,7 +283,7 @@ module.exports = {
         SizeId: 3,
         SurfaceId:2,
         score: 4,
-        description: "Disfruta de un muy buen partido de fútbol 11 con tus mejores amigos o familiares, muestra todas tus habilidades en este deporte y siéntete como todo un jugador prefesional en las canchas que Solis Cano II tiene para ti.",
+        description: "Disfruta de un muy buen partido de fútbol 11 con tus mejores amigos o familiares, muestra todas tus habilidades en este deporte y siéntete como todo un jugador profesional en las canchas que LaSalle futbol tiene para ti.",
         OwnerId: 4,
       },
       {
@@ -314,7 +298,7 @@ module.exports = {
         SizeId: 2,
         SurfaceId:1,
         score: 4,
-        description: "Disfruta de un muy buen partido de fútbol 11 con tus mejores amigos o familiares, muestra todas tus habilidades en este deporte y siéntete como todo un jugador prefesional en las canchas que Solis Cano II tiene para ti.",
+        description: "Disfruta de un muy buen partido de fútbol 11 con tus mejores amigos o familiares, muestra todas tus habilidades en este deporte y siéntete como todo un jugador profesional en las canchas que La capital tiene para ti.",
         OwnerId: 3,
       },
       {
@@ -329,7 +313,7 @@ module.exports = {
         SizeId: 1,
         SurfaceId:2,
         score: 4,
-        description: "Disfruta de un muy buen partido de fútbol 11 con tus mejores amigos o familiares, muestra todas tus habilidades en este deporte y siéntete como todo un jugador prefesional en las canchas que Solis Cano II tiene para ti.",
+        description: "Disfruta de un muy buen partido de fútbol 11 con tus mejores amigos o familiares, muestra todas tus habilidades en este deporte y siéntete como todo un jugador profesional en las canchas que La hinchada tiene para ti.",
         OwnerId: 4,
       },
     ],

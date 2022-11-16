@@ -158,7 +158,7 @@ const ContactForm = () => {
     <div className={style.main} style={{height: altura}}>
       <div className={style.container}>
         <div className={style.title} onClick={() => {altura === '100px' ? setAltura('800px') : setAltura('100px')}}>
-          <h1>Contácto y preguntas frecuentes</h1>
+          <h1>Contacto y preguntas frecuentes</h1>
         </div>
         <div className={style.infoContainer}>
         <Faq/>
