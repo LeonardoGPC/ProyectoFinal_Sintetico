@@ -63,13 +63,13 @@ export default function Benefits() {
             <td>✔️</td>
             <td>✔️</td>
           </tr>
-          <tr>
+          {/* <tr>
             <th>Herramienta de estadísticas</th>
             <td>❌</td>
             <td>❌</td>
             <td>✔️</td>
             <td>✔️</td>
-          </tr>
+          </tr> */}
           <tr>
             <th>Mayor recomendación</th>
             <td>❌</td>

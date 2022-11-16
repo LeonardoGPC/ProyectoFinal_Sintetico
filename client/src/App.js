@@ -110,7 +110,7 @@ function App() {
           <Route path="/admin/fields" element={<AdminFields />} />
           <Route path="/admin/fields/premium" element={<AdminEditPremium />} />
           <Route path="/admin/fields/edit" element={<AdminEdit />} />
-          <Route path="/admin/fields/stats" element={<AdminStats />} />
+          {/* <Route path="/admin/fields/stats" element={<AdminStats />} /> */}
           <Route path="/admin/fields/deleted" element={<AdminDeleted />} />
           <Route path="/gestionarusuarios" element={<GestUsuarios />} />
           <Route path="/admin/users/edit" element={<AdminAllUser />} />

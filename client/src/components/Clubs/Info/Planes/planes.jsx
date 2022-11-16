@@ -76,7 +76,7 @@ export default function Planes(){
                         <p className={plan.paragraph}> ✔️ Herramientas de publicación</p>
                         <p className={plan.paragraph}> ✔️ Publicaciones con rating</p>
                         <p className={plan.paragraph}> ✔️ Comentarios de usuarios</p>
-                        <p className={plan.paragraph}> ✔️ Sube hasta 3 imágenes</p>
+                        <p className={plan.paragraph}> ✔️ Publica una imagen de tu cancha</p>
                     </div>
                     <div className={plan.btn_div}>
                         <button onClick={(e) => buttonHandler(e)} name='basico' className={plan.button}>Adquirir</button>
@@ -92,8 +92,8 @@ export default function Planes(){
                         <p className={plan.paragraph}> ✔️ Herramientas de publicación</p>
                         <p className={plan.paragraph}> ✔️ Publicaciones con rating</p>
                         <p className={plan.paragraph}> ✔️ Comentarios de usuarios</p>
-                        <p className={plan.paragraph}> ✔️ Sube hasta 3 imágenes</p>
-                        <p className={plan.paragraph}> ✔️ Herramienta de estadísticas</p>
+                        <p className={plan.paragraph}> ✔️ Publica una imagen de tu cancha</p>
+                        {/* <p className={plan.paragraph}> ✔️ Herramienta de estadísticas</p> */}
                         <p className={plan.paragraph}> ✔️ Contacto con usuarios</p>
                     </div>
                     <div className={plan.btn_div}>
@@ -110,8 +110,8 @@ export default function Planes(){
                         <p className={plan.paragraph}> ✔️ Herramientas de publicación</p>
                         <p className={plan.paragraph}> ✔️ Publicaciones con rating</p>
                         <p className={plan.paragraph}> ✔️ Comentarios de usuarios</p>
-                        <p className={plan.paragraph}> ✔️ Sube hasta 3 imágenes</p>
-                        <p className={plan.paragraph}> ✔️ Herramienta de estadísticas</p>
+                        <p className={plan.paragraph}> ✔️ Publica una imagen de tu cancha</p>
+                        {/* <p className={plan.paragraph}> ✔️ Herramienta de estadísticas</p> */}
                         <p className={plan.paragraph}> ✔️ Contacto con usuarios</p>
                         <p className={plan.paragraph}> ✔️ Mayor recomendación</p>
                         <p className={plan.paragraph}> ✔️ Aparece en mejores canchas</p>
