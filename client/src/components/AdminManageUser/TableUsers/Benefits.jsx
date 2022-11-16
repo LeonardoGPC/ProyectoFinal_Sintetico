@@ -6,7 +6,7 @@ export default function Benefits() {
       <table>
         <thead>
           <tr>
-            <th></th>
+            <th>Beneficios</th>
             <th>Gratis</th>
             <th>Básico</th>
             <th>Club</th>
@@ -84,7 +84,7 @@ export default function Benefits() {
             <td>❌</td>
             <td>✔️</td>
           </tr>
-          <tr>
+          <tr style={{border: 'none'}}>
             <th>Prioridad de revisión</th>
             <td>❌</td>
             <td>❌</td>

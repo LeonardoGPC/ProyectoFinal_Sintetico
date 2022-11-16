@@ -6,6 +6,8 @@ import { validate } from './validate';
 import Cookies from 'universal-cookie';
 import Navbar from '../NavBar/Navbar';
 import{URL} from '../../utils/utils.js'
+import MiniFooter from '../MiniFooter/MiniFooter.jsx'
+import { Link } from 'react-router-dom';
 
 import {
   getCities,
@@ -146,15 +148,18 @@ export default function Create() {
           <div className={style.sections}>
             <div
               className={classNames(
-                style.group,
+                style.group2,
                 errorState.name && style.error,
               )}
             >
               <div className={style.right}>
                 <Upload previewSource={previewSource} setPreviewSource={setPreviewSource}/>
                 <div className={style.itemsServicios}>
-                  <label className={style.subtittleFa}>Servicios: </label>
+                  <div className={style.servicios_div}>
+                  <label className={style.subtittleFax}>Servicios: </label>
+                  <div className={style.select_servicios}>
                   {facilities.map((f) => (
+                    <div>
                     <label key={f.id} className={style.subtittleFa}>
                       {f.name}
                       <input
@@ -163,7 +168,10 @@ export default function Create() {
                         onChange={handlecheck}
                       />
                     </label>
+                    </div>
                   ))}
+                  </div>
+                  </div>
                   <div className={style.contenedorButton}>
                     <button type="submit" className={style.buttonCrear}>
                       Crear
@@ -353,8 +361,10 @@ export default function Create() {
               </div>
             </div>
           </div>
+        <Link className={style.link_back} to='/profile'>{'< Volver'}</Link>
         </form>
       </div>
+      <MiniFooter/>
     </div>
   );
 }

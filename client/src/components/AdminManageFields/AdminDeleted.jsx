@@ -7,15 +7,15 @@ import { Link } from "react-router-dom";
 export default function AdminDeleted() {
   return (
     <div className={styles.admindelete}>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className={styles.title}>
-        <Link to="/gestionarpublicaciones">
+        {/* <Link to="/gestionarpublicaciones">
           <button className={styles.button}>Volver</button>
-        </Link>
+        </Link> */}
         <h1>Publicaciones eliminadas</h1>
       </div>
       <TableDelete />
-      <MiniFooter />
+      {/* <MiniFooter /> */}
     </div>
   );
 }

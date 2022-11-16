@@ -169,13 +169,6 @@ function Profile() {
     getUserData();
   }, []);
 
-
-  const closeSesion = () => {
-    cookie.remove("usuario");
-    cookie.remove("id");
-    return window.location.replace(URL_APP);
-  };
-
   if (typeof usuario === "undefined") {
     window.location.replace(`${URL_APP}/login`);
   } else {
@@ -184,21 +177,24 @@ function Profile() {
         <Navbar userData={userData}/>
         <div className={prof.div}>
           {userData.type === "user" ? (
+            <div className={prof.menu_container}>
             <div className={prof.menu}>
               <ul>
                 <li className={prof.profile}>
                   <img className={prof.img} src={userData.image} alt="imagen" />
                   <h2 className={prof.name}>{userData.name}</h2>
                 </li>
-                <li className={prof.li} onClick={() => switchHandler('reservas')}>Reservas</li>
+                <li className={reserve ? prof.lia : prof.li} onClick={() => switchHandler('reservas')}>Reservas</li>
 
-                <li className={prof.li} onClick={() => switchHandler('settings')}>Configuración</li>
+                <li className={settings ? prof.lia : prof.li} onClick={() => switchHandler('settings')}>Configuración</li>
               </ul>
-              <p className={prof.li} onClick={() => closeSesion()}>
-                Cerrar Sesión
+              <p className={prof.li} onClick={() => window.location.replace('/')}>
+                Volver
               </p>
             </div>
+            </div>
           ) : userData.type === "club" ? (
+            <div className={prof.menu_container}>
             <div className={prof.menu}>
               <ul>
                 <li className={prof.profile}>
@@ -206,10 +202,10 @@ function Profile() {
                   <h2 className={prof.name}>{usuario}</h2>
                 </li>
                 <li className={prof.li} onClick={() => window.location.replace(`${URL_APP}/create`)}>Hacer Publicación</li>
-                <li className={prof.li} onClick={() => switchHandler('verPubli')}>Ver Publicaciones</li>
-                <li className={prof.li} onClick={() => switchHandler('gestPlan')}>Gestionar mi plan</li>
-                <li className={prof.li} onClick={() => switchHandler('gestRese')}>Reservas</li>
-                <li className={prof.li} onClick={() => switchHandler('settings')}>Configuración</li>
+                <li className={verPubli ? prof.lia : prof.li} onClick={() => switchHandler('verPubli')}>Ver Publicaciones</li>
+                <li className={gestPlan ? prof.lia : prof.li} onClick={() => switchHandler('gestPlan')}>Gestionar mi plan</li>
+                <li className={gestRese ? prof.lia : prof.li} onClick={() => switchHandler('gestRese')}>Reservas</li>
+                <li className={settings ? prof.lia : prof.li} onClick={() => switchHandler('settings')}>Configuración</li>
 
                 {/* <li className={prof.li}><Link className={prof.link} to ='/create'>Hacer Publicación</Link></li>
                 <li className={prof.li} onClick={() => switchHandler('verPubli')}><Link className={prof.link} to='/profile/verPublicaciones'>Ver Publicaciones</Link></li>
@@ -217,30 +213,32 @@ function Profile() {
                 <li className={prof.li} onClick={() => switchHandler('reservas')}><Link className={prof.link} to='/profile/reservas'>Reservas</Link></li>
                 <li className={prof.li} onClick={() => switchHandler('settings')}>Configuración</li> */}
               </ul>
-              <p className={prof.li} onClick={() => closeSesion()}>
-                Cerrar Sesión
+              <p className={prof.li} onClick={() => window.location.replace('/')}>
+                Volver
               </p>
             </div>
+            </div>
           ) : (
+            <div className={prof.menu_container}>
             <div className={prof.menu}>
               <ul>
                 <li className={prof.profile}>
                   <img className={prof.img} src={userData.image} alt="imagen" />
                   <h2 className={prof.name}>{usuario}</h2>
                 </li>
-                <li className={prof.li} onClick={() => switchHandler('gestPubli')}>
+                <li className={gestPubli ? prof.lia : prof.li} onClick={() => switchHandler('gestPubli')}>
                     Gestionar Publicaciones
                 </li>
-                <li className={prof.li} onClick={() => switchHandler('gestUsers')}>
+                <li className={gestUsers ? prof.lia : prof.li} onClick={() => switchHandler('gestUsers')}>
                     Gestionar Usuarios
                 </li>
-                <li className={prof.li} onClick={() => switchHandler('gestPrice')}>
+                <li className={gestPrice ? prof.lia : prof.li} onClick={() => switchHandler('gestPrice')}>
                     Gestionar Precios
                 </li>
-                <li className={prof.li} onClick={() => switchHandler('gestRes')}>
+                {/* <li className={prof.li} onClick={() => switchHandler('gestRes')}>
                     Gestionar Reservas
-                </li>
-                <li className={prof.li} onClick={() => switchHandler('settings')}>Configuración</li> 
+                </li> */}
+                <li className={settings ? prof.lia : prof.li} onClick={() => switchHandler('settings')}>Configuración</li> 
 
                 {/* <li className={prof.li} onClick={() => switchHandler('gestPubli')}>
                   <Link className={prof.link} to="/gestionarpublicaciones">
@@ -260,9 +258,10 @@ function Profile() {
                 <li className={prof.li} onClick={() => switchHandler('settings')}><Link className={prof.link} to='/profile'>Configuración</Link></li> */}
               </ul>
               
-              <p className={prof.li} onClick={() => closeSesion()}>
-                Cerrar Sesión
+              <p className={prof.li} onClick={() => window.location.replace('/')}>
+                Volver
               </p>
+            </div>
             </div>
           )}
           <div className={prof.content}>
@@ -274,7 +273,7 @@ function Profile() {
               {gestPubli && <GestPublicaciones/>}
               {gestUsers && <GestUsuarios/>}
               {gestPrice && <GestPrecios/>}
-              {gestRes && <GestReservas/>}
+              {/* {gestRes && <GestReservas/>} */}
           </div>
         </div>
         {modal && <div className={prof.modal_main}>

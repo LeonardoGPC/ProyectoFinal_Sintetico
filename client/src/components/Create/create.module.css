@@ -1,40 +1,54 @@
 .contenedor {
   align-items: center;
   display: flex;
-  height: 100vh;
+  height: calc(100vh - 136px);
   justify-content: center;
-  background-image: url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80');
-  
+  background-color: #242529;
+  /* background-image: url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80');
+   */
 }
 .contenedorFormulario {
-  border-radius: 10px;
-  background-color: #242529b3;
-  border: rgb(212, 212, 208);
-  box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(190, 190, 190),
-    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+  border-radius: 40px;
+  background-color: #1C1C1C;
+  width: max-content;
+  /* border: rgb(212, 212, 208); */
+  /* box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(190, 190, 190),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.3); */
   display: flex;
   flex-direction: column;
   margin-top: 40px;
-  padding: 10px;
-  width: 1000px;
-  height: 660px;
+  padding: 50px;
+  /* width: 1000px;
+  height: 660px; */
+  color: white;
 }
 
 .tittle {
  
   margin-bottom: 50px;
-  color: #98f576;
   margin-top: 10px;
 }
 .subtittleFa{
-  color: #98f576;
-  margin-right: 5px;
-  padding-right: 5px;
+  /* margin-right: 5px;
+  padding-right: 5px; */
+  display: flex;
+  gap: 10px;
+  font-size: 20px;
+}
+
+.group2 {
+  display: flex;
+  margin-bottom: 20px;
+  width: 50%;
+  /* flex-wrap: wrap; */
+  /* justify-content: left;
+  width: 402px; */
 }
 
 .group {
   display: flex;
   margin-bottom: 20px;
+  width: 50%;
   flex-wrap: wrap;
   justify-content: left;
   width: 402px;
@@ -43,7 +57,6 @@
 .subtittle {
 
   width: 95px;
-  color: #98f576;
   
   
 }
@@ -54,7 +67,10 @@
   border-radius: 5px;
   margin-left: 25px;
   box-sizing: border-box;
-  background-color: rgba(250, 235, 215, 0.708);
+  background-color: #404040;
+  border: none;
+  color: white;
+  outline: none;
 }
 
 .textarea {
@@ -63,8 +79,10 @@
   border-radius: 5px;
   margin-left: 25px;
   box-sizing: border-box;
-  background-color: rgba(250, 235, 215, 0.708);
-  color: black;
+  background-color: #404040;
+  color: white;
+  border: none;
+  outline: none;
   font-size: 12px;
   resize: none;
 }
@@ -75,14 +93,12 @@
   color: black;
   font-size: 16px;
   height: 35px;
-  margin-top: 60px;
   width: 190px;
   background-color: #98f576;
   border: none;
   padding: 1rem;
   font-size: 1rem;
   width: 10em;
-  margin-left: 130px;
   border-radius: 1rem;
   justify-content: center;
   align-items: center;
@@ -92,39 +108,61 @@
 }
 .contenedorButton{
   display: flex;
-  flex-direction: left;
+  /* flex-direction: ce; */
+  justify-content: center;
+  margin-top: 30px;
 }
 .itemsServicios {
   
   margin-left: 0px;
-  color: #98f576;
+  color: white;
   font-family: 'Roboto', sans-serif;
   font-size: 15px;
   padding-bottom: 5px;
-  flex-wrap: wrap;
-  padding-right: 10px;
-  width: 500px;
+  /* flex-wrap: wrap; */
+  /* padding-right: 10px; */
   
 }
+
+.servicios_div{
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  width: 100%;
+}
+
+.select_servicios{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.subtittleFax{
+  font-size: 20px;
+  font-weight: 800;
+}
+
 .sections {
   display: flex;
   justify-content: center;
-
-  height: 500px;
 }
 .left {
   
   flex-direction: column;
-  height: 60px;
+  /* height: 60px; */
 }
 .right {
-  margin-left: 50px;
-  flex-direction: left;
-  margin-left: 50px;
-  flex-wrap: wrap;
-  margin-left: -59px;
-  width: 421px;
+  /* margin-left: 50px; */
+  /* flex-direction: left; */
+  /* margin-left: 50px; */
+  /* flex-wrap: wrap; */
+  /* margin-left: -59px; */
+  /* width: 421px; */
   display: flex;
+  flex-direction: column;
+  min-width: 400px;
+  padding-right: 50px;
 }
 /* .image {
   width: 400px;
@@ -154,4 +192,25 @@
   .contenedor {
     height: auto;
   }
+}
+
+.link_back{
+  position: absolute;
+  color: black;
+  text-decoration: none;
+  top: 136px;
+  left: 80px;
+  font-size: 20px;
+  background-color: #98f576;
+  padding: 8px 15px;
+  border-radius: 5px;
+  margin: 0 10px;
+  width: 120px;
+  transition: all 300ms ease;
+}
+
+.link_back:hover{
+  width: 140px;
+  margin: 0;
+  border-radius: 50px;
 }

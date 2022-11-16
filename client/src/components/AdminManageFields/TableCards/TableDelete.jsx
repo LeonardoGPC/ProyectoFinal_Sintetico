@@ -32,8 +32,8 @@ export default function TableDelete() {
                 <th>Ver</th>
               </tr>
             </thead>
-            {filterField.map((el) => (
-              <tbody className={styles.tbody}>
+            {filterField.map((el, i) => (
+              <tbody className={styles.tbody} style={i % 2 === 0 ? {backgroundColor: '#404040'} : {backgroundColor: '#1C1C1C'}}>
                 <tr key={el.id}>
                   <th>{el.id}</th>
                   <td>{el.name}</td>
@@ -43,7 +43,7 @@ export default function TableDelete() {
                   <td>
                     <Link to={`/sintetico/detail/${el.id}`}>
                       <button className={styles.detail}>
-                        <RiEdit2Line />
+                        <RiEdit2Line style={{width: '25px', height: '25px'}}/>
                       </button>
                     </Link>
                   </td>

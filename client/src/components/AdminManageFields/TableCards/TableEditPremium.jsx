@@ -58,34 +58,32 @@ export default function TableEditPremium() {
                 <td>{el.City.name}</td>
                 <td>${el.price}</td>
                 <td>
-                  <Link to={`/sintetico/detail/${el.id}`}>
-                    <button className={styles.edit}>
-                      <RiEdit2Line />
-                    </button>
+                  <Link to={`/sintetico/detail/${el.id}`} className={styles.edit}>
+                      <RiEdit2Line style={{width: '25px', height: '25px'}}/>
                   </Link>
                 </td>
                 <td>{el.User.planType}</td>
                 <td>
                   {el.state != "APPROVED" ? (
-                    <>
+                    <div className={styles.dissap}>
                       {el.state}
                       <button
                         onClick={() => handlerState(el.id)}
                         className={styles.approve}
                       >
-                        <AiOutlineCheck />
+                        <AiOutlineCheck style={{width: '25px', height: '25px'}}/>
                       </button>
-                    </>
+                    </div>
                   ) : (
                     el.state
                   )}
                 </td>
-                <td>
+                <td style={{border: 'none'}}>
                   <button
                     onClick={() => handlerDelete(el.id)}
                     className={styles.delete}
                   >
-                    <RiDeleteBin6Line />
+                    <RiDeleteBin6Line style={{width: '25px', height: '25px'}}/>
                   </button>
                 </td>
               </tr>
