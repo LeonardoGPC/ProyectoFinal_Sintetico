@@ -15,7 +15,7 @@ export default function Info() {
                 <Header/>
                 <Card/>
                 <Benefits/>
-                <Faq/>
+                {/* <Faq/> */}
             </div>
         </div>
     )

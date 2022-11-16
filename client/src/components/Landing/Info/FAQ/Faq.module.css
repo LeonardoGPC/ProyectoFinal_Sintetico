@@ -5,6 +5,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    width: 40%;
 }
 .wrapper h1 {
     /* height: 100%; */
@@ -17,14 +18,14 @@
     margin: 100px 0 20px;
 }
 
-.div{
+/* .div{
     margin-bottom: 300px;
-}
+} */
 
-.accordion {
+/* .accordion {
     width: 1000px;
     
-}
+} */
 .item {
     background:#242529;
     margin-bottom: 5px;
@@ -35,6 +36,9 @@
     font-size: 18px;
     transition: all 300ms ease;
     text-align: left;
+    cursor: pointer; 
+    display: flex;
+    flex-direction: column;
 }
 .span{
     font-size: 30px;
@@ -44,14 +48,13 @@
    border-radius: 80px;
    display: flex;
    justify-content: space-between;
-   align-items: center;
-   cursor: pointer;  
+   align-items: center; 
 }
 .content{
     color: white;
     max-height: 0;
     overflow: hidden;
-    transition: all 0.5s cubic-bezier(0,1,0,1);
+    /* transition: all 0.5s cubic-bezier(0,1,0,1); */
 
 }
 
@@ -59,10 +62,64 @@
 
     height: auto;
     max-width: 9999px;
-    transition: all 0.5s cubic-bezier(1,0,1,0);
+    /* transition: all 0.5s cubic-bezier(1,0,1,0); */
     
 }
 
 .item:hover{
     background-color: #404040;
+}
+
+/*------------------------------------------------------------------------------------------*/
+
+.container{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 20px;
+    padding-right: 10%;
+    border-right: 2px solid #404040;
+    height: 100%;
+}
+
+.quest{
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: height 0.5s ease;
+    padding-bottom: 10px;
+    border-bottom: #404040 2px solid;
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+
+.title_quest{
+    padding: 10px 0 20px;
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+    align-items: center;
+}
+
+.quest:hover{
+    border-bottom: #98F576 2px solid;
+}
+
+.title_quest span{
+    transition: all 300ms ease;
+}
+
+.quest:hover span{
+    transform: rotate(180deg);
+}
+
+.title_quest h2{
+    font-size: 22px;
+}
+
+.quest p{
+    font-size: 16px;
+    font-weight: 300;
 }
