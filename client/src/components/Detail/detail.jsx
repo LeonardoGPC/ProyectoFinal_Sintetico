@@ -8,7 +8,7 @@ import { getFieldDetail } from '../../redux/actions';
 import { getFieldComments } from '../../redux/actions';
 import { postComment } from '../../redux/actions/index.js';
 import MiniFooter from '../MiniFooter/MiniFooter';
-import map from '../../img/icons/map.png';
+import map from '../../img/icons/map.svg';
 import buffet from '../../img/icons/buffet.png';
 import duchas from '../../img/icons/duchas.png';
 import estacionamiento from '../../img/icons/estacionamiento.png';
@@ -161,10 +161,9 @@ function Detail() {
                       jugadores
                     </li>
                     {/* <li>Tipo de suelo: {detailField.Surface ? detailField.Surface.name : "Sin información"}</li> */}
-                    <li>
+                    <li style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
                       <img src={map} style={{ height: 25 }} alt="size" />
-                      {detailField.address},
-                      {detailField.City ? detailField.City.name : ''}
+                      <p>{detailField.address} | {detailField.City ? detailField.City.name : ''}</p>
                     </li>
                     <li>
                       <p>{detailField.description}</p>

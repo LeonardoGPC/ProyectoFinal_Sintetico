@@ -9,6 +9,7 @@ import { Link } from "react-router-dom"
 import { useDispatch, useSelector} from "react-redux"
 import { useEffect } from "react"
 import { getFields } from "../../../../redux/actions/index"
+import ReactStars from 'react-stars';
 
 export default function Carousel () {
 
@@ -21,8 +22,7 @@ export default function Carousel () {
     useEffect(() => {
         dispatch(getFields());
       }, []);
-
-
+      
     return (
         <div className={s.body} id='2'>
             <div className={s.container}>
@@ -37,11 +37,18 @@ export default function Carousel () {
                                     <div className={s.izquierda}>
                                         <h1>{t.name}</h1>
                                         <div className={s.stars}>
+                                            {/* <i class="fa-solid fa-star"></i>
                                             <i class="fa-solid fa-star"></i>
                                             <i class="fa-solid fa-star"></i>
                                             <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-regular fa-star"></i>
+                                            <i class="fa-regular fa-star"></i> */}
+                                            <ReactStars
+                                                count={5}
+                                                value={t.score}
+                                                size={24}
+                                                edit={false}
+                                                color2={'#ffd700'}
+                                            />
                                         </div>
                                         <h4 className={s.address} >{t.address}</h4>
                                     </div>
