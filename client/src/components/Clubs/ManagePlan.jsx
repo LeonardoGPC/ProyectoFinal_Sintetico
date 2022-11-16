@@ -54,7 +54,7 @@ export default function ManagePlan() {
         </thead>
 
         <tbody className={styles.tbody}>
-          <tr>
+          <tr style={{backgroundColor: '#404040', color: 'white'}}>
             <td className={styles.club}>
 
 
@@ -78,10 +78,8 @@ export default function ManagePlan() {
             <td className={styles.precio}>${detallePlan?.price}</td>
             <td className={styles.descuento}>{detallePlan?.desc}%</td>
             <td>
-              <Link to="/clubs">
-                <button className={styles.edit}>
-                  <RiEdit2Line />
-                </button>
+              <Link to="/clubs" className={styles.details}>
+                  <RiEdit2Line style={{width: '25px', height: '25px'}}/>
               </Link>
             </td>
             {mostrarPagar && (

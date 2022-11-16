@@ -7,17 +7,17 @@ import { Link } from "react-router-dom";
 const GestPublicaciones = () => {
   return (
     <div className={style.admin}>
-      <Profile/>
+      {/* <Profile/> */}
       <div className={style.acciones}>
         <h3 className={style.h3}>Gestionar Publicaciones</h3>
         <div className={style.info}>
-          <Link to="/admin/fields">
-            <button className={style.btn}>Publicaciones Actuales</button>
-          </Link>
           <Link to="/admin/fields/premium">
             <button className={style.btn} style={{ backgroundColor: "gold" }}>
-              Publicaciones PREMIUM{" "}
+              Publicaciones PREMIUM
             </button>
+          </Link>
+          <Link to="/admin/fields">
+            <button className={style.btn}>Publicaciones Actuales</button>
           </Link>
           <Link to="/admin/fields/edit">
             <button className={style.btn}>Administrar Publicaciones</button>

@@ -17,7 +17,6 @@ export default function SeePost() {
  const fieldsAproved =  fields.filter((f) => f.state === "APPROVED");
  
  const handlerDelete = async (id) => {
-  console.log(id);
   await axios.put("http://localhost:3001/fields/" + id, {
     id: id,
     state: "DISAPPROVED"
@@ -47,24 +46,24 @@ export default function SeePost() {
               <th>Borrar</th>
             </tr>
           </thead>
-          {fieldsAproved.map((el) => (
-            <tbody className={styles.tbody}>
-              <tr key={el.id}>
+          {fieldsAproved.map((el, i) => (
+            <tbody className={styles.tbody} style={i % 2 === 0 ? {backgroundColor: '#404040'} : {backgroundColor: '#1C1C1C'}}>
+              <tr key={i}>
                 <th>{el.id}</th>
                 <td>{el.name}</td>
                 <td>{el.City.name}</td>
                 <td>${el.price}</td>
                 <td>{el.Size.name}</td>
                 <td>
-                  <Link to={`/sintetico/detail/${el.id}`}>
-                    <button className={styles.details}>
-                      <RiEdit2Line />
-                    </button>
+                  <Link to={`/sintetico/detail/${el.id}`} className={styles.details} >
+                    {/* <button className={styles.details}> */}
+                      <RiEdit2Line style={{width: '25px', height: '25px'}}/>
+                    {/* </button> */}
                   </Link>
                 </td>
-                <td>
+                <td style={{border: 'none'}}>
                   <button onClick={() => handlerDelete(el.id)} className={styles.delete}>
-                    <RiDeleteBin6Line />
+                    <RiDeleteBin6Line style={{width: '25px', height: '25px'}}/>
                   </button>
                 </td>
               </tr>

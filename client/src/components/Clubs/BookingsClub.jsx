@@ -51,15 +51,15 @@ export default function BookingsClub() {
               const bookings = field.Bookings.filter((b) => b.paymentStatus === "APPROVED");
 
               if (bookings.length) {
-                return bookings.map((booking) => (
-                  <tr key={booking.id}>
+                return bookings.map((booking, i) => (
+                  <tr key={booking.id} style={i % 2 === 0 ? {backgroundColor: '#404040'} : {backgroundColor: '#1C1C1C'}}>
                     <td>{field.id}</td>
                     <td>{field.name}</td>
                     <td>{booking.date}</td>
                     <td>{booking.hour}</td>
                     <td>{booking.User.name}</td>
                     <td>{booking.User.phone}</td>
-                    <td>{booking.User.email}</td>
+                    <td style={{border: 'none'}}>{booking.User.email}</td>
                   </tr>
                 ));
                }

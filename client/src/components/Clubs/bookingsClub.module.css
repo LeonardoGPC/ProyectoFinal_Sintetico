@@ -1,14 +1,11 @@
 .tableBookings {
   display: grid;
   justify-items: stretch;
-  margin: 70px;
-  margin-top: 150px;
-  margin-left: 90px;
   width: 80%;
+  margin: 50px auto;
 }
 .tittle {
   color: white;
-  margin-top: -80px;
   margin-bottom: 50px;
   display: flex;
   justify-content: center;
@@ -24,12 +21,12 @@
 .tableBookings table {
   background-color: white;
   border-collapse: collapse;
-  margin-left: 30px;
+  box-shadow: 0 0 30px #000000;
 }
 
 .tableBookings thead {
-  background-color: #289c28;
-  color: white;
+  background-color: #98F576;
+  color: black;
   border-bottom: 1px solid #404040;
 }
 
@@ -40,12 +37,14 @@
 .tbody tr {
   border-bottom: 1px solid #4040401e;
   /* background-color: #ddd; */
+  color: white;
 }
 
 .tbody th,
 .tbody td {
-  height: 50px;
+  height: 60px;
   padding: 5px;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .reservas {
