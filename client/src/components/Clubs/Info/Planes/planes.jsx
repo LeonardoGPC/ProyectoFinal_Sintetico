@@ -6,6 +6,7 @@ import plan from './planes.module.css';
 // import premium from '../../../../img/premium.jpg';
 import { useSelector } from "react-redux";
 import { set } from "date-fns";
+import {URL_APP} from '../../../../utils/utils.js'
 
 export default function Planes(){
 
@@ -19,7 +20,7 @@ export default function Planes(){
         if(localStorage.getItem('rent')){
             localStorage.removeItem('rent')
         }
-        window.location.replace('http://localhost:3000/pay')
+        window.location.replace(`${URL_APP}/pay`)
     }
 
     const clubHandler = () => {
@@ -27,7 +28,7 @@ export default function Planes(){
         if(localStorage.getItem('rent')){
             localStorage.removeItem('rent')
         }
-        window.location.replace('http://localhost:3000/pay')
+        window.location.replace(`${URL_APP}/pay`)
     }
 
     const premiumHandler = () => {
@@ -35,7 +36,7 @@ export default function Planes(){
         if(localStorage.getItem('rent')){
             localStorage.removeItem('rent')
         }
-        window.location.replace('http://localhost:3000/pay')
+        window.location.replace(`${URL_APP}/pay`)
     }
 
     const popUp = () => {

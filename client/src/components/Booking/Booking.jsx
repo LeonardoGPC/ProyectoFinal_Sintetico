@@ -180,7 +180,8 @@ function BookingAdmin() {
             </select>
             <button type="submit" className={style.button} disabled={dis}>Reservar</button>
           </div>
-          <img className={style.image} src={image} alt="niñito lindo" />
+          {/* <img className={style.image} src={image} alt="niñito lindo" /> */}
+          <img  className={style.imagecanchita }src="https://res.cloudinary.com/deirkmhyd/image/upload/v1668607914/sintetico/cancha_rffhka.png" alt="niñito lindo" />
         </div>
       </form>
       {modal && <div className={style.modal_main}>

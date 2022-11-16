@@ -11,7 +11,7 @@ function Reservas() {
     let bookings = useSelector((state) => state.bookings);
     const cookie = new Cookies();
     const idUser = cookie.get("id");
-    const arr = bookings;
+    const arr = bookings.filter(b=> b.paymentStatus === 'APPROVED');
     const [userData, setUserData] = useState({
         id: "",
         name: "",
