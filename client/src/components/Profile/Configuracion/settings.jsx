@@ -13,6 +13,7 @@ function Settings({setModal, imgData}) {
   const cookie = new Cookies();
   const idUser = cookie.get("id");
   const [userData, setUserData] = useState();
+  const [modal2, setModal2] = useState(false)
   const [editS, setEditS] = useState({
     name: true,
     lastName: true,
@@ -59,14 +60,13 @@ function Settings({setModal, imgData}) {
             setEditS({...editS, [e.target[0].name]: true})  
         })
     }
-    
-      function deleteUser(e) {
-    e.preventDefault();
+
+  function deleteUser() {
     dispatch(deleteAccount(userData.id));
-    let isDelete = window.confirm(`¿Estás seguro de eliminar tu cuenta?`);
+    setModal2(false)
     cookie.remove("usuario");
     cookie.remove("id");
-    window.location.replace(URL_APP);
+    return (window.location.replace(URL_APP))
   }
 
   const closeSesion = () => {
@@ -107,13 +107,23 @@ function Settings({setModal, imgData}) {
             {editS.phone ? <h2>{userData.phone} <img src={edit} className={s.icon} onClick={() => (setEditS({...editS, phone: false}), setInput({...input, phone: userData.phone}))}/></h2> : <form onSubmit={(e) => submitHandler(e)}><input className={s.inp} type='text' onChange={(e) => inputHandler(e)} name='phone' value={input.phone}/><input type='submit' value='' className={s.actualizar}/><input value='' onClick={() => setEditS({...editS, phone: true})} type='button' className={s.cancelar}/></form>}
           </div>
           <div>
-            <button onClick={(e) => deleteUser(e)} className={s.deleteBtn}>Eliminar Cuenta</button>
+            <button onClick={() => setModal2(true)} className={s.deleteBtn}>Eliminar Cuenta</button>
           </div>
           <div>
             <button onClick={() => closeSesion()} className={s.deleteBtn2}>Cerrar Sesión</button>
           </div>
         </div>
         </> : <h1 style={{color: 'white'}}>Cargando...</h1>}
+        {modal2 && <div className={s.modal_main}>
+                <div className={s.modal_box}>
+                    <p>Al hacer click en <b>Aceptar</b> se<br/>borrará tu cuenta permanentemente.</p>
+                    <h1>¿Seguro que quieres continuar?</h1>
+                    <div className={s.modal_btns}>
+                        <button onClick={() => setModal2(false)}>Cancelar</button>
+                        <button onClick={() => deleteUser()} className={s.modal_cont}>Continuar</button>
+                    </div>
+                </div>
+            </div>}
       </div>
     )
 }

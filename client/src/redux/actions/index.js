@@ -92,18 +92,18 @@ export const getFacilities = () => {
 
 };
 
-export const postField = (payload, id) => {
-  /* console.log(isNaN(id)) //true no es un numero */
-  return async () => {
-    try {
-      await axios.post('/fields/' + id, payload);
-      alert('Cancha creada con exito!');
-      window.location.href = '/sintetico';
-    } catch (error) {
-      alert('No se pudo crear una cancha.');
-    }
-  };
-};
+// export const postField = (payload, id) => {
+//   /* console.log(isNaN(id)) //true no es un numero */
+//   return async () => {
+//     try {
+//       await axios.post('/fields/' + id, payload);
+//       alert('Cancha creada con exito!');
+//       window.location.href = '/sintetico';
+//     } catch (error) {
+//       alert('No se pudo crear una cancha.');
+//     }
+//   };
+// };
 
 
 

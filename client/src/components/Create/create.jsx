@@ -8,6 +8,7 @@ import Navbar from '../NavBar/Navbar';
 import{URL} from '../../utils/utils.js'
 import MiniFooter from '../MiniFooter/MiniFooter.jsx'
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 import {
   getCities,
@@ -24,6 +25,8 @@ export default function Create() {
   const sizes = useSelector((s) => s.sizes);
   const surfaces = useSelector((s) => s.surfaces);
   const facilities = useSelector((s) => s.facilities);
+  const [modal, setModal] = useState(false)
+  const [modalIs, setModalIs] = useState('inProcess')
 
   const[previewSource, setPreviewSource] = useState();
   
@@ -86,7 +89,15 @@ export default function Create() {
       const cloudinaryImg = await uploadImage(previewSource)
       const obj = input;
       obj.image = cloudinaryImg;
-      dispatch(postField(obj, idUser));
+      // dispatch(postField(obj, idUser));
+      try {
+        await axios.post('/fields/' + idUser, obj);
+        setModal(true)
+        setModalIs('complete')
+      } catch (error) {
+        setModal(true)
+        setModalIs('failure')
+      }
     }
   };
 
@@ -365,6 +376,26 @@ export default function Create() {
         </form>
       </div>
       <MiniFooter/>
+      {modal && (modalIs === 'complete' ? 
+            <div className={style.modal_main}>
+                <div className={style.modal_box}>
+                    <p>La publicación se ha realizado con éxito.<br/>Espera a que uno de los administradores la apruebe. :)</p>
+                    <div className={style.modal_btns}>
+                        <button onClick={() => (setModal({is: 'inProcess', active: false}), window.location.replace('/'))}>Ir al inicio</button>
+                    </div>
+                </div>
+            </div>
+            :
+            <div className={style.modal_main}>
+                <div className={style.modal_box}>
+                    <p>Lo lamentamos, no se pudo publicar tu cancha :(</p>
+                    <h1>¿Quieres reintentarlo?</h1>
+                    <div className={style.modal_btns}>
+                        <button onClick={() => (setModal(false), setModalIs('inProcess'))}>Reintentar</button>
+                        <button onClick={() => (setModal(false), setModalIs('inProcess'), window.location.replace('/'))}>Ir al inicio</button>
+                    </div>
+                </div>
+            </div>)}
     </div>
   );
 }
