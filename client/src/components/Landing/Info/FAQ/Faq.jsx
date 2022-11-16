@@ -22,32 +22,49 @@ const data = [{
 
 const Faq = () => {
 
-const [selected, setSelected] = useState(null)
-
-const toggle = (i) => {
-    if (selected === i) {
-        return setSelected(null)
-    }
-
-    setSelected(i)
-}
+const [theSwitch, setTheSwitch] = useState({0: '40px', 1: '40px', 2: '40px', 3: '40px'})
 
 
 
   return (
-    <div className={style.wrapper}>
-        <h1>Preguntas Frequentes</h1>
-        <div className={style.div}>
-        <div className={style.accordion}>{data.map((item, i) =>(
-            <div className={style.item}>
-                <div className={style.title} onClick={() => toggle(i)}>
-                    <h2>{item.question}</h2>
-                    <span className={style.span}>{selected === i ? '-' : '+'}</span>
-                </div>
-                <div className={selected === i ? style.show  : style.content}>{item.answer}</div>
+    <div className={style.container}>
+        <h1>Preguntas frecuentes</h1>
+        {/* {data.map((item, i) => 
+        <div key={i} className={style.quest} style={{height: theSwitch[i]}}>
+            <div className={style.title_quest} onClick={() => (theSwitch[i] === '40px' ? setTheSwitch({...theSwitch, [i]: 'max-content'}) : setTheSwitch({...theSwitch, [i]: '40px'}))}>
+                <h2>{item.question}</h2>
+                <span className={style.span}>+</span>
             </div>
-        ))}
+            <p className={style.answer}>{item.answer}</p>
         </div>
+        )} */}
+        <div className={style.quest} style={{height: theSwitch[0]}} onClick={() => (theSwitch[0] === '40px' ? setTheSwitch({...theSwitch, 0: '90px'}) : setTheSwitch({...theSwitch, 0: '40px'}))}>
+            <div className={style.title_quest}>
+                <h2>{data[0].question}</h2>
+                <span className={style.span}>{theSwitch[0] === '40px' ? '+' : '-'}</span>
+            </div>
+            <p className={style.answer}>{data[0].answer}</p>
+        </div>
+        <div className={style.quest} style={{height: theSwitch[1]}} onClick={() => (theSwitch[1] === '40px' ? setTheSwitch({...theSwitch, 1: '110px'}) : setTheSwitch({...theSwitch, 1: '40px'}))}>
+            <div className={style.title_quest}>
+                <h2>{data[1].question}</h2>
+                <span className={style.span}>{theSwitch[1] === '40px' ? '+' : '-'}</span>
+            </div>
+            <p className={style.answer}>{data[1].answer}</p>
+        </div>
+        <div className={style.quest} style={{height: theSwitch[2]}} onClick={() => (theSwitch[2] === '40px' ? setTheSwitch({...theSwitch, 2: '130px'}) : setTheSwitch({...theSwitch, 2: '40px'}))}>
+            <div className={style.title_quest}>
+                <h2>{data[2].question}</h2>
+                <span className={style.span}>{theSwitch[2] === '40px' ? '+' : '-'}</span>
+            </div>
+            <p className={style.answer}>{data[2].answer}</p>
+        </div>
+        <div className={style.quest} style={{height: theSwitch[3]}}  onClick={() => (theSwitch[3] === '40px' ? setTheSwitch({...theSwitch, 3: '90px'}) : setTheSwitch({...theSwitch, 3: '40px'}))}>
+            <div className={style.title_quest}>
+                <h2>{data[3].question}</h2>
+                <span className={style.span}>{theSwitch[3] === '40px' ? '+' : '-'}</span>
+            </div>
+            <p className={style.answer}>{data[3].answer}</p>
         </div>
     </div>
   )
