@@ -5,7 +5,8 @@ const { sendReservationEmail, sendPlanEmail } = require('./mailController');
 const { editUser, editUserPlanType } = require('./userController');
 const { getUser } = require ("./userController")
 
-const url = "http://localhost:3000/" || process.env.CORS_URL  
+const url = process.env.CORS_URL  
+const url_bk = process.env.CORS_URL_BK 
 
 async function createBooking(UserId, bookings){
     let idBooking = []
@@ -44,7 +45,7 @@ async function createOrdenLink({itemName, price, UserId, bookings}){//reserva --
                 unit_price: price,
             }
         ],
-        notification_url:  "https://b104-2800-484-c80-e234-247c-6607-1c7a-9db2.ngrok.io/payments/notification",
+        notification_url:  `${url_bk}payments/notification`,
         back_urls: {
             success: `${url}pay/success`,
             failure: `${url}pay/failure`,

@@ -43,7 +43,7 @@ function Pagos() {
             })
             .catch(error => console.log(error))
         } else {
-            await axios.post('http://localhost:3001/payments', {
+            await axios.post('/payments', {
                 UserId: idUser,
                 price: precio,
                 itemName: `Plan ${plan}`,
