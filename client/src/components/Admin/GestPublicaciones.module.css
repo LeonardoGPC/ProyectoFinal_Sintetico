@@ -5,13 +5,19 @@
 
 .acciones {
     display: flex;
-    width: 50%;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
  
-    flex-direction: column;
-    margin-left: 400px;
+    /* flex-direction: column; */
+    /* margin-left: 400px; */
     background-color: #1C1C1C;
-    margin-top: -550px;
-    border-radius: 15px;
+    /* border-radius: 15px; */
+    height: 72px;
+}
+
+.info{
+    display: flex;
 }
 
 .btn {
@@ -33,6 +39,7 @@
     display: flex;
     justify-content: center;
     color: white;
+    font-size: 30px;
 }
 
 

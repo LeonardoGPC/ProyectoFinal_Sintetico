@@ -224,7 +224,7 @@ function Profile() {
           ) : (
             <div className={prof.menu}>
               <ul>
-                {/* <li className={prof.profile}>
+                <li className={prof.profile}>
                   <img className={prof.img} src={userData.image} alt="imagen" />
                   <h2 className={prof.name}>{usuario}</h2>
                 </li>
@@ -239,9 +239,10 @@ function Profile() {
                 </li>
                 <li className={prof.li} onClick={() => switchHandler('gestRes')}>
                     Gestionar Reservas
-                </li> */}
+                </li>
+                <li className={prof.li} onClick={() => switchHandler('settings')}>Configuración</li> 
 
-                <li className={prof.li} onClick={() => switchHandler('gestPubli')}>
+                {/* <li className={prof.li} onClick={() => switchHandler('gestPubli')}>
                   <Link className={prof.link} to="/gestionarpublicaciones">
                     Gestionar Publicaciones
                   </Link>
@@ -256,7 +257,7 @@ function Profile() {
                     Gestionar Precios
                   </Link>
                 </li>
-                <li className={prof.li} onClick={() => switchHandler('settings')}><Link className={prof.link} to='/profile'>Configuración</Link></li>
+                <li className={prof.li} onClick={() => switchHandler('settings')}><Link className={prof.link} to='/profile'>Configuración</Link></li> */}
               </ul>
               
               <p className={prof.li} onClick={() => closeSesion()}>
@@ -270,10 +271,10 @@ function Profile() {
               {verPubli && <SeePost/>}
               {gestPlan && <ManagePlan/>}
               {gestRese && <BookingsClub/>}
-              {/* {gestPubli && <GestPublicaciones/>}
+              {gestPubli && <GestPublicaciones/>}
               {gestUsers && <GestUsuarios/>}
               {gestPrice && <GestPrecios/>}
-              {gestRes && <GestReservas/>} */}
+              {gestRes && <GestReservas/>}
           </div>
         </div>
         {modal && <div className={prof.modal_main}>

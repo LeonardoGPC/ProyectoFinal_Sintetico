@@ -1,8 +1,7 @@
 .tablePlan {
-  margin: 10px 70px;
-  margin-top: 10%;
-  
+  margin-top: 50px;
 }
+
 .tittle{
   color: white;
   font-size: 30px;
@@ -15,13 +14,13 @@
 .tablePlan table {
   background-color: white;
   border-collapse: collapse;
-  margin-left: 40px;
-  
+  margin: 0 auto;
+  box-shadow: 0 0 30px #000000;
 }
 
 .tablePlan thead {
-  background-color: #289c28;
-  color: white;
+  background-color: #98F576;
+  color: black;
   border-bottom: 1px solid #404040;
 }
 
@@ -73,14 +72,39 @@
   cursor: pointer;
   font-size: 15px
 }
+
+.details {
+  /* background-color: #242529; */
+  width: 100%;
+  height: 100%;
+  background: none;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.details svg{
+  color: rgb(153, 153, 153);
+  transition: color 300ms ease;
+}
+
+.details:hover svg{
+  color: white;
+}
+
 .select{
-    width: 140px;
-    height: 30px;
+    /* width: 140px;
+    height: 30px; */
     justify-content: center;
     align-items: center;
     border-radius: 10px;
     font-size: 16px;
-    background-color: #40404027;
+    background-color: #1C1C1C;
+    padding: 5px 10px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    color: white;
 }
 
 .edit:hover {
