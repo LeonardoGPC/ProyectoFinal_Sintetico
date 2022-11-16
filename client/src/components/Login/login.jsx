@@ -31,14 +31,14 @@ function Login() {
         cookie.set('id', id)
         window.history.back()
     }
-    // useEffect(()=>{
-    //     google.accounts.id.initialize({
-    //         client_id: '953309372189-7c7r2om3ll3jtpj5qqpmipos5rsddkq2.apps.googleusercontent.com',
-    //         callback: handleCallBackResponse
-    //     });
-    //     google.accounts.id.renderButton(document.getElementById("signInDiv"),
-    //     {theme: "outline", size: "large", });
-    // }, []);
+    useEffect(()=>{
+        google.accounts.id.initialize({
+            client_id: '953309372189-7c7r2om3ll3jtpj5qqpmipos5rsddkq2.apps.googleusercontent.com',
+            callback: handleCallBackResponse
+        });
+        google.accounts.id.renderButton(document.getElementById("signInDiv"),
+        {theme: "outline", size: "large", });
+    }, []);
     const [dinamic, setDinamic] = useState('0')
     const dispatch = useDispatch()
     const user = useSelector((state) => state.user)
