@@ -75,6 +75,8 @@ function Profile() {
     }
   }, [userData.type])
 
+  console.log(userData)
+
   const switchHandler = (value) => {
     if(userData){
       if(value === 'reservas'){
@@ -199,7 +201,7 @@ function Profile() {
               <ul>
                 <li className={prof.profile}>
                   <img className={prof.img} src={userData.image} alt='imagen'/>
-                  <h2 className={prof.name}>{usuario}</h2>
+                  <h2 className={prof.name}>{userData.name}</h2>
                 </li>
                 <li className={prof.li} onClick={() => window.location.replace(`${URL_APP}/create`)}>Hacer Publicación</li>
                 <li className={verPubli ? prof.lia : prof.li} onClick={() => switchHandler('verPubli')}>Ver Publicaciones</li>
@@ -224,7 +226,7 @@ function Profile() {
               <ul>
                 <li className={prof.profile}>
                   <img className={prof.img} src={userData.image} alt="imagen" />
-                  <h2 className={prof.name}>{usuario}</h2>
+                  <h2 className={prof.name}>{userData.name}</h2>
                 </li>
                 <li className={gestPubli ? prof.lia : prof.li} onClick={() => switchHandler('gestPubli')}>
                     Gestionar Publicaciones

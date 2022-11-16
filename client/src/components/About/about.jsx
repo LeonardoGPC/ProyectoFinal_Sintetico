@@ -19,7 +19,7 @@ function About() {
           <div className={abt.card1}>
             <img src="https://res.cloudinary.com/deirkmhyd/image/upload/v1668422140/sintetico/agus_ayqfwp.png" alt="Agustin" className={abt.card}/>
             <div className={abt.profileLinks}>
-              <a href=''>
+              <a href='https://www.linkedin.com/in/agus-garnero/' target='_BLANK'>
                 <img src="https://res.cloudinary.com/deirkmhyd/image/upload/v1668422608/sintetico/linkedin_rxgsl3.png" alt="linkdin" className={abt.linkProfile} />
               </a>
               <a href="https://github.com/agusgarnero" target='_BLANK'>
@@ -30,10 +30,10 @@ function About() {
           <div className={abt.card2}>
             <img src="https://res.cloudinary.com/deirkmhyd/image/upload/v1668422140/sintetico/carla_d5peau.png" alt="Agustin" className={abt.card}/>
             <div className={abt.profileLinks}>
-              <a href="">
+              <a href="https://www.linkedin.com/in/carla-sabrina-zarate" target='_BLANK'>
                 <img src="https://res.cloudinary.com/deirkmhyd/image/upload/v1668422608/sintetico/linkedin_rxgsl3.png" alt="linkdin" className={abt.linkProfile} />
               </a>
-              <a href="">
+              <a href="https://discord.com/channels/1032378077646426132/1032378078057463950/1042560156531163269" target='_BLANK'>
                 <img src="https://res.cloudinary.com/deirkmhyd/image/upload/v1668422915/sintetico/github_sliu0u.png" alt="linkdin" className={abt.linkProfile} />
               </a>              
             </div>
@@ -41,10 +41,10 @@ function About() {
           <div className={abt.card3}>
             <img src="https://res.cloudinary.com/deirkmhyd/image/upload/v1668422139/sintetico/gian_gck9ow.png" alt="Agustin" className={abt.card}/>
             <div className={abt.profileLinks}>
-              <a href="">
+              <a href="https://www.linkedin.com/in/gianluca-terzoni-full-stack-web-developer/" target='_BLANK'>
                 <img src="https://res.cloudinary.com/deirkmhyd/image/upload/v1668422608/sintetico/linkedin_rxgsl3.png" alt="linkdin" className={abt.linkProfile} />
               </a>
-              <a href="">
+              <a href="https://github.com/GianlucaTerzoni" target='_BLANK'>
                 <img src="https://res.cloudinary.com/deirkmhyd/image/upload/v1668422915/sintetico/github_sliu0u.png" alt="linkdin" className={abt.linkProfile} />
               </a>              
             </div>
@@ -52,10 +52,10 @@ function About() {
           <div className={abt.card4}>
             <img src="https://res.cloudinary.com/deirkmhyd/image/upload/v1668422139/sintetico/Gina_1_z3bmga.png" alt="Agustin" className={abt.card}/>
             <div className={abt.profileLinks}>
-              <a href="">
+              <a href="https://www.linkedin.com/in/gina-suarez-28453a156" target='_BLANK'>
                 <img src="https://res.cloudinary.com/deirkmhyd/image/upload/v1668422608/sintetico/linkedin_rxgsl3.png" alt="linkdin" className={abt.linkProfile} />
               </a>
-              <a href="">
+              <a href="https://github.com/paosu95" target='_BLANK'>
                 <img src="https://res.cloudinary.com/deirkmhyd/image/upload/v1668422915/sintetico/github_sliu0u.png" alt="linkdin" className={abt.linkProfile} />
               </a>              
             </div>
@@ -76,10 +76,10 @@ function About() {
           <div className={abt.card6}>
             <img src="https://res.cloudinary.com/deirkmhyd/image/upload/v1668425598/sintetico/mauro_1_qd956u.png" alt="Agustin" className={abt.card}/>
             <div className={abt.profileLinks}>
-              <a href="">
+              <a href="https://www.linkedin.com/in/mauro-gabriel-benitez/" target='_BLANK'>
                 <img src="https://res.cloudinary.com/deirkmhyd/image/upload/v1668422608/sintetico/linkedin_rxgsl3.png" alt="linkdin" className={abt.linkProfile} />
               </a>
-              <a href="">
+              <a href="https://github.com/maurobenitez" target='_BLANK'>
                 <img src="https://res.cloudinary.com/deirkmhyd/image/upload/v1668422915/sintetico/github_sliu0u.png" alt="linkdin" className={abt.linkProfile} />
               </a>              
             </div>
@@ -98,10 +98,10 @@ function About() {
           <div className={abt.card8}>
             <img src="https://res.cloudinary.com/deirkmhyd/image/upload/v1668422139/sintetico/Nico_1_nde4zx.png" alt="Agustin" className={abt.card}/>
             <div className={abt.profileLinks}>
-              <a href="">
+              <a href="https://www.linkedin.com/in/nicolas-rodriguez-hernandez" target='_BLANK'>
                 <img src="https://res.cloudinary.com/deirkmhyd/image/upload/v1668422608/sintetico/linkedin_rxgsl3.png" alt="linkdin" className={abt.linkProfile} />
               </a>
-              <a href="">
+              <a href="https://github.com/NrodriguezH77" target='_BLANK'>
                 <img src="https://res.cloudinary.com/deirkmhyd/image/upload/v1668422915/sintetico/github_sliu0u.png" alt="linkdin" className={abt.linkProfile} />
               </a>              
             </div>
