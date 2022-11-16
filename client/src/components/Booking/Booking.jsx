@@ -12,6 +12,8 @@ import { postBooking, getFields, getBookings, getFieldDetail } from '../../redux
 import Cookies from 'universal-cookie';
 import{URL_APP} from '../../utils/utils.js'
 const hours = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23];
+const d = new Date();
+let actualHour = d.getHours();
 
 function BookingAdmin() {
   const { id } = useParams();
@@ -165,17 +167,30 @@ function BookingAdmin() {
               disabled={!fieldId}
             >
               <option value="">Seleccione hora</option>
-              {hours.map((hour) => {
+              {hours.map((hour) => {          
+                if(d.getDate() === date.getDate()){
                 return (
                   <option
                     key={hour}
                     className={style.option}
                     value={hour}
-                    disabled={takenHours.includes(hour)}
+                    disabled={takenHours.includes(hour) || hour < actualHour}
                   >
                     {hour}:00
                   </option>
-                );
+                );}
+                else{
+                  return (
+                    <option
+                      key={hour}
+                      className={style.option}
+                      value={hour}
+                      disabled={takenHours.includes(hour)}
+                    >
+                      {hour}:00
+                    </option>
+                  );
+                }
               })}
             </select>
             <button type="submit" className={style.button} disabled={dis}>Reservar</button>

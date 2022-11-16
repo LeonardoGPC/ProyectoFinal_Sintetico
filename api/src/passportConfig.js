@@ -6,6 +6,7 @@ var GoogleStrategy = require('passport-google-oauth20').Strategy;
 const {
     GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET,
 } = process.env;
+const {url} = require('../utils.js')
 
 async function authenticate(userName, password) {
     try {
@@ -66,7 +67,7 @@ module.exports = function (passport) {
     passport.use(new GoogleStrategy({
             clientID: GOOGLE_CLIENT_ID,
             clientSecret: GOOGLE_CLIENT_SECRET,
-            callbackURL: "http://localhost:3001/users/google/callback"
+            callbackURL: `${url}/users/google/callback`
         },
         async function(accessToken, refreshToken, profile, cb) {
             var user = await findOrCreateUser(profile)
