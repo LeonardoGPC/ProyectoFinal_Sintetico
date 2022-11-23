@@ -19,7 +19,7 @@ import "flatpickr/dist/themes/material_green.css"
 
 
 
-export default function Filters(){
+export default function Filters({handleResetFilter}){
     
     const dispatch = useDispatch();
     const cities = useSelector((s) => s.cities);
@@ -81,7 +81,6 @@ export default function Filters(){
         //setList((list) => {list[e.target.name] = e.target.value})
         setList({...list, [e.target.name]:e.target.value})
         }
-        console.log('lista',list)
        dispatch(filterField(list))
     }
 
@@ -97,16 +96,16 @@ export default function Filters(){
     //     dispatch(filterFieldByTime(e.target.value))
     // }
 
-    function handleResetFilter(){
-        dispatch(getFields())
-        document.getElementById("select1").value = "Title"
-        document.getElementById("select2").value = "Title"
-        document.getElementById("select3").value = "Title"
-        document.getElementById(`1`).checked = false;
-        document.getElementById(`2`).checked = false;
-        document.getElementById(`3`).checked = false;
-        document.getElementById(`4`).checked = false;
-    }
+    // function handleResetFilter(){
+    //     dispatch(getFields())
+    //     document.getElementById("searchBar").value = " "        
+    //     document.getElementById("select1").value = "Title"        
+    //     document.getElementById("select2").value = "Title"
+    //     document.getElementById("1").checked = false;
+    //     document.getElementById(`2`).checked = false;
+    //     document.getElementById(`3`).checked = false;
+    //     document.getElementById(`4`).checked = false;        
+    // }
     // function handleCalendarChange (e) {
     //     setDate({
     //         value: e.target.value
@@ -118,7 +117,7 @@ export default function Filters(){
         <div className={s.container}>
             <div className={s.filtros}>
                 <h1 className={s.h1}>Filtros</h1>
-                <input type="text" placeholder="Buscá por nombre..." name='name' onChange={(e) => handleFilter(e) } />
+                <input type="text" placeholder="Buscá por nombre..." name='name' id={"searchBar"}onChange={(e) => handleFilter(e) } />
                 <select defaultValue="Title" onChange={(e) => handleFilter(e)} name='city' id={"select1"} className={s.select}>
                     <option value="Title" disabled> Localidad </option>
                     {

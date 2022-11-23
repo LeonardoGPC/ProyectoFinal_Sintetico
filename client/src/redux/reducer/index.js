@@ -68,8 +68,8 @@ const rootReducer = (state = initialState, action) => {
           ...state, 
           fields: action.payload,
           allFields: action.payload,
-          fieldsFilterByCity: action.payload,
-          fieldsFilterByCityAndSize: [],
+          // fieldsFilterByCity: action.payload,
+          // fieldsFilterByCityAndSize: [],
           errors: null,
         }
       }
@@ -101,8 +101,10 @@ const rootReducer = (state = initialState, action) => {
         }
         const fieldsFiltered = fields
         if(fieldsFiltered.length){
+        console.log(fieldsFiltered);
         return{
           ...state,
+          errors: null,
           fields: fieldsFiltered
         }}
         else{
