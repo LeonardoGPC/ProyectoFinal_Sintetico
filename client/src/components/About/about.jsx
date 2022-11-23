@@ -2,13 +2,12 @@ import React from 'react'
 import Navbar from '../NavBar/Navbar.jsx'
 import abt from './about.module.css'
 import MiniFotter from '../MiniFooter/MiniFooter.jsx'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 function About() {
-
   return (
     <div className={abt.main}>
-      <Navbar/>
+      <Navbar/>   
       <div className={abt.container}>
         <div className={abt.container_text}>
           <h1>Equipo de desarrolladores:</h1>
