@@ -22,10 +22,10 @@ export default function Cards() {
   const itemsPerPage = 3;
   const fieldsByPage = fields.slice(0, page * itemsPerPage);
 
-  useEffect(() => {
-    dispatch(getFields());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // useEffect(() => {
+  //   dispatch(getFields());
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   return (
     <InfiniteScroll

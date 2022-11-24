@@ -9,6 +9,8 @@ import {
   FILTER_BY_SIZE,
   FILTER_BY_TIME,
   FILTER_BY_SURFACE,
+  FILTER_BY_NAME,
+  FILTER_FIELDS,
   ID_FIELD,
   USER,
   CLEAN_ERRORS,
@@ -66,8 +68,8 @@ const rootReducer = (state = initialState, action) => {
           ...state, 
           fields: action.payload,
           allFields: action.payload,
-          fieldsFilterByCity: action.payload,
-          fieldsFilterByCityAndSize: [],
+          // fieldsFilterByCity: action.payload,
+          // fieldsFilterByCityAndSize: [],
           errors: null,
         }
       }
@@ -79,6 +81,48 @@ const rootReducer = (state = initialState, action) => {
         }
       }
 
+      case FILTER_FIELDS:{
+        let surface=[];
+        let fields = state.allFields
+        if(action.payload.surface.length){
+          for(let i = 0; i< action.payload.surface.length;i++){
+            surface = [...surface, fields.filter(e => e.SurfaceId == action.payload.surface[i])]
+          }
+          fields = surface.flat();
+        }
+        if(action.payload.size){
+          fields = fields.filter((field) => field.SizeId == action.payload.size)
+        }
+        if(action.payload.city){
+          fields = fields.filter((field) => field.CityId == action.payload.city)
+        }
+        if(action.payload.name){
+          fields = fields.filter((field) => field.name.toLowerCase().includes(action.payload.name.toLowerCase()))
+        }
+        const fieldsFiltered = fields
+        if(fieldsFiltered.length){
+        console.log(fieldsFiltered);
+        return{
+          ...state,
+          errors: null,
+          fields: fieldsFiltered
+        }}
+        else{
+          return{
+            ...state,
+            errors: { message: "Not matches found" }
+          }
+        }
+      }
+
+      case FILTER_BY_NAME:{
+        const fields = state.allFields
+        const fieldsFilteredByName = fields.filter((field) => field.name.includes(action.payload))
+        return{
+          ...state,
+          fields: fieldsFilteredByName
+        }
+      }
       case FILTER_BY_CITY:{
         const fields = state.allFields
         const fieldsFilteredByCity = fields.filter((field) => field.CityId == action.payload)

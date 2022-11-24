@@ -12,6 +12,8 @@ import {
   FILTER_BY_SIZE,
   FILTER_BY_TIME,
   FILTER_BY_SURFACE,
+  FILTER_BY_NAME,
+  FILTER_FIELDS,
   CLEAN_ERRORS,
   GET_COMMENTS,
   GET_FIELD_COMMENTS,
@@ -38,7 +40,6 @@ export const plan = (editPlan, key) => {
 }
 
 export  function sendInquiryEmail(payload){
-  console.log("payload", payload)
 return async (dispatch) => {
   const response = await axios.post('/inquirys', {mail:payload} )
   dispatch({
@@ -135,6 +136,21 @@ export const putUser = (id) => {
       payload: user.data,
     })
   }
+}
+
+export function filterField(payload) {
+  return {
+    type: FILTER_FIELDS,
+    payload: payload,
+  };
+}
+
+export function filterFieldByName(payload) {
+  Number(payload);
+  return {
+    type: FILTER_BY_NAME,
+    payload: payload,
+  };
 }
 
 export function filterFieldByCity(payload) {
