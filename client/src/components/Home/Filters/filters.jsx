@@ -19,19 +19,14 @@ import "flatpickr/dist/themes/material_green.css"
 
 
 
-export default function Filters({handleResetFilter}){
+export default function Filters({handleResetFilter, list, setList}){
     
     const dispatch = useDispatch();
     const cities = useSelector((s) => s.cities);
     const sizes = useSelector((s) => s.sizes);
     const surfaces = useSelector((s) => s.surfaces);
     
-    const[list,setList] = useState({
-        name:'',
-        city:'',
-        size:'',
-        surface: []
-    })
+   
     
     let surfaceList = list.surface;
 

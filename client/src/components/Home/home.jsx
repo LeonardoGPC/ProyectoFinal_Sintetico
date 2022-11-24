@@ -3,7 +3,7 @@ import Cards from "../Cards/cards.jsx";
 import Navbar from '../NavBar/Navbar.jsx';
 import Filters from "./Filters/filters.jsx";
 import home from "./home.module.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import MiniFooter from '../MiniFooter/MiniFooter.jsx'
 import { useSelector, useDispatch } from "react-redux"
 import {getFields} from "../../redux/actions/index.js"
@@ -11,6 +11,12 @@ import logo from '../img/LogoSintetico.png'
 
 
 export default function Home(){
+const[list,setList] = useState({
+    name:'',
+    city:'',
+    size:'',
+    surface: []
+})
 
 function handleResetFilter(){
     dispatch(getFields())
@@ -20,7 +26,13 @@ function handleResetFilter(){
     document.getElementById("1").checked = false;
     document.getElementById(`2`).checked = false;
     document.getElementById(`3`).checked = false;
-    document.getElementById(`4`).checked = false;        
+    document.getElementById(`4`).checked = false;   
+    setList({
+        name:'',
+        city:'',
+        size:'',
+        surface: []
+    })     
 }
 
 const dispatch = useDispatch()
@@ -37,7 +49,7 @@ const errors = useSelector((s)=>s.errors)
             <div className={home.container}>
                 <Navbar/>
                 <div className={home.div}>
-                    <Filters handleResetFilter={handleResetFilter}/>
+                    <Filters handleResetFilter={handleResetFilter} list={list} setList={setList}/>
                    { errors ? 
                     <div className={home.errors}>
                         <h1 className={home.noResults}>Sin resultados</h1>
