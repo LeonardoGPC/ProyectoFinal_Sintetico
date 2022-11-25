@@ -1,0 +1,22 @@
+.container{
+    background-color: #242529;
+    min-height: calc(100vh - 50px);
+}
+
+.playerContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 136px);
+    width: 100%;
+    gap: 100px;
+}
+
+.video{
+    width: 70vh;
+    height: 52.5vh;
+}
+
+.diego{
+    height: 30vh;
+}

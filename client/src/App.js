@@ -39,6 +39,7 @@ import { FaGoogle } from "react-icons/fa";
 import UserBenefits from "./components/AdminManageUser/UserBenefits";
 import AdminEditPremium from "./components/AdminManageFields/AdminEditPremium";
 import AdminPlanStats from "./components/AdminManagePlan/AdminPlanStats";
+import EasterEgg from "./components/EasterEgg/easterEgg";
 
 function App() {
   const [load, setLoad] = useState(false);
@@ -120,6 +121,7 @@ function App() {
           <Route path="/admin/plan/edit" element={<AdminEditPlan />} />
           <Route path="/admin/plan/stats" element={<AdminPlanStats />} />
           <Route path="/gestionarreservas" element={<GestReservas />} />
+          <Route path="/diegol" element={<EasterEgg />} />
         </Routes>
         {load && <Load />}
       </div>

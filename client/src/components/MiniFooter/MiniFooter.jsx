@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./MiniFooter.module.css";
-
+import { Link } from 'react-router-dom';
 import { FiInstagram, FiFacebook  } from "react-icons/fi";
 import { AiOutlineWhatsApp } from "react-icons/ai";
 import Logo from '../img/balones.png'
@@ -25,7 +25,9 @@ const MiniFooter = () => {
   return (
     <div className={style.wrapper}>
         <div className={style.logoDer}>
-          <img src={Logo} alt='logo' className={style.top}/> 
+          <Link to="/diegol">
+            <img src={Logo} alt='logo' className={style.top}/> 
+          </Link>
           <div className={style.derechos}>
             <p>© Derechos reservados.</p>
           </div> 
